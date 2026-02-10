@@ -1,9 +1,16 @@
+0)# Initialize a Git repo (only if not initialized yet)
+git init 
+Command in terminal for creating a branch
+git checkout -b goku #goku is branch name
+# or: git checkout -b feature/parser-refactor
+
+
 1) Later pushes on the same branch are just:
 
 git status               # optional, see what changed
 git add .                # or add specific files
 git commit -m "Short message about the change"
-git push -u origin goku  # first push for this branch
+git push -u origin goku  # first push for this branch #goku is the branch name
 
 2) If main moves while you’re on goku, you can update your branch:
 

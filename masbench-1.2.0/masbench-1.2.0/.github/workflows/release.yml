@@ -1,0 +1,147 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    name: Cross-compile and Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Required for creating releases
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Read VERSION file
+      id: version
+      run: |
+        VERSION=$(cat VERSION | tr -d '[:space:]')
+        echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+        echo "Release version: v$VERSION"
+
+    - name: Check if release already exists
+      id: check_release
+      run: |
+        if gh release view "v${{ steps.version.outputs.VERSION }}" &>/dev/null; then
+          echo "EXISTS=true" >> $GITHUB_OUTPUT
+          echo "⚠️  Release v${{ steps.version.outputs.VERSION }} already exists"
+        else
+          echo "EXISTS=false" >> $GITHUB_OUTPUT
+          echo "✅ Release v${{ steps.version.outputs.VERSION }} does not exist, will create"
+        fi
+      env:
+        GH_TOKEN: ${{ github.token }}
+
+    - name: Set up Go
+      if: steps.check_release.outputs.EXISTS == 'false'
+      uses: actions/setup-go@v5
+      with:
+        go-version: 1.23.x
+
+    - name: Cache Go modules
+      if: steps.check_release.outputs.EXISTS == 'false'
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cache/go-build
+          ~/go/pkg/mod
+        key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+        restore-keys: |
+          ${{ runner.os }}-go-
+
+    - name: Download dependencies
+      if: steps.check_release.outputs.EXISTS == 'false'
+      run: go mod download
+
+    - name: Create dist directory
+      if: steps.check_release.outputs.EXISTS == 'false'
+      run: mkdir -p dist
+
+    - name: Build for multiple platforms
+      if: steps.check_release.outputs.EXISTS == 'false'
+      run: |
+        VERSION=${{ steps.version.outputs.VERSION }}
+        
+        echo "Building binaries for version v${VERSION}..."
+        
+        # Linux
+        echo "Building Linux AMD64..."
+        GOOS=linux GOARCH=amd64 go build -o dist/masbench-v${VERSION}-linux-amd64 .
+        
+        echo "Building Linux ARM64..."
+        GOOS=linux GOARCH=arm64 go build -o dist/masbench-v${VERSION}-linux-arm64 .
+
+        # Windows
+        echo "Building Windows AMD64..."
+        GOOS=windows GOARCH=amd64 go build -o dist/masbench-v${VERSION}-windows-amd64.exe .
+        
+        echo "Building Windows ARM64..."
+        GOOS=windows GOARCH=arm64 go build -o dist/masbench-v${VERSION}-windows-arm64.exe .
+
+        # macOS
+        echo "Building macOS AMD64..."
+        GOOS=darwin GOARCH=amd64 go build -o dist/masbench-v${VERSION}-darwin-amd64 .
+        
+        echo "Building macOS ARM64..."
+        GOOS=darwin GOARCH=arm64 go build -o dist/masbench-v${VERSION}-darwin-arm64 .
+        
+        echo "✅ All binaries built successfully!"
+        ls -lh dist/
+
+    - name: Create GitHub Release
+      if: steps.check_release.outputs.EXISTS == 'false'
+      run: |
+        VERSION=${{ steps.version.outputs.VERSION }}
+        
+        # Create release notes
+        cat > release_notes.md << 'EOF'
+        ## masbench v${{ steps.version.outputs.VERSION }}
+        
+        ### Installation
+        
+        Download the appropriate binary for your platform below:
+        
+        - **Linux AMD64**: `masbench-v${VERSION}-linux-amd64`
+        - **Linux ARM64**: `masbench-v${VERSION}-linux-arm64`
+        - **Windows AMD64**: `masbench-v${VERSION}-windows-amd64.exe`
+        - **Windows ARM64**: `masbench-v${VERSION}-windows-arm64.exe`
+        - **macOS Intel**: `masbench-v${VERSION}-darwin-amd64`
+        - **macOS Apple Silicon**: `masbench-v${VERSION}-darwin-arm64`
+        
+        ### Quick Start
+        
+        1. Download the binary for your platform
+        2. Make it executable (Linux/macOS): `chmod +x masbench-v${VERSION}-*`
+        3. Move to your PATH: `sudo mv masbench-v${VERSION}-* /usr/local/bin/masbench`
+        4. Run: `masbench --help`
+        
+        ### Changes
+        
+        See the full changelog at: https://github.com/${{ github.repository }}/blob/main/docs/source/changes.rst
+        EOF
+        
+        # Create the release with all binaries
+        gh release create "v${VERSION}" \
+          dist/masbench-v${VERSION}-linux-amd64 \
+          dist/masbench-v${VERSION}-linux-arm64 \
+          dist/masbench-v${VERSION}-windows-amd64.exe \
+          dist/masbench-v${VERSION}-windows-arm64.exe \
+          dist/masbench-v${VERSION}-darwin-amd64 \
+          dist/masbench-v${VERSION}-darwin-arm64 \
+          --title "masbench v${VERSION}" \
+          --notes-file release_notes.md \
+          --latest
+        
+        echo "✅ Release v${VERSION} created successfully!"
+      env:
+        GH_TOKEN: ${{ github.token }}
+
+    - name: Skip release creation
+      if: steps.check_release.outputs.EXISTS == 'true'
+      run: |
+        echo "ℹ️  Skipping release creation as v${{ steps.version.outputs.VERSION }} already exists"
+        echo "If you need to create a new release, please update the VERSION file"

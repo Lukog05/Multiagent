@@ -1,0 +1,23 @@
+1) Later pushes on the same branch are just:
+
+git status               # optional, see what changed
+git add .                # or add specific files
+git commit -m "Short message about the change"
+git push -u origin goku  # first push for this branch
+
+2) If main moves while you’re on goku, you can update your branch:
+
+git checkout main
+git pull origin main
+git checkout goku
+git merge main           # or rebase if you prefer
+
+3) When you’re done with a change
+    Go to GitHub → your repo → you’ll see a banner like “Compare & pull request” for branch goku.
+    Create a Pull Request from goku → main.
+    Review the diff, resolve any conflicts if GitHub flags them, then Merge the PR.
+    Optionally delete the branch after merge to keep things tidy:
+        git checkout main
+        git pull origin main
+        git branch -d goku
+        git push origin --delete goku

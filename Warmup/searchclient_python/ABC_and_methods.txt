@@ -1,0 +1,202 @@
+# **Abstract Base Classes (ABC) - Quick Reference**
+
+## **Definition**
+
+**Abstract Base Class (ABC):** A class that cannot be instantiated directly. It serves as a template/contract for other classes.
+
+**Abstract Method:** A method declared in an abstract class but has no implementation. Subclasses MUST implement it.
+
+***
+
+## **Key Rules**
+
+1. ❌ **Cannot create objects** from an abstract class
+2. ✅ **Must inherit** from ABC to create abstract class
+3. ✅ **Must use `@abstractmethod`** decorator for abstract methods
+4. ✅ **Subclasses MUST implement** all abstract methods
+5. ✅ **Can have regular methods** with implementation
+
+***
+
+## **Basic Syntax**
+
+```python
+from abc import ABC, abstractmethod
+
+# Abstract Class (Contract/Template)
+class Shape(ABC):
+    
+    @abstractmethod
+    def area(self):
+        """MUST be implemented by subclasses"""
+        pass
+    
+    @abstractmethod
+    def perimeter(self):
+        """MUST be implemented by subclasses"""
+        pass
+    
+    # Regular method (optional to override)
+    def describe(self):
+        print("I am a shape")
+
+# Concrete Class (Actual Implementation)
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    
+    def area(self):
+        return 3.14 * self.radius ** 2
+    
+    def perimeter(self):
+        return 2 * 3.14 * self.radius
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+    
+    def area(self):
+        return self.width * self.height
+    
+    def perimeter(self):
+        return 2 * (self.width + self.height)
+```
+
+***
+
+## **Usage**
+
+```python
+# ✅ This works
+circle = Circle(5)
+print(circle.area())  # 78.5
+
+rect = Rectangle(4, 6)
+print(rect.area())  # 24
+
+# ❌ This fails
+shape = Shape()  
+# TypeError: Can't instantiate abstract class Shape
+
+# ❌ This fails - forgot to implement perimeter()
+class Triangle(Shape):
+    def area(self):
+        return 10
+
+triangle = Triangle()
+# TypeError: Can't instantiate abstract class Triangle 
+# with abstract method perimeter
+```
+
+***
+
+## **Why Use ABC?**
+
+1. **Enforce consistency:** All subclasses have the same methods
+2. **Prevent mistakes:** Python catches missing implementations
+3. **Create contracts:** Define what subclasses must do
+4. **Enable polymorphism:** Treat different objects the same way
+
+***
+
+## **Simple Analogy**
+
+**Abstract Class = Job Contract**
+- "You MUST be able to do these tasks"
+- The contract itself can't do work
+- Anyone who signs MUST fulfill all requirements
+
+**Concrete Class = Employee**
+- Signs the contract
+- Actually does the work
+- Must perform all required tasks
+
+```python
+# Contract
+class Employee(ABC):
+    @abstractmethod
+    def work(self):
+        pass
+
+# Actual employees
+class Developer(Employee):
+    def work(self):
+        print("Writing code")
+
+class Designer(Employee):
+    def work(self):
+        print("Creating designs")
+
+# All employees can work, but HOW they work differs
+employees = [Developer(), Designer()]
+for emp in employees:
+    emp.work()  # Works for all!
+```
+
+***
+
+## **In AI Search Context**
+
+```python
+class Frontier(ABC):
+    """All frontiers must implement these"""
+    
+    @abstractmethod
+    def add(self, state):
+        pass
+    
+    @abstractmethod
+    def pop(self):
+        pass
+    
+    @abstractmethod
+    def is_empty(self):
+        pass
+
+class FrontierBFS(Frontier):
+    def add(self, state):
+        self.queue.append(state)
+    
+    def pop(self):
+        return self.queue.pop(0)
+    
+    def is_empty(self):
+        return len(self.queue) == 0
+
+class FrontierDFS(Frontier):
+    def add(self, state):
+        self.stack.append(state)
+    
+    def pop(self):
+        return self.stack.pop()
+    
+    def is_empty(self):
+        return len(self.stack) == 0
+
+# Graph-Search works with ANY frontier
+def search(initial, frontier: Frontier):
+    frontier.add(initial)
+    while not frontier.is_empty():
+        state = frontier.pop()
+        # ...
+```
+
+***
+
+## **Quick Comparison**
+
+| Feature | Regular Class | Abstract Class |
+|---------|--------------|----------------|
+| Can instantiate? | ✅ Yes | ❌ No |
+| Has abstract methods? | ❌ No | ✅ Yes |
+| Purpose | Use directly | Template for others |
+| Methods | All implemented | Some not implemented |
+
+***
+
+## **Remember:**
+
+- Abstract class = **WHAT** must be done (contract)
+- Concrete class = **HOW** it's done (implementation)
+- Use ABC when multiple classes need the same interface but different implementations

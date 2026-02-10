@@ -1,0 +1,5 @@
+ServerPath: D:\Codes\Multiagent\Warmup\server.jar
+LevelsDir: D:\Codes\Multiagent\Warmup\temp
+BenchmarkFolder: D:\Codes\Multiagent\Warmup\searchclient_python\benchmarks
+ClientCommand: python -m searchclient.searchclient -dfs --max-memory 10240
+Timeout: 600

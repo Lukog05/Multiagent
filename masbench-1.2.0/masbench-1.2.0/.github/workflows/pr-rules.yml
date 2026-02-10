@@ -1,0 +1,74 @@
+name: Enforce Develop Merge and Version Updates
+on:
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  check_source_branch:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check Source Branch Name
+      run: |
+        # GITHUB_HEAD_REF holds the name of the source branch (the one being merged)
+        SOURCE_BRANCH="${{ github.head_ref }}"
+
+        if [[ "$SOURCE_BRANCH" != "dev" ]]; then
+          echo "❌ Merge Blocked: Pull Requests into 'main' must originate from the 'dev' branch."
+          echo "::error::Only 'dev' is allowed to merge into 'main'."
+          exit 1 # Fails the GitHub Action status check
+        else
+          echo "✅ Source branch is 'dev'. Check Passed."
+        fi
+
+  check_version_and_changelog:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Fetch full history to compare with main
+
+    - name: Check VERSION file changes
+      run: |
+        echo "Checking if VERSION file has been updated..."
+        
+        # Fetch main branch for comparison
+        git fetch origin main:main
+        
+        # Check if VERSION file has changes compared to main
+        if git diff --quiet main HEAD -- VERSION; then
+          echo "❌ Merge Blocked: VERSION file has not been updated."
+          echo "::error::You must update the VERSION file before merging dev to main."
+          echo "::error::Please increment the version number in the VERSION file to reflect this release."
+          exit 1
+        else
+          echo "✅ VERSION file has been updated. Check Passed."
+          NEW_VERSION=$(cat VERSION)
+          echo "New version will be: $NEW_VERSION"
+        fi
+
+    - name: Check changes.rst updates
+      run: |
+        echo "Checking if changes.rst has been updated..."
+        
+        # Check if changes.rst has changes compared to main
+        if git diff --quiet main HEAD -- docs/source/changes.rst; then
+          echo "❌ Merge Blocked: changes.rst has not been updated."
+          echo "::error::You must update docs/source/changes.rst before merging dev to main."
+          echo "::error::Please document the changes in this release in the changelog."
+          exit 1
+        else
+          echo "✅ changes.rst has been updated. Check Passed."
+        fi
+
+    - name: Summary
+      run: |
+        echo "================================"
+        echo "✅ All pre-merge checks passed!"
+        echo "================================"
+        echo "1. Source branch is 'dev'"
+        echo "2. VERSION file updated"
+        echo "3. changes.rst updated"
+        echo ""
+        echo "Ready to merge and create release!"

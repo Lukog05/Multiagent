@@ -1,0 +1,26 @@
+================================================================================
+Exercise 4: Goal Count Heuristic Benchmarks
+================================================================================
+
+| Level | Algorithm | Expanded | Generated | Actions | Time (s) | Status |
+|-------|-----------|----------|-----------|---------|----------|--------|
+| MAPF00.lvl           | astar   |       28 |        37 |      14 |    0.004 | Yes    |
+| MAPF00.lvl           | greedy  |       14 |        29 |      14 |    0.003 | Yes    |
+| MAPF01.lvl           | astar   |      808 |      1448 |      14 |    0.076 | Yes    |
+| MAPF01.lvl           | greedy  |       14 |       166 |      14 |    0.005 | Yes    |
+| MAPF02.lvl           | astar   |     2999 |     14229 |       0 |    0.000 | No     |
+| MAPF02.lvl           | greedy  |       14 |       750 |      14 |    0.009 | Yes    |
+| MAPF02C.lvl          | astar   |       14 |       779 |      14 |    0.009 | Yes    |
+| MAPF02C.lvl          | greedy  |       14 |       779 |      14 |    0.009 | Yes    |
+| MAPF03.lvl           | astar   |        - |         - |       0 |    0.000 | No     |
+| MAPF03.lvl           | greedy  |       15 |      3776 |      14 |    0.030 | Yes    |
+| MAPF03C.lvl          | astar   |       22 |      2413 |      18 |    0.024 | Yes    |
+| MAPF03C.lvl          | greedy  |       21 |      2401 |      18 |    0.024 | Yes    |
+| MAPFslidingpuzzle.lvl | astar   |     4930 |      7493 |      28 |    0.210 | Yes    |
+| MAPFslidingpuzzle.lvl | greedy  |       92 |       153 |      36 |    0.006 | Yes    |
+| MAPFreorder2.lvl     | astar   |          |           |         |     >180 | TIMEOUT |
+| MAPFreorder2.lvl     | greedy  |   323999 |    467883 |       0 |    0.000 | No     |
+
+================================================================================
+Benchmark Complete!
+================================================================================

@@ -54,13 +54,35 @@ class State:
 
         # Apply each action.
         for agent, action in enumerate(joint_action):
+            agent_row=self.agent_rows[agent]
+            agent_col= self.agent_cols[agent]
             if action.type is ActionType.NoOp:
-                pass
+                pass 
 
             elif action.type is ActionType.Move:
                 copy_agent_rows[agent] += action.agent_row_delta
                 copy_agent_cols[agent] += action.agent_col_delta
+            elif action.type is ActionType.Push:
+                box_row=agent_row + action.agent_row_delta
+                box_col=agent_col +action.agent_col_delta
 
+                new_box_row=box_row +action.box_row_delta
+                new_box_col=box_col+action.box_col_delta
+                copy_boxes[new_box_row][new_box_col]=copy_boxes[box_row][box_col]
+                copy_boxes[box_row][box_col]=""
+
+                copy_agent_rows[agent] += action.agent_row_delta
+                copy_agent_cols[agent] += action.agent_col_delta
+            elif action.type is ActionType.Pull:
+                new_agent_row= agent_row + action.agent_row_delta
+                new_agent_col= agent_col + action.agent_col_delta
+                box_row=agent_row - action.agent_row_delta
+                box_col=agent_col - action.agent_col_delta
+                copy_boxes[agent_row][agent_col]=copy_boxes[box_row][box_col]
+                copy_boxes[box_row][box_col]=""
+                copy_agent_rows[agent] = new_agent_row
+                copy_agent_cols[agent] = new_agent_col
+                
         copy_state = State(copy_agent_rows, copy_agent_cols, copy_boxes)
 
         copy_state.parent = self
@@ -122,7 +144,7 @@ class State:
     def is_applicable(self, agent: int, action: Action) -> bool:
         agent_row = self.agent_rows[agent]
         agent_col = self.agent_cols[agent]
-        _agent_color = State.agent_colors[agent]
+        agent_color = State.agent_colors[agent]
 
         if action.type is ActionType.NoOp:
             return True
@@ -131,7 +153,31 @@ class State:
             destination_row = agent_row + action.agent_row_delta
             destination_col = agent_col + action.agent_col_delta
             return self.is_free(destination_row, destination_col)
+        if action.type is ActionType.Push:
+            box_row=agent_row+action.agent_row_delta 
+            box_col=agent_col+action.agent_col_delta
+            box_letter=self.boxes[box_row][box_col]
+            if not box_letter:
+                return False
+            if State.box_colors[ord(box_letter)-ord("A")] != agent_color:
+                return False
+            new_box_row=box_row+ action.box_row_delta
+            new_box_col= box_col+action.box_col_delta
 
+            return self.is_free(new_box_row,new_box_col)
+        if action.type is ActionType.Pull:
+             destination_row = agent_row + action.agent_row_delta
+             destination_col = agent_col + action.agent_col_delta
+             if not self.is_free(destination_row, destination_col):
+                 return False
+             box_row=agent_row - action.agent_row_delta
+             box_col=agent_col - action.agent_col_delta
+             box_letter=self.boxes[box_row][box_col]
+             if not box_letter:
+                return False
+             if State.box_colors[ord(box_letter)-ord("A")] != agent_color:
+                return False
+             return True
         assert False, f"Not implemented for action type {action.type}."
 
     def is_conflicting(self, joint_action: list[Action]) -> bool:
@@ -156,6 +202,16 @@ class State:
                 destination_cols[agent] = agent_col + action.agent_col_delta
                 box_rows[agent] = agent_row  # Distinct dummy value.
                 box_cols[agent] = agent_col  # Distinct dummy value.
+            elif action.type is ActionType.Push:
+                destination_rows[agent] = agent_row + action.agent_row_delta
+                destination_cols[agent] = agent_col + action.agent_col_delta
+                box_rows[agent] = destination_rows[agent]
+                box_cols[agent] = destination_cols[agent]
+            elif action.type is ActionType.Pull:
+                destination_rows[agent] = agent_row + action.agent_row_delta
+                destination_cols[agent] = agent_col + action.agent_col_delta
+                box_rows[agent] =agent_row - action.agent_row_delta
+                box_cols[agent] =agent_col - action.agent_col_delta
 
         for a1 in range(num_agents):
             if joint_action[a1] is Action.NoOp:

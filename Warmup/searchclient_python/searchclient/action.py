@@ -7,8 +7,8 @@ from typing import Literal #Literal is used to specify that a variable can only 
 class ActionType(Enum):
     NoOp = 0
     Move = 1
-#Push =2
-#Pull = 3
+    Push =2
+    Pull = 3
 
 @unique
 class Action(Enum):
@@ -30,9 +30,16 @@ class Action(Enum):
     MoveS = ("Move(S)", ActionType.Move, 1, 0, 0, 0)
     MoveE = ("Move(E)", ActionType.Move, 0, 1, 0, 0)
     MoveW = ("Move(W)", ActionType.Move, 0, -1, 0, 0)
+
+    PushNN = ("Push(N,N)", ActionType.Push,-1,0,-1,0)
+    PushSS = ("Push(S,S)", ActionType.Push,1,0,1,0)
+    PushEE = ("Push(E,E)", ActionType.Push,0,1,0,1)
+    PushWW = ("Push(W,W)", ActionType.Push,0,-1,0,-1)
     
-    #PushN, PushS, PushE, PushW
-    #PullN, PullS, PullE, PullW
+    PullNS = ("Pull(N,S)", ActionType.Pull,-1,0,1,0)
+    PullSN = ("Pull(S,N)", ActionType.Pull,1,0,-1,0)
+    PullEW = ("Pull(E,W)", ActionType.Pull,0,1,0,-1)
+    PullWE = ("Pull(W,E)", ActionType.Pull,0,-1,0,1)
 
 
     def __init__(

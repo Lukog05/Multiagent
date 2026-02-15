@@ -157,7 +157,7 @@ class SearchClient:
             print(f"Found solution of length {len(plan)}.", file=sys.stderr, flush=True)
 
             for joint_action in plan:
-                print("|".join(a.name_ + "@" + a.name_ for a in joint_action), flush=True)
+                print("|".join(a.name_ for a in joint_action), flush=True)
                 # We must read the server's response to not fill up the stdin buffer and block the server.
                 _response = server_messages.readline()
 

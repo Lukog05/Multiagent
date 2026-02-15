@@ -1,6 +1,7 @@
 import random
 from typing import ClassVar #classVar is used to indicate that the variable is a class variable, meaning it is shared among all instances of the class. In this code, agent_colors, walls, box_colors, and goals are defined as class variables, which means they are shared across all instances of the State class. This is useful for storing information that is common to all states, such as the layout of the level (walls and goals) and the colors of agents and boxes.
 
+#from Warmup.searchclient_python.searchclient import action
 from searchclient.action import Action, ActionType
 from searchclient.color import Color
 
@@ -76,8 +77,8 @@ class State:
             elif action.type is ActionType.Pull:
                 new_agent_row= agent_row + action.agent_row_delta
                 new_agent_col= agent_col + action.agent_col_delta
-                box_row=agent_row - action.agent_row_delta
-                box_col=agent_col - action.agent_col_delta
+                box_row = agent_row - action.box_row_delta  # Use box delta!
+                box_col = agent_col - action.box_col_delta  # Use box delta!
                 copy_boxes[agent_row][agent_col]=copy_boxes[box_row][box_col]
                 copy_boxes[box_row][box_col]=""
                 copy_agent_rows[agent] = new_agent_row
@@ -170,8 +171,8 @@ class State:
              destination_col = agent_col + action.agent_col_delta
              if not self.is_free(destination_row, destination_col):
                  return False
-             box_row=agent_row - action.agent_row_delta
-             box_col=agent_col - action.agent_col_delta
+             box_row = agent_row - action.box_row_delta  # Use box delta!
+             box_col = agent_col - action.box_col_delta  # Use box delta!
              box_letter=self.boxes[box_row][box_col]
              if not box_letter:
                 return False
@@ -210,8 +211,8 @@ class State:
             elif action.type is ActionType.Pull:
                 destination_rows[agent] = agent_row + action.agent_row_delta
                 destination_cols[agent] = agent_col + action.agent_col_delta
-                box_rows[agent] =agent_row - action.agent_row_delta
-                box_cols[agent] =agent_col - action.agent_col_delta
+                box_rows[agent] =agent_row - action.box_row_delta
+                box_cols[agent] =agent_col - action.box_col_delta
 
         for a1 in range(num_agents):
             if joint_action[a1] is Action.NoOp:

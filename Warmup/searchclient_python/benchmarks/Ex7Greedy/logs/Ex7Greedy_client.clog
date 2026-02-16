@@ -1,0 +1,6 @@
+[server][info] Running client on level file: D:\Codes\Multiagent\Warmup\temp2\MAbispebjerg.lvl
+SearchClient initializing. I am sending this using the error output stream.
+[client][message] This is a comment.
+Starting best-first search using greedy evaluation.
+[DEBUG] has_boxes=True, has_multiple_agents=True
+full_h

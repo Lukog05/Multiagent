@@ -80,7 +80,7 @@ class Heuristic(ABC):
  
             
     def multiagent_h(self, state: State) -> int:
-        print('multiagent_h', file=sys.stderr, flush=True)
+        #print('multiagent_h', file=sys.stderr, flush=True)
         total_distance = 0
         
         for agent_id in range(len(state.agent_rows)):
@@ -96,7 +96,7 @@ class Heuristic(ABC):
         return total_distance
 
     def sokoban_h(self, state: State) -> int:
-        print('sokoban_h', file=sys.stderr, flush=True)
+        #print('sokoban_h', file=sys.stderr, flush=True)
         goals=[]
         boxes=[]
 
@@ -189,7 +189,7 @@ class Heuristic(ABC):
     '''Adding the below heuristic for Ex7, which combines the multiagent and sokoban heuristics. 
     It calculates the distance from each agent to the nearest box and adds a small penalty for each box to encourage faster solutions.'''
     def full_hospital_h(self, state: State) -> int:
-        print("full_h", file=sys.stderr, flush=True)
+        #print("full_h", file=sys.stderr, flush=True)
         #Identifying the Goals and Boxes in the state and storing them in separate lists for easier access
         agent_goals_dict ={}
         box_goals = []

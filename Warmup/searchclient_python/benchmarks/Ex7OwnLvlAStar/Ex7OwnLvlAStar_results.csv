@@ -1,0 +1,5 @@
+LevelName,Solved,Actions,Time,Generated,Explored,MemoryAlloc,MaxAlloc
+MAhosp1,Yes,19,109.628,182269,102222,429.29,
+MAhosp2,Yes,21,67.679,133426,88023,320.17,
+MAhosp3,No,0,0.000,768448,245999,1749.32,
+MAhosp4,No,0,0.000,577775,219999,1322.64,

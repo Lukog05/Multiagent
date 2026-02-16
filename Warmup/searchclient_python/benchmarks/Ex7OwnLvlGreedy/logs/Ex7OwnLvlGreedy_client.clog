@@ -1,0 +1,2709 @@
+[server][info] Running client on level file: D:\Codes\Multiagent\Warmup\temp3\MAhosp1.lvl
+SearchClient initializing. I am sending this using the error output stream.
+[client][message] This is a comment.
+Starting best-first search using greedy evaluation.
+[DEBUG] has_boxes=True, has_multiple_agents=True
+#Expanded:      999, #Frontier:    3,519, #Generated:    4,518, Time: 1.105 s
+[Alloc: 30.66 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 999
+[client][message] Generated: 4518
+[client][message] Alloc: 30.66 MB
+#Expanded:    1,999, #Frontier:    5,928, #Generated:    7,927, Time: 2.194 s
+[Alloc: 38.86 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 1999
+[client][message] Generated: 7927
+[client][message] Alloc: 38.86 MB
+#Expanded:    2,999, #Frontier:    8,210, #Generated:   11,209, Time: 3.231 s
+[Alloc: 46.09 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 2999
+[client][message] Generated: 11209
+[client][message] Alloc: 46.09 MB
+#Expanded:    3,999, #Frontier:   10,409, #Generated:   14,408, Time: 4.310 s
+[Alloc: 53.19 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 3999
+[client][message] Generated: 14408
+[client][message] Alloc: 53.19 MB
+#Expanded:    4,999, #Frontier:   12,218, #Generated:   17,217, Time: 5.315 s
+[Alloc: 59.91 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 4999
+[client][message] Generated: 17217
+[client][message] Alloc: 59.91 MB
+#Expanded:    5,838, #Frontier:   14,047, #Generated:   19,885, Time: 6.204 s
+[Alloc: 65.72 MB, MaxAlloc: 10240.00 MB]
+Solution found.
+[client][message] Explored: 5838
+[client][message] Generated: 19885
+[client][message] Alloc: 65.72 MB
+Found solution of length 25.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: Yes.
+[server][info] Actions used: 25.
+[server][info] Time to solve: 6.186 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\Warmup\temp3\MAhosp2.lvl
+SearchClient initializing. I am sending this using the error output stream.
+[client][message] This is a comment.
+Starting best-first search using greedy evaluation.
+[DEBUG] has_boxes=True, has_multiple_agents=True
+#Expanded:      999, #Frontier:    2,909, #Generated:    3,908, Time: 0.811 s
+[Alloc: 29.44 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 999
+[client][message] Generated: 3908
+[client][message] Alloc: 29.44 MB
+#Expanded:    1,999, #Frontier:    4,953, #Generated:    6,952, Time: 1.589 s
+[Alloc: 36.89 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 1999
+[client][message] Generated: 6952
+[client][message] Alloc: 36.89 MB
+#Expanded:    2,999, #Frontier:    5,905, #Generated:    8,904, Time: 2.305 s
+[Alloc: 41.16 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 2999
+[client][message] Generated: 8904
+[client][message] Alloc: 41.16 MB
+#Expanded:    3,999, #Frontier:    7,220, #Generated:   11,219, Time: 3.040 s
+[Alloc: 46.25 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 3999
+[client][message] Generated: 11219
+[client][message] Alloc: 46.25 MB
+#Expanded:    4,999, #Frontier:    9,163, #Generated:   14,162, Time: 3.827 s
+[Alloc: 53.27 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 4999
+[client][message] Generated: 14162
+[client][message] Alloc: 53.27 MB
+#Expanded:    5,999, #Frontier:   10,016, #Generated:   16,015, Time: 4.489 s
+[Alloc: 57.33 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 5999
+[client][message] Generated: 16015
+[client][message] Alloc: 57.33 MB
+#Expanded:    6,999, #Frontier:    9,865, #Generated:   16,864, Time: 5.195 s
+[Alloc: 59.14 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 6999
+[client][message] Generated: 16864
+[client][message] Alloc: 59.14 MB
+#Expanded:    7,846, #Frontier:    9,793, #Generated:   17,639, Time: 5.748 s
+[Alloc: 60.75 MB, MaxAlloc: 10240.00 MB]
+Solution found.
+[client][message] Explored: 7846
+[client][message] Generated: 17639
+[client][message] Alloc: 60.75 MB
+Found solution of length 33.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: Yes.
+[server][info] Actions used: 33.
+[server][info] Time to solve: 5.752 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\Warmup\temp3\MAhosp3.lvl
+SearchClient initializing. I am sending this using the error output stream.
+[client][message] This is a comment.
+Starting best-first search using greedy evaluation.
+[DEBUG] has_boxes=True, has_multiple_agents=True
+#Expanded:      999, #Frontier:    6,251, #Generated:    7,250, Time: 2.356 s
+[Alloc: 37.58 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 999
+[client][message] Generated: 7250
+[client][message] Alloc: 37.58 MB
+#Expanded:    1,999, #Frontier:    9,180, #Generated:   11,179, Time: 4.259 s
+[Alloc: 46.34 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 1999
+[client][message] Generated: 11179
+[client][message] Alloc: 46.34 MB
+#Expanded:    2,999, #Frontier:   13,907, #Generated:   16,906, Time: 6.392 s
+[Alloc: 59.25 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 2999
+[client][message] Generated: 16906
+[client][message] Alloc: 59.25 MB
+#Expanded:    3,999, #Frontier:   18,423, #Generated:   22,422, Time: 8.833 s
+[Alloc: 72.84 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 3999
+[client][message] Generated: 22422
+[client][message] Alloc: 72.84 MB
+#Expanded:    4,999, #Frontier:   21,599, #Generated:   26,598, Time: 11.035 s
+[Alloc: 82.56 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 4999
+[client][message] Generated: 26598
+[client][message] Alloc: 82.56 MB
+#Expanded:    5,999, #Frontier:   24,391, #Generated:   30,390, Time: 13.325 s
+[Alloc: 91.19 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 5999
+[client][message] Generated: 30390
+[client][message] Alloc: 91.19 MB
+#Expanded:    6,999, #Frontier:   27,079, #Generated:   34,078, Time: 15.542 s
+[Alloc: 99.39 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 6999
+[client][message] Generated: 34078
+[client][message] Alloc: 99.39 MB
+#Expanded:    7,999, #Frontier:   28,888, #Generated:   36,887, Time: 17.642 s
+[Alloc: 105.54 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 7999
+[client][message] Generated: 36887
+[client][message] Alloc: 105.54 MB
+#Expanded:    8,999, #Frontier:   30,910, #Generated:   39,909, Time: 19.671 s
+[Alloc: 112.20 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 8999
+[client][message] Generated: 39909
+[client][message] Alloc: 112.20 MB
+#Expanded:    9,999, #Frontier:   31,831, #Generated:   41,830, Time: 21.818 s
+[Alloc: 116.48 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 9999
+[client][message] Generated: 41830
+[client][message] Alloc: 116.48 MB
+#Expanded:   10,999, #Frontier:   36,119, #Generated:   47,118, Time: 24.170 s
+[Alloc: 128.30 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 10999
+[client][message] Generated: 47118
+[client][message] Alloc: 128.30 MB
+#Expanded:   11,999, #Frontier:   41,266, #Generated:   53,265, Time: 26.876 s
+[Alloc: 142.02 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 11999
+[client][message] Generated: 53265
+[client][message] Alloc: 142.02 MB
+#Expanded:   12,999, #Frontier:   44,256, #Generated:   57,255, Time: 29.065 s
+[Alloc: 150.69 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 12999
+[client][message] Generated: 57255
+[client][message] Alloc: 150.69 MB
+#Expanded:   13,999, #Frontier:   48,251, #Generated:   62,250, Time: 31.667 s
+[Alloc: 161.89 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 13999
+[client][message] Generated: 62250
+[client][message] Alloc: 161.89 MB
+#Expanded:   14,999, #Frontier:   51,775, #Generated:   66,774, Time: 34.145 s
+[Alloc: 172.34 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 14999
+[client][message] Generated: 66774
+[client][message] Alloc: 172.34 MB
+#Expanded:   15,999, #Frontier:   54,891, #Generated:   70,890, Time: 36.358 s
+[Alloc: 181.47 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 15999
+[client][message] Generated: 70890
+[client][message] Alloc: 181.47 MB
+#Expanded:   16,999, #Frontier:   55,508, #Generated:   72,507, Time: 38.415 s
+[Alloc: 185.01 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 16999
+[client][message] Generated: 72507
+[client][message] Alloc: 185.01 MB
+#Expanded:   17,999, #Frontier:   57,067, #Generated:   75,066, Time: 40.479 s
+[Alloc: 191.21 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 17999
+[client][message] Generated: 75066
+[client][message] Alloc: 191.21 MB
+#Expanded:   18,999, #Frontier:   59,481, #Generated:   78,480, Time: 42.912 s
+[Alloc: 198.67 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 18999
+[client][message] Generated: 78480
+[client][message] Alloc: 198.67 MB
+#Expanded:   19,999, #Frontier:   62,163, #Generated:   82,162, Time: 45.007 s
+[Alloc: 207.61 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 19999
+[client][message] Generated: 82162
+[client][message] Alloc: 207.61 MB
+#Expanded:   20,999, #Frontier:   63,050, #Generated:   84,049, Time: 47.349 s
+[Alloc: 212.25 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 20999
+[client][message] Generated: 84049
+[client][message] Alloc: 212.25 MB
+#Expanded:   21,999, #Frontier:   67,970, #Generated:   89,969, Time: 49.967 s
+[Alloc: 227.41 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 21999
+[client][message] Generated: 89969
+[client][message] Alloc: 227.41 MB
+#Expanded:   22,999, #Frontier:   70,188, #Generated:   93,187, Time: 51.944 s
+[Alloc: 234.49 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 22999
+[client][message] Generated: 93187
+[client][message] Alloc: 234.49 MB
+#Expanded:   23,999, #Frontier:   73,703, #Generated:   97,702, Time: 54.244 s
+[Alloc: 244.63 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 23999
+[client][message] Generated: 97702
+[client][message] Alloc: 244.63 MB
+#Expanded:   24,999, #Frontier:   79,465, #Generated:  104,464, Time: 57.251 s
+[Alloc: 259.95 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 24999
+[client][message] Generated: 104464
+[client][message] Alloc: 259.95 MB
+#Expanded:   25,999, #Frontier:   84,803, #Generated:  110,802, Time: 60.107 s
+[Alloc: 274.05 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 25999
+[client][message] Generated: 110802
+[client][message] Alloc: 274.05 MB
+#Expanded:   26,999, #Frontier:   87,166, #Generated:  114,165, Time: 62.011 s
+[Alloc: 281.34 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 26999
+[client][message] Generated: 114165
+[client][message] Alloc: 281.34 MB
+#Expanded:   27,999, #Frontier:   88,605, #Generated:  116,604, Time: 64.228 s
+[Alloc: 286.78 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 27999
+[client][message] Generated: 116604
+[client][message] Alloc: 286.78 MB
+#Expanded:   28,999, #Frontier:   92,285, #Generated:  121,284, Time: 66.724 s
+[Alloc: 297.31 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 28999
+[client][message] Generated: 121284
+[client][message] Alloc: 297.31 MB
+#Expanded:   29,999, #Frontier:   96,427, #Generated:  126,426, Time: 69.343 s
+[Alloc: 308.75 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 29999
+[client][message] Generated: 126426
+[client][message] Alloc: 308.75 MB
+#Expanded:   30,999, #Frontier:  100,638, #Generated:  131,637, Time: 71.923 s
+[Alloc: 320.23 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 30999
+[client][message] Generated: 131637
+[client][message] Alloc: 320.23 MB
+#Expanded:   31,999, #Frontier:  103,521, #Generated:  135,520, Time: 74.842 s
+[Alloc: 328.99 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 31999
+[client][message] Generated: 135520
+[client][message] Alloc: 328.99 MB
+#Expanded:   32,999, #Frontier:  106,141, #Generated:  139,140, Time: 77.326 s
+[Alloc: 337.08 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 32999
+[client][message] Generated: 139140
+[client][message] Alloc: 337.08 MB
+#Expanded:   33,999, #Frontier:  108,576, #Generated:  142,575, Time: 79.388 s
+[Alloc: 344.59 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 33999
+[client][message] Generated: 142575
+[client][message] Alloc: 344.59 MB
+#Expanded:   34,999, #Frontier:  109,260, #Generated:  144,259, Time: 81.088 s
+[Alloc: 348.24 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 34999
+[client][message] Generated: 144259
+[client][message] Alloc: 348.24 MB
+#Expanded:   35,999, #Frontier:  110,336, #Generated:  146,335, Time: 83.413 s
+[Alloc: 353.02 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 35999
+[client][message] Generated: 146335
+[client][message] Alloc: 353.02 MB
+#Expanded:   36,999, #Frontier:  112,242, #Generated:  149,241, Time: 86.058 s
+[Alloc: 359.36 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 36999
+[client][message] Generated: 149241
+[client][message] Alloc: 359.36 MB
+#Expanded:   37,999, #Frontier:  114,583, #Generated:  152,582, Time: 88.785 s
+[Alloc: 366.71 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 37999
+[client][message] Generated: 152582
+[client][message] Alloc: 366.71 MB
+#Expanded:   38,999, #Frontier:  118,818, #Generated:  157,817, Time: 91.504 s
+[Alloc: 378.47 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 38999
+[client][message] Generated: 157817
+[client][message] Alloc: 378.47 MB
+#Expanded:   39,999, #Frontier:  122,294, #Generated:  162,293, Time: 94.532 s
+[Alloc: 388.33 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 39999
+[client][message] Generated: 162293
+[client][message] Alloc: 388.33 MB
+#Expanded:   40,999, #Frontier:  124,756, #Generated:  165,755, Time: 97.025 s
+[Alloc: 395.95 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 40999
+[client][message] Generated: 165755
+[client][message] Alloc: 395.95 MB
+#Expanded:   41,999, #Frontier:  126,208, #Generated:  168,207, Time: 99.361 s
+[Alloc: 401.63 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 41999
+[client][message] Generated: 168207
+[client][message] Alloc: 401.63 MB
+#Expanded:   42,999, #Frontier:  127,662, #Generated:  170,661, Time: 102.180 s
+[Alloc: 406.43 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 42999
+[client][message] Generated: 170661
+[client][message] Alloc: 406.43 MB
+#Expanded:   43,999, #Frontier:  129,780, #Generated:  173,779, Time: 104.480 s
+[Alloc: 413.36 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 43999
+[client][message] Generated: 173779
+[client][message] Alloc: 413.36 MB
+#Expanded:   44,999, #Frontier:  131,398, #Generated:  176,397, Time: 106.490 s
+[Alloc: 419.12 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 44999
+[client][message] Generated: 176397
+[client][message] Alloc: 419.13 MB
+#Expanded:   45,999, #Frontier:  130,492, #Generated:  176,491, Time: 107.789 s
+[Alloc: 419.46 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 45999
+[client][message] Generated: 176491
+[client][message] Alloc: 419.46 MB
+#Expanded:   46,999, #Frontier:  130,324, #Generated:  177,323, Time: 109.882 s
+[Alloc: 421.26 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 46999
+[client][message] Generated: 177323
+[client][message] Alloc: 421.26 MB
+#Expanded:   47,999, #Frontier:  131,610, #Generated:  179,609, Time: 112.061 s
+[Alloc: 426.12 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 47999
+[client][message] Generated: 179609
+[client][message] Alloc: 426.12 MB
+#Expanded:   48,999, #Frontier:  133,565, #Generated:  182,564, Time: 114.230 s
+[Alloc: 432.54 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 48999
+[client][message] Generated: 182564
+[client][message] Alloc: 432.54 MB
+#Expanded:   49,999, #Frontier:  135,955, #Generated:  185,954, Time: 116.553 s
+[Alloc: 440.21 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 49999
+[client][message] Generated: 185954
+[client][message] Alloc: 440.21 MB
+#Expanded:   50,999, #Frontier:  137,263, #Generated:  188,262, Time: 118.716 s
+[Alloc: 449.21 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 50999
+[client][message] Generated: 188262
+[client][message] Alloc: 449.21 MB
+#Expanded:   51,999, #Frontier:  137,866, #Generated:  189,865, Time: 120.786 s
+[Alloc: 452.71 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 51999
+[client][message] Generated: 189865
+[client][message] Alloc: 452.71 MB
+#Expanded:   52,999, #Frontier:  138,615, #Generated:  191,614, Time: 123.352 s
+[Alloc: 456.70 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 52999
+[client][message] Generated: 191614
+[client][message] Alloc: 456.70 MB
+#Expanded:   53,999, #Frontier:  138,798, #Generated:  192,797, Time: 124.988 s
+[Alloc: 459.14 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 53999
+[client][message] Generated: 192797
+[client][message] Alloc: 459.14 MB
+#Expanded:   54,999, #Frontier:  139,169, #Generated:  194,168, Time: 126.901 s
+[Alloc: 462.12 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 54999
+[client][message] Generated: 194168
+[client][message] Alloc: 462.12 MB
+#Expanded:   55,999, #Frontier:  141,501, #Generated:  197,500, Time: 129.064 s
+[Alloc: 469.48 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 55999
+[client][message] Generated: 197500
+[client][message] Alloc: 469.48 MB
+#Expanded:   56,999, #Frontier:  141,679, #Generated:  198,678, Time: 130.678 s
+[Alloc: 472.14 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 56999
+[client][message] Generated: 198678
+[client][message] Alloc: 472.14 MB
+#Expanded:   57,999, #Frontier:  144,889, #Generated:  202,888, Time: 132.969 s
+[Alloc: 481.45 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 57999
+[client][message] Generated: 202888
+[client][message] Alloc: 481.45 MB
+#Expanded:   58,999, #Frontier:  148,422, #Generated:  207,421, Time: 135.494 s
+[Alloc: 491.45 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 58999
+[client][message] Generated: 207421
+[client][message] Alloc: 491.45 MB
+#Expanded:   59,999, #Frontier:  150,886, #Generated:  210,885, Time: 137.630 s
+[Alloc: 499.13 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 59999
+[client][message] Generated: 210885
+[client][message] Alloc: 499.13 MB
+#Expanded:   60,999, #Frontier:  152,642, #Generated:  213,641, Time: 139.902 s
+[Alloc: 505.50 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 60999
+[client][message] Generated: 213641
+[client][message] Alloc: 505.50 MB
+#Expanded:   61,999, #Frontier:  153,286, #Generated:  215,285, Time: 141.646 s
+[Alloc: 508.90 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 61999
+[client][message] Generated: 215285
+[client][message] Alloc: 508.90 MB
+#Expanded:   62,999, #Frontier:  154,801, #Generated:  217,800, Time: 143.678 s
+[Alloc: 514.45 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 62999
+[client][message] Generated: 217800
+[client][message] Alloc: 514.45 MB
+#Expanded:   63,999, #Frontier:  157,116, #Generated:  221,115, Time: 146.255 s
+[Alloc: 521.71 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 63999
+[client][message] Generated: 221115
+[client][message] Alloc: 521.71 MB
+#Expanded:   64,999, #Frontier:  161,047, #Generated:  226,046, Time: 148.763 s
+[Alloc: 533.03 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 64999
+[client][message] Generated: 226046
+[client][message] Alloc: 533.03 MB
+#Expanded:   65,999, #Frontier:  164,406, #Generated:  230,405, Time: 151.184 s
+[Alloc: 542.57 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 65999
+[client][message] Generated: 230405
+[client][message] Alloc: 542.57 MB
+#Expanded:   66,999, #Frontier:  166,728, #Generated:  233,727, Time: 153.467 s
+[Alloc: 549.85 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 66999
+[client][message] Generated: 233727
+[client][message] Alloc: 549.85 MB
+#Expanded:   67,999, #Frontier:  168,884, #Generated:  236,883, Time: 155.639 s
+[Alloc: 557.04 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 67999
+[client][message] Generated: 236883
+[client][message] Alloc: 557.04 MB
+#Expanded:   68,999, #Frontier:  171,186, #Generated:  240,185, Time: 157.799 s
+[Alloc: 564.21 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 68999
+[client][message] Generated: 240185
+[client][message] Alloc: 564.21 MB
+#Expanded:   69,999, #Frontier:  172,113, #Generated:  242,112, Time: 159.361 s
+[Alloc: 568.59 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 69999
+[client][message] Generated: 242112
+[client][message] Alloc: 568.59 MB
+#Expanded:   70,999, #Frontier:  174,706, #Generated:  245,705, Time: 161.389 s
+[Alloc: 576.46 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 70999
+[client][message] Generated: 245705
+[client][message] Alloc: 576.46 MB
+#Expanded:   71,999, #Frontier:  176,817, #Generated:  248,816, Time: 163.428 s
+[Alloc: 583.32 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 71999
+[client][message] Generated: 248816
+[client][message] Alloc: 583.32 MB
+#Expanded:   72,999, #Frontier:  179,948, #Generated:  252,947, Time: 166.442 s
+[Alloc: 592.45 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 72999
+[client][message] Generated: 252947
+[client][message] Alloc: 592.45 MB
+#Expanded:   73,999, #Frontier:  181,618, #Generated:  255,617, Time: 168.788 s
+[Alloc: 598.43 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 73999
+[client][message] Generated: 255617
+[client][message] Alloc: 598.43 MB
+#Expanded:   74,999, #Frontier:  182,971, #Generated:  257,970, Time: 170.780 s
+[Alloc: 603.74 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 74999
+[client][message] Generated: 257970
+[client][message] Alloc: 603.74 MB
+#Expanded:   75,999, #Frontier:  184,534, #Generated:  260,533, Time: 172.766 s
+[Alloc: 609.33 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 75999
+[client][message] Generated: 260533
+[client][message] Alloc: 609.33 MB
+#Expanded:   76,999, #Frontier:  187,205, #Generated:  264,204, Time: 174.958 s
+[Alloc: 617.56 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 76999
+[client][message] Generated: 264204
+[client][message] Alloc: 617.56 MB
+#Expanded:   77,999, #Frontier:  188,613, #Generated:  266,612, Time: 176.834 s
+[Alloc: 622.91 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 77999
+[client][message] Generated: 266612
+[client][message] Alloc: 622.91 MB
+#Expanded:   78,999, #Frontier:  188,940, #Generated:  267,939, Time: 178.383 s
+[Alloc: 627.71 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 78999
+[client][message] Generated: 267939
+[client][message] Alloc: 627.71 MB
+#Expanded:   79,999, #Frontier:  190,633, #Generated:  270,632, Time: 180.043 s
+[Alloc: 633.60 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 79999
+[client][message] Generated: 270632
+[client][message] Alloc: 633.60 MB
+#Expanded:   80,999, #Frontier:  192,688, #Generated:  273,687, Time: 182.045 s
+[Alloc: 640.31 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 80999
+[client][message] Generated: 273687
+[client][message] Alloc: 640.31 MB
+#Expanded:   81,999, #Frontier:  194,190, #Generated:  276,189, Time: 183.900 s
+[Alloc: 646.00 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 81999
+[client][message] Generated: 276189
+[client][message] Alloc: 646.00 MB
+#Expanded:   82,999, #Frontier:  196,242, #Generated:  279,241, Time: 186.787 s
+[Alloc: 653.02 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 82999
+[client][message] Generated: 279241
+[client][message] Alloc: 653.02 MB
+#Expanded:   83,999, #Frontier:  196,628, #Generated:  280,627, Time: 189.020 s
+[Alloc: 655.74 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 83999
+[client][message] Generated: 280627
+[client][message] Alloc: 655.74 MB
+#Expanded:   84,999, #Frontier:  196,971, #Generated:  281,970, Time: 191.113 s
+[Alloc: 658.73 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 84999
+[client][message] Generated: 281970
+[client][message] Alloc: 658.73 MB
+#Expanded:   85,999, #Frontier:  197,245, #Generated:  283,244, Time: 193.065 s
+[Alloc: 661.49 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 85999
+[client][message] Generated: 283244
+[client][message] Alloc: 661.49 MB
+#Expanded:   86,999, #Frontier:  196,350, #Generated:  283,349, Time: 194.370 s
+[Alloc: 661.65 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 86999
+[client][message] Generated: 283349
+[client][message] Alloc: 661.65 MB
+#Expanded:   87,999, #Frontier:  196,044, #Generated:  284,043, Time: 196.678 s
+[Alloc: 663.04 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 87999
+[client][message] Generated: 284043
+[client][message] Alloc: 663.04 MB
+#Expanded:   88,999, #Frontier:  195,454, #Generated:  284,453, Time: 197.823 s
+[Alloc: 663.91 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 88999
+[client][message] Generated: 284453
+[client][message] Alloc: 663.91 MB
+#Expanded:   89,999, #Frontier:  194,454, #Generated:  284,453, Time: 199.164 s
+[Alloc: 663.93 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 89999
+[client][message] Generated: 284453
+[client][message] Alloc: 663.93 MB
+#Expanded:   90,999, #Frontier:  194,563, #Generated:  285,562, Time: 200.809 s
+[Alloc: 666.27 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 90999
+[client][message] Generated: 285562
+[client][message] Alloc: 666.27 MB
+#Expanded:   91,999, #Frontier:  193,847, #Generated:  285,846, Time: 202.692 s
+[Alloc: 667.04 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 91999
+[client][message] Generated: 285846
+[client][message] Alloc: 667.04 MB
+#Expanded:   92,999, #Frontier:  192,847, #Generated:  285,846, Time: 203.757 s
+[Alloc: 667.04 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 92999
+[client][message] Generated: 285846
+[client][message] Alloc: 667.04 MB
+#Expanded:   93,999, #Frontier:  192,013, #Generated:  286,012, Time: 204.969 s
+[Alloc: 667.05 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 93999
+[client][message] Generated: 286012
+[client][message] Alloc: 667.05 MB
+#Expanded:   94,999, #Frontier:  191,184, #Generated:  286,183, Time: 206.031 s
+[Alloc: 667.32 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 94999
+[client][message] Generated: 286183
+[client][message] Alloc: 667.32 MB
+#Expanded:   95,999, #Frontier:  192,031, #Generated:  288,030, Time: 207.694 s
+[Alloc: 671.32 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 95999
+[client][message] Generated: 288030
+[client][message] Alloc: 671.32 MB
+#Expanded:   96,999, #Frontier:  192,825, #Generated:  289,824, Time: 209.785 s
+[Alloc: 675.23 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 96999
+[client][message] Generated: 289824
+[client][message] Alloc: 675.23 MB
+#Expanded:   97,999, #Frontier:  193,729, #Generated:  291,728, Time: 211.786 s
+[Alloc: 679.46 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 97999
+[client][message] Generated: 291728
+[client][message] Alloc: 679.46 MB
+#Expanded:   98,999, #Frontier:  194,965, #Generated:  293,964, Time: 214.160 s
+[Alloc: 684.42 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 98999
+[client][message] Generated: 293964
+[client][message] Alloc: 684.42 MB
+#Expanded:   99,999, #Frontier:  195,105, #Generated:  295,104, Time: 216.037 s
+[Alloc: 686.83 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 99999
+[client][message] Generated: 295104
+[client][message] Alloc: 686.83 MB
+#Expanded:  100,999, #Frontier:  195,440, #Generated:  296,439, Time: 217.938 s
+[Alloc: 689.58 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 100999
+[client][message] Generated: 296439
+[client][message] Alloc: 689.58 MB
+#Expanded:  101,999, #Frontier:  196,329, #Generated:  298,328, Time: 220.412 s
+[Alloc: 693.83 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 101999
+[client][message] Generated: 298328
+[client][message] Alloc: 693.83 MB
+#Expanded:  102,999, #Frontier:  196,983, #Generated:  299,982, Time: 222.966 s
+[Alloc: 697.55 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 102999
+[client][message] Generated: 299982
+[client][message] Alloc: 697.55 MB
+#Expanded:  103,999, #Frontier:  197,605, #Generated:  301,604, Time: 225.048 s
+[Alloc: 700.92 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 103999
+[client][message] Generated: 301604
+[client][message] Alloc: 700.92 MB
+#Expanded:  104,999, #Frontier:  198,005, #Generated:  303,004, Time: 227.358 s
+[Alloc: 704.02 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 104999
+[client][message] Generated: 303004
+[client][message] Alloc: 704.02 MB
+#Expanded:  105,999, #Frontier:  198,264, #Generated:  304,263, Time: 229.398 s
+[Alloc: 706.68 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 105999
+[client][message] Generated: 304263
+[client][message] Alloc: 706.68 MB
+#Expanded:  106,999, #Frontier:  198,172, #Generated:  305,171, Time: 231.345 s
+[Alloc: 708.74 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 106999
+[client][message] Generated: 305171
+[client][message] Alloc: 708.74 MB
+#Expanded:  107,999, #Frontier:  197,662, #Generated:  305,661, Time: 233.289 s
+[Alloc: 709.79 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 107999
+[client][message] Generated: 305661
+[client][message] Alloc: 709.79 MB
+#Expanded:  108,999, #Frontier:  197,291, #Generated:  306,290, Time: 235.250 s
+[Alloc: 711.04 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 108999
+[client][message] Generated: 306290
+[client][message] Alloc: 711.04 MB
+#Expanded:  109,999, #Frontier:  197,076, #Generated:  307,075, Time: 237.379 s
+[Alloc: 712.84 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 109999
+[client][message] Generated: 307075
+[client][message] Alloc: 712.84 MB
+#Expanded:  110,999, #Frontier:  197,079, #Generated:  308,078, Time: 239.314 s
+[Alloc: 714.94 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 110999
+[client][message] Generated: 308078
+[client][message] Alloc: 714.94 MB
+#Expanded:  111,999, #Frontier:  197,280, #Generated:  309,279, Time: 241.672 s
+[Alloc: 717.55 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 111999
+[client][message] Generated: 309279
+[client][message] Alloc: 717.55 MB
+#Expanded:  112,999, #Frontier:  197,149, #Generated:  310,148, Time: 243.624 s
+[Alloc: 718.89 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 112999
+[client][message] Generated: 310148
+[client][message] Alloc: 718.89 MB
+#Expanded:  113,999, #Frontier:  197,363, #Generated:  311,362, Time: 245.624 s
+[Alloc: 721.61 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 113999
+[client][message] Generated: 311362
+[client][message] Alloc: 721.61 MB
+#Expanded:  114,999, #Frontier:  197,178, #Generated:  312,177, Time: 247.559 s
+[Alloc: 723.25 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 114999
+[client][message] Generated: 312177
+[client][message] Alloc: 723.25 MB
+#Expanded:  115,999, #Frontier:  197,142, #Generated:  313,141, Time: 249.747 s
+[Alloc: 725.55 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 115999
+[client][message] Generated: 313141
+[client][message] Alloc: 725.55 MB
+#Expanded:  116,999, #Frontier:  196,621, #Generated:  313,620, Time: 252.809 s
+[Alloc: 726.30 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 116999
+[client][message] Generated: 313620
+[client][message] Alloc: 726.30 MB
+#Expanded:  117,999, #Frontier:  198,103, #Generated:  316,102, Time: 255.308 s
+[Alloc: 731.90 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 117999
+[client][message] Generated: 316102
+[client][message] Alloc: 731.90 MB
+#Expanded:  118,999, #Frontier:  203,483, #Generated:  322,482, Time: 257.720 s
+[Alloc: 745.95 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 118999
+[client][message] Generated: 322482
+[client][message] Alloc: 745.95 MB
+#Expanded:  119,999, #Frontier:  207,508, #Generated:  327,507, Time: 260.234 s
+[Alloc: 757.37 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 119999
+[client][message] Generated: 327507
+[client][message] Alloc: 757.37 MB
+#Expanded:  120,999, #Frontier:  212,641, #Generated:  333,640, Time: 262.699 s
+[Alloc: 771.00 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 120999
+[client][message] Generated: 333640
+[client][message] Alloc: 771.00 MB
+#Expanded:  121,999, #Frontier:  215,117, #Generated:  337,116, Time: 264.837 s
+[Alloc: 778.89 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 121999
+[client][message] Generated: 337116
+[client][message] Alloc: 778.89 MB
+#Expanded:  122,999, #Frontier:  219,457, #Generated:  342,456, Time: 267.284 s
+[Alloc: 790.65 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 122999
+[client][message] Generated: 342456
+[client][message] Alloc: 790.65 MB
+#Expanded:  123,999, #Frontier:  223,493, #Generated:  347,492, Time: 269.728 s
+[Alloc: 801.75 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 123999
+[client][message] Generated: 347492
+[client][message] Alloc: 801.75 MB
+#Expanded:  124,999, #Frontier:  226,978, #Generated:  351,977, Time: 272.088 s
+[Alloc: 811.77 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 124999
+[client][message] Generated: 351977
+[client][message] Alloc: 811.77 MB
+#Expanded:  125,999, #Frontier:  230,279, #Generated:  356,278, Time: 274.578 s
+[Alloc: 821.45 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 125999
+[client][message] Generated: 356278
+[client][message] Alloc: 821.45 MB
+#Expanded:  126,999, #Frontier:  232,016, #Generated:  359,015, Time: 277.611 s
+[Alloc: 827.42 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 126999
+[client][message] Generated: 359015
+[client][message] Alloc: 827.42 MB
+#Expanded:  127,999, #Frontier:  234,165, #Generated:  362,164, Time: 279.630 s
+[Alloc: 834.35 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 127999
+[client][message] Generated: 362164
+[client][message] Alloc: 834.35 MB
+#Expanded:  128,999, #Frontier:  237,797, #Generated:  366,796, Time: 282.275 s
+[Alloc: 844.86 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 128999
+[client][message] Generated: 366796
+[client][message] Alloc: 844.86 MB
+#Expanded:  129,999, #Frontier:  240,765, #Generated:  370,764, Time: 284.668 s
+[Alloc: 853.62 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 129999
+[client][message] Generated: 370764
+[client][message] Alloc: 853.62 MB
+#Expanded:  130,999, #Frontier:  244,883, #Generated:  375,882, Time: 287.100 s
+[Alloc: 864.94 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 130999
+[client][message] Generated: 375882
+[client][message] Alloc: 864.94 MB
+#Expanded:  131,999, #Frontier:  247,791, #Generated:  379,790, Time: 289.719 s
+[Alloc: 873.88 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 131999
+[client][message] Generated: 379790
+[client][message] Alloc: 873.88 MB
+#Expanded:  132,999, #Frontier:  250,119, #Generated:  383,118, Time: 292.072 s
+[Alloc: 881.16 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 132999
+[client][message] Generated: 383118
+[client][message] Alloc: 881.16 MB
+#Expanded:  133,999, #Frontier:  254,215, #Generated:  388,214, Time: 294.461 s
+[Alloc: 892.39 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 133999
+[client][message] Generated: 388214
+[client][message] Alloc: 892.39 MB
+#Expanded:  134,999, #Frontier:  256,689, #Generated:  391,688, Time: 296.683 s
+[Alloc: 900.14 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 134999
+[client][message] Generated: 391688
+[client][message] Alloc: 900.14 MB
+#Expanded:  135,999, #Frontier:  258,870, #Generated:  394,869, Time: 298.934 s
+[Alloc: 907.39 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 135999
+[client][message] Generated: 394869
+[client][message] Alloc: 907.39 MB
+#Expanded:  136,999, #Frontier:  260,865, #Generated:  397,864, Time: 301.115 s
+[Alloc: 913.93 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 136999
+[client][message] Generated: 397864
+[client][message] Alloc: 913.93 MB
+#Expanded:  137,999, #Frontier:  263,090, #Generated:  401,089, Time: 303.324 s
+[Alloc: 921.16 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 137999
+[client][message] Generated: 401089
+[client][message] Alloc: 921.16 MB
+#Expanded:  138,999, #Frontier:  265,526, #Generated:  404,525, Time: 305.249 s
+[Alloc: 928.71 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 138999
+[client][message] Generated: 404525
+[client][message] Alloc: 928.71 MB
+#Expanded:  139,999, #Frontier:  268,375, #Generated:  408,374, Time: 307.317 s
+[Alloc: 937.30 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 139999
+[client][message] Generated: 408374
+[client][message] Alloc: 937.30 MB
+#Expanded:  140,999, #Frontier:  268,702, #Generated:  409,701, Time: 309.220 s
+[Alloc: 940.21 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 140999
+[client][message] Generated: 409701
+[client][message] Alloc: 940.21 MB
+#Expanded:  141,999, #Frontier:  269,938, #Generated:  411,937, Time: 312.264 s
+[Alloc: 945.12 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 141999
+[client][message] Generated: 411937
+[client][message] Alloc: 945.12 MB
+#Expanded:  142,999, #Frontier:  273,080, #Generated:  416,079, Time: 314.652 s
+[Alloc: 954.39 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 142999
+[client][message] Generated: 416079
+[client][message] Alloc: 954.39 MB
+#Expanded:  143,999, #Frontier:  276,121, #Generated:  420,120, Time: 317.274 s
+[Alloc: 963.33 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 143999
+[client][message] Generated: 420120
+[client][message] Alloc: 963.33 MB
+#Expanded:  144,999, #Frontier:  280,556, #Generated:  425,555, Time: 320.038 s
+[Alloc: 975.70 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 144999
+[client][message] Generated: 425555
+[client][message] Alloc: 975.70 MB
+#Expanded:  145,999, #Frontier:  283,054, #Generated:  429,053, Time: 322.259 s
+[Alloc: 983.23 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 145999
+[client][message] Generated: 429053
+[client][message] Alloc: 983.23 MB
+#Expanded:  146,999, #Frontier:  285,844, #Generated:  432,843, Time: 324.475 s
+[Alloc: 991.77 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 146999
+[client][message] Generated: 432843
+[client][message] Alloc: 991.77 MB
+#Expanded:  147,999, #Frontier:  289,539, #Generated:  437,538, Time: 327.115 s
+[Alloc: 1002.31 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 147999
+[client][message] Generated: 437538
+[client][message] Alloc: 1002.31 MB
+#Expanded:  148,999, #Frontier:  291,870, #Generated:  440,869, Time: 329.505 s
+[Alloc: 1009.52 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 148999
+[client][message] Generated: 440869
+[client][message] Alloc: 1009.52 MB
+#Expanded:  149,999, #Frontier:  292,728, #Generated:  442,727, Time: 331.584 s
+[Alloc: 1013.81 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 149999
+[client][message] Generated: 442727
+[client][message] Alloc: 1013.81 MB
+#Expanded:  150,999, #Frontier:  293,962, #Generated:  444,961, Time: 333.889 s
+[Alloc: 1018.54 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 150999
+[client][message] Generated: 444961
+[client][message] Alloc: 1018.54 MB
+#Expanded:  151,999, #Frontier:  295,565, #Generated:  447,564, Time: 335.903 s
+[Alloc: 1024.29 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 151999
+[client][message] Generated: 447564
+[client][message] Alloc: 1024.29 MB
+#Expanded:  152,999, #Frontier:  297,509, #Generated:  450,508, Time: 338.489 s
+[Alloc: 1030.94 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 152999
+[client][message] Generated: 450508
+[client][message] Alloc: 1030.94 MB
+#Expanded:  153,999, #Frontier:  298,887, #Generated:  452,886, Time: 341.043 s
+[Alloc: 1044.22 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 153999
+[client][message] Generated: 452886
+[client][message] Alloc: 1044.22 MB
+#Expanded:  154,999, #Frontier:  300,081, #Generated:  455,080, Time: 343.005 s
+[Alloc: 1048.84 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 154999
+[client][message] Generated: 455080
+[client][message] Alloc: 1048.84 MB
+#Expanded:  155,999, #Frontier:  301,187, #Generated:  457,186, Time: 345.073 s
+[Alloc: 1053.57 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 155999
+[client][message] Generated: 457186
+[client][message] Alloc: 1053.57 MB
+#Expanded:  156,999, #Frontier:  303,344, #Generated:  460,343, Time: 347.443 s
+[Alloc: 1060.60 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 156999
+[client][message] Generated: 460343
+[client][message] Alloc: 1060.60 MB
+#Expanded:  157,999, #Frontier:  306,335, #Generated:  464,334, Time: 349.599 s
+[Alloc: 1073.45 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 157999
+[client][message] Generated: 464334
+[client][message] Alloc: 1073.45 MB
+#Expanded:  158,999, #Frontier:  309,145, #Generated:  468,144, Time: 353.085 s
+[Alloc: 1082.05 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 158999
+[client][message] Generated: 468144
+[client][message] Alloc: 1082.05 MB
+#Expanded:  159,999, #Frontier:  312,080, #Generated:  472,079, Time: 355.670 s
+[Alloc: 1090.72 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 159999
+[client][message] Generated: 472079
+[client][message] Alloc: 1090.72 MB
+#Expanded:  160,999, #Frontier:  313,230, #Generated:  474,229, Time: 357.966 s
+[Alloc: 1095.58 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 160999
+[client][message] Generated: 474229
+[client][message] Alloc: 1095.58 MB
+#Expanded:  161,999, #Frontier:  312,963, #Generated:  474,962, Time: 360.084 s
+[Alloc: 1097.24 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 161999
+[client][message] Generated: 474962
+[client][message] Alloc: 1097.24 MB
+#Expanded:  162,999, #Frontier:  312,232, #Generated:  475,231, Time: 361.342 s
+[Alloc: 1097.58 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 162999
+[client][message] Generated: 475231
+[client][message] Alloc: 1097.58 MB
+#Expanded:  163,999, #Frontier:  314,184, #Generated:  478,183, Time: 363.276 s
+[Alloc: 1104.04 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 163999
+[client][message] Generated: 478183
+[client][message] Alloc: 1104.04 MB
+#Expanded:  164,999, #Frontier:  314,259, #Generated:  479,258, Time: 365.239 s
+[Alloc: 1106.46 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 164999
+[client][message] Generated: 479258
+[client][message] Alloc: 1106.46 MB
+#Expanded:  165,999, #Frontier:  313,460, #Generated:  479,459, Time: 367.073 s
+[Alloc: 1107.03 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 165999
+[client][message] Generated: 479459
+[client][message] Alloc: 1107.03 MB
+#Expanded:  166,999, #Frontier:  313,803, #Generated:  480,802, Time: 368.974 s
+[Alloc: 1109.73 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 166999
+[client][message] Generated: 480802
+[client][message] Alloc: 1109.73 MB
+#Expanded:  167,999, #Frontier:  315,349, #Generated:  483,348, Time: 371.465 s
+[Alloc: 1115.32 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 167999
+[client][message] Generated: 483348
+[client][message] Alloc: 1115.32 MB
+#Expanded:  168,999, #Frontier:  317,558, #Generated:  486,557, Time: 373.377 s
+[Alloc: 1122.36 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 168999
+[client][message] Generated: 486557
+[client][message] Alloc: 1122.36 MB
+#Expanded:  169,999, #Frontier:  320,001, #Generated:  490,000, Time: 375.402 s
+[Alloc: 1130.04 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 169999
+[client][message] Generated: 490000
+[client][message] Alloc: 1130.04 MB
+#Expanded:  170,999, #Frontier:  322,605, #Generated:  493,604, Time: 377.500 s
+[Alloc: 1137.93 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 170999
+[client][message] Generated: 493604
+[client][message] Alloc: 1137.93 MB
+#Expanded:  171,999, #Frontier:  325,080, #Generated:  497,079, Time: 379.931 s
+[Alloc: 1145.76 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 171999
+[client][message] Generated: 497079
+[client][message] Alloc: 1145.76 MB
+#Expanded:  172,999, #Frontier:  325,825, #Generated:  498,824, Time: 382.173 s
+[Alloc: 1149.67 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 172999
+[client][message] Generated: 498824
+[client][message] Alloc: 1149.67 MB
+#Expanded:  173,999, #Frontier:  326,346, #Generated:  500,345, Time: 384.162 s
+[Alloc: 1152.87 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 173999
+[client][message] Generated: 500345
+[client][message] Alloc: 1152.87 MB
+#Expanded:  174,999, #Frontier:  326,828, #Generated:  501,827, Time: 385.858 s
+[Alloc: 1156.03 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 174999
+[client][message] Generated: 501827
+[client][message] Alloc: 1156.03 MB
+#Expanded:  175,999, #Frontier:  327,177, #Generated:  503,176, Time: 387.655 s
+[Alloc: 1159.00 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 175999
+[client][message] Generated: 503176
+[client][message] Alloc: 1159.00 MB
+#Expanded:  176,999, #Frontier:  329,601, #Generated:  506,600, Time: 389.488 s
+[Alloc: 1166.69 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 176999
+[client][message] Generated: 506600
+[client][message] Alloc: 1166.69 MB
+#Expanded:  177,999, #Frontier:  331,467, #Generated:  509,466, Time: 391.741 s
+[Alloc: 1173.05 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 177999
+[client][message] Generated: 509466
+[client][message] Alloc: 1173.05 MB
+#Expanded:  178,999, #Frontier:  332,532, #Generated:  511,531, Time: 393.894 s
+[Alloc: 1177.58 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 178999
+[client][message] Generated: 511531
+[client][message] Alloc: 1177.58 MB
+#Expanded:  179,999, #Frontier:  333,288, #Generated:  513,287, Time: 396.098 s
+[Alloc: 1181.57 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 179999
+[client][message] Generated: 513287
+[client][message] Alloc: 1181.57 MB
+#Expanded:  180,999, #Frontier:  332,374, #Generated:  513,373, Time: 397.390 s
+[Alloc: 1181.57 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 180999
+[client][message] Generated: 513373
+[client][message] Alloc: 1181.57 MB
+#Expanded:  181,999, #Frontier:  332,380, #Generated:  514,379, Time: 399.404 s
+[Alloc: 1183.70 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 181999
+[client][message] Generated: 514379
+[client][message] Alloc: 1183.70 MB
+#Expanded:  182,999, #Frontier:  332,642, #Generated:  515,641, Time: 401.549 s
+[Alloc: 1186.45 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 182999
+[client][message] Generated: 515641
+[client][message] Alloc: 1186.45 MB
+#Expanded:  183,999, #Frontier:  332,690, #Generated:  516,689, Time: 403.282 s
+[Alloc: 1188.81 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 183999
+[client][message] Generated: 516689
+[client][message] Alloc: 1188.81 MB
+#Expanded:  184,999, #Frontier:  334,738, #Generated:  519,737, Time: 405.043 s
+[Alloc: 1195.30 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 184999
+[client][message] Generated: 519737
+[client][message] Alloc: 1195.30 MB
+#Expanded:  185,999, #Frontier:  335,918, #Generated:  521,917, Time: 407.150 s
+[Alloc: 1200.28 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 185999
+[client][message] Generated: 521917
+[client][message] Alloc: 1200.28 MB
+#Expanded:  186,999, #Frontier:  334,991, #Generated:  521,990, Time: 408.611 s
+[Alloc: 1200.41 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 186999
+[client][message] Generated: 521990
+[client][message] Alloc: 1200.41 MB
+#Expanded:  187,999, #Frontier:  334,050, #Generated:  522,049, Time: 409.994 s
+[Alloc: 1200.61 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 187999
+[client][message] Generated: 522049
+[client][message] Alloc: 1200.61 MB
+#Expanded:  188,999, #Frontier:  333,828, #Generated:  522,827, Time: 411.469 s
+[Alloc: 1202.07 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 188999
+[client][message] Generated: 522827
+[client][message] Alloc: 1202.07 MB
+#Expanded:  189,999, #Frontier:  335,090, #Generated:  525,089, Time: 414.501 s
+[Alloc: 1206.86 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 189999
+[client][message] Generated: 525089
+[client][message] Alloc: 1206.86 MB
+#Expanded:  190,999, #Frontier:  336,873, #Generated:  527,872, Time: 416.367 s
+[Alloc: 1213.03 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 190999
+[client][message] Generated: 527872
+[client][message] Alloc: 1213.03 MB
+#Expanded:  191,999, #Frontier:  338,236, #Generated:  530,235, Time: 418.165 s
+[Alloc: 1218.35 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 191999
+[client][message] Generated: 530235
+[client][message] Alloc: 1218.35 MB
+#Expanded:  192,999, #Frontier:  340,253, #Generated:  533,252, Time: 420.098 s
+[Alloc: 1224.98 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 192999
+[client][message] Generated: 533252
+[client][message] Alloc: 1224.98 MB
+#Expanded:  193,999, #Frontier:  341,822, #Generated:  535,821, Time: 421.874 s
+[Alloc: 1230.75 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 193999
+[client][message] Generated: 535821
+[client][message] Alloc: 1230.75 MB
+#Expanded:  194,999, #Frontier:  343,503, #Generated:  538,502, Time: 423.683 s
+[Alloc: 1236.66 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 194999
+[client][message] Generated: 538502
+[client][message] Alloc: 1236.66 MB
+#Expanded:  195,999, #Frontier:  345,707, #Generated:  541,706, Time: 425.653 s
+[Alloc: 1243.75 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 195999
+[client][message] Generated: 541706
+[client][message] Alloc: 1243.75 MB
+#Expanded:  196,999, #Frontier:  347,313, #Generated:  544,312, Time: 427.441 s
+[Alloc: 1249.54 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 196999
+[client][message] Generated: 544312
+[client][message] Alloc: 1249.54 MB
+#Expanded:  197,999, #Frontier:  349,538, #Generated:  547,537, Time: 429.436 s
+[Alloc: 1256.77 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 197999
+[client][message] Generated: 547537
+[client][message] Alloc: 1256.77 MB
+#Expanded:  198,999, #Frontier:  351,178, #Generated:  550,177, Time: 431.197 s
+[Alloc: 1262.38 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 198999
+[client][message] Generated: 550177
+[client][message] Alloc: 1262.38 MB
+#Expanded:  199,999, #Frontier:  353,408, #Generated:  553,407, Time: 433.237 s
+[Alloc: 1269.65 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 199999
+[client][message] Generated: 553407
+[client][message] Alloc: 1269.65 MB
+#Expanded:  200,999, #Frontier:  355,020, #Generated:  556,019, Time: 435.065 s
+[Alloc: 1275.34 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 200999
+[client][message] Generated: 556019
+[client][message] Alloc: 1275.34 MB
+#Expanded:  201,999, #Frontier:  354,353, #Generated:  556,352, Time: 436.440 s
+[Alloc: 1276.19 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 201999
+[client][message] Generated: 556352
+[client][message] Alloc: 1276.19 MB
+#Expanded:  202,999, #Frontier:  353,504, #Generated:  556,503, Time: 437.611 s
+[Alloc: 1276.42 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 202999
+[client][message] Generated: 556503
+[client][message] Alloc: 1276.42 MB
+#Expanded:  203,999, #Frontier:  352,973, #Generated:  556,972, Time: 439.434 s
+[Alloc: 1277.50 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 203999
+[client][message] Generated: 556972
+[client][message] Alloc: 1277.50 MB
+#Expanded:  204,999, #Frontier:  352,841, #Generated:  557,840, Time: 441.249 s
+[Alloc: 1279.32 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 204999
+[client][message] Generated: 557840
+[client][message] Alloc: 1279.32 MB
+#Expanded:  205,999, #Frontier:  353,096, #Generated:  559,095, Time: 443.195 s
+[Alloc: 1281.97 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 205999
+[client][message] Generated: 559095
+[client][message] Alloc: 1281.97 MB
+#Expanded:  206,999, #Frontier:  353,220, #Generated:  560,219, Time: 445.138 s
+[Alloc: 1284.55 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 206999
+[client][message] Generated: 560219
+[client][message] Alloc: 1284.55 MB
+#Expanded:  207,999, #Frontier:  353,829, #Generated:  561,828, Time: 447.654 s
+[Alloc: 1287.91 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 207999
+[client][message] Generated: 561828
+[client][message] Alloc: 1287.91 MB
+#Expanded:  208,999, #Frontier:  355,071, #Generated:  564,070, Time: 450.185 s
+[Alloc: 1292.93 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 208999
+[client][message] Generated: 564070
+[client][message] Alloc: 1292.93 MB
+#Expanded:  209,999, #Frontier:  356,733, #Generated:  566,732, Time: 452.811 s
+[Alloc: 1298.84 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 209999
+[client][message] Generated: 566732
+[client][message] Alloc: 1298.84 MB
+#Expanded:  210,999, #Frontier:  357,287, #Generated:  568,286, Time: 455.589 s
+[Alloc: 1302.28 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 210999
+[client][message] Generated: 568286
+[client][message] Alloc: 1302.28 MB
+#Expanded:  211,999, #Frontier:  357,868, #Generated:  569,867, Time: 457.862 s
+[Alloc: 1305.72 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 211999
+[client][message] Generated: 569867
+[client][message] Alloc: 1305.72 MB
+#Expanded:  212,999, #Frontier:  357,322, #Generated:  570,321, Time: 459.137 s
+[Alloc: 1306.30 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 212999
+[client][message] Generated: 570321
+[client][message] Alloc: 1306.30 MB
+#Expanded:  213,999, #Frontier:  363,494, #Generated:  577,493, Time: 461.524 s
+[Alloc: 1322.48 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 213999
+[client][message] Generated: 577493
+[client][message] Alloc: 1322.48 MB
+#Expanded:  214,999, #Frontier:  366,372, #Generated:  581,371, Time: 463.832 s
+[Alloc: 1331.04 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 214999
+[client][message] Generated: 581371
+[client][message] Alloc: 1331.04 MB
+#Expanded:  215,999, #Frontier:  367,506, #Generated:  583,505, Time: 465.741 s
+[Alloc: 1335.76 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 215999
+[client][message] Generated: 583505
+[client][message] Alloc: 1335.76 MB
+#Expanded:  216,999, #Frontier:  370,824, #Generated:  587,823, Time: 468.002 s
+[Alloc: 1345.46 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 216999
+[client][message] Generated: 587823
+[client][message] Alloc: 1345.46 MB
+#Expanded:  217,999, #Frontier:  373,140, #Generated:  591,139, Time: 470.085 s
+[Alloc: 1352.79 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 217999
+[client][message] Generated: 591139
+[client][message] Alloc: 1352.79 MB
+#Expanded:  218,999, #Frontier:  378,001, #Generated:  597,000, Time: 474.119 s
+[Alloc: 1365.88 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 218999
+[client][message] Generated: 597000
+[client][message] Alloc: 1365.88 MB
+#Expanded:  219,999, #Frontier:  379,928, #Generated:  599,927, Time: 476.341 s
+[Alloc: 1372.18 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 219999
+[client][message] Generated: 599927
+[client][message] Alloc: 1372.18 MB
+#Expanded:  220,999, #Frontier:  382,433, #Generated:  603,432, Time: 478.347 s
+[Alloc: 1380.35 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 220999
+[client][message] Generated: 603432
+[client][message] Alloc: 1380.35 MB
+#Expanded:  221,999, #Frontier:  387,407, #Generated:  609,406, Time: 481.181 s
+[Alloc: 1393.52 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 221999
+[client][message] Generated: 609406
+[client][message] Alloc: 1393.52 MB
+#Expanded:  222,999, #Frontier:  389,669, #Generated:  612,668, Time: 483.567 s
+[Alloc: 1400.71 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 222999
+[client][message] Generated: 612668
+[client][message] Alloc: 1400.71 MB
+#Expanded:  223,999, #Frontier:  391,763, #Generated:  615,762, Time: 485.685 s
+[Alloc: 1407.51 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 223999
+[client][message] Generated: 615762
+[client][message] Alloc: 1407.51 MB
+#Expanded:  224,999, #Frontier:  393,129, #Generated:  618,128, Time: 487.223 s
+[Alloc: 1412.80 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 224999
+[client][message] Generated: 618128
+[client][message] Alloc: 1412.80 MB
+#Expanded:  225,999, #Frontier:  396,576, #Generated:  622,575, Time: 489.787 s
+[Alloc: 1422.95 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 225999
+[client][message] Generated: 622575
+[client][message] Alloc: 1422.95 MB
+#Expanded:  226,999, #Frontier:  399,203, #Generated:  626,202, Time: 492.087 s
+[Alloc: 1430.82 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 226999
+[client][message] Generated: 626202
+[client][message] Alloc: 1430.82 MB
+#Expanded:  227,999, #Frontier:  401,846, #Generated:  629,845, Time: 494.562 s
+[Alloc: 1438.87 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 227999
+[client][message] Generated: 629845
+[client][message] Alloc: 1438.87 MB
+#Expanded:  228,999, #Frontier:  404,160, #Generated:  633,159, Time: 496.819 s
+[Alloc: 1446.20 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 228999
+[client][message] Generated: 633159
+[client][message] Alloc: 1446.20 MB
+#Expanded:  229,999, #Frontier:  407,472, #Generated:  637,471, Time: 499.123 s
+[Alloc: 1455.75 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 229999
+[client][message] Generated: 637471
+[client][message] Alloc: 1455.75 MB
+#Expanded:  230,999, #Frontier:  411,144, #Generated:  642,143, Time: 501.775 s
+[Alloc: 1466.47 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 230999
+[client][message] Generated: 642143
+[client][message] Alloc: 1466.47 MB
+#Expanded:  231,999, #Frontier:  413,653, #Generated:  645,652, Time: 504.314 s
+[Alloc: 1474.07 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 231999
+[client][message] Generated: 645652
+[client][message] Alloc: 1474.07 MB
+#Expanded:  232,999, #Frontier:  416,806, #Generated:  649,805, Time: 506.931 s
+[Alloc: 1483.32 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 232999
+[client][message] Generated: 649805
+[client][message] Alloc: 1483.32 MB
+#Expanded:  233,999, #Frontier:  418,400, #Generated:  652,399, Time: 509.069 s
+[Alloc: 1489.00 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 233999
+[client][message] Generated: 652399
+[client][message] Alloc: 1489.00 MB
+#Expanded:  234,999, #Frontier:  420,334, #Generated:  655,333, Time: 511.518 s
+[Alloc: 1495.58 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 234999
+[client][message] Generated: 655333
+[client][message] Alloc: 1495.58 MB
+#Expanded:  235,999, #Frontier:  422,310, #Generated:  658,309, Time: 513.804 s
+[Alloc: 1502.03 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 235999
+[client][message] Generated: 658309
+[client][message] Alloc: 1502.03 MB
+#Expanded:  236,999, #Frontier:  426,235, #Generated:  663,234, Time: 516.451 s
+[Alloc: 1513.00 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 236999
+[client][message] Generated: 663234
+[client][message] Alloc: 1513.00 MB
+#Expanded:  237,999, #Frontier:  428,704, #Generated:  666,703, Time: 518.617 s
+[Alloc: 1520.71 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 237999
+[client][message] Generated: 666703
+[client][message] Alloc: 1520.71 MB
+#Expanded:  238,999, #Frontier:  429,794, #Generated:  668,793, Time: 520.588 s
+[Alloc: 1525.45 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 238999
+[client][message] Generated: 668793
+[client][message] Alloc: 1525.45 MB
+#Expanded:  239,999, #Frontier:  430,527, #Generated:  670,526, Time: 522.726 s
+[Alloc: 1529.19 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 239999
+[client][message] Generated: 670526
+[client][message] Alloc: 1529.19 MB
+#Expanded:  240,999, #Frontier:  430,835, #Generated:  671,834, Time: 524.805 s
+[Alloc: 1531.93 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 240999
+[client][message] Generated: 671834
+[client][message] Alloc: 1531.93 MB
+#Expanded:  241,999, #Frontier:  432,401, #Generated:  674,400, Time: 527.020 s
+[Alloc: 1537.69 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 241999
+[client][message] Generated: 674400
+[client][message] Alloc: 1537.69 MB
+#Expanded:  242,999, #Frontier:  433,524, #Generated:  676,523, Time: 528.941 s
+[Alloc: 1542.50 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 242999
+[client][message] Generated: 676523
+[client][message] Alloc: 1542.50 MB
+#Expanded:  243,999, #Frontier:  434,711, #Generated:  678,710, Time: 533.150 s
+[Alloc: 1547.45 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 243999
+[client][message] Generated: 678710
+[client][message] Alloc: 1547.45 MB
+#Expanded:  244,999, #Frontier:  434,959, #Generated:  679,958, Time: 535.269 s
+[Alloc: 1550.05 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 244999
+[client][message] Generated: 679958
+[client][message] Alloc: 1550.05 MB
+#Expanded:  245,999, #Frontier:  436,274, #Generated:  682,273, Time: 537.521 s
+[Alloc: 1554.95 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 245999
+[client][message] Generated: 682273
+[client][message] Alloc: 1554.95 MB
+#Expanded:  246,999, #Frontier:  437,459, #Generated:  684,458, Time: 539.623 s
+[Alloc: 1559.88 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 246999
+[client][message] Generated: 684458
+[client][message] Alloc: 1559.88 MB
+#Expanded:  247,999, #Frontier:  440,557, #Generated:  688,556, Time: 541.846 s
+[Alloc: 1568.89 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 247999
+[client][message] Generated: 688556
+[client][message] Alloc: 1568.89 MB
+#Expanded:  248,999, #Frontier:  442,781, #Generated:  691,780, Time: 543.986 s
+[Alloc: 1576.09 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 248999
+[client][message] Generated: 691780
+[client][message] Alloc: 1576.09 MB
+#Expanded:  249,999, #Frontier:  445,145, #Generated:  695,144, Time: 546.272 s
+[Alloc: 1583.51 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 249999
+[client][message] Generated: 695144
+[client][message] Alloc: 1583.51 MB
+#Expanded:  250,999, #Frontier:  447,268, #Generated:  698,267, Time: 548.828 s
+[Alloc: 1590.54 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 250999
+[client][message] Generated: 698267
+[client][message] Alloc: 1590.54 MB
+#Expanded:  251,999, #Frontier:  447,751, #Generated:  699,750, Time: 550.819 s
+[Alloc: 1593.70 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 251999
+[client][message] Generated: 699750
+[client][message] Alloc: 1593.70 MB
+#Expanded:  252,999, #Frontier:  446,937, #Generated:  699,936, Time: 552.544 s
+[Alloc: 1594.25 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 252999
+[client][message] Generated: 699936
+[client][message] Alloc: 1594.25 MB
+#Expanded:  253,999, #Frontier:  449,073, #Generated:  703,072, Time: 555.081 s
+[Alloc: 1600.93 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 253999
+[client][message] Generated: 703072
+[client][message] Alloc: 1600.93 MB
+#Expanded:  254,999, #Frontier:  451,656, #Generated:  706,655, Time: 557.206 s
+[Alloc: 1608.91 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 254999
+[client][message] Generated: 706655
+[client][message] Alloc: 1608.91 MB
+#Expanded:  255,999, #Frontier:  454,854, #Generated:  710,853, Time: 559.524 s
+[Alloc: 1618.30 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 255999
+[client][message] Generated: 710853
+[client][message] Alloc: 1618.30 MB
+#Expanded:  256,999, #Frontier:  457,385, #Generated:  714,384, Time: 561.744 s
+[Alloc: 1626.20 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 256999
+[client][message] Generated: 714384
+[client][message] Alloc: 1626.20 MB
+#Expanded:  257,999, #Frontier:  460,375, #Generated:  718,374, Time: 564.047 s
+[Alloc: 1635.29 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 257999
+[client][message] Generated: 718374
+[client][message] Alloc: 1635.29 MB
+#Expanded:  258,999, #Frontier:  461,259, #Generated:  720,258, Time: 566.118 s
+[Alloc: 1639.18 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 258999
+[client][message] Generated: 720258
+[client][message] Alloc: 1639.18 MB
+#Expanded:  259,999, #Frontier:  463,200, #Generated:  723,199, Time: 568.115 s
+[Alloc: 1645.63 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 259999
+[client][message] Generated: 723199
+[client][message] Alloc: 1645.63 MB
+#Expanded:  260,999, #Frontier:  464,729, #Generated:  725,728, Time: 570.074 s
+[Alloc: 1651.21 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 260999
+[client][message] Generated: 725728
+[client][message] Alloc: 1651.21 MB
+#Expanded:  261,999, #Frontier:  466,904, #Generated:  728,903, Time: 572.127 s
+[Alloc: 1658.30 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 261999
+[client][message] Generated: 728903
+[client][message] Alloc: 1658.30 MB
+#Expanded:  262,999, #Frontier:  469,117, #Generated:  732,116, Time: 574.030 s
+[Alloc: 1665.31 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 262999
+[client][message] Generated: 732116
+[client][message] Alloc: 1665.31 MB
+#Expanded:  263,999, #Frontier:  471,173, #Generated:  735,172, Time: 575.884 s
+[Alloc: 1672.24 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 263999
+[client][message] Generated: 735172
+[client][message] Alloc: 1672.24 MB
+#Expanded:  264,999, #Frontier:  472,807, #Generated:  737,806, Time: 577.911 s
+[Alloc: 1678.19 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 264999
+[client][message] Generated: 737806
+[client][message] Alloc: 1678.19 MB
+#Expanded:  265,999, #Frontier:  474,062, #Generated:  740,061, Time: 579.977 s
+[Alloc: 1683.09 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 265999
+[client][message] Generated: 740061
+[client][message] Alloc: 1683.09 MB
+#Expanded:  266,999, #Frontier:  474,163, #Generated:  741,162, Time: 581.992 s
+[Alloc: 1685.48 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 266999
+[client][message] Generated: 741162
+[client][message] Alloc: 1685.48 MB
+#Expanded:  267,999, #Frontier:  475,982, #Generated:  743,981, Time: 583.951 s
+[Alloc: 1691.57 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 267999
+[client][message] Generated: 743981
+[client][message] Alloc: 1691.57 MB
+#Expanded:  268,999, #Frontier:  478,078, #Generated:  747,077, Time: 586.066 s
+[Alloc: 1698.50 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 268999
+[client][message] Generated: 747077
+[client][message] Alloc: 1698.50 MB
+#Expanded:  269,999, #Frontier:  480,407, #Generated:  750,406, Time: 587.957 s
+[Alloc: 1705.90 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 269999
+[client][message] Generated: 750406
+[client][message] Alloc: 1705.90 MB
+#Expanded:  270,999, #Frontier:  482,448, #Generated:  753,447, Time: 590.117 s
+[Alloc: 1712.71 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 270999
+[client][message] Generated: 753447
+[client][message] Alloc: 1712.71 MB
+#Expanded:  271,999, #Frontier:  483,546, #Generated:  755,545, Time: 592.217 s
+[Alloc: 1717.42 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 271999
+[client][message] Generated: 755545
+[client][message] Alloc: 1717.42 MB
+#Expanded:  272,999, #Frontier:  483,835, #Generated:  756,834, Time: 594.270 s
+[Alloc: 1720.14 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 272999
+[client][message] Generated: 756834
+[client][message] Alloc: 1720.14 MB
+#Expanded:  273,999, #Frontier:  484,550, #Generated:  758,549, Time: 596.485 s
+[Alloc: 1723.98 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 273999
+[client][message] Generated: 758549
+[client][message] Alloc: 1723.98 MB
+#Expanded:  274,999, #Frontier:  484,650, #Generated:  759,649, Time: 598.524 s
+[Alloc: 1726.08 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 274999
+[client][message] Generated: 759649
+[client][message] Alloc: 1726.08 MB
+[client][info] Client timed out.
+[client][info] Forcibly terminating client process.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\Warmup\temp3\MAhosp4.lvl
+SearchClient initializing. I am sending this using the error output stream.
+[client][message] This is a comment.
+Starting best-first search using greedy evaluation.
+[DEBUG] has_boxes=True, has_multiple_agents=True
+#Expanded:      999, #Frontier:    5,988, #Generated:    6,987, Time: 2.570 s
+[Alloc: 37.12 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 999
+[client][message] Generated: 6987
+[client][message] Alloc: 37.12 MB
+#Expanded:    1,999, #Frontier:   10,381, #Generated:   12,380, Time: 5.069 s
+[Alloc: 49.31 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 1999
+[client][message] Generated: 12380
+[client][message] Alloc: 49.31 MB
+#Expanded:    2,999, #Frontier:   13,656, #Generated:   16,655, Time: 7.297 s
+[Alloc: 58.76 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 2999
+[client][message] Generated: 16655
+[client][message] Alloc: 58.76 MB
+#Expanded:    3,999, #Frontier:   15,754, #Generated:   19,753, Time: 9.403 s
+[Alloc: 65.70 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 3999
+[client][message] Generated: 19753
+[client][message] Alloc: 65.70 MB
+#Expanded:    4,999, #Frontier:   18,716, #Generated:   23,715, Time: 11.642 s
+[Alloc: 76.29 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 4999
+[client][message] Generated: 23715
+[client][message] Alloc: 76.29 MB
+#Expanded:    5,999, #Frontier:   21,880, #Generated:   27,879, Time: 13.937 s
+[Alloc: 85.58 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 5999
+[client][message] Generated: 27879
+[client][message] Alloc: 85.58 MB
+#Expanded:    6,999, #Frontier:   25,852, #Generated:   32,851, Time: 16.369 s
+[Alloc: 96.69 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 6999
+[client][message] Generated: 32851
+[client][message] Alloc: 96.69 MB
+#Expanded:    7,999, #Frontier:   31,568, #Generated:   39,567, Time: 19.033 s
+[Alloc: 111.96 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 7999
+[client][message] Generated: 39567
+[client][message] Alloc: 111.96 MB
+#Expanded:    8,999, #Frontier:   36,282, #Generated:   45,281, Time: 21.695 s
+[Alloc: 124.62 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 8999
+[client][message] Generated: 45281
+[client][message] Alloc: 124.62 MB
+#Expanded:    9,999, #Frontier:   41,107, #Generated:   51,106, Time: 24.373 s
+[Alloc: 137.67 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 9999
+[client][message] Generated: 51106
+[client][message] Alloc: 137.67 MB
+#Expanded:   10,999, #Frontier:   46,098, #Generated:   57,097, Time: 27.091 s
+[Alloc: 151.04 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 10999
+[client][message] Generated: 57097
+[client][message] Alloc: 151.04 MB
+#Expanded:   11,999, #Frontier:   50,177, #Generated:   62,176, Time: 29.534 s
+[Alloc: 162.46 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 11999
+[client][message] Generated: 62176
+[client][message] Alloc: 162.46 MB
+#Expanded:   12,999, #Frontier:   53,452, #Generated:   66,451, Time: 32.028 s
+[Alloc: 171.90 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 12999
+[client][message] Generated: 66451
+[client][message] Alloc: 171.90 MB
+#Expanded:   13,999, #Frontier:   57,876, #Generated:   71,875, Time: 34.617 s
+[Alloc: 184.13 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 13999
+[client][message] Generated: 71875
+[client][message] Alloc: 184.13 MB
+#Expanded:   14,999, #Frontier:   60,029, #Generated:   75,028, Time: 36.924 s
+[Alloc: 191.04 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 14999
+[client][message] Generated: 75028
+[client][message] Alloc: 191.04 MB
+#Expanded:   15,999, #Frontier:   62,588, #Generated:   78,587, Time: 39.410 s
+[Alloc: 198.94 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 15999
+[client][message] Generated: 78587
+[client][message] Alloc: 198.94 MB
+#Expanded:   16,999, #Frontier:   66,584, #Generated:   83,583, Time: 42.172 s
+[Alloc: 210.11 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 16999
+[client][message] Generated: 83583
+[client][message] Alloc: 210.11 MB
+#Expanded:   17,999, #Frontier:   69,245, #Generated:   87,244, Time: 44.889 s
+[Alloc: 218.27 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 17999
+[client][message] Generated: 87244
+[client][message] Alloc: 218.27 MB
+#Expanded:   18,999, #Frontier:   73,149, #Generated:   92,148, Time: 47.642 s
+[Alloc: 231.20 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 18999
+[client][message] Generated: 92148
+[client][message] Alloc: 231.20 MB
+#Expanded:   19,999, #Frontier:   75,996, #Generated:   95,995, Time: 49.784 s
+[Alloc: 240.89 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 19999
+[client][message] Generated: 95995
+[client][message] Alloc: 240.89 MB
+#Expanded:   20,999, #Frontier:   79,153, #Generated:  100,152, Time: 52.766 s
+[Alloc: 250.80 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 20999
+[client][message] Generated: 100152
+[client][message] Alloc: 250.80 MB
+#Expanded:   21,999, #Frontier:   82,088, #Generated:  104,087, Time: 55.504 s
+[Alloc: 259.64 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 21999
+[client][message] Generated: 104087
+[client][message] Alloc: 259.64 MB
+#Expanded:   22,999, #Frontier:   84,576, #Generated:  107,575, Time: 57.719 s
+[Alloc: 267.39 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 22999
+[client][message] Generated: 107575
+[client][message] Alloc: 267.39 MB
+#Expanded:   23,999, #Frontier:   85,656, #Generated:  109,655, Time: 60.320 s
+[Alloc: 271.86 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 23999
+[client][message] Generated: 109655
+[client][message] Alloc: 271.86 MB
+#Expanded:   24,999, #Frontier:   86,452, #Generated:  111,451, Time: 62.561 s
+[Alloc: 275.71 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 24999
+[client][message] Generated: 111451
+[client][message] Alloc: 275.71 MB
+#Expanded:   25,999, #Frontier:   87,387, #Generated:  113,386, Time: 64.826 s
+[Alloc: 280.12 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 25999
+[client][message] Generated: 113386
+[client][message] Alloc: 280.12 MB
+#Expanded:   26,999, #Frontier:   92,520, #Generated:  119,519, Time: 68.086 s
+[Alloc: 293.14 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 26999
+[client][message] Generated: 119519
+[client][message] Alloc: 293.14 MB
+#Expanded:   27,999, #Frontier:   96,845, #Generated:  124,844, Time: 71.501 s
+[Alloc: 304.93 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 27999
+[client][message] Generated: 124844
+[client][message] Alloc: 304.93 MB
+#Expanded:   28,999, #Frontier:   99,442, #Generated:  128,441, Time: 74.300 s
+[Alloc: 312.84 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 28999
+[client][message] Generated: 128441
+[client][message] Alloc: 312.84 MB
+#Expanded:   29,999, #Frontier:  100,043, #Generated:  130,042, Time: 76.749 s
+[Alloc: 316.70 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 29999
+[client][message] Generated: 130042
+[client][message] Alloc: 316.70 MB
+#Expanded:   30,999, #Frontier:  102,302, #Generated:  133,301, Time: 79.540 s
+[Alloc: 324.41 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 30999
+[client][message] Generated: 133301
+[client][message] Alloc: 324.41 MB
+#Expanded:   31,999, #Frontier:  103,443, #Generated:  135,442, Time: 81.665 s
+[Alloc: 329.21 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 31999
+[client][message] Generated: 135442
+[client][message] Alloc: 329.21 MB
+#Expanded:   32,999, #Frontier:  108,869, #Generated:  141,868, Time: 84.965 s
+[Alloc: 343.62 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 32999
+[client][message] Generated: 141868
+[client][message] Alloc: 343.62 MB
+#Expanded:   33,999, #Frontier:  112,170, #Generated:  146,169, Time: 88.051 s
+[Alloc: 353.26 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 33999
+[client][message] Generated: 146169
+[client][message] Alloc: 353.26 MB
+#Expanded:   34,999, #Frontier:  115,827, #Generated:  150,826, Time: 91.483 s
+[Alloc: 363.62 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 34999
+[client][message] Generated: 150826
+[client][message] Alloc: 363.62 MB
+#Expanded:   35,999, #Frontier:  118,425, #Generated:  154,424, Time: 94.353 s
+[Alloc: 371.87 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 35999
+[client][message] Generated: 154424
+[client][message] Alloc: 371.87 MB
+#Expanded:   36,999, #Frontier:  119,754, #Generated:  156,753, Time: 96.713 s
+[Alloc: 376.81 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 36999
+[client][message] Generated: 156753
+[client][message] Alloc: 376.81 MB
+#Expanded:   37,999, #Frontier:  121,196, #Generated:  159,195, Time: 99.029 s
+[Alloc: 381.98 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 37999
+[client][message] Generated: 159195
+[client][message] Alloc: 381.98 MB
+#Expanded:   38,999, #Frontier:  121,032, #Generated:  160,031, Time: 100.728 s
+[Alloc: 384.00 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 38999
+[client][message] Generated: 160031
+[client][message] Alloc: 384.00 MB
+#Expanded:   39,999, #Frontier:  126,959, #Generated:  166,958, Time: 104.451 s
+[Alloc: 399.41 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 39999
+[client][message] Generated: 166958
+[client][message] Alloc: 399.41 MB
+#Expanded:   40,999, #Frontier:  129,880, #Generated:  170,879, Time: 107.554 s
+[Alloc: 408.27 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 40999
+[client][message] Generated: 170879
+[client][message] Alloc: 408.27 MB
+#Expanded:   41,999, #Frontier:  133,316, #Generated:  175,315, Time: 110.661 s
+[Alloc: 418.08 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 41999
+[client][message] Generated: 175315
+[client][message] Alloc: 418.08 MB
+#Expanded:   42,999, #Frontier:  135,434, #Generated:  178,433, Time: 113.510 s
+[Alloc: 425.11 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 42999
+[client][message] Generated: 178433
+[client][message] Alloc: 425.11 MB
+#Expanded:   43,999, #Frontier:  138,772, #Generated:  182,771, Time: 116.307 s
+[Alloc: 434.74 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 43999
+[client][message] Generated: 182771
+[client][message] Alloc: 434.74 MB
+#Expanded:   44,999, #Frontier:  140,023, #Generated:  185,022, Time: 119.640 s
+[Alloc: 443.58 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 44999
+[client][message] Generated: 185022
+[client][message] Alloc: 443.58 MB
+#Expanded:   45,999, #Frontier:  142,815, #Generated:  188,814, Time: 122.174 s
+[Alloc: 451.91 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 45999
+[client][message] Generated: 188814
+[client][message] Alloc: 451.91 MB
+#Expanded:   46,999, #Frontier:  142,395, #Generated:  189,394, Time: 123.317 s
+[Alloc: 453.07 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 46999
+[client][message] Generated: 189394
+[client][message] Alloc: 453.07 MB
+#Expanded:   47,999, #Frontier:  141,463, #Generated:  189,462, Time: 124.284 s
+[Alloc: 453.21 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 47999
+[client][message] Generated: 189462
+[client][message] Alloc: 453.21 MB
+#Expanded:   48,999, #Frontier:  145,275, #Generated:  194,274, Time: 127.020 s
+[Alloc: 464.02 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 48999
+[client][message] Generated: 194274
+[client][message] Alloc: 464.02 MB
+#Expanded:   49,999, #Frontier:  148,448, #Generated:  198,447, Time: 130.226 s
+[Alloc: 473.22 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 49999
+[client][message] Generated: 198447
+[client][message] Alloc: 473.22 MB
+#Expanded:   50,999, #Frontier:  151,699, #Generated:  202,698, Time: 133.397 s
+[Alloc: 482.70 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 50999
+[client][message] Generated: 202698
+[client][message] Alloc: 482.70 MB
+#Expanded:   51,999, #Frontier:  153,088, #Generated:  205,087, Time: 136.324 s
+[Alloc: 488.03 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 51999
+[client][message] Generated: 205087
+[client][message] Alloc: 488.03 MB
+#Expanded:   52,999, #Frontier:  154,871, #Generated:  207,870, Time: 138.976 s
+[Alloc: 494.11 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 52999
+[client][message] Generated: 207870
+[client][message] Alloc: 494.11 MB
+#Expanded:   53,999, #Frontier:  157,021, #Generated:  211,020, Time: 142.193 s
+[Alloc: 501.20 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 53999
+[client][message] Generated: 211020
+[client][message] Alloc: 501.20 MB
+#Expanded:   54,999, #Frontier:  159,276, #Generated:  214,275, Time: 144.579 s
+[Alloc: 508.34 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 54999
+[client][message] Generated: 214275
+[client][message] Alloc: 508.34 MB
+#Expanded:   55,999, #Frontier:  160,438, #Generated:  216,437, Time: 147.234 s
+[Alloc: 513.18 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 55999
+[client][message] Generated: 216437
+[client][message] Alloc: 513.18 MB
+#Expanded:   56,999, #Frontier:  161,898, #Generated:  218,897, Time: 149.359 s
+[Alloc: 518.54 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 56999
+[client][message] Generated: 218897
+[client][message] Alloc: 518.54 MB
+#Expanded:   57,999, #Frontier:  163,607, #Generated:  221,606, Time: 151.487 s
+[Alloc: 524.56 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 57999
+[client][message] Generated: 221606
+[client][message] Alloc: 524.56 MB
+#Expanded:   58,999, #Frontier:  165,725, #Generated:  224,724, Time: 153.556 s
+[Alloc: 531.53 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 58999
+[client][message] Generated: 224724
+[client][message] Alloc: 531.53 MB
+#Expanded:   59,999, #Frontier:  167,411, #Generated:  227,410, Time: 157.004 s
+[Alloc: 537.43 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 59999
+[client][message] Generated: 227410
+[client][message] Alloc: 537.43 MB
+#Expanded:   60,999, #Frontier:  168,840, #Generated:  229,839, Time: 159.550 s
+[Alloc: 542.85 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 60999
+[client][message] Generated: 229839
+[client][message] Alloc: 542.85 MB
+#Expanded:   61,999, #Frontier:  170,679, #Generated:  232,678, Time: 162.311 s
+[Alloc: 549.12 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 61999
+[client][message] Generated: 232678
+[client][message] Alloc: 549.13 MB
+#Expanded:   62,999, #Frontier:  171,717, #Generated:  234,716, Time: 164.697 s
+[Alloc: 553.54 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 62999
+[client][message] Generated: 234716
+[client][message] Alloc: 553.54 MB
+#Expanded:   63,999, #Frontier:  173,377, #Generated:  237,376, Time: 167.170 s
+[Alloc: 559.59 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 63999
+[client][message] Generated: 237376
+[client][message] Alloc: 559.59 MB
+#Expanded:   64,999, #Frontier:  173,791, #Generated:  238,790, Time: 169.358 s
+[Alloc: 562.63 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 64999
+[client][message] Generated: 238790
+[client][message] Alloc: 562.63 MB
+#Expanded:   65,999, #Frontier:  173,861, #Generated:  239,860, Time: 171.544 s
+[Alloc: 564.79 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 65999
+[client][message] Generated: 239860
+[client][message] Alloc: 564.79 MB
+#Expanded:   66,999, #Frontier:  176,620, #Generated:  243,619, Time: 173.965 s
+[Alloc: 573.13 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 66999
+[client][message] Generated: 243619
+[client][message] Alloc: 573.13 MB
+#Expanded:   67,999, #Frontier:  177,348, #Generated:  245,347, Time: 175.847 s
+[Alloc: 576.95 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 67999
+[client][message] Generated: 245347
+[client][message] Alloc: 576.95 MB
+#Expanded:   68,999, #Frontier:  180,063, #Generated:  249,062, Time: 178.871 s
+[Alloc: 585.18 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 68999
+[client][message] Generated: 249062
+[client][message] Alloc: 585.18 MB
+#Expanded:   69,999, #Frontier:  181,793, #Generated:  251,792, Time: 180.765 s
+[Alloc: 591.38 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 69999
+[client][message] Generated: 251792
+[client][message] Alloc: 591.38 MB
+#Expanded:   70,999, #Frontier:  183,725, #Generated:  254,724, Time: 183.507 s
+[Alloc: 597.77 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 70999
+[client][message] Generated: 254724
+[client][message] Alloc: 597.77 MB
+#Expanded:   71,999, #Frontier:  184,721, #Generated:  256,720, Time: 185.874 s
+[Alloc: 602.24 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 71999
+[client][message] Generated: 256720
+[client][message] Alloc: 602.24 MB
+#Expanded:   72,999, #Frontier:  184,901, #Generated:  257,900, Time: 187.635 s
+[Alloc: 604.62 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 72999
+[client][message] Generated: 257900
+[client][message] Alloc: 604.62 MB
+#Expanded:   73,999, #Frontier:  184,601, #Generated:  258,600, Time: 189.061 s
+[Alloc: 606.32 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 73999
+[client][message] Generated: 258600
+[client][message] Alloc: 606.32 MB
+#Expanded:   74,999, #Frontier:  184,931, #Generated:  259,930, Time: 190.959 s
+[Alloc: 609.11 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 74999
+[client][message] Generated: 259930
+[client][message] Alloc: 609.11 MB
+#Expanded:   75,999, #Frontier:  184,384, #Generated:  260,383, Time: 192.471 s
+[Alloc: 610.21 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 75999
+[client][message] Generated: 260383
+[client][message] Alloc: 610.21 MB
+#Expanded:   76,999, #Frontier:  187,014, #Generated:  264,013, Time: 194.735 s
+[Alloc: 618.00 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 76999
+[client][message] Generated: 264013
+[client][message] Alloc: 618.00 MB
+#Expanded:   77,999, #Frontier:  187,640, #Generated:  265,639, Time: 196.390 s
+[Alloc: 621.57 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 77999
+[client][message] Generated: 265639
+[client][message] Alloc: 621.57 MB
+#Expanded:   78,999, #Frontier:  190,399, #Generated:  269,398, Time: 198.694 s
+[Alloc: 631.94 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 78999
+[client][message] Generated: 269398
+[client][message] Alloc: 631.94 MB
+#Expanded:   79,999, #Frontier:  193,835, #Generated:  273,834, Time: 201.024 s
+[Alloc: 641.95 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 79999
+[client][message] Generated: 273834
+[client][message] Alloc: 641.95 MB
+#Expanded:   80,999, #Frontier:  197,899, #Generated:  278,898, Time: 204.259 s
+[Alloc: 653.19 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 80999
+[client][message] Generated: 278898
+[client][message] Alloc: 653.19 MB
+#Expanded:   81,999, #Frontier:  200,603, #Generated:  282,602, Time: 207.726 s
+[Alloc: 661.40 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 81999
+[client][message] Generated: 282602
+[client][message] Alloc: 661.40 MB
+#Expanded:   82,999, #Frontier:  202,785, #Generated:  285,784, Time: 209.993 s
+[Alloc: 668.62 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 82999
+[client][message] Generated: 285784
+[client][message] Alloc: 668.62 MB
+#Expanded:   83,999, #Frontier:  205,545, #Generated:  289,544, Time: 212.349 s
+[Alloc: 676.73 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 83999
+[client][message] Generated: 289544
+[client][message] Alloc: 676.73 MB
+#Expanded:   84,999, #Frontier:  207,109, #Generated:  292,108, Time: 214.319 s
+[Alloc: 682.35 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 84999
+[client][message] Generated: 292108
+[client][message] Alloc: 682.35 MB
+#Expanded:   85,999, #Frontier:  210,102, #Generated:  296,101, Time: 216.651 s
+[Alloc: 691.23 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 85999
+[client][message] Generated: 296101
+[client][message] Alloc: 691.23 MB
+#Expanded:   86,999, #Frontier:  212,416, #Generated:  299,415, Time: 218.672 s
+[Alloc: 698.87 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 86999
+[client][message] Generated: 299415
+[client][message] Alloc: 698.87 MB
+#Expanded:   87,999, #Frontier:  216,210, #Generated:  304,209, Time: 221.762 s
+[Alloc: 709.40 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 87999
+[client][message] Generated: 304209
+[client][message] Alloc: 709.40 MB
+#Expanded:   88,999, #Frontier:  218,378, #Generated:  307,377, Time: 224.641 s
+[Alloc: 716.40 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 88999
+[client][message] Generated: 307377
+[client][message] Alloc: 716.40 MB
+#Expanded:   89,999, #Frontier:  220,548, #Generated:  310,547, Time: 227.336 s
+[Alloc: 723.38 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 89999
+[client][message] Generated: 310547
+[client][message] Alloc: 723.38 MB
+#Expanded:   90,999, #Frontier:  222,058, #Generated:  313,057, Time: 230.263 s
+[Alloc: 728.88 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 90999
+[client][message] Generated: 313057
+[client][message] Alloc: 728.88 MB
+#Expanded:   91,999, #Frontier:  223,170, #Generated:  315,169, Time: 232.296 s
+[Alloc: 733.66 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 91999
+[client][message] Generated: 315169
+[client][message] Alloc: 733.66 MB
+#Expanded:   92,999, #Frontier:  225,596, #Generated:  318,595, Time: 234.461 s
+[Alloc: 741.22 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 92999
+[client][message] Generated: 318595
+[client][message] Alloc: 741.22 MB
+#Expanded:   93,999, #Frontier:  227,428, #Generated:  321,427, Time: 236.593 s
+[Alloc: 747.43 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 93999
+[client][message] Generated: 321427
+[client][message] Alloc: 747.43 MB
+#Expanded:   94,999, #Frontier:  230,297, #Generated:  325,296, Time: 238.879 s
+[Alloc: 756.12 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 94999
+[client][message] Generated: 325296
+[client][message] Alloc: 756.12 MB
+#Expanded:   95,999, #Frontier:  231,953, #Generated:  327,952, Time: 240.898 s
+[Alloc: 761.95 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 95999
+[client][message] Generated: 327952
+[client][message] Alloc: 761.95 MB
+#Expanded:   96,999, #Frontier:  233,989, #Generated:  330,988, Time: 243.516 s
+[Alloc: 768.92 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 96999
+[client][message] Generated: 330988
+[client][message] Alloc: 768.92 MB
+#Expanded:   97,999, #Frontier:  234,733, #Generated:  332,732, Time: 246.260 s
+[Alloc: 772.72 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 97999
+[client][message] Generated: 332732
+[client][message] Alloc: 772.72 MB
+#Expanded:   98,999, #Frontier:  235,233, #Generated:  334,232, Time: 248.916 s
+[Alloc: 776.01 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 98999
+[client][message] Generated: 334232
+[client][message] Alloc: 776.01 MB
+#Expanded:   99,999, #Frontier:  235,789, #Generated:  335,788, Time: 251.151 s
+[Alloc: 779.27 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 99999
+[client][message] Generated: 335788
+[client][message] Alloc: 779.27 MB
+#Expanded:  100,999, #Frontier:  236,176, #Generated:  337,175, Time: 253.156 s
+[Alloc: 782.30 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 100999
+[client][message] Generated: 337175
+[client][message] Alloc: 782.30 MB
+#Expanded:  101,999, #Frontier:  236,324, #Generated:  338,323, Time: 255.028 s
+[Alloc: 784.73 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 101999
+[client][message] Generated: 338323
+[client][message] Alloc: 784.73 MB
+#Expanded:  102,999, #Frontier:  235,607, #Generated:  338,606, Time: 256.556 s
+[Alloc: 785.34 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 102999
+[client][message] Generated: 338606
+[client][message] Alloc: 785.34 MB
+#Expanded:  103,999, #Frontier:  234,735, #Generated:  338,734, Time: 257.863 s
+[Alloc: 785.55 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 103999
+[client][message] Generated: 338734
+[client][message] Alloc: 785.55 MB
+#Expanded:  104,999, #Frontier:  234,110, #Generated:  339,109, Time: 259.257 s
+[Alloc: 786.38 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 104999
+[client][message] Generated: 339109
+[client][message] Alloc: 786.38 MB
+#Expanded:  105,999, #Frontier:  233,205, #Generated:  339,204, Time: 260.668 s
+[Alloc: 786.38 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 105999
+[client][message] Generated: 339204
+[client][message] Alloc: 786.38 MB
+#Expanded:  106,999, #Frontier:  234,443, #Generated:  341,442, Time: 262.840 s
+[Alloc: 791.29 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 106999
+[client][message] Generated: 341442
+[client][message] Alloc: 791.29 MB
+#Expanded:  107,999, #Frontier:  234,313, #Generated:  342,312, Time: 264.348 s
+[Alloc: 793.33 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 107999
+[client][message] Generated: 342312
+[client][message] Alloc: 793.33 MB
+#Expanded:  108,999, #Frontier:  234,662, #Generated:  343,661, Time: 266.286 s
+[Alloc: 796.10 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 108999
+[client][message] Generated: 343661
+[client][message] Alloc: 796.10 MB
+#Expanded:  109,999, #Frontier:  234,665, #Generated:  344,664, Time: 267.713 s
+[Alloc: 798.27 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 109999
+[client][message] Generated: 344664
+[client][message] Alloc: 798.27 MB
+#Expanded:  110,999, #Frontier:  234,608, #Generated:  345,607, Time: 268.981 s
+[Alloc: 800.20 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 110999
+[client][message] Generated: 345607
+[client][message] Alloc: 800.20 MB
+#Expanded:  111,999, #Frontier:  233,815, #Generated:  345,814, Time: 271.499 s
+[Alloc: 800.59 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 111999
+[client][message] Generated: 345814
+[client][message] Alloc: 800.59 MB
+#Expanded:  112,999, #Frontier:  232,881, #Generated:  345,880, Time: 272.592 s
+[Alloc: 800.66 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 112999
+[client][message] Generated: 345880
+[client][message] Alloc: 800.66 MB
+#Expanded:  113,999, #Frontier:  233,883, #Generated:  347,882, Time: 274.626 s
+[Alloc: 805.16 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 113999
+[client][message] Generated: 347882
+[client][message] Alloc: 805.16 MB
+#Expanded:  114,999, #Frontier:  234,654, #Generated:  349,653, Time: 276.958 s
+[Alloc: 808.97 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 114999
+[client][message] Generated: 349653
+[client][message] Alloc: 808.97 MB
+#Expanded:  115,999, #Frontier:  235,677, #Generated:  351,676, Time: 279.197 s
+[Alloc: 813.42 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 115999
+[client][message] Generated: 351676
+[client][message] Alloc: 813.42 MB
+#Expanded:  116,999, #Frontier:  236,684, #Generated:  353,683, Time: 281.681 s
+[Alloc: 817.88 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 116999
+[client][message] Generated: 353683
+[client][message] Alloc: 817.88 MB
+#Expanded:  117,999, #Frontier:  237,087, #Generated:  355,086, Time: 283.758 s
+[Alloc: 820.80 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 117999
+[client][message] Generated: 355086
+[client][message] Alloc: 820.80 MB
+#Expanded:  118,999, #Frontier:  237,960, #Generated:  356,959, Time: 286.277 s
+[Alloc: 824.86 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 118999
+[client][message] Generated: 356959
+[client][message] Alloc: 824.86 MB
+#Expanded:  119,999, #Frontier:  237,995, #Generated:  357,994, Time: 288.317 s
+[Alloc: 827.21 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 119999
+[client][message] Generated: 357994
+[client][message] Alloc: 827.21 MB
+#Expanded:  120,999, #Frontier:  238,033, #Generated:  359,032, Time: 290.422 s
+[Alloc: 829.46 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 120999
+[client][message] Generated: 359032
+[client][message] Alloc: 829.46 MB
+#Expanded:  121,999, #Frontier:  239,367, #Generated:  361,366, Time: 293.178 s
+[Alloc: 834.50 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 121999
+[client][message] Generated: 361366
+[client][message] Alloc: 834.50 MB
+#Expanded:  122,999, #Frontier:  239,520, #Generated:  362,519, Time: 295.315 s
+[Alloc: 836.99 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 122999
+[client][message] Generated: 362519
+[client][message] Alloc: 836.99 MB
+#Expanded:  123,999, #Frontier:  239,576, #Generated:  363,575, Time: 297.567 s
+[Alloc: 839.30 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 123999
+[client][message] Generated: 363575
+[client][message] Alloc: 839.30 MB
+#Expanded:  124,999, #Frontier:  239,714, #Generated:  364,713, Time: 299.732 s
+[Alloc: 841.77 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 124999
+[client][message] Generated: 364713
+[client][message] Alloc: 841.77 MB
+#Expanded:  125,999, #Frontier:  239,495, #Generated:  365,494, Time: 301.821 s
+[Alloc: 843.62 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 125999
+[client][message] Generated: 365494
+[client][message] Alloc: 843.62 MB
+#Expanded:  126,999, #Frontier:  240,745, #Generated:  367,744, Time: 304.461 s
+[Alloc: 848.68 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 126999
+[client][message] Generated: 367744
+[client][message] Alloc: 848.68 MB
+#Expanded:  127,999, #Frontier:  241,075, #Generated:  369,074, Time: 307.090 s
+[Alloc: 851.48 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 127999
+[client][message] Generated: 369074
+[client][message] Alloc: 851.48 MB
+#Expanded:  128,999, #Frontier:  241,389, #Generated:  370,388, Time: 309.583 s
+[Alloc: 854.23 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 128999
+[client][message] Generated: 370388
+[client][message] Alloc: 854.23 MB
+#Expanded:  129,999, #Frontier:  241,607, #Generated:  371,606, Time: 312.068 s
+[Alloc: 856.98 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 129999
+[client][message] Generated: 371606
+[client][message] Alloc: 856.98 MB
+#Expanded:  130,999, #Frontier:  241,974, #Generated:  372,973, Time: 314.592 s
+[Alloc: 859.95 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 130999
+[client][message] Generated: 372973
+[client][message] Alloc: 859.95 MB
+#Expanded:  131,999, #Frontier:  242,767, #Generated:  374,766, Time: 317.306 s
+[Alloc: 863.99 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 131999
+[client][message] Generated: 374766
+[client][message] Alloc: 863.99 MB
+#Expanded:  132,999, #Frontier:  245,745, #Generated:  378,744, Time: 320.855 s
+[Alloc: 872.66 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 132999
+[client][message] Generated: 378744
+[client][message] Alloc: 872.66 MB
+#Expanded:  133,999, #Frontier:  251,433, #Generated:  385,432, Time: 323.567 s
+[Alloc: 887.75 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 133999
+[client][message] Generated: 385432
+[client][message] Alloc: 887.75 MB
+#Expanded:  134,999, #Frontier:  254,001, #Generated:  389,000, Time: 325.785 s
+[Alloc: 895.56 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 134999
+[client][message] Generated: 389000
+[client][message] Alloc: 895.56 MB
+#Expanded:  135,999, #Frontier:  256,510, #Generated:  392,509, Time: 328.236 s
+[Alloc: 903.45 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 135999
+[client][message] Generated: 392509
+[client][message] Alloc: 903.45 MB
+#Expanded:  136,999, #Frontier:  259,865, #Generated:  396,864, Time: 330.660 s
+[Alloc: 913.16 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 136999
+[client][message] Generated: 396864
+[client][message] Alloc: 913.16 MB
+#Expanded:  137,999, #Frontier:  262,974, #Generated:  400,973, Time: 333.169 s
+[Alloc: 922.29 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 137999
+[client][message] Generated: 400973
+[client][message] Alloc: 922.29 MB
+#Expanded:  138,999, #Frontier:  267,460, #Generated:  406,459, Time: 336.277 s
+[Alloc: 934.58 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 138999
+[client][message] Generated: 406459
+[client][message] Alloc: 934.58 MB
+#Expanded:  139,999, #Frontier:  271,076, #Generated:  411,075, Time: 339.014 s
+[Alloc: 944.70 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 139999
+[client][message] Generated: 411075
+[client][message] Alloc: 944.70 MB
+#Expanded:  140,999, #Frontier:  273,416, #Generated:  414,415, Time: 341.327 s
+[Alloc: 952.25 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 140999
+[client][message] Generated: 414415
+[client][message] Alloc: 952.25 MB
+#Expanded:  141,999, #Frontier:  275,306, #Generated:  417,305, Time: 343.541 s
+[Alloc: 958.69 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 141999
+[client][message] Generated: 417305
+[client][message] Alloc: 958.69 MB
+#Expanded:  142,999, #Frontier:  280,085, #Generated:  423,084, Time: 346.722 s
+[Alloc: 971.65 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 142999
+[client][message] Generated: 423084
+[client][message] Alloc: 971.65 MB
+#Expanded:  143,999, #Frontier:  283,411, #Generated:  427,410, Time: 350.876 s
+[Alloc: 981.22 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 143999
+[client][message] Generated: 427410
+[client][message] Alloc: 981.22 MB
+#Expanded:  144,999, #Frontier:  285,213, #Generated:  430,212, Time: 353.207 s
+[Alloc: 987.32 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 144999
+[client][message] Generated: 430212
+[client][message] Alloc: 987.32 MB
+#Expanded:  145,999, #Frontier:  289,367, #Generated:  435,366, Time: 355.941 s
+[Alloc: 998.86 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 145999
+[client][message] Generated: 435366
+[client][message] Alloc: 998.86 MB
+#Expanded:  146,999, #Frontier:  290,847, #Generated:  437,846, Time: 358.562 s
+[Alloc: 1004.38 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 146999
+[client][message] Generated: 437846
+[client][message] Alloc: 1004.38 MB
+#Expanded:  147,999, #Frontier:  292,892, #Generated:  440,891, Time: 361.025 s
+[Alloc: 1011.03 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 147999
+[client][message] Generated: 440891
+[client][message] Alloc: 1011.03 MB
+#Expanded:  148,999, #Frontier:  298,539, #Generated:  447,538, Time: 364.118 s
+[Alloc: 1025.98 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 148999
+[client][message] Generated: 447538
+[client][message] Alloc: 1025.98 MB
+#Expanded:  149,999, #Frontier:  301,947, #Generated:  451,946, Time: 367.153 s
+[Alloc: 1043.79 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 149999
+[client][message] Generated: 451946
+[client][message] Alloc: 1043.79 MB
+#Expanded:  150,999, #Frontier:  304,355, #Generated:  455,354, Time: 369.960 s
+[Alloc: 1051.39 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 150999
+[client][message] Generated: 455354
+[client][message] Alloc: 1051.39 MB
+#Expanded:  151,999, #Frontier:  309,487, #Generated:  461,486, Time: 373.599 s
+[Alloc: 1065.04 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 151999
+[client][message] Generated: 461486
+[client][message] Alloc: 1065.04 MB
+#Expanded:  152,999, #Frontier:  312,432, #Generated:  465,431, Time: 376.531 s
+[Alloc: 1073.80 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 152999
+[client][message] Generated: 465431
+[client][message] Alloc: 1073.80 MB
+#Expanded:  153,999, #Frontier:  315,114, #Generated:  469,113, Time: 379.281 s
+[Alloc: 1082.09 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 153999
+[client][message] Generated: 469113
+[client][message] Alloc: 1082.09 MB
+#Expanded:  154,999, #Frontier:  316,966, #Generated:  471,965, Time: 381.764 s
+[Alloc: 1088.23 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 154999
+[client][message] Generated: 471965
+[client][message] Alloc: 1088.23 MB
+#Expanded:  155,999, #Frontier:  321,776, #Generated:  477,775, Time: 387.513 s
+[Alloc: 1101.37 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 155999
+[client][message] Generated: 477775
+[client][message] Alloc: 1101.37 MB
+#Expanded:  156,999, #Frontier:  325,825, #Generated:  482,824, Time: 392.823 s
+[Alloc: 1112.68 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 156999
+[client][message] Generated: 482824
+[client][message] Alloc: 1112.68 MB
+#Expanded:  157,999, #Frontier:  328,387, #Generated:  486,386, Time: 396.424 s
+[Alloc: 1124.52 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 157999
+[client][message] Generated: 486386
+[client][message] Alloc: 1124.52 MB
+#Expanded:  158,999, #Frontier:  331,299, #Generated:  490,298, Time: 400.226 s
+[Alloc: 1133.24 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 158999
+[client][message] Generated: 490298
+[client][message] Alloc: 1133.24 MB
+#Expanded:  159,999, #Frontier:  332,947, #Generated:  492,946, Time: 403.059 s
+[Alloc: 1139.02 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 159999
+[client][message] Generated: 492946
+[client][message] Alloc: 1139.02 MB
+#Expanded:  160,999, #Frontier:  334,885, #Generated:  495,884, Time: 405.855 s
+[Alloc: 1145.60 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 160999
+[client][message] Generated: 495884
+[client][message] Alloc: 1145.60 MB
+#Expanded:  161,999, #Frontier:  338,328, #Generated:  500,327, Time: 409.083 s
+[Alloc: 1155.40 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 161999
+[client][message] Generated: 500327
+[client][message] Alloc: 1155.40 MB
+#Expanded:  162,999, #Frontier:  340,652, #Generated:  503,651, Time: 411.829 s
+[Alloc: 1162.73 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 162999
+[client][message] Generated: 503651
+[client][message] Alloc: 1162.73 MB
+#Expanded:  163,999, #Frontier:  342,371, #Generated:  506,370, Time: 414.658 s
+[Alloc: 1168.75 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 163999
+[client][message] Generated: 506370
+[client][message] Alloc: 1168.75 MB
+#Expanded:  164,999, #Frontier:  343,176, #Generated:  508,175, Time: 417.399 s
+[Alloc: 1172.71 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 164999
+[client][message] Generated: 508175
+[client][message] Alloc: 1172.71 MB
+#Expanded:  165,999, #Frontier:  342,323, #Generated:  508,322, Time: 418.387 s
+[Alloc: 1173.00 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 165999
+[client][message] Generated: 508322
+[client][message] Alloc: 1173.00 MB
+#Expanded:  166,999, #Frontier:  342,635, #Generated:  509,634, Time: 420.053 s
+[Alloc: 1175.96 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 166999
+[client][message] Generated: 509634
+[client][message] Alloc: 1175.96 MB
+#Expanded:  167,999, #Frontier:  345,356, #Generated:  513,355, Time: 422.919 s
+[Alloc: 1184.12 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 167999
+[client][message] Generated: 513355
+[client][message] Alloc: 1184.12 MB
+#Expanded:  168,999, #Frontier:  347,446, #Generated:  516,445, Time: 425.653 s
+[Alloc: 1190.99 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 168999
+[client][message] Generated: 516445
+[client][message] Alloc: 1190.99 MB
+#Expanded:  169,999, #Frontier:  349,517, #Generated:  519,516, Time: 428.472 s
+[Alloc: 1197.91 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 169999
+[client][message] Generated: 519516
+[client][message] Alloc: 1197.91 MB
+#Expanded:  170,999, #Frontier:  351,266, #Generated:  522,265, Time: 432.710 s
+[Alloc: 1203.97 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 170999
+[client][message] Generated: 522265
+[client][message] Alloc: 1203.97 MB
+#Expanded:  171,999, #Frontier:  353,060, #Generated:  525,059, Time: 435.269 s
+[Alloc: 1210.05 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 171999
+[client][message] Generated: 525059
+[client][message] Alloc: 1210.05 MB
+#Expanded:  172,999, #Frontier:  354,300, #Generated:  527,299, Time: 437.741 s
+[Alloc: 1215.09 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 172999
+[client][message] Generated: 527299
+[client][message] Alloc: 1215.09 MB
+#Expanded:  173,999, #Frontier:  355,754, #Generated:  529,753, Time: 440.344 s
+[Alloc: 1220.30 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 173999
+[client][message] Generated: 529753
+[client][message] Alloc: 1220.30 MB
+#Expanded:  174,999, #Frontier:  356,223, #Generated:  531,222, Time: 442.212 s
+[Alloc: 1223.62 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 174999
+[client][message] Generated: 531222
+[client][message] Alloc: 1223.62 MB
+#Expanded:  175,999, #Frontier:  357,091, #Generated:  533,090, Time: 444.799 s
+[Alloc: 1227.83 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 175999
+[client][message] Generated: 533090
+[client][message] Alloc: 1227.83 MB
+#Expanded:  176,999, #Frontier:  358,344, #Generated:  535,343, Time: 447.629 s
+[Alloc: 1232.69 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 176999
+[client][message] Generated: 535343
+[client][message] Alloc: 1232.69 MB
+#Expanded:  177,999, #Frontier:  359,287, #Generated:  537,286, Time: 451.292 s
+[Alloc: 1236.92 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 177999
+[client][message] Generated: 537286
+[client][message] Alloc: 1236.92 MB
+#Expanded:  178,999, #Frontier:  360,292, #Generated:  539,291, Time: 453.907 s
+[Alloc: 1241.39 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 178999
+[client][message] Generated: 539291
+[client][message] Alloc: 1241.39 MB
+#Expanded:  179,999, #Frontier:  360,727, #Generated:  540,726, Time: 456.065 s
+[Alloc: 1244.63 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 179999
+[client][message] Generated: 540726
+[client][message] Alloc: 1244.63 MB
+#Expanded:  180,999, #Frontier:  362,126, #Generated:  543,125, Time: 458.730 s
+[Alloc: 1249.70 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 180999
+[client][message] Generated: 543125
+[client][message] Alloc: 1249.70 MB
+#Expanded:  181,999, #Frontier:  363,972, #Generated:  545,971, Time: 461.098 s
+[Alloc: 1256.14 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 181999
+[client][message] Generated: 545971
+[client][message] Alloc: 1256.14 MB
+#Expanded:  182,999, #Frontier:  365,553, #Generated:  548,552, Time: 463.442 s
+[Alloc: 1261.95 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 182999
+[client][message] Generated: 548552
+[client][message] Alloc: 1261.95 MB
+#Expanded:  183,999, #Frontier:  366,979, #Generated:  550,978, Time: 466.012 s
+[Alloc: 1267.23 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 183999
+[client][message] Generated: 550978
+[client][message] Alloc: 1267.23 MB
+#Expanded:  184,999, #Frontier:  368,285, #Generated:  553,284, Time: 468.430 s
+[Alloc: 1272.16 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 184999
+[client][message] Generated: 553284
+[client][message] Alloc: 1272.16 MB
+#Expanded:  185,999, #Frontier:  367,741, #Generated:  553,740, Time: 469.704 s
+[Alloc: 1273.18 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 185999
+[client][message] Generated: 553740
+[client][message] Alloc: 1273.18 MB
+#Expanded:  186,999, #Frontier:  367,721, #Generated:  554,720, Time: 471.704 s
+[Alloc: 1275.21 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 186999
+[client][message] Generated: 554720
+[client][message] Alloc: 1275.21 MB
+#Expanded:  187,999, #Frontier:  367,944, #Generated:  555,943, Time: 473.378 s
+[Alloc: 1278.05 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 187999
+[client][message] Generated: 555943
+[client][message] Alloc: 1278.05 MB
+#Expanded:  188,999, #Frontier:  367,288, #Generated:  556,287, Time: 475.408 s
+[Alloc: 1278.78 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 188999
+[client][message] Generated: 556287
+[client][message] Alloc: 1278.78 MB
+#Expanded:  189,999, #Frontier:  367,929, #Generated:  557,928, Time: 477.556 s
+[Alloc: 1282.32 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 189999
+[client][message] Generated: 557928
+[client][message] Alloc: 1282.32 MB
+#Expanded:  190,999, #Frontier:  369,264, #Generated:  560,263, Time: 480.102 s
+[Alloc: 1287.24 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 190999
+[client][message] Generated: 560263
+[client][message] Alloc: 1287.24 MB
+#Expanded:  191,999, #Frontier:  370,136, #Generated:  562,135, Time: 482.198 s
+[Alloc: 1291.41 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 191999
+[client][message] Generated: 562135
+[client][message] Alloc: 1291.41 MB
+#Expanded:  192,999, #Frontier:  371,860, #Generated:  564,859, Time: 484.562 s
+[Alloc: 1297.59 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 192999
+[client][message] Generated: 564859
+[client][message] Alloc: 1297.59 MB
+#Expanded:  193,999, #Frontier:  375,295, #Generated:  569,294, Time: 487.346 s
+[Alloc: 1307.41 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 193999
+[client][message] Generated: 569294
+[client][message] Alloc: 1307.41 MB
+#Expanded:  194,999, #Frontier:  379,499, #Generated:  574,498, Time: 491.746 s
+[Alloc: 1319.00 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 194999
+[client][message] Generated: 574498
+[client][message] Alloc: 1319.00 MB
+#Expanded:  195,999, #Frontier:  381,688, #Generated:  577,687, Time: 494.365 s
+[Alloc: 1326.07 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 195999
+[client][message] Generated: 577687
+[client][message] Alloc: 1326.07 MB
+#Expanded:  196,999, #Frontier:  384,046, #Generated:  581,045, Time: 496.525 s
+[Alloc: 1333.52 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 196999
+[client][message] Generated: 581045
+[client][message] Alloc: 1333.52 MB
+#Expanded:  197,999, #Frontier:  386,027, #Generated:  584,026, Time: 498.737 s
+[Alloc: 1339.94 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 197999
+[client][message] Generated: 584026
+[client][message] Alloc: 1339.94 MB
+#Expanded:  198,999, #Frontier:  388,403, #Generated:  587,402, Time: 500.865 s
+[Alloc: 1347.63 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 198999
+[client][message] Generated: 587402
+[client][message] Alloc: 1347.63 MB
+#Expanded:  199,999, #Frontier:  390,725, #Generated:  590,724, Time: 503.043 s
+[Alloc: 1354.95 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 199999
+[client][message] Generated: 590724
+[client][message] Alloc: 1354.95 MB
+#Expanded:  200,999, #Frontier:  394,149, #Generated:  595,148, Time: 505.961 s
+[Alloc: 1364.88 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 200999
+[client][message] Generated: 595148
+[client][message] Alloc: 1364.88 MB
+#Expanded:  201,999, #Frontier:  396,931, #Generated:  598,930, Time: 508.760 s
+[Alloc: 1373.12 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 201999
+[client][message] Generated: 598930
+[client][message] Alloc: 1373.12 MB
+#Expanded:  202,999, #Frontier:  398,833, #Generated:  601,832, Time: 511.437 s
+[Alloc: 1379.57 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 202999
+[client][message] Generated: 601832
+[client][message] Alloc: 1379.57 MB
+#Expanded:  203,999, #Frontier:  399,532, #Generated:  603,531, Time: 513.709 s
+[Alloc: 1383.50 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 203999
+[client][message] Generated: 603531
+[client][message] Alloc: 1383.50 MB
+#Expanded:  204,999, #Frontier:  401,325, #Generated:  606,324, Time: 515.697 s
+[Alloc: 1389.60 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 204999
+[client][message] Generated: 606324
+[client][message] Alloc: 1389.60 MB
+#Expanded:  205,999, #Frontier:  403,662, #Generated:  609,661, Time: 517.994 s
+[Alloc: 1396.95 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 205999
+[client][message] Generated: 609661
+[client][message] Alloc: 1396.95 MB
+#Expanded:  206,999, #Frontier:  406,160, #Generated:  613,159, Time: 520.122 s
+[Alloc: 1404.70 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 206999
+[client][message] Generated: 613159
+[client][message] Alloc: 1404.70 MB
+#Expanded:  207,999, #Frontier:  407,819, #Generated:  615,818, Time: 522.273 s
+[Alloc: 1410.64 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 207999
+[client][message] Generated: 615818
+[client][message] Alloc: 1410.64 MB
+#Expanded:  208,999, #Frontier:  410,309, #Generated:  619,308, Time: 524.957 s
+[Alloc: 1418.43 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 208999
+[client][message] Generated: 619308
+[client][message] Alloc: 1418.43 MB
+#Expanded:  209,999, #Frontier:  411,197, #Generated:  621,196, Time: 527.727 s
+[Alloc: 1422.65 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 209999
+[client][message] Generated: 621196
+[client][message] Alloc: 1422.65 MB
+#Expanded:  210,999, #Frontier:  411,674, #Generated:  622,673, Time: 530.134 s
+[Alloc: 1425.80 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 210999
+[client][message] Generated: 622673
+[client][message] Alloc: 1425.80 MB
+#Expanded:  211,999, #Frontier:  411,611, #Generated:  623,610, Time: 532.284 s
+[Alloc: 1427.81 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 211999
+[client][message] Generated: 623610
+[client][message] Alloc: 1427.81 MB
+#Expanded:  212,999, #Frontier:  411,419, #Generated:  624,418, Time: 534.212 s
+[Alloc: 1429.48 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 212999
+[client][message] Generated: 624418
+[client][message] Alloc: 1429.48 MB
+#Expanded:  213,999, #Frontier:  412,350, #Generated:  626,349, Time: 536.144 s
+[Alloc: 1433.68 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 213999
+[client][message] Generated: 626349
+[client][message] Alloc: 1433.68 MB
+#Expanded:  214,999, #Frontier:  414,831, #Generated:  629,830, Time: 538.442 s
+[Alloc: 1441.37 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 214999
+[client][message] Generated: 629830
+[client][message] Alloc: 1441.37 MB
+#Expanded:  215,999, #Frontier:  415,341, #Generated:  631,340, Time: 540.217 s
+[Alloc: 1444.80 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 215999
+[client][message] Generated: 631340
+[client][message] Alloc: 1444.80 MB
+#Expanded:  216,999, #Frontier:  414,451, #Generated:  631,450, Time: 541.598 s
+[Alloc: 1445.00 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 216999
+[client][message] Generated: 631450
+[client][message] Alloc: 1445.00 MB
+#Expanded:  217,999, #Frontier:  415,955, #Generated:  633,954, Time: 543.707 s
+[Alloc: 1450.57 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 217999
+[client][message] Generated: 633954
+[client][message] Alloc: 1450.57 MB
+#Expanded:  218,999, #Frontier:  416,705, #Generated:  635,704, Time: 546.168 s
+[Alloc: 1454.46 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 218999
+[client][message] Generated: 635704
+[client][message] Alloc: 1454.46 MB
+#Expanded:  219,999, #Frontier:  416,169, #Generated:  636,168, Time: 547.399 s
+[Alloc: 1455.27 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 219999
+[client][message] Generated: 636168
+[client][message] Alloc: 1455.27 MB
+#Expanded:  220,999, #Frontier:  415,969, #Generated:  636,968, Time: 548.873 s
+[Alloc: 1457.02 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 220999
+[client][message] Generated: 636968
+[client][message] Alloc: 1457.02 MB
+#Expanded:  221,999, #Frontier:  418,122, #Generated:  640,121, Time: 552.619 s
+[Alloc: 1463.94 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 221999
+[client][message] Generated: 640121
+[client][message] Alloc: 1463.94 MB
+#Expanded:  222,999, #Frontier:  419,779, #Generated:  642,778, Time: 554.716 s
+[Alloc: 1469.70 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 222999
+[client][message] Generated: 642778
+[client][message] Alloc: 1469.70 MB
+#Expanded:  223,999, #Frontier:  419,755, #Generated:  643,754, Time: 556.308 s
+[Alloc: 1471.82 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 223999
+[client][message] Generated: 643754
+[client][message] Alloc: 1471.82 MB
+#Expanded:  224,999, #Frontier:  418,810, #Generated:  643,809, Time: 557.632 s
+[Alloc: 1471.94 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 224999
+[client][message] Generated: 643809
+[client][message] Alloc: 1471.94 MB
+#Expanded:  225,999, #Frontier:  420,465, #Generated:  646,464, Time: 559.501 s
+[Alloc: 1477.81 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 225999
+[client][message] Generated: 646464
+[client][message] Alloc: 1477.81 MB
+#Expanded:  226,999, #Frontier:  422,032, #Generated:  649,031, Time: 561.606 s
+[Alloc: 1483.35 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 226999
+[client][message] Generated: 649031
+[client][message] Alloc: 1483.35 MB
+#Expanded:  227,999, #Frontier:  423,623, #Generated:  651,622, Time: 563.330 s
+[Alloc: 1489.36 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 227999
+[client][message] Generated: 651622
+[client][message] Alloc: 1489.36 MB
+#Expanded:  228,999, #Frontier:  425,719, #Generated:  654,718, Time: 565.753 s
+[Alloc: 1495.97 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 228999
+[client][message] Generated: 654718
+[client][message] Alloc: 1495.97 MB
+#Expanded:  229,999, #Frontier:  427,153, #Generated:  657,152, Time: 567.459 s
+[Alloc: 1501.44 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 229999
+[client][message] Generated: 657152
+[client][message] Alloc: 1501.44 MB
+#Expanded:  230,999, #Frontier:  429,675, #Generated:  660,674, Time: 569.946 s
+[Alloc: 1509.16 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 230999
+[client][message] Generated: 660674
+[client][message] Alloc: 1509.16 MB
+#Expanded:  231,999, #Frontier:  430,737, #Generated:  662,736, Time: 571.867 s
+[Alloc: 1513.65 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 231999
+[client][message] Generated: 662736
+[client][message] Alloc: 1513.65 MB
+#Expanded:  232,999, #Frontier:  433,604, #Generated:  666,603, Time: 574.265 s
+[Alloc: 1522.43 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 232999
+[client][message] Generated: 666603
+[client][message] Alloc: 1522.43 MB
+#Expanded:  233,999, #Frontier:  435,004, #Generated:  669,003, Time: 576.242 s
+[Alloc: 1527.73 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 233999
+[client][message] Generated: 669003
+[client][message] Alloc: 1527.73 MB
+#Expanded:  234,999, #Frontier:  434,150, #Generated:  669,149, Time: 577.695 s
+[Alloc: 1527.98 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 234999
+[client][message] Generated: 669149
+[client][message] Alloc: 1527.98 MB
+#Expanded:  235,999, #Frontier:  433,169, #Generated:  669,168, Time: 578.972 s
+[Alloc: 1527.99 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 235999
+[client][message] Generated: 669168
+[client][message] Alloc: 1527.99 MB
+#Expanded:  236,999, #Frontier:  432,837, #Generated:  669,836, Time: 580.432 s
+[Alloc: 1529.31 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 236999
+[client][message] Generated: 669836
+[client][message] Alloc: 1529.31 MB
+#Expanded:  237,999, #Frontier:  433,207, #Generated:  671,206, Time: 582.952 s
+[Alloc: 1532.44 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 237999
+[client][message] Generated: 671206
+[client][message] Alloc: 1532.44 MB
+#Expanded:  238,999, #Frontier:  433,612, #Generated:  672,611, Time: 585.626 s
+[Alloc: 1535.57 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 238999
+[client][message] Generated: 672611
+[client][message] Alloc: 1535.57 MB
+#Expanded:  239,999, #Frontier:  434,129, #Generated:  674,128, Time: 588.358 s
+[Alloc: 1538.82 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 239999
+[client][message] Generated: 674128
+[client][message] Alloc: 1538.82 MB
+#Expanded:  240,999, #Frontier:  434,291, #Generated:  675,290, Time: 590.950 s
+[Alloc: 1541.34 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 240999
+[client][message] Generated: 675290
+[client][message] Alloc: 1541.34 MB
+#Expanded:  241,999, #Frontier:  434,467, #Generated:  676,466, Time: 593.615 s
+[Alloc: 1543.58 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 241999
+[client][message] Generated: 676466
+[client][message] Alloc: 1543.58 MB
+#Expanded:  242,999, #Frontier:  434,757, #Generated:  677,756, Time: 595.826 s
+[Alloc: 1546.55 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 242999
+[client][message] Generated: 677756
+[client][message] Alloc: 1546.55 MB
+#Expanded:  243,999, #Frontier:  434,850, #Generated:  678,849, Time: 598.063 s
+[Alloc: 1548.98 MB, MaxAlloc: 10240.00 MB]
+[client][message] Explored: 243999
+[client][message] Generated: 678849
+[client][message] Alloc: 1548.98 MB
+[client][info] Client timed out.
+[client][info] Forcibly terminating client process.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.

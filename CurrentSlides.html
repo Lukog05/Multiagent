@@ -1,0 +1,966 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>02285 Warmup (Ex1–4) – Hospital Domain Search</title>
+
+  <!-- Reveal.js (CDN) -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/theme/black.css" id="theme">
+
+  <style>
+    :root { --accent: #35c1ff; --good: #9ae6b4; --bad: #feb2b2; --warn: #fbd38d; }
+    .reveal { font-size: 26px; }
+    .reveal .slides { text-align: left; }
+    .reveal h1, .reveal h2, .reveal h3 { text-transform: none; }
+    .kicker { color: var(--accent); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-size: .55em; }
+    .muted { opacity: .78; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .card {
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 14px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,.04);
+    }
+    code, pre code { font-size: 0.8em; line-height: 1.25em; }
+    table { width: 100%; border-collapse: collapse; font-size: .78em; color: #ffffff; }
+    th, td { border-bottom: 1px solid rgba(255,255,255,.15); padding: 7px 10px; color: #ffffff; }
+    th { color: var(--accent); text-align: left; }
+    .pill {
+      display: inline-block; padding: 4px 10px; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18); font-size: .62em; margin-right: 6px;
+    }
+    .note { font-size: .7em; opacity: .82; margin-top: 10px; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .good { color: var(--good); }
+    .bad { color: var(--bad); }
+    .warn { color: var(--warn); }
+    .highlight { background: rgba(53, 193, 255, 0.15); padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <!-- Slide 1: Title -->
+    <section>
+      <div class="kicker">02285 AI & MAS – Warmup Assignment</div>
+      <h1>Hospital Domain Search</h1>
+      <p class="muted">BFS / DFS / Best-first Search (A*, Greedy) + Goal-Count & Distance-Sum Heuristics</p>
+
+      <div class="card" style="margin-top:18px;">
+        <h3 style="margin:0 0 10px 0;">Group Declaration (Mandatory)</h3>
+        <table>
+          <thead>
+            <tr><th>Name</th><th>Study ID</th><th>Main Contribution</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>YOUR NAME</td><td>XXXXXX</td><td>e.g., BFS implementation + MAPF benchmarks</td></tr>
+            <tr><td>YOUR NAME</td><td>XXXXXX</td><td>e.g., DFS + BFSfriendly level design</td></tr>
+            <tr><td>YOUR NAME</td><td>XXXXXX</td><td>e.g., Best-first + heuristics implementation</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="note">Keep this slide brief in your recording (30 seconds max).</p>
+    </section>
+
+    <!-- Slide 2: Domain Introduction -->
+    <section>
+      <div class="kicker">The Hospital Domain</div>
+      <h2>Problem Description</h2>
+      
+      <div class="grid2">
+        <div class="card">
+          <h3 style="margin-top:0;">Environment Elements</h3>
+          <ul>
+            <li><span class="pill">Walls</span> Obstacles (black squares)</li>
+            <li><span class="pill">Agents</span> Robots (colored numbered circles: 0, 1, 2...)</li>
+            <li><span class="pill">Boxes</span> Items to transport (colored lettered squares: A, B, C...)</li>
+            <li><span class="pill">Goals</span> Target positions (yellow circles/squares)</li>
+          </ul>
+          <p class="note">Grid-based, turn-based environment inspired by hospital robots (TUG) and warehouse systems (Amazon KIVA).</p>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0;">Key Constraints</h3>
+          <ul>
+            <li><b>Color matching:</b> Agents can only move boxes of the same color</li>
+            <li><b>Goal test:</b> Each goal cell must have the correct object (agent or box) on it</li>
+            <li><b>Joint actions:</b> All agents act simultaneously each timestep</li>
+            <li><b>Conflicts:</b> Agents cannot occupy same cell or swap positions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3 style="margin-top:0;">Multi-Agent Path Finding (MAPF) Subset</h3>
+        <p>Exercises 1–4 focus on <b>MAPF levels</b>: no boxes, only agents finding paths to their goal positions. This simplifies the problem to pure coordination without box manipulation.</p>
+      </div>
+    </section>
+
+    <!-- Slide 3: Exercise 1 - Architecture -->
+    <section>
+      <div class="kicker">Exercise 1</div>
+      <h2>Search Client Architecture</h2>
+
+      <div class="card">
+        <h3 style="margin-top:0;">High-Level Execution Flow</h3>
+        <pre><code class="mono">1. Parse level file → create initial State
+2. Choose search strategy (Frontier + Heuristic)
+3. GraphSearch.search(initialState, frontier, heuristic)
+4. Extract solution plan (sequence of joint actions)
+5. Send actions to server, receive feedback</code></pre>
+      </div>
+
+      <div class="grid2" style="margin-top:14px;">
+        <div class="card">
+          <h3 style="margin-top:0;">Core Components</h3>
+          <ul>
+            <li><span class="pill">SearchClient</span> Main orchestrator, parses level</li>
+            <li><span class="pill">State</span> Stores agent positions, walls, goals; generates successors</li>
+            <li><span class="pill">Action</span> Defines NoOp, Move(N/S/E/W) <span class="muted">(Push/Pull in Ex5+)</span></li>
+            <li><span class="pill">GraphSearch</span> Generic search loop (frontier + explored set)</li>
+            <li><span class="pill">Frontier</span> Strategy-specific container (Queue/Stack/PriorityQueue)</li>
+            <li><span class="pill">Heuristic</span> Provides h(s) for informed search</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0;">Key Interfaces</h3>
+          <table>
+            <thead>
+              <tr><th>Module</th><th>Depends On</th><th>Purpose</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>GraphSearch</td><td>Frontier, State</td><td>Pop/expand/goal-test loop</td></tr>
+              <tr><td>Frontier</td><td>Heuristic</td><td>State ordering (best-first only)</td></tr>
+              <tr><td>State</td><td>Action</td><td>isApplicable(a) + Result(s,a)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 4: Graph-Search Algorithm -->
+    <section>
+      <div class="kicker">Exercise 1 & 2</div>
+      <h2>Graph-Search Algorithm (Generic)</h2>
+
+      <div class="card">
+        <h3 style="margin-top:0;">Pseudocode</h3>
+        <pre><code class="mono">function GRAPH-SEARCH(initial, frontier):
+    frontier.add(initial)
+    explored ← ∅
+    
+    while frontier is not empty:
+        node ← frontier.pop()
+        
+        if GOAL-TEST(node):
+            return EXTRACT-PLAN(node)
+        
+        explored.add(node)
+        
+        for each action in ACTIONS(node):
+            child ← RESULT(node, action)
+            
+            if child ∉ explored and child ∉ frontier:
+                frontier.add(child)
+    
+    return failure</code></pre>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3 style="margin-top:0;">Frontier Strategies</h3>
+        <ul>
+          <li><span class="pill">BFS</span> Queue (FIFO) → explores by increasing depth</li>
+          <li><span class="pill">DFS</span> Stack (LIFO) → explores deep branches first</li>
+          <li><span class="pill">Best-first</span> PriorityQueue (ordered by f(n)) → explores most promising states</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 5: Exercise 2 - BFS -->
+    <section>
+      <div class="kicker">Exercise 2</div>
+      <h2>Breadth-First Search (BFS)</h2>
+
+      <div class="grid2">
+        <div class="card">
+          <h3 style="margin-top:0;">Implementation</h3>
+          <ul>
+            <li><b>Frontier:</b> Queue (FIFO)</li>
+            <li><b>Expansion order:</b> Level-by-level (depth d, then d+1, ...)</li>
+            <li><b>Completeness:</b> Yes (finite branching + solution exists)</li>
+            <li><b>Optimality:</b> Yes (unit step costs)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0;">Complexity Analysis</h3>
+          <ul>
+            <li><b>Time:</b> O(b^d) where b = branching factor, d = solution depth</li>
+            <li><b>Space:</b> O(b^d) – stores entire frontier layer</li>
+            <li class="warn"><b>Problem:</b> Exponential memory usage for MAPF</li>
+            <li><b>Branching factor:</b> ~5^A for A agents (NoOp + 4 moves each)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 6: BFS Benchmarks -->
+    <section>
+      <div class="kicker">Exercise 2</div>
+      <h2>BFS Benchmarks (MAPF Levels)</h2>
+
+      <div class="card">
+        <table>
+          <thead>
+            <tr>
+              <th>Level</th><th>Status</th><th>Expanded</th><th>Generated</th><th>Actions</th><th>Time (s)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>MAPF00</td><td class="good">✓ Solved</td><td>48</td><td>48</td><td>14</td><td>0.020</td></tr>
+            <tr><td>MAPF01</td><td class="good">✓ Solved</td><td>2,303</td><td>2,350</td><td>14</td><td>0.791</td></tr>
+            <tr><td>MAPF02</td><td class="good">✓ Solved</td><td>108,190</td><td>110,445</td><td>14</td><td>152.128</td></tr>
+            <tr><td>MAPF02C</td><td class="good">✓ Solved</td><td>110,184</td><td>110,490</td><td>14</td><td>169.511</td></tr>
+            <tr><td>MAPF03</td><td class="bad">✗ Failed</td><td>79,999</td><td>320,884</td><td>—</td><td>Timeout</td></tr>
+            <tr><td>MAPF03C</td><td class="bad">✗ Failed</td><td>74,999</td><td>312,165</td><td>—</td><td>Timeout</td></tr>
+            <tr><td>MAPFslidingpuzzle</td><td class="good">✓ Solved</td><td>180,676</td><td>181,270</td><td>28</td><td>33.720</td></tr>
+            <tr><td>MAPFreorder2</td><td class="bad">✗ Failed</td><td>297,999</td><td>378,947</td><td>—</td><td>Timeout</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3 style="margin-top:0;">Performance Analysis</h3>
+        <ul>
+          <li><b>State space explosion:</b> Grows as O(|freeCells|^A) for A agents → combinatorial explosion</li>
+          <li><b>Branching factor impact:</b> Joint actions ≈ 5^A → rapid frontier growth</li>
+          <li><b>Coordination complexity:</b> Levels with tight corridors/bottlenecks create more conflicts → deeper search</li>
+          <li><b>Memory bottleneck:</b> BFS stores entire frontier layer → MAPF03+ exceed available memory</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 7: Exercise 3 - DFS -->
+    <section>
+      <div class="kicker">Exercise 3</div>
+      <h2>Depth-First Search (DFS)</h2>
+
+      <div class="grid2">
+        <div class="card">
+          <h3 style="margin-top:0;">Implementation</h3>
+          <ul>
+            <li><b>Frontier:</b> Stack (LIFO)</li>
+            <li><b>Expansion order:</b> Dive deep into one branch before backtracking</li>
+            <li><b>Completeness:</b> No (infinite paths possible)</li>
+            <li><b>Optimality:</b> No (returns first solution found)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0;">Complexity Analysis</h3>
+          <ul>
+            <li><b>Time:</b> O(b^m) where m = maximum depth</li>
+            <li><b>Space:</b> O(bm) – only stores path + siblings</li>
+            <li class="good"><b>Advantage:</b> Much lower memory usage</li>
+            <li class="warn"><b>Trade-off:</b> Can find very long solutions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3 style="margin-top:0;">When does DFS outperform BFS?</h3>
+        <ul>
+          <li><b>Memory-constrained scenarios:</b> DFS succeeds where BFS runs out of memory</li>
+          <li><b>Deep solution paths:</b> If solution is deep anyway, DFS may stumble upon it faster</li>
+          <li><b>Lucky branching:</b> If correct branch is explored first, DFS finds solution quickly</li>
+          <li class="bad"><b>Caveat:</b> Solution length typically much worse (10x–100x longer plans)</li>
+        </ul>
+      </div>
+    </section>
+
+
+    
+
+    <!-- Slide 8: DFS Benchmarks -->
+    <section>
+      <div class="kicker">Exercise 3</div>
+      <h2>DFS Benchmarks (MAPF Levels)</h2>
+
+      <div class="card">
+        <table>
+          <thead>
+            <tr>
+              <th>Level</th><th>Status</th><th>Expanded</th><th>Generated</th><th>Actions</th><th>Time (s)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>MAPF00</td><td class="good">✓ Solved</td><td>19</td><td>30</td><td>16</td><td>0.007</td></tr>
+            <tr><td>MAPF01</td><td class="good">✓ Solved</td><td>78</td><td>666</td><td>78</td><td>0.045</td></tr>
+            <tr><td>MAPF02</td><td class="good">✓ Solved</td><td>332</td><td>15,275</td><td>331</td><td>0.684</td></tr>
+            <tr><td>MAPF02C</td><td class="good">✓ Solved</td><td>2,574</td><td>74,295</td><td>2,531</td><td>3.526</td></tr>
+            <tr><td>MAPF03</td><td class="good">✓ Solved</td><td>74</td><td>18,210</td><td>74</td><td>0.495</td></tr>
+            <tr><td>MAPF03C</td><td class="bad">✗ Failed</td><td>136,999</td><td>4,986,287</td><td>—</td><td>Timeout</td></tr>
+            <tr><td>MAPFslidingpuzzle</td><td class="good">✓ Solved</td><td>120,495</td><td>161,282</td><td>59,058</td><td>25.616</td></tr>
+            <tr><td>MAPFreorder2</td><td class="good">✓ Solved</td><td>415,799</td><td>3,446,107</td><td>190,100</td><td>442.267</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid2" style="margin-top:14px;">
+        <div class="card">
+          <h3 style="margin-top:0;">DFS vs BFS Comparison</h3>
+          <ul>
+            <li><b>MAPF03:</b> DFS solves it (74 exp), BFS fails (memory)</li>
+            <li><b>MAPF02:</b> DFS faster (0.7s vs 152s), but 20x longer plan</li>
+            <li><b>MAPFreorder2:</b> DFS solves (442s), BFS fails</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0;">Explanation</h3>
+          <ul>
+            <li>DFS commits to branches → less memory</li>
+            <li>BFS guarantees optimality → explores everything at depth d</li>
+            <li>DFS can get "lucky" finding any solution path</li>
+            <li>Implementation: <span class="mono">Stack</span> vs <span class="mono">Queue</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 9: BFSfriendly Level (Fixed Layout) -->
+<section>
+  <div class="kicker">Exercise 3</div>
+  <h2>BFSfriendly Level Design</h2>
+
+  <div class="grid2" style="margin-top:18px; align-items: start;">
+
+    <!-- LEFT COLUMN -->
+    <div>
+
+      <div class="card">
+        <h3 style="margin-top:0;">Design Goal</h3>
+        <ul>
+          <li>Make BFS clearly outperform DFS</li>
+          <li>Low branching factor</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3 style="margin-top:0;">Benchmark Results</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Alg</th><th>Expanded</th><th>Generated</th><th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>BFS</td><td>79</td><td>340</td><td>3</td></tr>
+            <tr><td>DFS</td><td>385</td><td>4,503</td><td>382</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="card">
+      <h3 style="margin-top:0;">Level Layout</h3>
+
+      <img src="BFSfriendly.jpeg"
+           alt="BFSfriendly level layout"
+           style="width: 100%; max-height: 420px; object-fit: contain;">
+
+      <p class="note">
+        DFS explores deep into the lvl before finding the shallow goal.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Exercise 4</div>
+  <h2>Search Demonstration</h2>
+
+  <div style="display: flex; justify-content: center; margin-top: 30px;">
+    <video controls 
+           style="width: 80%; max-height: 500px; border-radius: 12px;">
+      <source src="Demo2.mov" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+</section>
+
+<section>
+  <div class="kicker">Exercise 4</div>
+  <h2>Search Demonstration</h2>
+
+  <div style="display: flex; justify-content: center; margin-top: 30px;">
+    <video controls 
+           style="width: 80%; max-height: 500px; border-radius: 12px;">
+      <source src="Demo1.mov" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+</section>
+
+
+    
+    <!-- Slide 10: Exercise 4 (Compact) - Best-first search -->
+    <section>
+      <div class="kicker">Exercise 4</div>
+      <h2>Best-first Search</h2>
+
+      <div class="grid2">
+        <div class="card">
+          <h3 style="margin-top:0;">Idea</h3>
+          <p>Instead of expanding by depth (BFS/DFS), we expand the <b>most promising</b> state first using a priority queue.</p>
+          <ul>
+            <li><b>Greedy:</b> <span class="mono">f(n)=h(n)</span></li>
+            <li><b>A*:</b> <span class="mono">f(n)=g(n)+h(n)</span></li>
+            <li><b>Weighted A*:</b> <span class="mono">f(n)=g(n)+w·h(n)</span></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0;">What changes vs BFS/DFS</h3>
+          <ul>
+            <li><b>Expansion order</b> is driven by <span class="mono">h(n)</span> (and <span class="mono">g(n)</span> for A*).</li>
+            <li>Goal: <b>reduce expanded/generated states</b> while still reaching a solution.</li>
+            <li>Trade-off: Greedy can be faster but may return <b>longer</b> plans; A* aims for <b>optimal</b> plans (when successful).</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="note">Key message: best-first is only as good as the heuristic.</p>
+    </section>
+
+    <!-- Slide 11: Goal Count heuristic -->
+    <section>
+      <div class="kicker">Exercise 4</div>
+      <h2>Heuristic 1: Goal Count</h2>
+
+      <div class="grid2">
+        <div class="card">
+          <h3 style="margin-top:0;">Formal definition</h3>
+          <p class="mono">h(s) = #{ agents i where pos(i) ≠ goal(i) }</p>
+          <ul>
+            <li>Very cheap to compute (<span class="mono">O(#agents)</span>)</li>
+            <li>Only measures “done vs not done”</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0;">Why it is weak</h3>
+          <ul>
+            <li><b>No distance:</b> 1 step away and 50 steps away both contribute “1”.</li>
+            <li><b>Plateaus:</b> many states share the same <span class="mono">h</span> → weak ordering.</li>
+            <li>So A* often behaves close to BFS in practice on MAPF levels.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="note">We expect small or inconsistent speedups unless the level has a clear “finish gradient”.</p>
+    </section>
+
+    <!-- Slide 12: Goal Count Benchmarks -->
+    <section>
+      <div class="kicker">Exercise 4</div>
+      <h2>Goal Count Heuristic – Benchmarks</h2>
+
+      <div class="card">
+        <table>
+          <thead>
+            <tr>
+              <th>Level</th><th>Algorithm</th><th>Expanded</th><th>Generated</th><th>Actions</th><th>Time (s)</th><th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>MAPF00</td><td>A*</td><td>48</td><td>48</td><td>14</td><td>0.003</td><td class="good">✓</td></tr>
+            <tr><td>MAPF00</td><td>Greedy</td><td>48</td><td>48</td><td>14</td><td>0.002</td><td class="good">✓</td></tr>
+            <tr><td>MAPF01</td><td>A*</td><td>2,303</td><td>2,350</td><td>14</td><td>0.202</td><td class="good">✓</td></tr>
+            <tr><td>MAPF01</td><td>Greedy</td><td>2,256</td><td>2,306</td><td>14</td><td>0.195</td><td class="good">✓</td></tr>
+            <tr><td>MAPF02</td><td>A*</td><td>108,190</td><td>110,445</td><td>14</td><td>33.768</td><td class="good">✓</td></tr>
+            <tr><td>MAPF02</td><td>Greedy</td><td>105,935</td><td>108,209</td><td>14</td><td>33.788</td><td class="good">✓</td></tr>
+            <tr><td>MAPF02C</td><td>A*</td><td>101,607</td><td>106,123</td><td>14</td><td>32.493</td><td class="good">✓</td></tr>
+            <tr><td>MAPF02C</td><td>Greedy</td><td>46,301</td><td>68,314</td><td>27</td><td>16.895</td><td class="good">✓</td></tr>
+            <tr><td>MAPF03</td><td>A*</td><td>—</td><td>—</td><td>—</td><td>&gt;180</td><td class="bad">Timeout</td></tr>
+            <tr><td>MAPF03</td><td>Greedy</td><td>—</td><td>—</td><td>—</td><td>&gt;180</td><td class="bad">Timeout</td></tr>
+            <tr><td>MAPF03C</td><td>A*</td><td>—</td><td>—</td><td>—</td><td>&gt;180</td><td class="bad">Timeout</td></tr>
+            <tr><td>MAPF03C</td><td>Greedy</td><td>—</td><td>—</td><td>—</td><td>&gt;180</td><td class="bad">Timeout</td></tr>
+            <tr><td>MAPFslidingpuzzle</td><td>A*</td><td>81,253</td><td>105,001</td><td>28</td><td>3.714</td><td class="good">✓</td></tr>
+            <tr><td>MAPFslidingpuzzle</td><td>Greedy</td><td>426</td><td>706</td><td>46</td><td>0.022</td><td class="good">✓</td></tr>
+            <tr><td>MAPFreorder2</td><td>A*</td><td>—</td><td>—</td><td>—</td><td>&gt;180</td><td class="bad">Timeout</td></tr>
+            <tr><td>MAPFreorder2</td><td>Greedy</td><td>—</td><td>—</td><td>—</td><td>&gt;180</td><td class="bad">Timeout</td></tr>
+
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Slide 12: Goal Count results + comparison to uninformed (fixed + complete) -->
+    <section>
+      <div class="kicker">Exercise 4</div>
+      <h2>Goal Count: Results vs BFS/DFS</h2>
+
+      <div class="card">
+        <h3 style="margin-top:0;">Selected benchmark highlights (same levels, 4 methods)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Level</th><th>Method</th><th>Expanded</th><th>Generated</th><th>Actions</th><th>Time (s)</th><th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <!-- MAPF01 -->
+            <tr>
+              <td rowspan="4">MAPF01</td>
+              <td>BFS</td><td>2,303</td><td>2,350</td><td>14</td><td>0.791</td><td class="good">Yes</td>
+            </tr>
+            <tr>
+              <td>DFS</td><td>78</td><td>666</td><td>78</td><td>0.045</td><td class="good">Yes</td>
+            </tr>
+            <tr>
+              <td>A* (GoalCount)</td><td>2,303</td><td>2,350</td><td>14</td><td>0.202</td><td class="good">Yes</td>
+            </tr>
+            <tr>
+              <td>Greedy (GoalCount)</td><td>2,256</td><td>2,306</td><td>14</td><td>0.195</td><td class="good">Yes</td>
+            </tr>
+
+            <!-- MAPF02C -->
+            <tr>
+              <td rowspan="4">MAPF02C</td>
+              <td>BFS</td><td>110,184</td><td>110,490</td><td>14</td><td>169.511</td><td class="good">Yes</td>
+            </tr>
+            <tr>
+              <td>DFS</td><td>2,574</td><td>74,295</td><td>2,531</td><td>3.526</td><td class="good">Yes</td>
+            </tr>
+            <tr>
+              <td>A* (GoalCount)</td><td>101,607</td><td>106,123</td><td>14</td><td>32.493</td><td class="good">Yes</td>
+            </tr>
+            <tr>
+              <td>Greedy (GoalCount)</td><td>46,301</td><td>68,314</td><td>27</td><td>16.895</td><td class="good">Yes</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3 style="margin-top:0;">Analysis (faster? better? why?)</h3>
+        <ul>
+          <li><b>MAPF01:</b> A* (GoalCount) expands <span class="mono">exactly the same</span> as BFS → GoalCount gives weak ordering (many ties/plateaus).</li>
+          <li><b>Why these differences:</b> GoalCount ignores distance/obstacles → many states share the same <span class="mono">h</span>; Greedy can still “rush” toward fewer-off-goal states, while A* often behaves closer to BFS when <span class="mono">h</span> is uninformative.</li>
+        </ul>
+      </div>
+    </section>
+
+
+
+    <!-- Slide 13: Distance-Sum heuristic -->
+    <section>
+      <div class="kicker">Exercise 4</div>
+      <h2>Heuristic 2: Distance-Sum</h2>
+
+      <div class="grid2">
+        <div class="card">
+          <h3 style="margin-top:0;">Formal description</h3>
+          <pre><code class="mono">Precompute shortest-path distances on the wall grid.
+h(s) = Σ_i dist( pos(agent_i), goal(agent_i) )</code></pre>
+          <ul>
+            <li>Obstacle-aware distances (BFS on static grid)</li>
+            <li>Constant-time lookups during search</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0;">Intuition + trade-offs</h3>
+          <ul>
+            <li>Estimates remaining plan length by “how far agents still are”.</li>
+            <li>Creates a strong gradient: moving closer tends to reduce <span class="mono">h</span>.</li>
+            <li><b>Strength:</b> fewer plateaus → far fewer expansions.</li>
+            <li><b>Weakness:</b> ignores agent-agent conflicts → can underestimate coordination costs.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="note">This slide satisfies the “formal + intuition + strengths/weaknesses” requirement.</p>
+    </section>
+
+    <!-- Slide: Distance-Sum Improvements (Optimized Selection) -->
+    <section>
+      <div class="kicker">Exercise 4</div>
+      <h2>Distance-Sum: Improvements</h2>
+
+      <div class="card">
+        <h3 style="margin-top:0;">Comparison table (key levels)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Level</th>
+              <th>BFS<br>Expanded</th>
+              <th>A*<br>GoalCount</th>
+              <th>A*<br>DistSum</th>
+              <th>Greedy<br>DistSum</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td>MAPF01</td>
+              <td>2,303</td>
+              <td>2,303</td>
+              <td>808</td>
+              <td>14</td>
+              <td>~2.85× fewer expansions (A*), dramatic gain with Greedy</td>
+            </tr>
+
+            <tr>
+              <td>MAPF02C</td>
+              <td>110,184</td>
+              <td>101,607</td>
+              <td>14</td>
+              <td>14</td>
+              <td>Massive reduction: 110k → 14 expansions</td>
+            </tr>
+
+            <tr>
+              <td>Sliding Puzzle</td>
+              <td>180,676</td>
+              <td>81,253</td>
+              <td>4,930</td>
+              <td>92</td>
+              <td>Orders-of-magnitude reduction with DistSum</td>
+            </tr>
+
+            <tr>
+              <td>Reorder2</td>
+              <td>Fail</td>
+              <td>Timeout</td>
+              <td>Timeout</td>
+              <td>No</td>
+              <td>Still hard: heuristic misses coordination structure</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3 style="margin-top:0;">What we learn from these numbers</h3>
+        <ul>
+          <li><b>Distance-Sum correlates much better with true remaining effort</b> → far fewer expansions than both BFS and GoalCount.</li>
+          <li><b>Greedy becomes extremely efficient</b> when the heuristic provides a strong gradient.</li>
+          <li><b>Massive reductions (110k → 14)</b> show how heuristic quality dominates scalability.</li>
+          <li><b>Reorder-type failures</b> reveal the limitation: shortest-path estimates ignore coordination and interaction.</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- Exercise 5 Slides -->
+    <!-- ========================= -->
+
+    <section>
+  <div class="kicker">Exercise 5</div>
+  <h2>Extending the Action Model</h2>
+
+  <div class="card">
+    <h3 style="margin-top:0;">Objective</h3>
+    <ul>
+      <li>Extend the domain to support box manipulation</li>
+      <li>Introduce Push and Pull actions</li>
+    </ul>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <h3 style="margin-top:0;">Changes Made</h3>
+    <ul>
+      <li><b>action.py:</b> Added Push and Pull actions</li>
+      <li><b>state.py:</b> Updated isApplicable, result, and conflict checks</li>
+    </ul>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <h3 style="margin-top:0;">Result</h3>
+    <p>Full Sokoban support with boxes, agents, and constraints</p>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Exercise 5</div>
+  <h2>BFS Benchmark (SAD Levels)</h2>
+
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>Level</th><th>Expanded</th><th>Generated</th><th>Time (s)</th><th>Solution Length</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>SAD1</td><td>77</td><td>77</td><td>0.005</td><td>19</td></tr>
+        <tr><td>SAD2</td><td>180,871</td><td>231,674</td><td>10.060</td><td>19</td></tr>
+        <tr><td>SAD3</td><td>132,764</td><td>215,618</td><td>8.008</td><td>19</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <h3 style="margin-top:0;">Observation</h3>
+    <ul>
+      <li>SAD2 much harder than SAD1</li>
+      <li>Branching factor increases significantly</li>
+      <li class="warn">Push/Pull actions increase state space drastically</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Exercise 5</div>
+  <h2>DFS Benchmark (SAD Levels)</h2>
+
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>Level</th><th>Expanded</th><th>Generated</th><th>Time (s)</th><th>Solution Length</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>SAD1</td><td>27</td><td>47</td><td>0.003</td><td>21</td></tr>
+        <tr><td>SAD2</td><td>69</td><td>156</td><td>0.005</td><td>67</td></tr>
+        <tr><td>SAD3</td><td>42</td><td>69</td><td>0.004</td><td>27</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <h3 style="margin-top:0;">Observation</h3>
+    <ul>
+      <li>DFS expands fewer states</li>
+      <li class="bad">Not optimal</li>
+      <li>Solution lengths are much longer</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Exercise 5</div>
+  <h2>SAFirefly – Uninformed Search</h2>
+
+  <div class="card">
+    <h3 style="margin-top:0;">BFS Results</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Expanded</th><th>Generated</th><th>Memory</th><th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1,760,001</td>
+          <td>1,844,460</td>
+          <td>6GB+</td>
+          <td class="bad">Failed</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <h3 style="margin-top:0;">Conclusion</h3>
+    <p>Uninformed BFS does not scale in Sokoban domain due to exponential growth.</p>
+  </div>
+</section>
+
+<!-- ========================= -->
+<!-- Exercise 6 Slides -->
+<!-- ========================= -->
+
+<section>
+  <div class="kicker">Exercise 6</div>
+  <h2>Improved Heuristic (h')</h2>
+
+  <div class="card">
+    <h3 style="margin-top:0;">Goal</h3>
+    <p>Design a stronger heuristic to reduce search complexity</p>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <h3 style="margin-top:0;">Components</h3>
+    <ul>
+      <li>Distance from box → goal</li>
+      <li>Distance from agent → nearest box</li>
+      <li>Deadlock detection</li>
+      <li>Penalty for bad states</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Exercise 6</div>
+  <h2>SAFirefly – Informed Search</h2>
+
+  <div class="card">
+    <h3 style="margin-top:0;">A*</h3>
+    <table>
+      <thead>
+        <tr><th>Expanded</th><th>Generated</th><th>Time (s)</th><th>Solution Length</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>548,220</td><td>576,140</td><td>44.957</td><td>234</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <h3 style="margin-top:0;">Weighted A* (w=10)</h3>
+    <table>
+      <thead>
+        <tr><th>Expanded</th><th>Generated</th><th>Time (s)</th><th>Solution Length</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>410,618</td><td>436,975</td><td>32.753</td><td>376</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <h3 style="margin-top:0;">Greedy</h3>
+    <table>
+      <thead>
+        <tr><th>Expanded</th><th>Generated</th><th>Time (s)</th><th>Solution Length</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>414,128</td><td>441,228</td><td>32.838</td><td>464</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <h3 style="margin-top:0;">Observation</h3>
+    <ul>
+      <li class="good">Weighted A* is fastest</li>
+      <li>A* gives shortest solution</li>
+      <li class="warn">Greedy is fast but low-quality path</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Exercise 6</div>
+  <h2>SACrunch Results</h2>
+
+  <div class="card">
+    <h3 style="margin-top:0;">A*</h3>
+    <table>
+      <thead>
+        <tr><th>Expanded</th><th>Generated</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>45</td><td>45</td><td>No solution</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <h3 style="margin-top:0;">Insight</h3>
+    <p class="warn">Deadlock detection must be carefully designed — over-pruning removes valid solutions.</p>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Exercises 5–6 Summary</div>
+  <h2>Algorithm Comparison</h2>
+
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>Algorithm</th><th>Expansions</th><th>Speed</th><th>Optimal</th><th>Memory</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>BFS</td><td class="bad">Very High</td><td>Slow</td><td class="good">Yes</td><td class="bad">Very High</td></tr>
+        <tr><td>DFS</td><td>Low</td><td>Fast</td><td class="bad">No</td><td class="good">Low</td></tr>
+        <tr><td>A*</td><td>Medium</td><td>Moderate</td><td class="good">Yes</td><td>Medium</td></tr>
+        <tr><td>WA*</td><td>Lower</td><td class="good">Fast</td><td class="warn">No</td><td>Medium</td></tr>
+        <tr><td>Greedy</td><td>Medium</td><td class="good">Fast</td><td class="bad">No</td><td>Medium</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Final Conclusion</div>
+  <h2>Key Takeaways</h2>
+
+  <div class="card">
+    <ul>
+      <li>Push & Pull actions increase branching factor</li>
+      <li class="bad">BFS becomes impractical</li>
+      <li>DFS is memory efficient but suboptimal</li>
+      <li class="good">Heuristics are essential</li>
+      <li>Weighted A* provides best practical trade-off</li>
+      <li>Deadlock detection is critical for Sokoban problems</li>
+    </ul>
+  </div>
+</section>
+
+    </section>
+
+    <!-- Final Slide -->
+    <section>
+      <div class="kicker">End of Exercises 1–4</div>
+      <h1>Thank You</h1>
+      <p class="muted">Questions? Discussion?</p>
+      
+      <div class="card" style="margin-top:24px;">
+        <h3 style="margin-top:0;">Reminder: Hand-in Requirements</h3>
+        <ul>
+          <li>Video recording covering all exercises with live demos</li>
+          <li>Benchmark tables for all required levels</li>
+          <li>Analysis and explanations of performance differences</li>
+          <li>BFSfriendly level design + justification</li>
+          <li>Mathematical/pseudocode description of heuristics</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+  </div>
+</div>
+
+<script src="https://unpkg.com/reveal.js@5/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    width: 1280,
+    height: 720,
+    margin: 0.08,
+    minScale: 0.5,
+    maxScale: 1.5,
+    hash: true,
+    slideNumber: true,
+    transition: "slide",
+    backgroundTransition: "fade",
+    controls: true,
+    progress: true
+  });
+</script>
+</body>
+</html>

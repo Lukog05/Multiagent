@@ -1,19 +1,59 @@
 import random
-from typing import ClassVar #classVar is used to indicate that the variable is a class variable, meaning it is shared among all instances of the class. In this code, agent_colors, walls, box_colors, and goals are defined as class variables, which means they are shared across all instances of the State class. This is useful for storing information that is common to all states, such as the layout of the level (walls and goals) and the colors of agents and boxes.
+import sys
+from collections import deque
+from typing import ClassVar
 
-from searchclient.action import Action, ActionType
+from searchclient.action import Action, ActionType  # noqa: F401
 from searchclient.color import Color
+
+# ── Diagnostic flags — set False to disable each pruning rule ──────────────
+ENABLE_SIMPLE_DEADLOCK = True
+ENABLE_2BOX_DEADLOCK   = True
+
+# ── Phase 4 flag ─────────────────────────────────────────────────────────────
+# Set False to disable incremental Zobrist hashing; hash is then recomputed
+# from scratch on every lookup (slower, but exact pre-Phase-4 behaviour).
+ENABLE_ZOBRIST = True
 
 
 class State:
     _RNG = random.Random(1)
 
-    agent_colors: ClassVar[list[Color | None]] #List of colors for each agent. Indexed by agent number. None if agent has no color.
-    walls: ClassVar[list[list[bool]]] #2D list of booleans. True if there's a wall at (row, col).
-    box_colors: ClassVar[list[Color | None]] #list of colors for each box. Indexed by (row, col). None if no box at (row, col).
-    goals: ClassVar[list[list[str]]] #list of goals. Indexed by (row, col). Empty string if no goal at (row, col). Otherwise, the goal is represented as a single character string: "A"-"Z" for box goals and "0"-"9" for agent goals.
+    # ── Pruning counters (reset per search via State.reset_diagnostics()) ──
+    _simple_deadlock_count: ClassVar[int] = 0
+    _2box_deadlock_count: ClassVar[int]   = 0
+    _states_kept: ClassVar[int]           = 0
+    _states_pruned: ClassVar[int]         = 0
 
-    def __init__(self, agent_rows: list[int], agent_cols: list[int], boxes: list[list[str]]) -> None:
+    @classmethod
+    def reset_diagnostics(cls) -> None:
+        cls._simple_deadlock_count = 0
+        cls._2box_deadlock_count   = 0
+        cls._states_kept           = 0
+        cls._states_pruned         = 0
+
+    @classmethod
+    def print_diagnostics(cls) -> None:
+        total = cls._states_kept + cls._states_pruned
+        ratio = (cls._states_pruned / total * 100) if total else 0
+        print("[diagnostics] Pruning stats:", file=sys.stderr, flush=True)
+        print(f"  Simple deadlocks pruned : {cls._simple_deadlock_count}", file=sys.stderr, flush=True)
+        print(f"  2-box deadlocks pruned  : {cls._2box_deadlock_count}", file=sys.stderr, flush=True)
+        print(f"  Total states kept       : {cls._states_kept}", file=sys.stderr, flush=True)
+        print(f"  Total states pruned     : {cls._states_pruned}", file=sys.stderr, flush=True)
+        print(f"  Pruning ratio           : {ratio:.1f}%", file=sys.stderr, flush=True)
+
+    agent_colors: ClassVar[list[Color | None]]
+    walls: ClassVar[list[list[bool]]]
+    box_colors: ClassVar[list[Color | None]]
+    goals: ClassVar[list[list[str]]]
+    _static_hash: ClassVar[int]
+    _dead_cells: ClassVar[dict[str, frozenset[tuple[int, int]]]]
+    # _dead_pairs removed — 2-box deadlock now uses a runtime 2×2-full-block check
+    _zobrist_agents: ClassVar[list[list[int]]]   # [agent_idx][row * num_cols + col]
+    _zobrist_boxes: ClassVar[list[list[int]]]    # [box_letter_idx (0-25)][row * num_cols + col]
+
+    def __init__(self, agent_rows: list[int], agent_cols: list[int], boxes: list[list[str]], _precomputed_hash: int | None = None) -> None:
         """
         Constructs an initial state.
         Arguments are not copied, and therefore should not be modified after being passed in.
@@ -39,7 +79,8 @@ class State:
         self.parent: State | None = None
         self.joint_action: list[Action] | None = None
         self.g = 0
-        self._hash: int | None = None
+        self._hash: int | None = _precomputed_hash
+        self._moved_box_positions: list[tuple[int, int]] = []
 
     def result(self, joint_action: list[Action]) -> "State":
         """
@@ -61,7 +102,73 @@ class State:
                 copy_agent_rows[agent] += action.agent_row_delta
                 copy_agent_cols[agent] += action.agent_col_delta
 
-        copy_state = State(copy_agent_rows, copy_agent_cols, copy_boxes)
+            elif action.type is ActionType.Push:
+                # Box is at the agent's destination cell.
+                box_row = self.agent_rows[agent] + action.agent_row_delta
+                box_col = self.agent_cols[agent] + action.agent_col_delta
+                # Move box to its destination.
+                copy_boxes[box_row + action.box_row_delta][box_col + action.box_col_delta] = copy_boxes[box_row][box_col]
+                copy_boxes[box_row][box_col] = ""
+                # Agent moves into the old box cell.
+                copy_agent_rows[agent] += action.agent_row_delta
+                copy_agent_cols[agent] += action.agent_col_delta
+
+            elif action.type is ActionType.Pull:
+                # Box source = (agent_row - brd, agent_col - bcd)
+                box_row = self.agent_rows[agent] - action.box_row_delta
+                box_col = self.agent_cols[agent] - action.box_col_delta
+                # Box destination is the agent's current cell.
+                copy_boxes[self.agent_rows[agent]][self.agent_cols[agent]] = copy_boxes[box_row][box_col]
+                copy_boxes[box_row][box_col] = ""
+                # Agent moves forward.
+                copy_agent_rows[agent] += action.agent_row_delta
+                copy_agent_cols[agent] += action.agent_col_delta
+
+        # Compute child hash incrementally via Zobrist XOR deltas (Phase 4).
+        # When ENABLE_ZOBRIST is False, pass None and let __hash__ recompute lazily.
+        if ENABLE_ZOBRIST:
+            cols = len(State.walls[0]) if State.walls else 1
+            new_hash = self.__hash__()
+            for agent, action in enumerate(joint_action):
+                if action.type is ActionType.NoOp:
+                    continue
+                old_r, old_c = self.agent_rows[agent], self.agent_cols[agent]
+                new_r, new_c = copy_agent_rows[agent], copy_agent_cols[agent]
+                new_hash ^= State._zobrist_agents[agent][old_r * cols + old_c]
+                new_hash ^= State._zobrist_agents[agent][new_r * cols + new_c]
+                if action.type is ActionType.Push:
+                    box_r = self.agent_rows[agent] + action.agent_row_delta
+                    box_c = self.agent_cols[agent] + action.agent_col_delta
+                    new_box_r = box_r + action.box_row_delta
+                    new_box_c = box_c + action.box_col_delta
+                    letter_idx = ord(self.boxes[box_r][box_c]) - ord('A')
+                    new_hash ^= State._zobrist_boxes[letter_idx][box_r * cols + box_c]
+                    new_hash ^= State._zobrist_boxes[letter_idx][new_box_r * cols + new_box_c]
+                elif action.type is ActionType.Pull:
+                    box_r = self.agent_rows[agent] - action.box_row_delta
+                    box_c = self.agent_cols[agent] - action.box_col_delta
+                    new_box_r = self.agent_rows[agent]
+                    new_box_c = self.agent_cols[agent]
+                    letter_idx = ord(self.boxes[box_r][box_c]) - ord('A')
+                    new_hash ^= State._zobrist_boxes[letter_idx][box_r * cols + box_c]
+                    new_hash ^= State._zobrist_boxes[letter_idx][new_box_r * cols + new_box_c]
+            new_hash &= 0xFFFFFFFFFFFFFFFF
+            copy_state = State(copy_agent_rows, copy_agent_cols, copy_boxes, _precomputed_hash=new_hash)
+        else:
+            copy_state = State(copy_agent_rows, copy_agent_cols, copy_boxes)
+
+        copy_state._moved_box_positions = []
+        for agent, action in enumerate(joint_action):
+            if action.type is ActionType.Push:
+                box_row = self.agent_rows[agent] + action.agent_row_delta
+                box_col = self.agent_cols[agent] + action.agent_col_delta
+                new_box_row = box_row + action.box_row_delta
+                new_box_col = box_col + action.box_col_delta
+                copy_state._moved_box_positions.append((new_box_row, new_box_col))
+            elif action.type is ActionType.Pull:
+                new_box_row = self.agent_rows[agent]
+                new_box_col = self.agent_cols[agent]
+                copy_state._moved_box_positions.append((new_box_row, new_box_col))
 
         copy_state.parent = self
         copy_state.joint_action = joint_action.copy()
@@ -86,8 +193,31 @@ class State:
         num_agents = len(self.agent_rows)
 
         # Determine list of applicable action for each individual agent.
+        has_boxes = any(self.boxes[r][c] for r in range(len(self.boxes)) for c in range(len(self.boxes[r])))
+
+        # Pure MAPF mode (no boxes): expand only single-agent moves with all other
+        # agents performing NoOp. This keeps the branching factor manageable on
+        # dense MAPF instances while still preserving completeness.
+        if not has_boxes:
+            expanded_states: list[State] = []
+            move_actions = [a for a in Action if a.type is ActionType.Move]
+
+            for agent in range(num_agents):
+                for action in move_actions:
+                    if not self.is_applicable(agent, action):
+                        continue
+                    joint_action = [Action.NoOp for _ in range(num_agents)]
+                    joint_action[agent] = action
+                    if not self.is_conflicting(joint_action):
+                        expanded_states.append(self.result(joint_action))
+
+            State._RNG.shuffle(expanded_states)
+            return expanded_states
+
+        # Determine list of applicable action for each individual agent.
+        action_set = list(Action)
         applicable_actions = [
-            [action for action in Action if self.is_applicable(agent, action)] for agent in range(num_agents)
+            [action for action in action_set if self.is_applicable(agent, action)] for agent in range(num_agents)
         ]
 
         # Iterate over joint actions, check conflict and generate child states.
@@ -99,7 +229,19 @@ class State:
                 joint_action[agent] = applicable_actions[agent][actions_permutation[agent]]
 
             if not self.is_conflicting(joint_action):
-                expanded_states.append(self.result(joint_action))
+                child = self.result(joint_action)
+                pruned = False
+                if ENABLE_SIMPLE_DEADLOCK and child.has_simple_deadlock():
+                    State._simple_deadlock_count += 1
+                    State._states_pruned += 1
+                    pruned = True
+                elif ENABLE_2BOX_DEADLOCK and child.has_2box_deadlock(child._moved_box_positions):
+                    State._2box_deadlock_count += 1
+                    State._states_pruned += 1
+                    pruned = True
+                if not pruned:
+                    State._states_kept += 1
+                    expanded_states.append(child)
 
             # Advance permutation.
             done = False
@@ -122,7 +264,7 @@ class State:
     def is_applicable(self, agent: int, action: Action) -> bool:
         agent_row = self.agent_rows[agent]
         agent_col = self.agent_cols[agent]
-        _agent_color = State.agent_colors[agent]
+        agent_color = State.agent_colors[agent]
 
         if action.type is ActionType.NoOp:
             return True
@@ -132,17 +274,48 @@ class State:
             destination_col = agent_col + action.agent_col_delta
             return self.is_free(destination_row, destination_col)
 
+        if action.type is ActionType.Push:
+            # Box must be at agent's destination cell.
+            box_row = agent_row + action.agent_row_delta
+            box_col = agent_col + action.agent_col_delta
+            box = self.boxes[box_row][box_col]
+            if not box:
+                return False
+            # Agent and box must share the same color.
+            if State.box_colors[ord(box) - ord("A")] != agent_color:
+                return False
+            # Box destination must be free.
+            box_dest_row = box_row + action.box_row_delta
+            box_dest_col = box_col + action.box_col_delta
+            return self.is_free(box_dest_row, box_dest_col)
+
+        if action.type is ActionType.Pull:
+            # Agent destination must be free.
+            agent_dest_row = agent_row + action.agent_row_delta
+            agent_dest_col = agent_col + action.agent_col_delta
+            if not self.is_free(agent_dest_row, agent_dest_col):
+                return False
+            # Box source = (agent_row - brd, agent_col - bcd).
+            box_row = agent_row - action.box_row_delta
+            box_col = agent_col - action.box_col_delta
+            box = self.boxes[box_row][box_col]
+            if not box:
+                return False
+            # Agent and box must share the same color.
+            return State.box_colors[ord(box) - ord("A")] == agent_color
+
         assert False, f"Not implemented for action type {action.type}."
 
     def is_conflicting(self, joint_action: list[Action]) -> bool:
         num_agents = len(self.agent_rows)
 
-        destination_rows = [-1 for _ in range(num_agents)]  # row of new cell to become occupied by action
-        destination_cols = [-1 for _ in range(num_agents)]  # column of new cell to become occupied by action
-        box_rows = [-1 for _ in range(num_agents)]  # current row of box moved by action
-        box_cols = [-1 for _ in range(num_agents)]  # current column of box moved by action
+        # Where each agent ends up (-1 = NoOp / not set).
+        dest_rows = [-1] * num_agents
+        dest_cols = [-1] * num_agents
+        # Where each moved box ends up (-1 = no box involved).
+        box_dest_rows = [-1] * num_agents
+        box_dest_cols = [-1] * num_agents
 
-        # Collect cells to be occupied and boxes to be moved.
         for agent in range(num_agents):
             action = joint_action[agent]
             agent_row = self.agent_rows[agent]
@@ -152,22 +325,48 @@ class State:
                 pass
 
             elif action.type is ActionType.Move:
-                destination_rows[agent] = agent_row + action.agent_row_delta
-                destination_cols[agent] = agent_col + action.agent_col_delta
-                box_rows[agent] = agent_row  # Distinct dummy value.
-                box_cols[agent] = agent_col  # Distinct dummy value.
+                dest_rows[agent] = agent_row + action.agent_row_delta
+                dest_cols[agent] = agent_col + action.agent_col_delta
+
+            elif action.type is ActionType.Push:
+                dest_rows[agent] = agent_row + action.agent_row_delta
+                dest_cols[agent] = agent_col + action.agent_col_delta
+                box_dest_rows[agent] = dest_rows[agent] + action.box_row_delta
+                box_dest_cols[agent] = dest_cols[agent] + action.box_col_delta
+
+            elif action.type is ActionType.Pull:
+                dest_rows[agent] = agent_row + action.agent_row_delta
+                dest_cols[agent] = agent_col + action.agent_col_delta
+                # Box destination is the agent's current cell.
+                box_dest_rows[agent] = agent_row
+                box_dest_cols[agent] = agent_col
 
         for a1 in range(num_agents):
-            if joint_action[a1] is Action.NoOp:
+            if joint_action[a1].type is ActionType.NoOp:
                 continue
 
             for a2 in range(a1 + 1, num_agents):
-                if joint_action[a2] is Action.NoOp:
+                if joint_action[a2].type is ActionType.NoOp:
                     continue
 
-                # Moving into same cell?
-                if destination_rows[a1] == destination_rows[a2] and destination_cols[a1] == destination_cols[a2]:
+                # Two agents move into the same cell?
+                if dest_rows[a1] == dest_rows[a2] and dest_cols[a1] == dest_cols[a2]:
                     return True
+
+                # Agent a1 moves into where a2's box will land?
+                if box_dest_rows[a2] != -1:
+                    if dest_rows[a1] == box_dest_rows[a2] and dest_cols[a1] == box_dest_cols[a2]:
+                        return True
+
+                # Agent a2 moves into where a1's box will land?
+                if box_dest_rows[a1] != -1:
+                    if dest_rows[a2] == box_dest_rows[a1] and dest_cols[a2] == box_dest_cols[a1]:
+                        return True
+
+                # Two boxes land on the same cell?
+                if box_dest_rows[a1] != -1 and box_dest_rows[a2] != -1:
+                    if box_dest_rows[a1] == box_dest_rows[a2] and box_dest_cols[a1] == box_dest_cols[a2]:
+                        return True
 
         return False
 
@@ -189,18 +388,101 @@ class State:
         plan.reverse()
         return plan
 
+    @classmethod
+    def _compute_dead_cells(cls) -> dict[str, frozenset[tuple[int, int]]]:
+        rows = len(cls.walls)
+        cols = len(cls.walls[0]) if rows > 0 else 0
+
+        def free(r: int, c: int) -> bool:
+            return 0 <= r < rows and 0 <= c < cols and not cls.walls[r][c]
+
+        MOVE_DIRS = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+        PERP: dict[tuple[int, int], list[tuple[int, int]]] = {
+            (-1, 0): [(0, -1), (0, 1)],
+            (1,  0): [(0, -1), (0, 1)],
+            (0, -1): [(-1, 0), (1, 0)],
+            (0,  1): [(-1, 0), (1, 0)],
+        }
+
+        goal_positions: dict[str, list[tuple[int, int]]] = {}
+        for r in range(rows):
+            for c in range(cols):
+                g = cls.goals[r][c]
+                if "A" <= g <= "Z":
+                    goal_positions.setdefault(g, []).append((r, c))
+
+        dead: dict[str, frozenset[tuple[int, int]]] = {}
+        for letter, gpos in goal_positions.items():
+            reachable: set[tuple[int, int]] = set(gpos)
+            queue: deque[tuple[int, int]] = deque(gpos)
+            while queue:
+                b_r, b_c = queue.popleft()
+                for dr, dc in MOVE_DIRS:
+                    a_r, a_c = b_r - dr, b_c - dc
+                    if not free(a_r, a_c) or (a_r, a_c) in reachable:
+                        continue
+                    # Push: agent needs to be behind box (a_r-dr, a_c-dc)
+                    push_ok = free(a_r - dr, a_c - dc)
+                    # Pull straight: agent at B moves to B+(dr,dc)
+                    pull_straight_ok = free(b_r + dr, b_c + dc)
+                    # Pull perpendicular: agent at B moves in perpendicular direction
+                    pull_perp_ok = any(free(b_r + pr, b_c + pc) for pr, pc in PERP[(dr, dc)])
+                    if push_ok or pull_straight_ok or pull_perp_ok:
+                        reachable.add((a_r, a_c))
+                        queue.append((a_r, a_c))
+            dead[letter] = frozenset(
+                (r, c)
+                for r in range(rows)
+                for c in range(cols)
+                if not cls.walls[r][c] and (r, c) not in reachable
+            )
+        return dead
+
+    @classmethod
+    def _compute_dead_pairs(cls) -> frozenset:
+        """Kept as no-op for API compatibility. Runtime check now lives in has_2box_deadlock."""
+        return frozenset()
+
+    @classmethod
+    def _init_zobrist(cls, num_rows: int, num_cols: int) -> None:
+        """Precompute Zobrist keys for incremental hashing."""
+        import random as _rng_mod
+        rng = _rng_mod.Random(42)
+        cls._zobrist_agents = [[rng.getrandbits(64) for _ in range(num_rows * num_cols)] for _ in range(10)]
+        cls._zobrist_boxes = [[rng.getrandbits(64) for _ in range(num_rows * num_cols)] for _ in range(26)]
+
+    def has_simple_deadlock(self) -> bool:
+        dead = State._dead_cells
+        for r in range(len(self.boxes)):
+            for c in range(len(self.boxes[r])):
+                box = self.boxes[r][c]
+                if box and box in dead and (r, c) in dead[box]:
+                    return True
+        return False
+
+    def has_2box_deadlock(self, moved_box_positions: list[tuple[int, int]]) -> bool:
+        """
+        2-box deadlock detection — currently disabled pending a provably correct
+        implementation. The simple deadlock check (has_simple_deadlock) already
+        covers single-box dead cells. A correct 2-box check must verify that a
+        box has NO external escape route (not just that a 2×2 block is fully
+        occupied), which requires accounting for cells outside the block.
+        Returning False here guarantees no false positives.
+        """
+        return False
+
     def __hash__(self) -> int:
         if self._hash is None:
-            prime = 31
-            h = 1
-            h = h * prime + hash(tuple(self.agent_rows))
-            h = h * prime + hash(tuple(self.agent_cols))
-            h = h * prime + hash(tuple(State.agent_colors))
-            h = h * prime + hash(tuple(tuple(row) for row in self.boxes))
-            h = h * prime + hash(tuple(State.box_colors))
-            h = h * prime + hash(tuple(tuple(row) for row in State.goals))
-            h = h * prime + hash(tuple(tuple(row) for row in State.walls))
-            self._hash = h
+            cols = len(State.walls[0]) if State.walls else 1
+            h = State._static_hash
+            for i, (r, c) in enumerate(zip(self.agent_rows, self.agent_cols)):
+                h ^= State._zobrist_agents[i][r * cols + c]
+            for r in range(len(self.boxes)):
+                for c in range(len(self.boxes[r])):
+                    b = self.boxes[r][c]
+                    if b:
+                        h ^= State._zobrist_boxes[ord(b) - ord('A')][r * cols + c]
+            self._hash = h & 0xFFFFFFFFFFFFFFFF
         return self._hash
 
     def __eq__(self, other: object) -> bool:

@@ -95,6 +95,10 @@ def search(initial_state: State, frontier: Frontier, deadline: float | None = No
         
         #Expand the state and add the new states to the frontier if they haven't been explored or aren't already in the frontier
         for child_state in state.get_expanded_states():
+            if deadline is not None and time.perf_counter() > deadline:
+                print_search_status(explored, frontier)
+                print("Search deadline exceeded — switching strategy.", file=sys.stderr, flush=True)
+                return None
             if child_state not in explored and not frontier.contains(child_state):
                 frontier.add(child_state)
 ##############################################################################

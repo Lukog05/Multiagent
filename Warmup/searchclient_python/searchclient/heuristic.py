@@ -229,3 +229,46 @@ class HeuristicGreedy(Heuristic):
 
     def __repr__(self) -> str:
         return "greedy evaluation"
+
+
+class HeuristicPredictabilityAware:
+    """
+    Wraps any heuristic and adds the predictability penalty from
+    arXiv:2411.06223v2 (Eq. 5).
+
+    Total priority: f_base(state) + λ · γ^t · Σ_i ‖actual_i − predicted_i(t)‖²
+
+    The penalty biases best-first search toward trajectories that stay close
+    to the BFS-predicted path (constant-velocity prediction toward each
+    agent's goal), fostering the 'soft social convention' described in the
+    paper without requiring explicit inter-agent communication.
+
+    Parameters
+    ----------
+    base : Heuristic
+        Any existing heuristic (A*, WA*, Greedy, …) that provides f(state).
+    lambda_ : float
+        Predictability weight λ.  Paper experiments: {0, 2.5, 5.0}.
+    gamma : float
+        Horizon discount factor γ (paper default: 0.6).
+    """
+
+    def __init__(
+        self,
+        initial_state: State,
+        base: Heuristic,
+        lambda_: float = 2.5,
+        gamma: float = 0.6,
+    ) -> None:
+        from searchclient.predictability import PredictabilityModel
+        self._base = base
+        self._pred = PredictabilityModel(initial_state, lambda_=lambda_, gamma=gamma)
+
+    def f(self, state: State) -> float:
+        return self._base.f(state) + self._pred.penalty(state)
+
+    def __repr__(self) -> str:
+        return (
+            f"predictability-aware {self._base!r} "
+            f"(λ={self._pred.lambda_}, γ={self._pred.gamma})"
+        )

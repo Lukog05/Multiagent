@@ -1082,10 +1082,20 @@ def decoupled_box_plan(initial_state: State, deadline: float) -> list[list[Actio
                 break
             bl = state.boxes[pr][pc]
             if bl:
-                # Skip boxes already at their own goal — treat as permanent wall
+                # If a goal-box is blocking the path, try to temporarily displace it
                 if (pr < len(State.goals) and pc < len(State.goals[pr])
                         and State.goals[pr][pc] == bl):
-                    continue
+                    _goal_forbidden: set = (
+                        {(fg_r, fg_c) for fg_let, fg_r, fg_c in all_box_goals
+                         if state.boxes[fg_r][fg_c] == fg_let}
+                        | agent_goal_cells
+                        | {(br, bc), (gr, gc)}
+                        | set(path_set)
+                    )
+                    if _resolve_blocker(pr, pc, bl, _goal_forbidden, depth=0):
+                        made_progress = True
+                        break
+                    continue  # can't displace, skip and try next cell
                 # Skip unmovable boxes (no compatible agent) — A* will route around them
                 bl_color = State.box_colors[ord(bl) - ord("A")]
                 bl_agents = [k for k in range(num_agents) if State.agent_colors[k] == bl_color]
@@ -1550,6 +1560,19 @@ def decoupled_box_plan(initial_state: State, deadline: float) -> list[list[Actio
                 if acts is None:
                     print(f"[decoupled] Agent {agent_idx} truly unreachable → ({gr},{gc})",
                           file=sys.stderr, flush=True)
+                    # Try pushing boxes off agent's ideal path to make it reachable.
+                    # Add path cells to forbidden so boxes don't get re-parked on the path.
+                    _ag_path = _trace_ideal_path(ar, ac, gr, gc)
+                    _ag_forbidden: set = (
+                        {(fg_r, fg_c) for fg_let, fg_r, fg_c in all_box_goals
+                         if state.boxes[fg_r][fg_c] == fg_let}
+                        | agent_goal_cells | {(gr, gc)} | set(_ag_path)
+                    )
+                    for _pr, _pc in _ag_path[1:]:
+                        _bl = state.boxes[_pr][_pc] if state.boxes[_pr][_pc] else ""
+                        if _bl and _resolve_blocker(_pr, _pc, _bl, _ag_forbidden, depth=0):
+                            made_progress = True
+                            # keep clearing — remove all boxes from path in one pass
                     next_remaining.append((agent_idx, gr, gc))
                     continue
                 # Pre-compute all cells on this path so blockers are moved completely off it

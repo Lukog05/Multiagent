@@ -162,7 +162,9 @@ def _try_ca_order(
         for t in range(1, len(path)):
             pr, pc = path[t - 1]
             cr, cc = path[t]
-            edge_res.add((pr, pc, cr, cc, t - 1))  # (from, to, departure_t)
+            edge_res.add((pr, pc, cr, cc, t - 1))  # forward: (from, to, departure_t)
+            if (cr, cc) != (pr, pc):  # actual move — also block the reverse to prevent swaps
+                edge_res.add((cr, cc, pr, pc, t - 1))
 
     full_paths: list[list[tuple[int, int]]] = [p for p in paths if p is not None]  # type: ignore[misc]
     return _paths_to_joint_actions(full_paths, num_agents)

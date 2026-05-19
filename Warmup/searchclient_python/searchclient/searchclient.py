@@ -200,7 +200,8 @@ class SearchClient:
             )
 
             _cascade_start = time.perf_counter()
-            _server_deadline = _cascade_start + 165.0  # leave 15s buffer before server's 180s
+            _server_deadline = _cascade_start + max(10.0, args.time - 10.0)
+            _total_budget = _server_deadline - _cascade_start  # for proportional scaling
 
             if not has_boxes:
                 from searchclient.cbs import (
@@ -418,17 +419,31 @@ class SearchClient:
                     print(f"[cascade] Skipping WA* (too large: {_num_boxes} boxes × "
                           f"{_num_box_agents} agents)", file=sys.stderr, flush=True)
                 else:
+                    # Scale budgets proportionally to total available time
+                    _wa_per = max(3.0, _total_budget * 0.09)  # ~9% per weight
+                    _wa_min_rem = max(5.0, _total_budget * 0.15)  # need 15% budget remaining
                     # For small state spaces, start with lower weights to find solutions faster
                     # (high weights like 100/50 often time out on tight corridors)
                     if _state_space_estimate <= 15:
-                        _wa_schedule = [(20, 10.0), (10, 12.0), (5, 20.0), (2, 30.0)]
+                        _wa_schedule = [
+                            (20, max(3.0, _total_budget * 0.06)),
+                            (10, max(3.0, _total_budget * 0.07)),
+                            (5,  max(3.0, _total_budget * 0.12)),
+                            (2,  max(3.0, _total_budget * 0.18)),
+                        ]
                     else:
-                        _wa_schedule = [(100, 15.0), (50, 15.0), (20, 15.0), (10, 20.0), (5, 30.0)]
+                        _wa_schedule = [
+                            (100, _wa_per),
+                            (50,  _wa_per),
+                            (20,  _wa_per),
+                            (10,  _wa_per * 1.3),
+                            (5,   _wa_per * 2.0),
+                        ]
                     for _w, _bud in _wa_schedule:
                         _remaining = _server_deadline - time.perf_counter()
-                        if _remaining < 35.0:
+                        if _remaining < _wa_min_rem:
                             break
-                        _bud = min(_bud, _remaining - 35.0)
+                        _bud = min(_bud, _remaining - _wa_min_rem)
                         if _bud < 3.0:
                             break
                         print(f"[cascade] Trying WA*({_w}) (budget: {_bud:.1f}s)...", file=sys.stderr, flush=True)
@@ -446,7 +461,7 @@ class SearchClient:
 
             # ── Greedy best-first fallback — skip for huge state spaces ──────────
             if plan is None and not _skip_wa:
-                _gbf_budget = max(0.0, _server_deadline - time.perf_counter() - 15.0)
+                _gbf_budget = max(0.0, _server_deadline - time.perf_counter() - 5.0)
                 if _gbf_budget >= 3.0:
                     print(f"[cascade] Trying Greedy fallback (budget: {_gbf_budget:.1f}s)...", file=sys.stderr, flush=True)
                     _t0 = time.perf_counter()
@@ -551,6 +566,18 @@ if __name__ == "__main__":
         help="Use the WA* strategy.",
     )
     strategy_group.add_argument("-greedy", action="store_true", dest="greedy", help="Use the Greedy strategy.")
+
+    parser.add_argument(
+        "--time",
+        metavar="<seconds>",
+        type=float,
+        default=170.0,
+        help=(
+            "Server time limit in seconds (default 170, matching the 180s server default). "
+            "Set this to match the -t argument passed to the server jar so the cascade "
+            "allocates budgets correctly (e.g., --time 60 when server uses -t 60)."
+        ),
+    )
 
     parser.add_argument(
         "--predictable",

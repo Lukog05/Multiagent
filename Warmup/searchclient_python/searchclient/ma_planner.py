@@ -29,12 +29,25 @@ State.is_applicable / is_conflicting before use).
 from __future__ import annotations
 
 import heapq
+import random
 import sys
 import time
 from collections import deque
 
 from searchclient.action import Action, ActionType
 from searchclient.state import State
+
+# ── Decoupled diagnostics ─────────────────────────────────────────────────────
+_BOX_BLOCKED_HITS = 0
+
+
+def reset_box_blocked_hits() -> None:
+    global _BOX_BLOCKED_HITS
+    _BOX_BLOCKED_HITS = 0
+
+
+def get_box_blocked_hits() -> int:
+    return _BOX_BLOCKED_HITS
 
 # ── Lookup tables built at import time ────────────────────────────────────────
 _MOVE: dict[tuple[int, int], Action] = {
@@ -98,7 +111,7 @@ def _plan_task(
     gr: int, gc: int,
     extra_walls: frozenset[tuple[int, int]],
     deadline: float,
-) -> list[Action] | None:
+) -> tuple[list[Action] | None, frozenset[tuple[int, int]]]:
     """
     A* on (agent_r, agent_c, box_r, box_c) to push the box from (br,bc) to (gr,gc).
 
@@ -113,8 +126,37 @@ def _plan_task(
         # Also check without extra_walls to distinguish wall-blocked vs box-blocked
         goal_dist_noextra = _bfs_from(gr, gc, frozenset())
         reason = "wall-blocked" if goal_dist_noextra[br][bc] == _INF else "box-blocked"
+        if reason == "box-blocked":
+            global _BOX_BLOCKED_HITS
+            _BOX_BLOCKED_HITS += 1
+        #print(f"[plan_task] ({ar},{ac}) push ({br},{bc})→({gr},{gc}): unreachable ({reason})", file=sys.stderr, flush=True)
+        #return None  # box can't reach goal given current obstacles
         print(f"[plan_task] ({ar},{ac}) push ({br},{bc})→({gr},{gc}): unreachable ({reason})", file=sys.stderr, flush=True)
-        return None  # box can't reach goal given current obstacles
+        if reason == "box-blocked":
+            # Walk the ideal (walls-only) path from box to goal and collect
+            # whichever cells are in extra_walls — those are the static blockers.
+            _dist_noex = _bfs_from(gr, gc, frozenset())
+            _path_blockers: list[tuple[int, int]] = []
+            _visited_pt: set[tuple[int, int]] = {(br, bc)}
+            _pr, _pc = br, bc
+            while (_pr, _pc) != (gr, gc) and len(_path_blockers) < rows * cols:
+                _best_pt: tuple[int, int] | None = None
+                _best_d = _dist_noex[_pr][_pc]
+                for _dr, _dc in _DIRS:
+                    _nr, _nc = _pr + _dr, _pc + _dc
+                    if (0 <= _nr < rows and 0 <= _nc < cols
+                            and (_nr, _nc) not in _visited_pt
+                            and _dist_noex[_nr][_nc] < _best_d):
+                        _best_d = _dist_noex[_nr][_nc]
+                        _best_pt = (_nr, _nc)
+                if _best_pt is None:
+                    break
+                _pr, _pc = _best_pt
+                _visited_pt.add((_pr, _pc))
+                if (_pr, _pc) in extra_walls:
+                    _path_blockers.append((_pr, _pc))
+            return None, frozenset(_path_blockers)
+        return None, frozenset()  # wall-blocked — nothing to reactivate
 
     start = (ar, ac, br, bc)
     g_cost: dict[tuple, int] = {start: 0}
@@ -122,10 +164,13 @@ def _plan_task(
     ctr = 0
     heap: list = [(goal_dist[br][bc], 0, ctr, start)]
 
+    #while heap:
+    #    if time.perf_counter() > deadline:
+    #        return None
     while heap:
         if time.perf_counter() > deadline:
-            return None
-
+            return None, frozenset()
+        
         _, g, _, state = heapq.heappop(heap)
         ar_, ac_, br_, bc_ = state
 
@@ -140,8 +185,10 @@ def _plan_task(
                 prev, act = parent[cur]
                 acts.append(act)
                 cur = prev
+            #acts.reverse()
+            #return acts
             acts.reverse()
-            return acts
+            return acts, frozenset()
 
         # ── Move: agent moves, box stays ──────────────────────────────────────
         for dr, dc in _DIRS:
@@ -204,7 +251,7 @@ def _plan_task(
                 heapq.heappush(heap, (ng + goal_dist[nbr][nbc], ng, ctr, ns))
                 parent[ns] = (state, pull_act)
 
-    return None  # exhausted search space
+    return None, frozenset()  # exhausted search space
 
 
 # ── Agent movement (BFS, box-aware) ──────────────────────────────────────────
@@ -356,8 +403,15 @@ def _plan_park(
            (main_task_goal is None or blocker_own_goal != main_task_goal):
             effective_forbidden.discard(blocker_own_goal)
 
-    # BFS from blocker to find nearest free parking cell not in forbidden
-    dist_from_blocker = _bfs_from(blocker_r, blocker_c, frozenset())
+    # Box-aware reachability: ignore cells blocked by other boxes so we don't
+    # waste time on parking targets that are guaranteed to be box-blocked.
+    box_obstacles = frozenset(
+        (r, c)
+        for r in range(len(state.boxes))
+        for c in range(len(state.boxes[r]))
+        if state.boxes[r][c] and not (r == blocker_r and c == blocker_c)
+    )
+    dist_from_blocker = _bfs_from(blocker_r, blocker_c, box_obstacles)
     candidates_park: list[tuple[int, int, int]] = []
     for r in range(rows):
         for c in range(cols):
@@ -390,7 +444,10 @@ def _plan_park(
                 (state.agent_rows[j], state.agent_cols[j])
                 for j in range(num_agents) if j != park_agent
             )
-            acts = _plan_task(par, pac, blocker_r, blocker_c, pr, pc, extra, time.perf_counter() + PARK_BUDGET)
+            #acts = _plan_task(par, pac, blocker_r, blocker_c, pr, pc, extra, time.perf_counter() + PARK_BUDGET)
+            #if acts is not None:
+            #    return park_agent, acts, (pr, pc)
+            acts, _park_blockers = _plan_task(par, pac, blocker_r, blocker_c, pr, pc, extra, time.perf_counter() + PARK_BUDGET)
             if acts is not None:
                 return park_agent, acts, (pr, pc)
     return None
@@ -681,7 +738,11 @@ def _parallelize_plan(joint_plan: list, initial_state: "State", num_agents: int)
     return new_plan
 
 
-def decoupled_box_plan(initial_state: State, deadline: float) -> list[list[Action]] | None:
+def decoupled_box_plan(
+    initial_state: State,
+    deadline: float,
+    restart_attempt: int = 0,
+) -> list[list[Action]] | None:
     """
     Decoupled multi-agent box planner with recursive blocker resolution.
 
@@ -695,13 +756,23 @@ def decoupled_box_plan(initial_state: State, deadline: float) -> list[list[Actio
     Returns a joint plan or None.
     """
     num_agents = len(initial_state.agent_rows)
+    if restart_attempt == 0:
+        reset_box_blocked_hits()
 
+    STATIC_FILTER_THRESHOLD = 50
+    ACTIVE_BOX_BUFFER = 2 
+    
     all_box_goals: list[tuple[str, int, int]] = [
         (State.goals[r][c], r, c)
         for r in range(len(State.goals))
         for c in range(len(State.goals[r]))
         if "A" <= State.goals[r][c] <= "Z"
     ]
+    _MAX_RESTARTS = 3
+    if restart_attempt > 0:
+        random.shuffle(all_box_goals)
+        print(f"[decoupled] Restart attempt {restart_attempt}/{_MAX_RESTARTS}",
+              file=sys.stderr, flush=True)
 
     # Agent goal cells (digit goals) — prevent parking on them
     agent_goal_cells: frozenset[tuple[int, int]] = frozenset(
@@ -710,11 +781,134 @@ def decoupled_box_plan(initial_state: State, deadline: float) -> list[list[Actio
         for c in range(len(State.goals[r]))
         if "0" <= State.goals[r][c] <= "9"
     )
+    box_goal_cells: frozenset[tuple[int, int]] = frozenset(
+        (gr, gc) for _, gr, gc in all_box_goals
+    )
 
     # Map box letter → list of its goal positions
     letter_goals: dict[str, list[tuple[int, int]]] = {}
     for letter, gr, gc in all_box_goals:
         letter_goals.setdefault(letter, []).append((gr, gc))
+
+    # ── Goal-relevance filtering: active vs static boxes ─────────────────────
+    active_boxes: set[tuple[int, int]] = set()
+    static_boxes: set[tuple[int, int]] = set()
+
+    box_positions_by_letter: dict[str, list[tuple[int, int]]] = {}
+    total_boxes = 0
+    for r in range(len(initial_state.boxes)):
+        for c in range(len(initial_state.boxes[r])):
+            letter = initial_state.boxes[r][c]
+            if letter:
+                total_boxes += 1
+                box_positions_by_letter.setdefault(letter, []).append((r, c))
+
+    agent_colors = {
+        State.agent_colors[i]
+        for i in range(num_agents)
+        if State.agent_colors[i] is not None
+    }
+    movable_letters = {
+        letter
+        for letter in letter_goals
+        if State.box_colors[ord(letter) - ord("A")] in agent_colors
+    }
+
+    if total_boxes > STATIC_FILTER_THRESHOLD:
+        rows_f = len(State.walls)
+        cols_f = len(State.walls[0]) if rows_f > 0 else 0
+
+        def _push_bfs_from_goal(gr: int, gc: int) -> list[list[int]]:
+            dist = [[_INF] * cols_f for _ in range(rows_f)]
+            dist[gr][gc] = 0
+            dq: deque[tuple[int, int]] = deque([(gr, gc)])
+            while dq:
+                r, c = dq.popleft()
+                for dr, dc in _DIRS:
+                    br, bc = r - dr, c - dc  # previous box position
+                    ar, ac = br - dr, bc - dc  # agent behind box
+                    if not (0 <= br < rows_f and 0 <= bc < cols_f):
+                        continue
+                    if not (0 <= ar < rows_f and 0 <= ac < cols_f):
+                        continue
+                    if State.walls[br][bc] or State.walls[ar][ac]:
+                        continue
+                    if dist[br][bc] == _INF:
+                        dist[br][bc] = dist[r][c] + 1
+                        dq.append((br, bc))
+            return dist
+
+        push_bfs_cache: dict[tuple[int, int], list[list[int]]] = {}
+
+        for letter, positions in box_positions_by_letter.items():
+            if letter not in letter_goals:
+                static_boxes.update(positions)
+                continue
+            if letter not in movable_letters:
+                static_boxes.update(positions)
+                continue
+
+            goals = letter_goals.get(letter, [])
+            unsatisfied_goals = [
+                (gr, gc)
+                for gr, gc in goals
+                if initial_state.boxes[gr][gc] != letter
+            ]
+            if not unsatisfied_goals:
+                static_boxes.update(positions)
+                continue
+
+            # Compute push-reachability distances from each goal (walls-only).
+            for gr, gc in unsatisfied_goals:
+                if (gr, gc) not in push_bfs_cache:
+                    push_bfs_cache[(gr, gc)] = _push_bfs_from_goal(gr, gc)
+
+            candidates: list[tuple[int, int, tuple[int, int]]] = []
+            for br, bc in positions:
+                at_goal = 1 if (br, bc) in goals and initial_state.boxes[br][bc] == letter else 0
+                dist = _INF
+                for gr, gc in unsatisfied_goals:
+                    d = push_bfs_cache[(gr, gc)][br][bc]
+                    if d < dist:
+                        dist = d
+                candidates.append((at_goal, dist, (br, bc)))
+
+            candidates.sort()
+            #keep_n = min(len(unsatisfied_goals), len(candidates))
+            #chosen = {pos for _, _, pos in candidates[:keep_n]}
+            keep_n = min(len(unsatisfied_goals) + ACTIVE_BOX_BUFFER, len(candidates))
+            chosen = {pos for _, _, pos in candidates[:keep_n]}
+            active_boxes.update(chosen)
+            for pos in positions:
+                if pos not in active_boxes:
+                    static_boxes.add(pos)
+    else:
+        # Small levels: keep original behavior (everything movable).
+        for positions in box_positions_by_letter.values():
+            active_boxes.update(positions)
+    if total_boxes > STATIC_FILTER_THRESHOLD:
+        print(f"[decoupled] Active boxes: {len(active_boxes)}, static boxes: {len(static_boxes)}",
+              file=sys.stderr, flush=True)
+
+    # If a letter has goals but no movable agent color and goals are unsatisfied, fail fast.
+    for letter, goals in letter_goals.items():
+        if letter in movable_letters:
+            continue
+        if any(initial_state.boxes[gr][gc] != letter for gr, gc in goals):
+            print(f"[decoupled] Letter {letter} has goals but no agents to move it.",
+                  file=sys.stderr, flush=True)
+            return None
+
+    def _reactivate_box(br: int, bc: int, letter: str, reason: str) -> bool:
+        if (br, bc) not in static_boxes:
+            return False
+        if letter not in movable_letters:
+            return False
+        static_boxes.remove((br, bc))
+        active_boxes.add((br, bc))
+        print(f"[decoupled] Reactivated {letter} at ({br},{bc}) — {reason}",
+              file=sys.stderr, flush=True)
+        return True
 
     joint_plan: list[list[Action]] = []
     state = initial_state
@@ -742,6 +936,27 @@ def decoupled_box_plan(initial_state: State, deadline: float) -> list[list[Actio
             if not state.is_applicable(agent_idx, act) or state.is_conflicting(ja):
                 print(f"[decoupled] Simulation mismatch agent {agent_idx}", file=sys.stderr, flush=True)
                 return False
+            # Track active/static box positions across moves.
+            if act.type is ActionType.Push:
+                ar, ac = state.agent_rows[agent_idx], state.agent_cols[agent_idx]
+                br, bc = ar + act.agent_row_delta, ac + act.agent_col_delta
+                nbr, nbc = br + act.box_row_delta, bc + act.box_col_delta
+                if (br, bc) in active_boxes:
+                    active_boxes.remove((br, bc))
+                    active_boxes.add((nbr, nbc))
+                elif (br, bc) in static_boxes:
+                    static_boxes.remove((br, bc))
+                    static_boxes.add((nbr, nbc))
+            elif act.type is ActionType.Pull:
+                ar, ac = state.agent_rows[agent_idx], state.agent_cols[agent_idx]
+                br, bc = ar - act.box_row_delta, ac - act.box_col_delta
+                nbr, nbc = ar, ac
+                if (br, bc) in active_boxes:
+                    active_boxes.remove((br, bc))
+                    active_boxes.add((nbr, nbc))
+                elif (br, bc) in static_boxes:
+                    static_boxes.remove((br, bc))
+                    static_boxes.add((nbr, nbc))
             joint_plan.append(ja)
             state = state.result(ja)
         return True
@@ -834,6 +1049,8 @@ def decoupled_box_plan(initial_state: State, deadline: float) -> list[list[Actio
         Plan and execute pushing `letter` from (br,bc) to (gr,gc) with agent_idx.
         Returns True on success.
         """
+        if (br, bc) in static_boxes:
+            return False
         # STALE-BOX GUARD: box must still be at (br,bc)
         if state.boxes[br][bc] != letter:
             return False
@@ -843,10 +1060,25 @@ def decoupled_box_plan(initial_state: State, deadline: float) -> list[list[Actio
         # Pre-clear: move any other agent off the ideal path and the goal cell
         _clear_agents_from_path(agent_idx, br, bc, gr, gc)
         ar, ac = state.agent_rows[agent_idx], state.agent_cols[agent_idx]
+        """
         extra = _build_extra_walls(agent_idx, br, bc)
         acts = _plan_task(ar, ac, br, bc, gr, gc, extra, time.perf_counter() + TASK_BUDGET)
         if acts is None:
             return False
+        """
+        extra = _build_extra_walls(agent_idx, br, bc)
+        acts, _blocked_by = _plan_task(ar, ac, br, bc, gr, gc, extra, time.perf_counter() + TASK_BUDGET)
+        if acts is None:
+            # Blocker-aware reactivation: if any cell on the box→goal path is a
+            # static box that a compatible agent can move, promote it to active
+            # so the planner can treat it as a movable obstacle next round.
+            _reactivated_any = False
+            for _blk_r, _blk_c in _blocked_by:
+                _blk_letter = state.boxes[_blk_r][_blk_c] if state.boxes[_blk_r][_blk_c] else None
+                if _blk_letter and _reactivate_box(_blk_r, _blk_c, _blk_letter, "box-blocked path"):
+                    _reactivated_any = True
+            return False
+        
         print(f"[decoupled] Agent {agent_idx}: push {letter} ({br},{bc})→({gr},{gc})",
               file=sys.stderr, flush=True)
         return _execute_actions(agent_idx, acts)
@@ -865,6 +1097,9 @@ def decoupled_box_plan(initial_state: State, deadline: float) -> list[list[Actio
             return False
         if time.perf_counter() > deadline - 2.0:
             return False
+        if (b_r, b_c) in static_boxes:
+            if not _reactivate_box(b_r, b_c, b_letter, "blocking path"):
+                return False
         if state.boxes[b_r][b_c] != b_letter:
             return True  # already moved
 
@@ -967,6 +1202,77 @@ def decoupled_box_plan(initial_state: State, deadline: float) -> list[list[Actio
 
         return False
 
+    def _stage_non_goal_boxes() -> None:
+        """
+        Pre-stage boxes with no goals to boundary cells to clear congestion.
+        This is a best-effort pass with a tight time budget.
+        """
+        nonlocal state
+        remaining = deadline - time.perf_counter()
+        if remaining < 12.0:
+            return
+        stage_budget = min(8.0, remaining - 8.0)
+        if stage_budget < 2.0:
+            return
+
+        rows = len(State.walls)
+        cols = len(State.walls[0])
+        staging_cells = {
+            (r, c)
+            for r in range(rows)
+            for c in range(cols)
+            if (r == 0 or c == 0 or r == rows - 1 or c == cols - 1)
+            and not State.walls[r][c]
+            and (r, c) not in agent_goal_cells
+            and (r, c) not in box_goal_cells
+        }
+        if not staging_cells:
+            return
+
+        goal_letters = set(letter_goals.keys())
+        non_staging = {
+            (r, c)
+            for r in range(rows)
+            for c in range(cols)
+            if (r, c) not in staging_cells
+        }
+        forbidden_base = non_staging | set(agent_goal_cells) | set(box_goal_cells)
+        stage_deadline = time.perf_counter() + stage_budget
+        staged = 0
+
+        print(f"[decoupled] Staging non-goal boxes (budget {stage_budget:.1f}s)...",
+              file=sys.stderr, flush=True)
+
+        for r in range(rows):
+            for c in range(cols):
+                if time.perf_counter() > stage_deadline:
+                    return
+                letter = state.boxes[r][c]
+                if not letter or letter in goal_letters:
+                    continue
+                if (r, c) in static_boxes:
+                    continue
+                if (r, c) in staging_cells:
+                    continue
+                if state.boxes[r][c] != letter:
+                    continue
+                park_result = _plan_park(
+                    state, r, c, letter, forbidden_base, num_agents, stage_deadline,
+                    blocker_own_goal=None,
+                )
+                if park_result is None:
+                    continue
+                park_agent, park_acts, park_pos = park_result
+                if _execute_actions(park_agent, park_acts):
+                    staged += 1
+                    print(f"[decoupled] Staged {letter} ({r},{c})→{park_pos}",
+                          file=sys.stderr, flush=True)
+                if time.perf_counter() > stage_deadline:
+                    return
+        if staged == 0:
+            print("[decoupled] Staging pass made no moves.",
+                  file=sys.stderr, flush=True)
+
     def _clear_obstacles_to_box(agent_idx: int, box_r: int, box_c: int) -> bool:
         """
         When the planning agent can't reach the target box (path blocked by agents or
@@ -1034,6 +1340,8 @@ def decoupled_box_plan(initial_state: State, deadline: float) -> list[list[Actio
             # Check if it's a box (no-goal or with goal)
             bl = state.boxes[pr][pc] if state.boxes[pr][pc] else None
             if bl:
+                if (pr, pc) in static_boxes and not _reactivate_box(pr, pc, bl, "blocking agent path"):
+                    continue
                 bl_goal_opts = [
                     (bgr, bgc) for bgr, bgc in letter_goals.get(bl, [])
                     if state.boxes[bgr][bgc] != bl
@@ -1082,6 +1390,8 @@ def decoupled_box_plan(initial_state: State, deadline: float) -> list[list[Actio
                 break
             bl = state.boxes[pr][pc]
             if bl:
+                if (pr, pc) in static_boxes and not _reactivate_box(pr, pc, bl, "blocking permissive path"):
+                    continue
                 # Skip boxes already at their own goal — treat as permanent wall
                 if (pr < len(State.goals) and pc < len(State.goals[pr])
                         and State.goals[pr][pc] == bl):
@@ -1126,11 +1436,13 @@ def decoupled_box_plan(initial_state: State, deadline: float) -> list[list[Actio
         return made_progress
 
     # ── Box-goal phase ────────────────────────────────────────────────────────
+    _stage_non_goal_boxes()
     max_rounds = len(all_box_goals) * 8 + 20
     goal_displaced_count: dict = {}   # tracks temporary displacements of goal-boxes
     seen_box_configs: set = set()     # cycle detection
     _cycle_resets = 0                 # how many times we've reset after a cycle
-    _MAX_CYCLE_RESETS = 3
+    _MAX_CYCLE_RESETS = 12
+    _cycle_reset_pending = False
 
     # Pre-compute walls-only BFS distances from each unique goal position.
     # Used to (a) filter impossible box-goal assignments and (b) improve cost sorting.
@@ -1170,6 +1482,10 @@ def decoupled_box_plan(initial_state: State, deadline: float) -> list[list[Actio
         cycle_key = (len(unsatisfied), unsat_box_config)
         if cycle_key in seen_box_configs:
             if _cycle_resets >= _MAX_CYCLE_RESETS:
+                if restart_attempt < _MAX_RESTARTS and time.perf_counter() < deadline - 5.0:
+                    print("[decoupled] Cycle limit reached — restarting",
+                          file=sys.stderr, flush=True)
+                    return decoupled_box_plan(initial_state, deadline, restart_attempt + 1)
                 print("[decoupled] Cycle detected — aborting", file=sys.stderr, flush=True)
                 return None
             # Try to break the cycle by resetting detection and changing goal order
@@ -1177,13 +1493,10 @@ def decoupled_box_plan(initial_state: State, deadline: float) -> list[list[Actio
             _cycle_resets += 1
             seen_box_configs.clear()
             goal_displaced_count.clear()
+            _cycle_reset_pending = True
             print(f"[decoupled] Cycle detected — reset #{_cycle_resets}, changing order",
                   file=sys.stderr, flush=True)
-            # Alternate between reversed order and random shuffle each reset
-            if _cycle_resets % 2 == 1:
-                all_box_goals.reverse()
-            else:
-                _random.shuffle(all_box_goals)
+            _random.shuffle(all_box_goals)
         seen_box_configs.add(cycle_key)
         if time.perf_counter() > deadline:
             return None
@@ -1196,6 +1509,27 @@ def decoupled_box_plan(initial_state: State, deadline: float) -> list[list[Actio
         if not unsatisfied:
             break
 
+        # Box-aware reachability cache (treat current boxes as walls).
+        rows_b = len(State.walls)
+        cols_b = len(State.walls[0])
+        box_obstacles: frozenset[tuple[int, int]] = frozenset(static_boxes)
+        box_dist_cache: dict[tuple[int, int], list[list[int]]] = {}
+        for _letter, _gr, _gc in unsatisfied:
+            if (_gr, _gc) not in box_dist_cache:
+                # Allow the goal cell itself (it may be temporarily occupied).
+                goal_obstacles = box_obstacles - {(_gr, _gc)}
+                box_dist_cache[(_gr, _gc)] = _bfs_from(_gr, _gc, goal_obstacles)
+
+        def _box_goal_reachable(gr: int, gc: int, br: int, bc: int) -> bool:
+            dist_grid = box_dist_cache[(gr, gc)]
+            if dist_grid[br][bc] < _INF:
+                return True
+            for dr, dc in _DIRS:
+                nr, nc = br + dr, bc + dc
+                if 0 <= nr < rows_b and 0 <= nc < cols_b and dist_grid[nr][nc] < _INF:
+                    return True
+            return False
+
         # Check no compatible agents exist
         for letter, gr, gc in unsatisfied:
             box_color = State.box_colors[ord(letter) - ord("A")]
@@ -1205,10 +1539,10 @@ def decoupled_box_plan(initial_state: State, deadline: float) -> list[list[Actio
                 return None
 
         # Dependency-aware ordering: tasks blocking others come first.
-        # After a cycle reset, skip the dep sort on odd resets so the
-        # reversed/shuffled order from all_box_goals actually takes effect.
-        if _cycle_resets % 2 == 1:
-            ordered_goals = list(unsatisfied)  # already reflects reversed/shuffled all_box_goals
+        # After a cycle reset, skip dep sort once so the shuffled order applies.
+        if _cycle_reset_pending:
+            ordered_goals = list(unsatisfied)
+            _cycle_reset_pending = False
         else:
             ordered_goals = _dependency_sort_goals(unsatisfied, state)
 
@@ -1222,12 +1556,16 @@ def decoupled_box_plan(initial_state: State, deadline: float) -> list[list[Actio
                 (r, c)
                 for r in range(len(state.boxes))
                 for c in range(len(state.boxes[r]))
-                if state.boxes[r][c] == letter and not (r == gr and c == gc)
+                if state.boxes[r][c] == letter
+                and (r, c) in active_boxes
+                and not (r == gr and c == gc)
                 and not (r < len(State.goals) and c < len(State.goals[r]) and State.goals[r][c] == letter)
             ]
             for i in compatible:
                 ar, ac = state.agent_rows[i], state.agent_cols[i]
                 for br, bc in avail:
+                    if not _box_goal_reachable(gr, gc, br, bc):
+                        continue
                     # Skip box-goal pairs that are impossible even without other boxes
                     walls_only_dist = _goal_bfs_cache.get((gr, gc))
                     if walls_only_dist and walls_only_dist[br][bc] == _INF:
@@ -1435,6 +1773,10 @@ def decoupled_box_plan(initial_state: State, deadline: float) -> list[list[Actio
 
         if progress == 0:
             print("[decoupled] No progress this round — stuck, aborting", file=sys.stderr, flush=True)
+            if restart_attempt < _MAX_RESTARTS and time.perf_counter() < deadline - 5.0:
+                print("[decoupled] Restarting after stall",
+                      file=sys.stderr, flush=True)
+                return decoupled_box_plan(initial_state, deadline, restart_attempt + 1)
             return None
 
     # ── Agent-goal phase ──────────────────────────────────────────────────────
@@ -1638,6 +1980,10 @@ def decoupled_box_plan(initial_state: State, deadline: float) -> list[list[Actio
 
     if not state.is_goal_state():
         print("[decoupled] Iterations exhausted, goal not fully reached", file=sys.stderr, flush=True)
+        if restart_attempt < _MAX_RESTARTS and time.perf_counter() < deadline - 5.0:
+            print("[decoupled] Restarting after incomplete solve",
+                  file=sys.stderr, flush=True)
+            return decoupled_box_plan(initial_state, deadline, restart_attempt + 1)
         return None
 
     print(f"[decoupled] Solved — plan length {len(joint_plan)}", file=sys.stderr, flush=True)

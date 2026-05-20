@@ -215,6 +215,77 @@ def cooperative_astar(initial_state: State, max_t: int = 500, deadline: float | 
     return None
 
 
+def token_passing_search(
+    initial_state: State,
+    max_t: int = 500,
+    deadline: float | None = None,
+    attempts: int = 5,
+) -> list[list[Action]] | None:
+    """
+    Token Passing (TP) for MAPF-like instances (no boxes).
+    Plans agents sequentially with a reservation table; retries with shuffled
+    orderings to escape ordering bias.
+    """
+    import random
+    num_agents = len(initial_state.agent_rows)
+    if num_agents == 0:
+        return []
+
+    agent_goals: dict[int, tuple[int, int]] = {}
+    for r in range(len(State.goals)):
+        for c in range(len(State.goals[r])):
+            g = State.goals[r][c]
+            if "0" <= g <= "9":
+                idx = ord(g) - ord("0")
+                if idx < num_agents:
+                    agent_goals[idx] = (r, c)
+    for i in range(num_agents):
+        if i not in agent_goals:
+            agent_goals[i] = (initial_state.agent_rows[i], initial_state.agent_cols[i])
+
+    dist_grids = {i: _bfs_distances(*agent_goals[i]) for i in range(num_agents)}
+
+    agents = list(range(num_agents))
+    for attempt in range(attempts):
+        if deadline is not None and time.perf_counter() > deadline:
+            return None
+        if attempt > 0:
+            random.shuffle(agents)
+
+        paths: list[list[tuple[int, int]] | None] = [None] * num_agents
+        vertex_res: set[tuple[int, int, int]] = set()
+        edge_res: set[tuple[int, int, int, int, int]] = set()
+
+        failed = False
+        for i in agents:
+            if deadline is not None and time.perf_counter() > deadline:
+                return None
+            path = _constrained_astar(
+                initial_state.agent_rows[i], initial_state.agent_cols[i],
+                agent_goals[i][0], agent_goals[i][1],
+                dist_grids[i], frozenset(vertex_res), frozenset(edge_res), max_t=max_t,
+            )
+            if path is None:
+                failed = True
+                break
+            paths[i] = path
+            for t, (r, c) in enumerate(path):
+                vertex_res.add((r, c, t))
+            gr, gc = path[-1]
+            for t in range(len(path), max_t + 1):
+                vertex_res.add((gr, gc, t))
+            for t in range(1, len(path)):
+                pr, pc = path[t - 1]
+                cr, cc = path[t]
+                edge_res.add((pr, pc, cr, cc, t - 1))
+
+        if not failed and all(p is not None for p in paths):
+            full_paths: list[list[tuple[int, int]]] = [p for p in paths if p is not None]  # type: ignore[misc]
+            return _paths_to_joint_actions(full_paths, num_agents)
+
+    return None
+
+
 def cbs_search(initial_state: State, deadline: float | None = None) -> list[list[Action]] | None:
     num_agents = len(initial_state.agent_rows)
 

@@ -1,5 +1,5 @@
 ServerPath: D:\Codes\Multiagent\FinalProjectV3\Multiagent\Warmup\server.jar
-LevelsDir: D:\Codes\Multiagent\FinalProjectV3\Multiagent\Warmup\complevels
+LevelsDir: D:\Codes\Multiagent\FinalProjectV3\Multiagent\Warmup\temp
 BenchmarkFolder: D:\Codes\Multiagent\FinalProjectV3\Multiagent\Warmup\searchclient_python\benchmarks
 ClientCommand: python -m searchclient.searchclient --max-memory 10240
 Timeout: 180

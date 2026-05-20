@@ -4,9 +4,10 @@ import time
 from typing import TextIO
 
 from searchclient import memory
+from searchclient.action import Action
 from searchclient.color import Color
 from searchclient.frontier import Frontier, FrontierBestFirst, FrontierBFS, FrontierDFS
-from searchclient.graphsearch import search
+from searchclient.graphsearch import search, windowed_search
 from searchclient.heuristic import HeuristicAStar, HeuristicGreedy, HeuristicPredictabilityAware, HeuristicWeightedAStar
 from searchclient.state import State
 
@@ -30,22 +31,22 @@ def _select_mapf_cascade(num_agents: int, free_cells: int, density: float, acces
     # Rule 1: Very few agents in a small space → Joint A* first (optimal, fast)
     # Rule 2: High density (many agents / free cells) → PIBT excels
     # Rule 3: Many agents (>8) → skip Joint A* entirely (state space too large)
-    # Rule 4: Default order: PIBT → GreedyMAPF → CBS → CoopA* → JointA* → DFS-CBS → Greedy
+    # Rule 4: Default order: PIBT → GreedyMAPF → TokenPassing → CBS → CoopA* → JointA* → DFS-CBS → Greedy
     """
-    default = ["PIBT", "GreedyMAPF", "CBS", "CoopA*", "JointA*", "DFS-CBS", "Greedy"]
+    default = ["PIBT", "GreedyMAPF", "TokenPassing", "CBS", "CoopA*", "JointA*", "DFS-CBS", "Greedy"]
 
     # Rule 1: Few agents in small accessible space — Joint A* first (optimal + fast).
     if num_agents <= 3 and accessible <= 50:
-        return ["JointA*", "PIBT", "GreedyMAPF", "CBS", "CoopA*", "DFS-CBS", "Greedy"]
+        return ["JointA*", "PIBT", "GreedyMAPF", "TokenPassing", "CBS", "CoopA*", "DFS-CBS", "Greedy"]
 
     # Rule 2: High density → PIBT handles corridor/tight problems best (already first in default).
     # density >= 0.3 means more than 30% of free cells have agents — very dense.
     if density >= 0.3:
-        return ["PIBT", "GreedyMAPF", "CBS", "CoopA*", "DFS-CBS", "Greedy"]
+        return ["PIBT", "GreedyMAPF", "TokenPassing", "CBS", "CoopA*", "DFS-CBS", "Greedy"]
 
     # Rule 3: Many agents → Joint A* state space is intractable, remove it.
     if num_agents > 8:
-        return ["PIBT", "GreedyMAPF", "CBS", "CoopA*", "DFS-CBS", "Greedy"]
+        return ["PIBT", "GreedyMAPF", "TokenPassing", "CBS", "CoopA*", "DFS-CBS", "Greedy"]
 
     return default
 
@@ -206,6 +207,7 @@ class SearchClient:
                 from searchclient.cbs import (
                     cbs_search, _count_reachable_cells, _joint_astar,
                     _greedy_mapf, pibt_search, dfs_cbs_search, cooperative_astar,
+                    token_passing_search,
                 )
                 num_agents = len(initial_state.agent_rows)
 
@@ -217,11 +219,11 @@ class SearchClient:
                 density = num_agents / max(1, free_cells)
                 if not ENABLE_CASCADE_REORDER:
                     # Pre-Phase-1 MAPF order: JointA* first, then CBS, then rest
-                    _cascade_order = ["JointA*", "CBS", "GreedyMAPF", "PIBT", "DFS-CBS", "CoopA*", "Greedy"]
+                    _cascade_order = ["JointA*", "CBS", "GreedyMAPF", "TokenPassing", "PIBT", "DFS-CBS", "CoopA*", "Greedy"]
                 elif ENABLE_ADAPTIVE_CASCADE:
                     _cascade_order = _select_mapf_cascade(num_agents, free_cells, density, accessible)
                 else:
-                    _cascade_order = ["JointA*", "PIBT", "GreedyMAPF", "CBS", "CoopA*", "DFS-CBS", "Greedy"]
+                    _cascade_order = ["JointA*", "PIBT", "GreedyMAPF", "TokenPassing", "CBS", "CoopA*", "DFS-CBS", "Greedy"]
                 print(f"[cascade] Level features: agents={num_agents}, free={free_cells}, density={density:.3f}, accessible={accessible}", file=sys.stderr, flush=True)
                 print(f"[cascade] Selected order: {_cascade_order}", file=sys.stderr, flush=True)
 
@@ -252,6 +254,22 @@ class SearchClient:
                             print(f"[cascade] Greedy MAPF solved in {_el:.3f}s (length {len(result)})", file=sys.stderr, flush=True)
                         else:
                             print(f"[cascade] Greedy MAPF failed in {_el:.3f}s", file=sys.stderr, flush=True)
+                        return result
+                    elif name == "TokenPassing":
+                        _t0 = time.perf_counter()
+                        _tp_budget = min(8.0, _server_deadline - time.perf_counter() - 10.0)
+                        if _tp_budget < 2.0:
+                            return None
+                        print(f"[cascade] Trying Token Passing (budget: {_tp_budget:.1f}s)...",
+                              file=sys.stderr, flush=True)
+                        result = token_passing_search(initial_state, deadline=time.perf_counter() + _tp_budget)
+                        _el = time.perf_counter() - _t0
+                        if result is not None:
+                            print(f"[cascade] Token Passing solved in {_el:.3f}s (length {len(result)})",
+                                  file=sys.stderr, flush=True)
+                        else:
+                            print(f"[cascade] Token Passing failed in {_el:.3f}s",
+                                  file=sys.stderr, flush=True)
                         return result
                     elif name == "CBS":
                         _t0 = time.perf_counter()
@@ -374,7 +392,7 @@ class SearchClient:
             if args.predictable is not False:
                 print(f"[predictability] enabled on box cascade, λ={args.predictable}", file=sys.stderr, flush=True)
 
-            from searchclient.ma_planner import decoupled_box_plan
+            from searchclient.ma_planner import decoupled_box_plan, get_box_blocked_hits
             plan = None
             _num_box_agents = len(initial_state.agent_rows)
 
@@ -390,14 +408,177 @@ class SearchClient:
             _state_space_estimate = _num_boxes * _num_box_agents
             _skip_wa = _state_space_estimate > 50  # too large for WA* / LNS2
 
+            def _try_independence_decoupled(state: State, deadline: float) -> list[list[Action]] | None:
+                from collections import deque
+                rows = len(State.walls)
+                cols = len(State.walls[0]) if rows > 0 else 0
+                comp = [[-1] * cols for _ in range(rows)]
+                comp_id = 0
+                for r in range(rows):
+                    for c in range(cols):
+                        if State.walls[r][c] or comp[r][c] != -1:
+                            continue
+                        q = deque([(r, c)])
+                        comp[r][c] = comp_id
+                        while q:
+                            cr, cc = q.popleft()
+                            for dr, dc in ((-1, 0), (1, 0), (0, -1), (0, 1)):
+                                nr, nc = cr + dr, cc + dc
+                                if (
+                                    0 <= nr < rows
+                                    and 0 <= nc < cols
+                                    and not State.walls[nr][nc]
+                                    and comp[nr][nc] == -1
+                                ):
+                                    comp[nr][nc] = comp_id
+                                    q.append((nr, nc))
+                        comp_id += 1
+
+                comp_agents: dict[int, list[int]] = {i: [] for i in range(comp_id)}
+                comp_boxes: dict[int, list[tuple[int, int, str]]] = {i: [] for i in range(comp_id)}
+                comp_box_goals: dict[int, list[tuple[str, int, int]]] = {i: [] for i in range(comp_id)}
+                comp_agent_goals: dict[int, list[tuple[int, int, int]]] = {i: [] for i in range(comp_id)}
+
+                for i in range(len(state.agent_rows)):
+                    cid = comp[state.agent_rows[i]][state.agent_cols[i]]
+                    if cid >= 0:
+                        comp_agents[cid].append(i)
+
+                for r in range(rows):
+                    for c in range(cols):
+                        if state.boxes[r][c]:
+                            cid = comp[r][c]
+                            if cid >= 0:
+                                comp_boxes[cid].append((r, c, state.boxes[r][c]))
+                        g = State.goals[r][c]
+                        if "A" <= g <= "Z":
+                            cid = comp[r][c]
+                            if cid >= 0:
+                                comp_box_goals[cid].append((g, r, c))
+                        elif "0" <= g <= "9":
+                            idx = ord(g) - ord("0")
+                            cid = comp[r][c]
+                            if cid >= 0:
+                                comp_agent_goals[cid].append((idx, r, c))
+
+                active_components = [cid for cid, agents in comp_agents.items() if agents]
+                if len(active_components) <= 1:
+                    return None
+
+                # Independence sanity checks.
+                for cid in active_components:
+                    if comp_box_goals[cid] and not comp_agents[cid]:
+                        return None
+                    box_letters = {b for _, _, b in comp_boxes[cid]}
+                    for letter, _, _ in comp_box_goals[cid]:
+                        if letter not in box_letters:
+                            return None
+                    for idx, gr, gc in comp_agent_goals[cid]:
+                        if idx >= len(state.agent_rows):
+                            continue
+                        start_cid = comp[state.agent_rows[idx]][state.agent_cols[idx]]
+                        if start_cid != cid:
+                            return None
+
+                full_plan: list[list[Action]] = []
+                total_agents = len(state.agent_rows)
+                orig_agent_colors = State.agent_colors
+                orig_box_colors = State.box_colors
+                orig_goals = State.goals
+                orig_walls = State.walls
+                orig_static = State._static_hash
+                orig_dead = State._dead_cells
+                orig_dead_pairs = State._dead_pairs
+                orig_rows = rows
+                orig_cols = cols
+
+                try:
+                    remaining_components = len(active_components)
+                    for cid in active_components:
+                        if time.perf_counter() > deadline - 2.0:
+                            return None
+                        sub_agent_indices = comp_agents[cid]
+                        sub_agent_rows = [state.agent_rows[i] for i in sub_agent_indices]
+                        sub_agent_cols = [state.agent_cols[i] for i in sub_agent_indices]
+                        sub_agent_colors = [orig_agent_colors[i] for i in sub_agent_indices]
+                        sub_boxes = [["" for _ in range(cols)] for _ in range(rows)]
+                        for br, bc, bl in comp_boxes[cid]:
+                            sub_boxes[br][bc] = bl
+                        sub_goals = [["" for _ in range(cols)] for _ in range(rows)]
+                        for letter, gr, gc in comp_box_goals[cid]:
+                            sub_goals[gr][gc] = letter
+                        for idx, gr, gc in comp_agent_goals[cid]:
+                            if idx in sub_agent_indices:
+                                sub_goals[gr][gc] = str(sub_agent_indices.index(idx))
+
+                        State.agent_colors = sub_agent_colors
+                        State.box_colors = orig_box_colors
+                        State.goals = sub_goals
+                        State.walls = orig_walls
+                        State._static_hash = hash((
+                            tuple(State.agent_colors),
+                            tuple(State.box_colors),
+                            tuple(tuple(row) for row in State.goals),
+                            tuple(tuple(row) for row in State.walls),
+                        ))
+                        State._dead_cells = State._compute_dead_cells()
+                        State._dead_pairs = State._compute_dead_pairs()
+                        State._init_zobrist(orig_rows, orig_cols)
+
+                        comp_deadline = time.perf_counter() + max(
+                            5.0, (deadline - time.perf_counter()) / max(1, remaining_components)
+                        )
+                        sub_state = State(sub_agent_rows, sub_agent_cols, sub_boxes)
+                        sub_plan = decoupled_box_plan(sub_state, comp_deadline)
+                        if sub_plan is None:
+                            return None
+                        for joint_action in sub_plan:
+                            full_ja = [Action.NoOp] * total_agents
+                            for sub_idx, orig_idx in enumerate(sub_agent_indices):
+                                full_ja[orig_idx] = joint_action[sub_idx]
+                            full_plan.append(full_ja)
+                        remaining_components -= 1
+                finally:
+                    State.agent_colors = orig_agent_colors
+                    State.box_colors = orig_box_colors
+                    State.goals = orig_goals
+                    State.walls = orig_walls
+                    State._static_hash = orig_static
+                    State._dead_cells = orig_dead
+                    State._dead_pairs = orig_dead_pairs
+                    State._init_zobrist(orig_rows, orig_cols)
+
+                return full_plan
+
+            def _rolling_horizon_search(state: State, deadline: float) -> list[list[Action]] | None:
+                plan: list[list[Action]] = []
+                current_state = state
+                window = 30
+                per_window = 6.0
+                while time.perf_counter() < deadline - 2.0:
+                    if current_state.is_goal_state():
+                        return plan
+                    _h_win = HeuristicWeightedAStar(current_state, 5)
+                    frontier = FrontierBestFirst(_h_win)
+                    win_deadline = min(deadline - 1.0, time.perf_counter() + per_window)
+                    partial = windowed_search(current_state, frontier, window, deadline=win_deadline)
+                    if not partial:
+                        break
+                    for ja in partial:
+                        plan.append(ja)
+                        current_state = current_state.result(ja)
+                if current_state.is_goal_state():
+                    return plan
+                return None
+
             # ── Decoupled planner first ────────────────────────────────────────
             # Give more time to the decoupled planner for complex levels
             if _num_box_agents >= 1:
                 if _num_boxes >= 10 or _num_box_agents >= 3:
                     # Complex level: give decoupled most of the budget
-                    _dec_budget = min(140.0, _server_deadline - time.perf_counter() - 15.0)
+                    _dec_budget = min(150.0, _server_deadline - time.perf_counter() - 10.0)
                 else:
-                    _dec_budget = min(90.0, _server_deadline - time.perf_counter() - 30.0)
+                    _dec_budget = min(100.0, _server_deadline - time.perf_counter() - 20.0)
                 if _dec_budget >= 5.0:
                     print(f"[cascade] {_num_box_agents} agents, {_num_boxes} boxes — trying decoupled planner "
                           f"(budget: {_dec_budget:.1f}s)...", file=sys.stderr, flush=True)
@@ -411,12 +592,82 @@ class SearchClient:
                         print(f"[cascade] Decoupled planner failed in {_elapsed:.3f}s — "
                               "falling through to WA*", file=sys.stderr, flush=True)
 
+            # ── Independence Detection (ID) before WA* ─────────────────────────
+            if plan is None:
+                _id_budget = min(20.0, _server_deadline - time.perf_counter() - 15.0)
+                if _id_budget >= 5.0:
+                    print(f"[cascade] Trying Independence Detection (budget: {_id_budget:.1f}s)...",
+                          file=sys.stderr, flush=True)
+                    _t0 = time.perf_counter()
+                    plan = _try_independence_decoupled(initial_state, time.perf_counter() + _id_budget)
+                    _elapsed = time.perf_counter() - _t0
+                    if plan is not None:
+                        print(f"[cascade] Independence Detection solved in {_elapsed:.3f}s "
+                              f"(length {len(plan)})", file=sys.stderr, flush=True)
+                    else:
+                        print(f"[cascade] Independence Detection failed in {_elapsed:.3f}s",
+                              file=sys.stderr, flush=True)
+
+            # ── Rolling-Horizon Planning (RH) ─────────────────────────────────
+            if plan is None:
+                _blocked_hits = get_box_blocked_hits()
+                _rh_budget = min(20.0, _server_deadline - time.perf_counter() - 12.0)
+                if _blocked_hits >= 200 and _rh_budget >= 6.0:
+                    print(f"[cascade] Triggering rolling-horizon (blocked hits={_blocked_hits}, "
+                          f"budget: {_rh_budget:.1f}s)...", file=sys.stderr, flush=True)
+                    _t0 = time.perf_counter()
+                    plan = _rolling_horizon_search(initial_state, time.perf_counter() + _rh_budget)
+                    _elapsed = time.perf_counter() - _t0
+                    if plan is not None:
+                        print(f"[cascade] Rolling-horizon solved in {_elapsed:.3f}s "
+                              f"(length {len(plan)})", file=sys.stderr, flush=True)
+                    else:
+                        print(f"[cascade] Rolling-horizon failed in {_elapsed:.3f}s",
+                              file=sys.stderr, flush=True)
+
             # ── WA* cascade — skip for very large state spaces ─────────────────
             if plan is None:
 
                 if _skip_wa:
                     print(f"[cascade] Skipping WA* (too large: {_num_boxes} boxes × "
                           f"{_num_box_agents} agents)", file=sys.stderr, flush=True)
+                    # Still allow a short WA*/Greedy probe if time permits.
+                    _mini_remaining = _server_deadline - time.perf_counter()
+                    _mini_wa_budget = min(6.0, _mini_remaining - 25.0)
+                    if _mini_wa_budget >= 3.0:
+                        print(f"[cascade] Trying short WA*(5) despite size (budget: {_mini_wa_budget:.1f}s)...",
+                              file=sys.stderr, flush=True)
+                        _t0 = time.perf_counter()
+                        _h_box = HeuristicWeightedAStar(initial_state, 5)
+                        if args.predictable is not False:
+                            _h_box = HeuristicPredictabilityAware(initial_state, _h_box, lambda_=args.predictable)
+                        frontier = FrontierBestFirst(_h_box)
+                        plan = search(initial_state, frontier, deadline=time.perf_counter() + _mini_wa_budget)
+                        _elapsed = time.perf_counter() - _t0
+                        if plan is not None:
+                            print(f"[cascade] Short WA*(5) solved in {_elapsed:.3f}s (length {len(plan)})",
+                                  file=sys.stderr, flush=True)
+                        else:
+                            print(f"[cascade] Short WA*(5) failed in {_elapsed:.3f}s",
+                                  file=sys.stderr, flush=True)
+                    if plan is None:
+                        _mini_gbf_budget = min(6.0, _server_deadline - time.perf_counter() - 15.0)
+                        if _mini_gbf_budget >= 3.0:
+                            print(f"[cascade] Trying short Greedy (budget: {_mini_gbf_budget:.1f}s)...",
+                                  file=sys.stderr, flush=True)
+                            _t0 = time.perf_counter()
+                            _h_gbf = HeuristicGreedy(initial_state)
+                            if args.predictable is not False:
+                                _h_gbf = HeuristicPredictabilityAware(initial_state, _h_gbf, lambda_=args.predictable)
+                            frontier = FrontierBestFirst(_h_gbf)
+                            plan = search(initial_state, frontier, deadline=time.perf_counter() + _mini_gbf_budget)
+                            _elapsed = time.perf_counter() - _t0
+                            if plan is not None:
+                                print(f"[cascade] Short Greedy solved in {_elapsed:.3f}s (length {len(plan)})",
+                                      file=sys.stderr, flush=True)
+                            else:
+                                print(f"[cascade] Short Greedy failed in {_elapsed:.3f}s",
+                                      file=sys.stderr, flush=True)
                 else:
                     # For small state spaces, start with lower weights to find solutions faster
                     # (high weights like 100/50 often time out on tight corridors)
@@ -463,8 +714,8 @@ class SearchClient:
 
             # ── Second decoupled pass with remaining time ──────────────────────
             if plan is None:
-                _dec_budget2 = _server_deadline - time.perf_counter() - 5.0
-                if _dec_budget2 >= 5.0:
+                _dec_budget2 = _server_deadline - time.perf_counter() - 3.0
+                if _dec_budget2 >= 3.0:
                     print(f"[cascade] Trying decoupled planner 2nd pass (budget: {_dec_budget2:.1f}s)...", file=sys.stderr, flush=True)
                     _t0 = time.perf_counter()
                     plan = decoupled_box_plan(initial_state, time.perf_counter() + _dec_budget2)

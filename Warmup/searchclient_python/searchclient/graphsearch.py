@@ -103,6 +103,69 @@ def search(initial_state: State, frontier: Frontier, deadline: float | None = No
                 frontier.add(child_state)
 ##############################################################################
 
+
+def windowed_search(
+    initial_state: State,
+    frontier: Frontier,
+    window: int,
+    deadline: float | None = None,
+) -> list[list[Action]] | None:
+    """
+    Search up to a bounded depth window and return the best partial plan found.
+    Uses the frontier's heuristic when available to pick the best frontier state
+    if no goal is reached within the window.
+    """
+    State.reset_diagnostics()
+    frontier.add(initial_state)
+    explored: set[State] = set()
+
+    def _score(state: State) -> int:
+        heuristic = getattr(frontier, "heuristic", None)
+        if heuristic is not None:
+            try:
+                return heuristic.h(state)
+            except Exception:  # noqa: BLE001
+                return state.g
+        return state.g
+
+    best_state: State | None = None
+    best_score = 10_000_000
+
+    while True:
+        if memory.get_usage() > memory.max_usage:
+            print("Maximum memory usage exceeded.", file=sys.stderr, flush=True)
+            break
+
+        if deadline is not None and time.perf_counter() > deadline:
+            break
+
+        if frontier.is_empty():
+            break
+
+        state = frontier.pop()
+
+        if state.is_goal_state():
+            return state.extract_plan()
+
+        score = _score(state)
+        if state.g > 0 and (best_state is None or score < best_score):
+            best_state = state
+            best_score = score
+
+        if state.g >= window:
+            continue
+
+        explored.add(state)
+        for child_state in state.get_expanded_states():
+            if deadline is not None and time.perf_counter() > deadline:
+                break
+            if child_state not in explored and not frontier.contains(child_state):
+                frontier.add(child_state)
+
+    if best_state is None:
+        return None
+    return best_state.extract_plan()
+
 def print_search_status(explored: set[State], frontier: Frontier) -> None:
     elapsed_time = time.perf_counter() - start_time
     print(

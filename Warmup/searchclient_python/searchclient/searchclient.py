@@ -7,8 +7,47 @@ from searchclient import memory
 from searchclient.color import Color
 from searchclient.frontier import Frontier, FrontierBestFirst, FrontierBFS, FrontierDFS
 from searchclient.graphsearch import search
-from searchclient.heuristic import HeuristicAStar, HeuristicGreedy, HeuristicWeightedAStar
+from searchclient.heuristic import HeuristicAStar, HeuristicGreedy, HeuristicPredictabilityAware, HeuristicWeightedAStar
 from searchclient.state import State
+
+# ── Phase 1 flag ──────────────────────────────────────────────────────────────
+# Set False to revert to pre-Phase-1 cascade:
+#   boxes: WA*(5) for 90s only (no cheap Greedy probe, no WA*(2) fallback)
+#   MAPF:  old order — JointA*(60s) → CBS(10s) → GreedyMAPF → PIBT → DFS-CBS(20s) → CoopA* → Greedy(30s)
+ENABLE_CASCADE_REORDER = True
+
+# ── Phase 5 flag ──────────────────────────────────────────────────────────────
+# Disabled: adaptive cascade added noise without clear benefit.
+# Phase-1 fixed MAPF order is used when ENABLE_CASCADE_REORDER is True.
+ENABLE_ADAPTIVE_CASCADE = False
+
+
+def _select_mapf_cascade(num_agents: int, free_cells: int, density: float, accessible: int) -> list[str]:
+    """
+    Select the ordered list of MAPF algorithm names to try based on level features.
+
+    Decision rules:
+    # Rule 1: Very few agents in a small space → Joint A* first (optimal, fast)
+    # Rule 2: High density (many agents / free cells) → PIBT excels
+    # Rule 3: Many agents (>8) → skip Joint A* entirely (state space too large)
+    # Rule 4: Default order: PIBT → GreedyMAPF → CBS → CoopA* → JointA* → DFS-CBS → Greedy
+    """
+    default = ["PIBT", "GreedyMAPF", "CBS", "CoopA*", "JointA*", "DFS-CBS", "Greedy"]
+
+    # Rule 1: Few agents in small accessible space — Joint A* first (optimal + fast).
+    if num_agents <= 3 and accessible <= 50:
+        return ["JointA*", "PIBT", "GreedyMAPF", "CBS", "CoopA*", "DFS-CBS", "Greedy"]
+
+    # Rule 2: High density → PIBT handles corridor/tight problems best (already first in default).
+    # density >= 0.3 means more than 30% of free cells have agents — very dense.
+    if density >= 0.3:
+        return ["PIBT", "GreedyMAPF", "CBS", "CoopA*", "DFS-CBS", "Greedy"]
+
+    # Rule 3: Many agents → Joint A* state space is intractable, remove it.
+    if num_agents > 8:
+        return ["PIBT", "GreedyMAPF", "CBS", "CoopA*", "DFS-CBS", "Greedy"]
+
+    return default
 
 
 class SearchClient:
@@ -89,6 +128,15 @@ class SearchClient:
         State.walls = walls
         State.box_colors = box_colors
         State.goals = goals
+        State._static_hash = hash((
+            tuple(agent_colors),
+            tuple(box_colors),
+            tuple(tuple(row) for row in goals),
+            tuple(tuple(row) for row in walls),
+        ))
+        State._dead_cells = State._compute_dead_cells()
+        State._dead_pairs = State._compute_dead_pairs()
+        State._init_zobrist(num_rows, num_cols)
         return State(agent_rows, agent_cols, boxes)
 
     @staticmethod
@@ -130,22 +178,337 @@ class SearchClient:
         elif args.dfs:
             frontier = FrontierDFS()
         elif args.astar:
-            frontier = FrontierBestFirst(HeuristicAStar(initial_state))
+            _h: object = HeuristicAStar(initial_state)
+            if args.predictable is not False:
+                _h = HeuristicPredictabilityAware(initial_state, _h, lambda_=args.predictable)
+            frontier = FrontierBestFirst(_h)
         elif args.wastar is not False:
-            frontier = FrontierBestFirst(HeuristicWeightedAStar(initial_state, args.wastar))
+            _h = HeuristicWeightedAStar(initial_state, args.wastar)
+            if args.predictable is not False:
+                _h = HeuristicPredictabilityAware(initial_state, _h, lambda_=args.predictable)
+            frontier = FrontierBestFirst(_h)
         elif args.greedy:
-            frontier = FrontierBestFirst(HeuristicGreedy(initial_state))
+            _h = HeuristicGreedy(initial_state)
+            if args.predictable is not False:
+                _h = HeuristicPredictabilityAware(initial_state, _h, lambda_=args.predictable)
+            frontier = FrontierBestFirst(_h)
         else:
-            # Default to BFS search.
-            frontier = FrontierBFS()
-            print(
-                "Defaulting to BFS search. Use arguments -bfs, -dfs, -astar, -wastar, or -greedy to set the search"
-                " strategy.",
-                file=sys.stderr,
-                flush=True,
+            has_boxes = any(
+                initial_state.boxes[r][c]
+                for r in range(len(initial_state.boxes))
+                for c in range(len(initial_state.boxes[r]))
             )
 
-        # Search for a plan.
+            _cascade_start = time.perf_counter()
+            _server_deadline = _cascade_start + 165.0  # leave 15s buffer before server's 180s
+
+            if not has_boxes:
+                from searchclient.cbs import (
+                    cbs_search, _count_reachable_cells, _joint_astar,
+                    _greedy_mapf, pibt_search, dfs_cbs_search, cooperative_astar,
+                )
+                num_agents = len(initial_state.agent_rows)
+
+                # Compute level features for adaptive cascade selection.
+                accessible = _count_reachable_cells(initial_state)
+                _rows = len(State.walls)
+                _cols = len(State.walls[0]) if _rows > 0 else 0
+                free_cells = sum(1 for _r in range(_rows) for _c in range(_cols) if not State.walls[_r][_c])
+                density = num_agents / max(1, free_cells)
+                if not ENABLE_CASCADE_REORDER:
+                    # Pre-Phase-1 MAPF order: JointA* first, then CBS, then rest
+                    _cascade_order = ["JointA*", "CBS", "GreedyMAPF", "PIBT", "DFS-CBS", "CoopA*", "Greedy"]
+                elif ENABLE_ADAPTIVE_CASCADE:
+                    _cascade_order = _select_mapf_cascade(num_agents, free_cells, density, accessible)
+                else:
+                    _cascade_order = ["JointA*", "PIBT", "GreedyMAPF", "CBS", "CoopA*", "DFS-CBS", "Greedy"]
+                print(f"[cascade] Level features: agents={num_agents}, free={free_cells}, density={density:.3f}, accessible={accessible}", file=sys.stderr, flush=True)
+                print(f"[cascade] Selected order: {_cascade_order}", file=sys.stderr, flush=True)
+
+                def _send_plan(plan: list) -> None:
+                    for joint_action in plan:
+                        print("|".join(a.name_ + "@" + a.name_ for a in joint_action), flush=True)
+                        server_messages.readline()
+
+                def _try_algorithm(name: str) -> "list | None":
+                    """Run the named algorithm and return its plan or None."""
+                    nonlocal accessible
+                    if name == "PIBT":
+                        _t0 = time.perf_counter()
+                        print("[cascade] Trying PIBT (budget: 1.0s)...", file=sys.stderr, flush=True)
+                        result = pibt_search(initial_state)
+                        _el = time.perf_counter() - _t0
+                        if result is not None:
+                            print(f"[cascade] PIBT solved in {_el:.3f}s (length {len(result)})", file=sys.stderr, flush=True)
+                        else:
+                            print(f"[cascade] PIBT failed in {_el:.3f}s", file=sys.stderr, flush=True)
+                        return result
+                    elif name == "GreedyMAPF":
+                        _t0 = time.perf_counter()
+                        print("[cascade] Trying Greedy MAPF (budget: 1.0s)...", file=sys.stderr, flush=True)
+                        result = _greedy_mapf(initial_state, deadline=time.perf_counter() + 1.0)
+                        _el = time.perf_counter() - _t0
+                        if result is not None:
+                            print(f"[cascade] Greedy MAPF solved in {_el:.3f}s (length {len(result)})", file=sys.stderr, flush=True)
+                        else:
+                            print(f"[cascade] Greedy MAPF failed in {_el:.3f}s", file=sys.stderr, flush=True)
+                        return result
+                    elif name == "CBS":
+                        _t0 = time.perf_counter()
+                        print("[cascade] Trying CBS (budget: 15.0s)...", file=sys.stderr, flush=True)
+                        result = cbs_search(initial_state, deadline=time.perf_counter() + 15.0)
+                        _el = time.perf_counter() - _t0
+                        if result is not None:
+                            print(f"[cascade] CBS solved in {_el:.3f}s (length {len(result)})", file=sys.stderr, flush=True)
+                        else:
+                            print(f"[cascade] CBS failed in {_el:.3f}s", file=sys.stderr, flush=True)
+                        return result
+                    elif name == "CoopA*":
+                        _t0 = time.perf_counter()
+                        print("[cascade] Trying Cooperative A* (budget: 5.0s)...", file=sys.stderr, flush=True)
+                        result = cooperative_astar(initial_state, deadline=time.perf_counter() + 5.0)
+                        _el = time.perf_counter() - _t0
+                        if result is not None:
+                            print(f"[cascade] Cooperative A* solved in {_el:.3f}s (length {len(result)})", file=sys.stderr, flush=True)
+                        else:
+                            print(f"[cascade] Cooperative A* failed in {_el:.3f}s", file=sys.stderr, flush=True)
+                        return result
+                    elif name == "JointA*":
+                        joint_size = 1
+                        for k in range(num_agents):
+                            joint_size *= max(1, accessible - k)
+                            if joint_size > 6_000_000:
+                                break
+                        if joint_size > 6_000_000:
+                            print(f"[cascade] Skipping Joint A* (state space too large: {accessible} cells)", file=sys.stderr, flush=True)
+                            return None
+                        _t0 = time.perf_counter()
+                        print(f"[cascade] Trying Joint A* (budget: 20.0s, state space: {accessible} cells)...", file=sys.stderr, flush=True)
+                        result = _joint_astar(initial_state, deadline=time.perf_counter() + 20.0)
+                        _el = time.perf_counter() - _t0
+                        if result is not None:
+                            print(f"[cascade] Joint A* solved in {_el:.3f}s (length {len(result)})", file=sys.stderr, flush=True)
+                        else:
+                            print(f"[cascade] Joint A* failed in {_el:.3f}s", file=sys.stderr, flush=True)
+                        return result
+                    elif name == "DFS-CBS":
+                        _remaining = _server_deadline - time.perf_counter()
+                        _dfs_budget = max(1.0, _remaining / 2)
+                        _t0 = time.perf_counter()
+                        print(f"[cascade] Trying DFS-CBS (budget: {_dfs_budget:.1f}s)...", file=sys.stderr, flush=True)
+                        result = dfs_cbs_search(initial_state, deadline=time.perf_counter() + _dfs_budget)
+                        _el = time.perf_counter() - _t0
+                        if result is not None:
+                            print(f"[cascade] DFS-CBS solved in {_el:.3f}s (length {len(result)})", file=sys.stderr, flush=True)
+                        else:
+                            print(f"[cascade] DFS-CBS failed in {_el:.3f}s", file=sys.stderr, flush=True)
+                        return result
+                    elif name == "Greedy":
+                        _t0 = time.perf_counter()
+                        _gbf_budget = _server_deadline - time.perf_counter()
+                        print(f"[cascade] Trying Greedy best-first (budget: {_gbf_budget:.1f}s)...", file=sys.stderr, flush=True)
+                        _h_mapf_gbf = HeuristicGreedy(initial_state)
+                        if args.predictable is not False:
+                            _h_mapf_gbf = HeuristicPredictabilityAware(initial_state, _h_mapf_gbf, lambda_=args.predictable)
+                        _frontier = FrontierBestFirst(_h_mapf_gbf)
+                        result = search(initial_state, _frontier, deadline=_server_deadline)
+                        _el = time.perf_counter() - _t0
+                        if result is not None:
+                            print(f"[cascade] Greedy best-first solved in {_el:.3f}s (length {len(result)})", file=sys.stderr, flush=True)
+                        else:
+                            print(f"[cascade] Greedy best-first failed in {_el:.3f}s", file=sys.stderr, flush=True)
+                        return result
+                    return None
+
+                def _validate_plan(plan: list, state: "State") -> bool:
+                    """
+                    Validate a joint-action plan by simulating it step by step.
+
+                    For each step: checks every agent's action is individually
+                    applicable in the pre-step state (catches following, wall moves,
+                    etc.), checks no two agents conflict on destinations, then
+                    advances the state.  Finally checks the goal condition.
+
+                    Applicable-check semantics match the hospital server: a Move is
+                    only valid if the destination cell is free *before* any actions
+                    are applied in that step, so simultaneous "follow" moves are
+                    correctly rejected.
+                    """
+                    cur = state
+                    for joint_action in plan:
+                        if not all(cur.is_applicable(i, a) for i, a in enumerate(joint_action)):
+                            return False
+                        if cur.is_conflicting(joint_action):
+                            return False
+                        cur = cur.result(joint_action)
+                    return cur.is_goal_state()
+
+                for _algo_name in _cascade_order:
+                    plan = _try_algorithm(_algo_name)
+                    if plan is not None:
+                        if not _validate_plan(plan, initial_state):
+                            print(f"[cascade] {_algo_name} returned invalid plan, rejecting",
+                                  file=sys.stderr, flush=True)
+                            continue
+                        # LNS2 post-processing: improve plan if ≥30s remain.
+                        _lns_remaining = _server_deadline - time.perf_counter()
+                        if _lns_remaining >= 30.0:
+                            from searchclient.lns import lns2_improve
+                            _lns_deadline = _server_deadline - 5.0
+                            _improved = lns2_improve(plan, initial_state, _lns_deadline, is_mapf=True)
+                            if not _validate_plan(_improved, initial_state):
+                                print("[lns2] WARNING: returned invalid plan, falling back to original",
+                                      file=sys.stderr, flush=True)
+                            else:
+                                plan = _improved
+                        _send_plan(plan)
+                        return
+
+                print("Unable to solve level.", file=sys.stderr, flush=True)
+                sys.exit(0)
+
+            # Box-path cascade.
+            # For levels with many agents the joint state space is intractable,
+            # so we try the decoupled sub-task planner first and fall back to
+            # joint WA* only for simpler instances.
+            if args.predictable is not False:
+                print(f"[predictability] enabled on box cascade, λ={args.predictable}", file=sys.stderr, flush=True)
+
+            from searchclient.ma_planner import decoupled_box_plan
+            plan = None
+            _num_box_agents = len(initial_state.agent_rows)
+
+            # Count boxes to gauge state-space complexity
+            _num_boxes = sum(
+                1
+                for r in range(len(initial_state.boxes))
+                for c in range(len(initial_state.boxes[r]))
+                if initial_state.boxes[r][c]
+            )
+
+            # Estimate state-space complexity upfront (used for WA* and LNS2 skipping)
+            _state_space_estimate = _num_boxes * _num_box_agents
+            _skip_wa = _state_space_estimate > 50  # too large for WA* / LNS2
+
+            # ── Decoupled planner first ────────────────────────────────────────
+            # Give more time to the decoupled planner for complex levels
+            if _num_box_agents >= 1:
+                if _num_boxes >= 10 or _num_box_agents >= 3:
+                    # Complex level: give decoupled most of the budget
+                    _dec_budget = min(140.0, _server_deadline - time.perf_counter() - 15.0)
+                else:
+                    _dec_budget = min(90.0, _server_deadline - time.perf_counter() - 30.0)
+                if _dec_budget >= 5.0:
+                    print(f"[cascade] {_num_box_agents} agents, {_num_boxes} boxes — trying decoupled planner "
+                          f"(budget: {_dec_budget:.1f}s)...", file=sys.stderr, flush=True)
+                    _t0 = time.perf_counter()
+                    plan = decoupled_box_plan(initial_state, time.perf_counter() + _dec_budget)
+                    _elapsed = time.perf_counter() - _t0
+                    if plan is not None:
+                        print(f"[cascade] Decoupled planner solved in {_elapsed:.3f}s "
+                              f"(length {len(plan)})", file=sys.stderr, flush=True)
+                    else:
+                        print(f"[cascade] Decoupled planner failed in {_elapsed:.3f}s — "
+                              "falling through to WA*", file=sys.stderr, flush=True)
+
+            # ── WA* cascade — skip for very large state spaces ─────────────────
+            if plan is None:
+
+                if _skip_wa:
+                    print(f"[cascade] Skipping WA* (too large: {_num_boxes} boxes × "
+                          f"{_num_box_agents} agents)", file=sys.stderr, flush=True)
+                else:
+                    # For small state spaces, start with lower weights to find solutions faster
+                    # (high weights like 100/50 often time out on tight corridors)
+                    if _state_space_estimate <= 15:
+                        _wa_schedule = [(20, 10.0), (10, 12.0), (5, 20.0), (2, 30.0)]
+                    else:
+                        _wa_schedule = [(100, 15.0), (50, 15.0), (20, 15.0), (10, 20.0), (5, 30.0)]
+                    for _w, _bud in _wa_schedule:
+                        _remaining = _server_deadline - time.perf_counter()
+                        if _remaining < 35.0:
+                            break
+                        _bud = min(_bud, _remaining - 35.0)
+                        if _bud < 3.0:
+                            break
+                        print(f"[cascade] Trying WA*({_w}) (budget: {_bud:.1f}s)...", file=sys.stderr, flush=True)
+                        _t0 = time.perf_counter()
+                        _h_box = HeuristicWeightedAStar(initial_state, _w)
+                        if args.predictable is not False:
+                            _h_box = HeuristicPredictabilityAware(initial_state, _h_box, lambda_=args.predictable)
+                        frontier = FrontierBestFirst(_h_box)
+                        plan = search(initial_state, frontier, deadline=time.perf_counter() + _bud)
+                        _elapsed = time.perf_counter() - _t0
+                        if plan is not None:
+                            print(f"[cascade] WA*({_w}) solved in {_elapsed:.3f}s (length {len(plan)})", file=sys.stderr, flush=True)
+                            break
+                        print(f"[cascade] WA*({_w}) failed in {_elapsed:.3f}s", file=sys.stderr, flush=True)
+
+            # ── Greedy best-first fallback — skip for huge state spaces ──────────
+            if plan is None and not _skip_wa:
+                _gbf_budget = max(0.0, _server_deadline - time.perf_counter() - 15.0)
+                if _gbf_budget >= 3.0:
+                    print(f"[cascade] Trying Greedy fallback (budget: {_gbf_budget:.1f}s)...", file=sys.stderr, flush=True)
+                    _t0 = time.perf_counter()
+                    _h_gbf = HeuristicGreedy(initial_state)
+                    if args.predictable is not False:
+                        _h_gbf = HeuristicPredictabilityAware(initial_state, _h_gbf, lambda_=args.predictable)
+                    frontier = FrontierBestFirst(_h_gbf)
+                    plan = search(initial_state, frontier, deadline=time.perf_counter() + _gbf_budget)
+                    _elapsed = time.perf_counter() - _t0
+                    if plan is not None:
+                        print(f"[cascade] Greedy fallback solved in {_elapsed:.3f}s (length {len(plan)})", file=sys.stderr, flush=True)
+                    else:
+                        print(f"[cascade] Greedy fallback failed in {_elapsed:.3f}s", file=sys.stderr, flush=True)
+
+            # ── Second decoupled pass with remaining time ──────────────────────
+            if plan is None:
+                _dec_budget2 = _server_deadline - time.perf_counter() - 5.0
+                if _dec_budget2 >= 5.0:
+                    print(f"[cascade] Trying decoupled planner 2nd pass (budget: {_dec_budget2:.1f}s)...", file=sys.stderr, flush=True)
+                    _t0 = time.perf_counter()
+                    plan = decoupled_box_plan(initial_state, time.perf_counter() + _dec_budget2)
+                    _elapsed = time.perf_counter() - _t0
+                    if plan is not None:
+                        print(f"[cascade] Decoupled planner solved in {_elapsed:.3f}s (length {len(plan)})", file=sys.stderr, flush=True)
+                    else:
+                        print(f"[cascade] Decoupled planner failed in {_elapsed:.3f}s", file=sys.stderr, flush=True)
+
+            if plan is None:
+                print("Unable to solve level.", file=sys.stderr, flush=True)
+                sys.exit(0)
+
+            # LNS2 post-processing: skip for huge state spaces (LNS2 won't help).
+            # Cap to 12s so plan is always output well before server deadline.
+            _lns_remaining = _server_deadline - time.perf_counter()
+            _lns_cap = min(12.0, _lns_remaining - 10.0)
+            if _lns_cap >= 10.0 and not _skip_wa:
+                from searchclient.lns import lns2_improve
+                _lns_deadline = time.perf_counter() + _lns_cap
+                _improved = lns2_improve(plan, initial_state, _lns_deadline, is_mapf=False)
+                # Box-plan validator: simulate and check goal state.
+                def _validate_box_plan(p: list, s: "State") -> bool:
+                    cur = s
+                    for joint_action in p:
+                        if not all(cur.is_applicable(i, a) for i, a in enumerate(joint_action)):
+                            return False
+                        if cur.is_conflicting(joint_action):
+                            return False
+                        cur = cur.result(joint_action)
+                    return cur.is_goal_state()
+                if not _validate_box_plan(_improved, initial_state):
+                    print("[lns2] WARNING: returned invalid plan, falling back to original",
+                          file=sys.stderr, flush=True)
+                else:
+                    plan = _improved
+
+            print(f"Found solution of length {len(plan)}.", file=sys.stderr, flush=True)
+            for joint_action in plan:
+                print("|".join(a.name_ + "@" + a.name_ for a in joint_action), flush=True)
+                _response = server_messages.readline()
+            return  # avoid double-printing below
+
+        # Search for a plan (explicit strategy path).
         print(f"Starting {frontier.get_name()}.", file=sys.stderr, flush=True)
         plan = search(initial_state, frontier)
 
@@ -188,6 +551,20 @@ if __name__ == "__main__":
         help="Use the WA* strategy.",
     )
     strategy_group.add_argument("-greedy", action="store_true", dest="greedy", help="Use the Greedy strategy.")
+
+    parser.add_argument(
+        "--predictable",
+        metavar="<λ>",
+        nargs="?",
+        type=float,
+        default=False,
+        const=2.5,
+        help=(
+            "Add the predictability-awareness penalty from arXiv:2411.06223v2. "
+            "λ (default 2.5) controls the KL-divergence weight: higher values "
+            "push agents to follow their BFS-predicted paths more closely."
+        ),
+    )
 
     args = parser.parse_args()
 

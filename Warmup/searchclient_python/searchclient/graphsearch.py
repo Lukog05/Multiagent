@@ -9,8 +9,9 @@ from searchclient.state import State
 start_time = time.perf_counter()
 
 
-def search(initial_state: State, frontier: Frontier) -> list[list[Action]] | None:
+def search(initial_state: State, frontier: Frontier, deadline: float | None = None) -> list[list[Action]] | None:
     output_fixed_solution = False
+    State.reset_diagnostics()
 
     if output_fixed_solution:
         # Part 1:
@@ -63,6 +64,11 @@ def search(initial_state: State, frontier: Frontier) -> list[list[Action]] | Non
             print("Maximum memory usage exceeded.", file=sys.stderr, flush=True)
             return None
 
+        if deadline is not None and time.perf_counter() > deadline:
+            print_search_status(explored, frontier)
+            print("Search deadline exceeded — switching strategy.", file=sys.stderr, flush=True)
+            return None
+
         # Your code here...
         #Belw code added for Ex2, point3
 ###############################################################################        
@@ -70,6 +76,7 @@ def search(initial_state: State, frontier: Frontier) -> list[list[Action]] | Non
         if frontier.is_empty():
             print_search_status(explored, frontier)
             print("Frontier is empty. No solution found.", file=sys.stderr, flush=True)
+            State.print_diagnostics()
             return None
         
         #Pop next state from frontier to explore
@@ -79,6 +86,7 @@ def search(initial_state: State, frontier: Frontier) -> list[list[Action]] | Non
         if state.is_goal_state():
             print_search_status(explored, frontier)
             print("Solution found.", file=sys.stderr, flush=True)
+            State.print_diagnostics()
             return state.extract_plan()
         
         
@@ -87,6 +95,10 @@ def search(initial_state: State, frontier: Frontier) -> list[list[Action]] | Non
         
         #Expand the state and add the new states to the frontier if they haven't been explored or aren't already in the frontier
         for child_state in state.get_expanded_states():
+            if deadline is not None and time.perf_counter() > deadline:
+                print_search_status(explored, frontier)
+                print("Search deadline exceeded — switching strategy.", file=sys.stderr, flush=True)
+                return None
             if child_state not in explored and not frontier.contains(child_state):
                 frontier.add(child_state)
 ##############################################################################

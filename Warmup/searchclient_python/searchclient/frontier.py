@@ -1,3 +1,4 @@
+import heapq
 from abc import ABC, abstractmethod
 from collections import deque
 
@@ -82,33 +83,47 @@ class FrontierDFS(Frontier):
 
 
 class FrontierBestFirst(Frontier):
+    """
+    Priority-queue frontier for A*, WA*, and Greedy search.
+
+    Uses a min-heap keyed by f(state) with a monotonic counter as a tie-breaker
+    so Python never tries to compare two State objects directly.
+
+    The set tracks exactly which states are currently live in the frontier, so
+    size() and contains() are O(1) and is_empty() is correct even when stale
+    heap entries exist (lazy-deletion pattern).
+    """
+
     def __init__(self, heuristic: Heuristic) -> None:
         super().__init__()
         self.heuristic = heuristic
-        raise NotImplementedError
+        self._heap: list[tuple[int, int, State]] = []
+        self._set: set[State] = set()
+        self._counter: int = 0
 
     def add(self, state: State) -> None:
-        raise NotImplementedError
+        f = self.heuristic.f(state)
+        heapq.heappush(self._heap, (f, self._counter, state))
+        self._counter += 1
+        self._set.add(state)
 
     def pop(self) -> State:
-        raise NotImplementedError
+        # Skip stale heap entries (states already popped via lazy deletion).
+        while self._heap:
+            _, _, state = heapq.heappop(self._heap)
+            if state in self._set:
+                self._set.remove(state)
+                return state
+        raise IndexError("pop from empty frontier")
 
     def is_empty(self) -> bool:
-        raise NotImplementedError
+        return len(self._set) == 0
 
     def size(self) -> int:
-        raise NotImplementedError
+        return len(self._set)
 
     def contains(self, state: State) -> bool:
-        raise NotImplementedError
+        return state in self._set
 
     def get_name(self) -> str:
         return f"best-first search using {self.heuristic}"
-
-#Frontier is a collection of states which are expanded but not yet explored(or generated).
-#Acts like to-do list for the search algorithm.
-'''
-FrontierBFS uses a deque to implement breadth-first search which stores states in FIFO order.
-It also maintains a set for O(1) containment checks meaning it can quickly determine if a state is already in the frontier.
-Need to implement FrontierDFS and FrontierBestFirst classes.
-'''

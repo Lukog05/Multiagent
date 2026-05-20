@@ -1,0 +1,495 @@
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV3\Multiagent\Warmup\complevels\Agentix.lvl
+SearchClient initializing. I am sending this using the error output stream.
+[client][message] This is a comment.
+Starting best-first search using WA*(5) evaluation.
+#Expanded:       15, #Frontier:    5,193, #Generated:    5,208, Time: 1.040 s
+[Alloc: 39.55 MB, MaxAlloc: 102400.00 MB]
+Solution found.
+[diagnostics] Pruning stats:
+  Simple deadlocks pruned : 0
+  2-box deadlocks pruned  : 0
+  Total states kept       : 5353
+  Total states pruned     : 0
+  Pruning ratio           : 0.0%
+Found solution of length 15.
+[client][message] Explored: 15
+[client][message] Generated: 5208
+[client][message] Alloc: 39.55 MB
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: Yes.
+[server][info] Actions used: 15.
+[server][info] Time to solve: 0.910 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV3\Multiagent\Warmup\complevels\AIegean.lvl
+SearchClient initializing. I am sending this using the error output stream.
+[client][message] This is a comment.
+Starting best-first search using WA*(5) evaluation.
+[client][info] Client timed out.
+[client][info] Forcibly terminating client process.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV3\Multiagent\Warmup\complevels\AlBarah.lvl
+SearchClient initializing. I am sending this using the error output stream.
+[client][message] This is a comment.
+Starting best-first search using WA*(5) evaluation.
+[client][info] Client timed out.
+[client][info] Forcibly terminating client process.
+[client][warning] Client process not terminated. PID = 14056.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV3\Multiagent\Warmup\complevels\AlphaMAS.lvl
+SearchClient initializing. I am sending this using the error output stream.
+Starting best-first search using WA*(5) evaluation.
+[client][message] This is a comment.
+#Expanded:      999, #Frontier:  195,526, #Generated:  196,525, Time: 128.381 s
+[Alloc: 769.16 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 999
+[client][message] Generated: 196525
+[client][message] Alloc: 769.16 MB
+[client][info] Client timed out.
+[client][info] Forcibly terminating client process.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV3\Multiagent\Warmup\complevels\amogus.lvl
+SearchClient initializing. I am sending this using the error output stream.
+[client][message] This is a comment.
+Starting best-first search using WA*(5) evaluation.
+[client][info] Client timed out.
+[client][info] Forcibly terminating client process.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV3\Multiagent\Warmup\complevels\Apdo.lvl
+SearchClient initializing. I am sending this using the error output stream.
+[client][message] This is a comment.
+Starting best-first search using WA*(5) evaluation.
+[client][info] Client timed out.
+[client][info] Forcibly terminating client process.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV3\Multiagent\Warmup\complevels\AssertFun.lvl
+SearchClient initializing. I am sending this using the error output stream.
+[client][message] This is a comment.
+Starting best-first search using WA*(5) evaluation.
+#Expanded:      999, #Frontier:    8,264, #Generated:    9,263, Time: 6.536 s
+[Alloc: 110.97 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 999
+[client][message] Generated: 9263
+[client][message] Alloc: 110.97 MB
+#Expanded:    1,999, #Frontier:   11,308, #Generated:   13,307, Time: 13.675 s
+[Alloc: 150.45 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 1999
+[client][message] Generated: 13307
+[client][message] Alloc: 150.45 MB
+#Expanded:    2,999, #Frontier:   14,204, #Generated:   17,203, Time: 21.671 s
+[Alloc: 188.05 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 2999
+[client][message] Generated: 17203
+[client][message] Alloc: 188.05 MB
+#Expanded:    3,999, #Frontier:   17,365, #Generated:   21,364, Time: 30.347 s
+[Alloc: 230.17 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 3999
+[client][message] Generated: 21364
+[client][message] Alloc: 230.17 MB
+#Expanded:    4,999, #Frontier:   19,309, #Generated:   24,308, Time: 39.031 s
+[Alloc: 259.99 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 4999
+[client][message] Generated: 24308
+[client][message] Alloc: 259.99 MB
+#Expanded:    5,999, #Frontier:   20,001, #Generated:   26,000, Time: 45.601 s
+[Alloc: 276.21 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 5999
+[client][message] Generated: 26000
+[client][message] Alloc: 276.21 MB
+#Expanded:    6,999, #Frontier:   20,620, #Generated:   27,619, Time: 54.297 s
+[Alloc: 292.07 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 6999
+[client][message] Generated: 27619
+[client][message] Alloc: 292.07 MB
+#Expanded:    7,999, #Frontier:   22,242, #Generated:   30,241, Time: 62.103 s
+[Alloc: 317.06 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 7999
+[client][message] Generated: 30241
+[client][message] Alloc: 317.06 MB
+#Expanded:    8,999, #Frontier:   24,144, #Generated:   33,143, Time: 72.255 s
+[Alloc: 345.54 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 8999
+[client][message] Generated: 33143
+[client][message] Alloc: 345.54 MB
+#Expanded:    9,999, #Frontier:   25,436, #Generated:   35,435, Time: 83.302 s
+[Alloc: 367.94 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 9999
+[client][message] Generated: 35435
+[client][message] Alloc: 367.94 MB
+#Expanded:   10,999, #Frontier:   27,403, #Generated:   38,402, Time: 91.887 s
+[Alloc: 397.27 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 10999
+[client][message] Generated: 38402
+[client][message] Alloc: 397.27 MB
+#Expanded:   11,999, #Frontier:   27,697, #Generated:   39,696, Time: 101.232 s
+[Alloc: 409.36 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 11999
+[client][message] Generated: 39696
+[client][message] Alloc: 409.36 MB
+#Expanded:   12,999, #Frontier:   27,159, #Generated:   40,158, Time: 112.475 s
+[Alloc: 413.64 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 12999
+[client][message] Generated: 40158
+[client][message] Alloc: 413.64 MB
+#Expanded:   13,999, #Frontier:   27,403, #Generated:   41,402, Time: 119.037 s
+[Alloc: 426.58 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 13999
+[client][message] Generated: 41402
+[client][message] Alloc: 426.58 MB
+#Expanded:   14,999, #Frontier:   27,756, #Generated:   42,755, Time: 129.586 s
+[Alloc: 438.83 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 14999
+[client][message] Generated: 42755
+[client][message] Alloc: 438.83 MB
+#Expanded:   15,999, #Frontier:   27,904, #Generated:   43,903, Time: 138.775 s
+[Alloc: 450.02 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 15999
+[client][message] Generated: 43903
+[client][message] Alloc: 450.02 MB
+#Expanded:   16,999, #Frontier:   27,393, #Generated:   44,392, Time: 145.779 s
+[Alloc: 454.46 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 16999
+[client][message] Generated: 44392
+[client][message] Alloc: 454.46 MB
+#Expanded:   17,999, #Frontier:   28,735, #Generated:   46,734, Time: 155.626 s
+[Alloc: 477.05 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 17999
+[client][message] Generated: 46734
+[client][message] Alloc: 477.05 MB
+#Expanded:   18,999, #Frontier:   30,501, #Generated:   49,500, Time: 165.310 s
+[Alloc: 504.43 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 18999
+[client][message] Generated: 49500
+[client][message] Alloc: 504.43 MB
+#Expanded:   19,999, #Frontier:   30,604, #Generated:   50,603, Time: 174.739 s
+[Alloc: 516.07 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 19999
+[client][message] Generated: 50603
+[client][message] Alloc: 516.07 MB
+[client][info] Client timed out.
+[client][info] Forcibly terminating client process.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV3\Multiagent\Warmup\complevels\BigForty.lvl
+SearchClient initializing. I am sending this using the error output stream.
+[client][message] This is a comment.
+Starting best-first search using WA*(5) evaluation.
+#Expanded:        1, #Frontier:        0, #Generated:        1, Time: 0.020 s
+[Alloc: 18.70 MB, MaxAlloc: 102400.00 MB]
+Frontier is empty. No solution found.
+[diagnostics] Pruning stats:
+  Simple deadlocks pruned : 16
+  2-box deadlocks pruned  : 0
+  Total states kept       : 0
+  Total states pruned     : 16
+  Pruning ratio           : 100.0%
+Unable to solve level.
+[client][message] Explored: 1
+[client][message] Generated: 1
+[client][message] Alloc: 18.70 MB
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV3\Multiagent\Warmup\complevels\BoxBender.lvl
+SearchClient initializing. I am sending this using the error output stream.
+[client][message] This is a comment.
+Starting best-first search using WA*(5) evaluation.
+[client][info] Client timed out.
+[client][info] Forcibly terminating client process.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV3\Multiagent\Warmup\complevels\brAIn.lvl
+SearchClient initializing. I am sending this using the error output stream.
+[client][message] This is a comment.
+Starting best-first search using WA*(5) evaluation.
+[client][info] Client timed out.
+[client][info] Forcibly terminating client process.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV3\Multiagent\Warmup\complevels\BStar.lvl
+SearchClient initializing. I am sending this using the error output stream.
+[client][message] This is a comment.
+Starting best-first search using WA*(5) evaluation.
+#Expanded:      999, #Frontier:    5,679, #Generated:    6,678, Time: 3.571 s
+[Alloc: 33.00 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 999
+[client][message] Generated: 6678
+[client][message] Alloc: 33.00 MB
+#Expanded:    1,999, #Frontier:   10,655, #Generated:   12,654, Time: 8.216 s
+[Alloc: 46.46 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 1999
+[client][message] Generated: 12654
+[client][message] Alloc: 46.46 MB
+#Expanded:    2,999, #Frontier:   12,805, #Generated:   15,804, Time: 11.502 s
+[Alloc: 53.17 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 2999
+[client][message] Generated: 15804
+[client][message] Alloc: 53.17 MB
+#Expanded:    3,999, #Frontier:   18,677, #Generated:   22,676, Time: 15.701 s
+[Alloc: 69.48 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 3999
+[client][message] Generated: 22676
+[client][message] Alloc: 69.48 MB
+#Expanded:    4,999, #Frontier:   22,173, #Generated:   27,172, Time: 21.298 s
+[Alloc: 79.76 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 4999
+[client][message] Generated: 27172
+[client][message] Alloc: 79.76 MB
+#Expanded:    5,999, #Frontier:   28,757, #Generated:   34,756, Time: 30.198 s
+[Alloc: 97.04 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 5999
+[client][message] Generated: 34756
+[client][message] Alloc: 97.04 MB
+#Expanded:    6,999, #Frontier:   32,495, #Generated:   39,494, Time: 38.006 s
+[Alloc: 107.46 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 6999
+[client][message] Generated: 39494
+[client][message] Alloc: 107.46 MB
+#Expanded:    7,999, #Frontier:   34,983, #Generated:   42,982, Time: 44.172 s
+[Alloc: 114.96 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 7999
+[client][message] Generated: 42982
+[client][message] Alloc: 114.96 MB
+#Expanded:    8,999, #Frontier:   37,669, #Generated:   46,668, Time: 52.043 s
+[Alloc: 123.20 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 8999
+[client][message] Generated: 46668
+[client][message] Alloc: 123.20 MB
+#Expanded:    9,999, #Frontier:   40,049, #Generated:   50,048, Time: 59.610 s
+[Alloc: 130.30 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 9999
+[client][message] Generated: 50048
+[client][message] Alloc: 130.30 MB
+#Expanded:   10,999, #Frontier:   45,553, #Generated:   56,552, Time: 66.529 s
+[Alloc: 144.65 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 10999
+[client][message] Generated: 56552
+[client][message] Alloc: 144.65 MB
+#Expanded:   11,999, #Frontier:   49,663, #Generated:   61,662, Time: 70.144 s
+[Alloc: 155.63 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 11999
+[client][message] Generated: 61662
+[client][message] Alloc: 155.63 MB
+#Expanded:   12,999, #Frontier:   54,595, #Generated:   67,594, Time: 74.038 s
+[Alloc: 168.62 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 12999
+[client][message] Generated: 67594
+[client][message] Alloc: 168.62 MB
+#Expanded:   13,999, #Frontier:   57,023, #Generated:   71,022, Time: 77.265 s
+[Alloc: 176.18 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 13999
+[client][message] Generated: 71022
+[client][message] Alloc: 176.18 MB
+#Expanded:   14,999, #Frontier:   59,043, #Generated:   74,042, Time: 80.451 s
+[Alloc: 182.63 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 14999
+[client][message] Generated: 74042
+[client][message] Alloc: 182.63 MB
+#Expanded:   15,999, #Frontier:   60,861, #Generated:   76,860, Time: 84.627 s
+[Alloc: 188.71 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 15999
+[client][message] Generated: 76860
+[client][message] Alloc: 188.71 MB
+#Expanded:   16,999, #Frontier:   61,999, #Generated:   78,998, Time: 90.365 s
+[Alloc: 193.59 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 16999
+[client][message] Generated: 78998
+[client][message] Alloc: 193.59 MB
+#Expanded:   17,999, #Frontier:   63,977, #Generated:   81,976, Time: 95.487 s
+[Alloc: 199.80 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 17999
+[client][message] Generated: 81976
+[client][message] Alloc: 199.80 MB
+#Expanded:   18,999, #Frontier:   67,507, #Generated:   86,506, Time: 100.269 s
+[Alloc: 209.78 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 18999
+[client][message] Generated: 86506
+[client][message] Alloc: 209.78 MB
+#Expanded:   19,999, #Frontier:   71,515, #Generated:   91,514, Time: 104.420 s
+[Alloc: 223.39 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 19999
+[client][message] Generated: 91514
+[client][message] Alloc: 223.39 MB
+#Expanded:   20,999, #Frontier:   75,597, #Generated:   96,596, Time: 107.970 s
+[Alloc: 234.48 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 20999
+[client][message] Generated: 96596
+[client][message] Alloc: 234.48 MB
+#Expanded:   21,999, #Frontier:   78,229, #Generated:  100,228, Time: 111.402 s
+[Alloc: 242.43 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 21999
+[client][message] Generated: 100228
+[client][message] Alloc: 242.43 MB
+#Expanded:   22,999, #Frontier:   81,349, #Generated:  104,348, Time: 114.574 s
+[Alloc: 251.32 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 22999
+[client][message] Generated: 104348
+[client][message] Alloc: 251.32 MB
+#Expanded:   23,999, #Frontier:   83,081, #Generated:  107,080, Time: 117.493 s
+[Alloc: 257.11 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 23999
+[client][message] Generated: 107080
+[client][message] Alloc: 257.11 MB
+#Expanded:   24,999, #Frontier:   84,143, #Generated:  109,142, Time: 120.506 s
+[Alloc: 261.59 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 24999
+[client][message] Generated: 109142
+[client][message] Alloc: 261.59 MB
+#Expanded:   25,999, #Frontier:   84,875, #Generated:  110,874, Time: 123.170 s
+[Alloc: 265.21 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 25999
+[client][message] Generated: 110874
+[client][message] Alloc: 265.21 MB
+#Expanded:   26,999, #Frontier:   85,899, #Generated:  112,898, Time: 125.767 s
+[Alloc: 269.50 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 26999
+[client][message] Generated: 112898
+[client][message] Alloc: 269.50 MB
+#Expanded:   27,999, #Frontier:   88,225, #Generated:  116,224, Time: 128.723 s
+[Alloc: 276.75 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 27999
+[client][message] Generated: 116224
+[client][message] Alloc: 276.75 MB
+#Expanded:   28,999, #Frontier:   92,003, #Generated:  121,002, Time: 131.932 s
+[Alloc: 287.72 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 28999
+[client][message] Generated: 121002
+[client][message] Alloc: 287.72 MB
+#Expanded:   29,999, #Frontier:   96,885, #Generated:  126,884, Time: 134.898 s
+[Alloc: 300.46 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 29999
+[client][message] Generated: 126884
+[client][message] Alloc: 300.46 MB
+#Expanded:   30,999, #Frontier:  100,301, #Generated:  131,300, Time: 138.909 s
+[Alloc: 309.93 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 30999
+[client][message] Generated: 131300
+[client][message] Alloc: 309.93 MB
+#Expanded:   31,999, #Frontier:  103,679, #Generated:  135,678, Time: 142.050 s
+[Alloc: 319.44 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 31999
+[client][message] Generated: 135678
+[client][message] Alloc: 319.44 MB
+#Expanded:   32,999, #Frontier:  106,657, #Generated:  139,656, Time: 144.582 s
+[Alloc: 327.88 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 32999
+[client][message] Generated: 139656
+[client][message] Alloc: 327.88 MB
+#Expanded:   33,999, #Frontier:  107,927, #Generated:  141,926, Time: 147.055 s
+[Alloc: 332.91 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 33999
+[client][message] Generated: 141926
+[client][message] Alloc: 332.91 MB
+#Expanded:   34,999, #Frontier:  110,899, #Generated:  145,898, Time: 149.584 s
+[Alloc: 341.24 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 34999
+[client][message] Generated: 145898
+[client][message] Alloc: 341.24 MB
+#Expanded:   35,999, #Frontier:  115,161, #Generated:  151,160, Time: 152.486 s
+[Alloc: 352.63 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 35999
+[client][message] Generated: 151160
+[client][message] Alloc: 352.63 MB
+#Expanded:   36,999, #Frontier:  118,345, #Generated:  155,344, Time: 155.687 s
+[Alloc: 361.61 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 36999
+[client][message] Generated: 155344
+[client][message] Alloc: 361.61 MB
+#Expanded:   37,999, #Frontier:  121,869, #Generated:  159,868, Time: 158.362 s
+[Alloc: 371.22 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 37999
+[client][message] Generated: 159868
+[client][message] Alloc: 371.22 MB
+#Expanded:   38,999, #Frontier:  123,323, #Generated:  162,322, Time: 161.874 s
+[Alloc: 376.82 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 38999
+[client][message] Generated: 162322
+[client][message] Alloc: 376.82 MB
+#Expanded:   39,999, #Frontier:  123,637, #Generated:  163,636, Time: 165.507 s
+[Alloc: 379.43 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 39999
+[client][message] Generated: 163636
+[client][message] Alloc: 379.43 MB
+#Expanded:   40,999, #Frontier:  124,637, #Generated:  165,636, Time: 169.062 s
+[Alloc: 383.78 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 40999
+[client][message] Generated: 165636
+[client][message] Alloc: 383.78 MB
+#Expanded:   41,999, #Frontier:  127,251, #Generated:  169,250, Time: 172.605 s
+[Alloc: 391.88 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 41999
+[client][message] Generated: 169250
+[client][message] Alloc: 391.88 MB
+#Expanded:   42,999, #Frontier:  129,907, #Generated:  172,906, Time: 177.502 s
+[Alloc: 399.71 MB, MaxAlloc: 102400.00 MB]
+[client][message] Explored: 42999
+[client][message] Generated: 172906
+[client][message] Alloc: 399.71 MB
+[client][info] Client timed out.
+[client][info] Forcibly terminating client process.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV3\Multiagent\Warmup\complevels\CBSquad.lvl
+SearchClient initializing. I am sending this using the error output stream.
+[client][message] This is a comment.
+Starting best-first search using WA*(5) evaluation.
+[client][info] Client timed out.
+[client][info] Forcibly terminating client process.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV3\Multiagent\Warmup\complevels\ClauDOom.lvl
+SearchClient initializing. I am sending this using the error output stream.
+[client][message] This is a comment.
+Starting best-first search using WA*(5) evaluation.
+[client][info] Client timed out.
+[client][info] Forcibly terminating client process.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV3\Multiagent\Warmup\complevels\ComMAndos.lvl
+SearchClient initializing. I am sending this using the error output stream.
+[client][message] This is a comment.
+Starting best-first search using WA*(5) evaluation.
+[client][info] Client timed out.
+[client][info] Forcibly terminating client process.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV3\Multiagent\Warmup\complevels\CphAirprt.lvl
+SearchClient initializing. I am sending this using the error output stream.
+[client][message] This is a comment.
+Starting best-first search using WA*(5) evaluation.
+[client][info] Client timed out.
+[client][info] Forcibly terminating client process.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV3\Multiagent\Warmup\complevels\CudBSlvd.lvl
+SearchClient initializing. I am sending this using the error output stream.
+[client][message] This is a comment.
+Starting best-first search using WA*(5) evaluation.
+[client][info] Client timed out.
+[client][info] Forcibly terminating client process.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV3\Multiagent\Warmup\complevels\DASH.lvl
+SearchClient initializing. I am sending this using the error output stream.
+[client][message] This is a comment.
+Starting best-first search using WA*(5) evaluation.

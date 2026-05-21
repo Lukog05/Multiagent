@@ -333,35 +333,28 @@ def _lns2_box(
     initial_state: "State",
     deadline: float,
 ) -> list[list[Action]]:
-    """
-    Restart improvement for box plans: try WA*(2) with remaining budget.
-
-    WA*(5) is more greedy — WA*(2) explores wider and often finds shorter
-    solutions.  Only replaces the incumbent if strictly shorter.
-    """
-    from searchclient.frontier import FrontierBestFirst
-    from searchclient.graphsearch import search
-    from searchclient.heuristic import HeuristicWeightedAStar
+    from searchclient.ma_planner import decoupled_box_plan
 
     remaining = deadline - time.perf_counter()
-    print(f"[lns2] Starting box restart improvement (WA*(2), budget={remaining:.1f}s, "
-          f"incumbent length={len(plan)})", file=sys.stderr, flush=True)
+    print(f"[lns2] Starting box multi-attempt LNS (budget={remaining:.1f}s, incumbent={len(plan)})",
+          file=sys.stderr, flush=True)
 
-    try:
-        frontier = FrontierBestFirst(HeuristicWeightedAStar(initial_state, 2))
-        new_plan = search(initial_state, frontier, deadline=deadline)
-    except Exception as exc:  # noqa: BLE001
-        print(f"[lns2] WA*(2) raised {type(exc).__name__}: {exc}",
-              file=sys.stderr, flush=True)
-        return plan
+    best_plan = plan
+    attempt = 0
+    while time.perf_counter() < deadline - 5.0:
+        budget_this = min((deadline - time.perf_counter() - 5.0) * 0.4, 30.0)
+        if budget_this < 3.0:
+            break
+        t0 = time.perf_counter()
+        candidate = decoupled_box_plan(initial_state, time.perf_counter() + budget_this)
+        elapsed = time.perf_counter() - t0
+        attempt += 1
+        if candidate is not None and len(candidate) < len(best_plan):
+            best_plan = candidate
+            print(f"[lns2] attempt {attempt}: improved → {len(best_plan)} ({elapsed:.2f}s)",
+                  file=sys.stderr, flush=True)
+        else:
+            print(f"[lns2] attempt {attempt}: {'None' if candidate is None else len(candidate)} "
+                  f"(no improvement, {elapsed:.2f}s)", file=sys.stderr, flush=True)
 
-    if new_plan is not None and len(new_plan) < len(plan):
-        print(f"[lns2] WA*(2) improved plan: {len(plan)} → {len(new_plan)} actions.",
-              file=sys.stderr, flush=True)
-        return new_plan
-
-    elapsed = time.perf_counter() - (deadline - remaining)
-    print(f"[lns2] WA*(2) found no improvement "
-          f"({'no solution' if new_plan is None else f'length {len(new_plan)} ≥ {len(plan)}'}) "
-          f"in {elapsed:.1f}s.", file=sys.stderr, flush=True)
-    return plan
+    return best_plan

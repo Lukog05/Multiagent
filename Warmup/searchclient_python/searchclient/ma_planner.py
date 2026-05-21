@@ -689,11 +689,40 @@ def _parallelize_plan(joint_plan: list, initial_state: "State", num_agents: int)
                         return joint_plan
                     det = [Action.NoOp] * num_agents
                     det[detour_agent] = detour_act
+                    _last_detour[detour_agent] = detour_act
+                    for idx2 in sorted(remaining):
+                        ii2, aa2 = steps[idx2]
+                        if ii2 < 0 or earliest_for_agent.get(ii2) != idx2:
+                            continue
+                        if state.is_applicable(ii2, aa2):
+                            continue
+                        if aa2.type is ActionType.Move:
+                            nr2 = state.agent_rows[ii2] + aa2.agent_row_delta
+                            nc2 = state.agent_cols[ii2] + aa2.agent_col_delta
+                        elif aa2.type is ActionType.Push:
+                            nr2 = state.agent_rows[ii2] + aa2.agent_row_delta + aa2.box_row_delta
+                            nc2 = state.agent_cols[ii2] + aa2.agent_col_delta + aa2.box_col_delta
+                        elif aa2.type is ActionType.Pull:
+                            nr2 = state.agent_rows[ii2] + aa2.agent_row_delta
+                            nc2 = state.agent_cols[ii2] + aa2.agent_col_delta
+                        else:
+                            continue
+                        for bj2 in range(num_agents):
+                            if bj2 == ii2 or det[bj2] != Action.NoOp:
+                                continue
+                            if state.agent_rows[bj2] == nr2 and state.agent_cols[bj2] == nc2:
+                                bj2_res, bj2_act = _try_move_agent(bj2)
+                                if bj2_res >= 0:
+                                    test2 = det[:]
+                                    test2[bj2_res] = bj2_act
+                                    if not state.is_conflicting(test2):
+                                        det[bj2_res] = bj2_act
+                                        _last_detour[bj2_res] = bj2_act
+                                break
                     new_plan.append(det)
                     state = state.result(det)
-                    _last_detour[detour_agent] = detour_act
                     _detour_steps += 1
-                    continue  # retry scheduling with cleared state
+                    continue
 
                 # Last resort: try ANY applicable step from remaining,
                 # ignoring order constraints (may fix box-blocking deadlocks).

@@ -3,23 +3,18 @@ import sys
 from collections import deque
 from typing import ClassVar
 
-from searchclient.action import Action, ActionType  # noqa: F401
+from searchclient.action import Action, ActionType
 from searchclient.color import Color
 
-# ── Diagnostic flags — set False to disable each pruning rule ──────────────
 ENABLE_SIMPLE_DEADLOCK = True
 ENABLE_2BOX_DEADLOCK   = True
 
-# ── Phase 4 flag ─────────────────────────────────────────────────────────────
-# Set False to disable incremental Zobrist hashing; hash is then recomputed
-# from scratch on every lookup (slower, but exact pre-Phase-4 behaviour).
 ENABLE_ZOBRIST = True
 
 
 class State:
     _RNG = random.Random(1)
 
-    # ── Pruning counters (reset per search via State.reset_diagnostics()) ──
     _simple_deadlock_count: ClassVar[int] = 0
     _2box_deadlock_count: ClassVar[int]   = 0
     _states_kept: ClassVar[int]           = 0
@@ -49,9 +44,8 @@ class State:
     goals: ClassVar[list[list[str]]]
     _static_hash: ClassVar[int]
     _dead_cells: ClassVar[dict[str, frozenset[tuple[int, int]]]]
-    # _dead_pairs removed — 2-box deadlock now uses a runtime 2×2-full-block check
-    _zobrist_agents: ClassVar[list[list[int]]]   # [agent_idx][row * num_cols + col]
-    _zobrist_boxes: ClassVar[list[list[int]]]    # [box_letter_idx (0-25)][row * num_cols + col]
+    _zobrist_agents: ClassVar[list[list[int]]]
+    _zobrist_boxes: ClassVar[list[list[int]]]
 
     def __init__(self, agent_rows: list[int], agent_cols: list[int], boxes: list[list[str]], _precomputed_hash: int | None = None) -> None:
         """
@@ -88,12 +82,10 @@ class State:
         Precondition: Joint action must be applicable and non-conflicting in this state.
         """
 
-        # Copy this state.
         copy_agent_rows = self.agent_rows[:]
         copy_agent_cols = self.agent_cols[:]
         copy_boxes = [row[:] for row in self.boxes]
 
-        # Apply each action.
         for agent, action in enumerate(joint_action):
             if action.type is ActionType.NoOp:
                 pass
@@ -103,29 +95,21 @@ class State:
                 copy_agent_cols[agent] += action.agent_col_delta
 
             elif action.type is ActionType.Push:
-                # Box is at the agent's destination cell.
                 box_row = self.agent_rows[agent] + action.agent_row_delta
                 box_col = self.agent_cols[agent] + action.agent_col_delta
-                # Move box to its destination.
                 copy_boxes[box_row + action.box_row_delta][box_col + action.box_col_delta] = copy_boxes[box_row][box_col]
                 copy_boxes[box_row][box_col] = ""
-                # Agent moves into the old box cell.
                 copy_agent_rows[agent] += action.agent_row_delta
                 copy_agent_cols[agent] += action.agent_col_delta
 
             elif action.type is ActionType.Pull:
-                # Box source = (agent_row - brd, agent_col - bcd)
                 box_row = self.agent_rows[agent] - action.box_row_delta
                 box_col = self.agent_cols[agent] - action.box_col_delta
-                # Box destination is the agent's current cell.
                 copy_boxes[self.agent_rows[agent]][self.agent_cols[agent]] = copy_boxes[box_row][box_col]
                 copy_boxes[box_row][box_col] = ""
-                # Agent moves forward.
                 copy_agent_rows[agent] += action.agent_row_delta
                 copy_agent_cols[agent] += action.agent_col_delta
 
-        # Compute child hash incrementally via Zobrist XOR deltas (Phase 4).
-        # When ENABLE_ZOBRIST is False, pass None and let __hash__ recompute lazily.
         if ENABLE_ZOBRIST:
             cols = len(State.walls[0]) if State.walls else 1
             new_hash = self.__hash__()
@@ -192,12 +176,8 @@ class State:
     def get_expanded_states(self) -> list["State"]:
         num_agents = len(self.agent_rows)
 
-        # Determine list of applicable action for each individual agent.
         has_boxes = any(self.boxes[r][c] for r in range(len(self.boxes)) for c in range(len(self.boxes[r])))
 
-        # Pure MAPF mode (no boxes): expand only single-agent moves with all other
-        # agents performing NoOp. This keeps the branching factor manageable on
-        # dense MAPF instances while still preserving completeness.
         if not has_boxes:
             expanded_states: list[State] = []
             move_actions = [a for a in Action if a.type is ActionType.Move]
@@ -214,13 +194,11 @@ class State:
             State._RNG.shuffle(expanded_states)
             return expanded_states
 
-        # Determine list of applicable action for each individual agent.
         action_set = list(Action)
         applicable_actions = [
             [action for action in action_set if self.is_applicable(agent, action)] for agent in range(num_agents)
         ]
 
-        # Iterate over joint actions, check conflict and generate child states.
         joint_action = [Action.NoOp for _ in range(num_agents)]
         actions_permutation = [0 for _ in range(num_agents)]
         expanded_states = []
@@ -243,18 +221,16 @@ class State:
                     State._states_kept += 1
                     expanded_states.append(child)
 
-            # Advance permutation.
             done = False
             for agent in range(num_agents):
                 if actions_permutation[agent] < len(applicable_actions[agent]) - 1:
                     actions_permutation[agent] += 1
                     break
-                else:  # noqa: RET508
+                else:
                     actions_permutation[agent] = 0
                     if agent == num_agents - 1:
                         done = True
 
-            # Last permutation?
             if done:
                 break
 
@@ -275,33 +251,27 @@ class State:
             return self.is_free(destination_row, destination_col)
 
         if action.type is ActionType.Push:
-            # Box must be at agent's destination cell.
             box_row = agent_row + action.agent_row_delta
             box_col = agent_col + action.agent_col_delta
             box = self.boxes[box_row][box_col]
             if not box:
                 return False
-            # Agent and box must share the same color.
             if State.box_colors[ord(box) - ord("A")] != agent_color:
                 return False
-            # Box destination must be free.
             box_dest_row = box_row + action.box_row_delta
             box_dest_col = box_col + action.box_col_delta
             return self.is_free(box_dest_row, box_dest_col)
 
         if action.type is ActionType.Pull:
-            # Agent destination must be free.
             agent_dest_row = agent_row + action.agent_row_delta
             agent_dest_col = agent_col + action.agent_col_delta
             if not self.is_free(agent_dest_row, agent_dest_col):
                 return False
-            # Box source = (agent_row - brd, agent_col - bcd).
             box_row = agent_row - action.box_row_delta
             box_col = agent_col - action.box_col_delta
             box = self.boxes[box_row][box_col]
             if not box:
                 return False
-            # Agent and box must share the same color.
             return State.box_colors[ord(box) - ord("A")] == agent_color
 
         assert False, f"Not implemented for action type {action.type}."
@@ -309,10 +279,8 @@ class State:
     def is_conflicting(self, joint_action: list[Action]) -> bool:
         num_agents = len(self.agent_rows)
 
-        # Where each agent ends up (-1 = NoOp / not set).
         dest_rows = [-1] * num_agents
         dest_cols = [-1] * num_agents
-        # Where each moved box ends up (-1 = no box involved).
         box_dest_rows = [-1] * num_agents
         box_dest_cols = [-1] * num_agents
 
@@ -337,7 +305,6 @@ class State:
             elif action.type is ActionType.Pull:
                 dest_rows[agent] = agent_row + action.agent_row_delta
                 dest_cols[agent] = agent_col + action.agent_col_delta
-                # Box destination is the agent's current cell.
                 box_dest_rows[agent] = agent_row
                 box_dest_cols[agent] = agent_col
 
@@ -349,21 +316,17 @@ class State:
                 if joint_action[a2].type is ActionType.NoOp:
                     continue
 
-                # Two agents move into the same cell?
                 if dest_rows[a1] == dest_rows[a2] and dest_cols[a1] == dest_cols[a2]:
                     return True
 
-                # Agent a1 moves into where a2's box will land?
                 if box_dest_rows[a2] != -1:
                     if dest_rows[a1] == box_dest_rows[a2] and dest_cols[a1] == box_dest_cols[a2]:
                         return True
 
-                # Agent a2 moves into where a1's box will land?
                 if box_dest_rows[a1] != -1:
                     if dest_rows[a2] == box_dest_rows[a1] and dest_cols[a2] == box_dest_cols[a1]:
                         return True
 
-                # Two boxes land on the same cell?
                 if box_dest_rows[a1] != -1 and box_dest_rows[a2] != -1:
                     if box_dest_rows[a1] == box_dest_rows[a2] and box_dest_cols[a1] == box_dest_cols[a2]:
                         return True
@@ -421,11 +384,8 @@ class State:
                     a_r, a_c = b_r - dr, b_c - dc
                     if not free(a_r, a_c) or (a_r, a_c) in reachable:
                         continue
-                    # Push: agent needs to be behind box (a_r-dr, a_c-dc)
                     push_ok = free(a_r - dr, a_c - dc)
-                    # Pull straight: agent at B moves to B+(dr,dc)
                     pull_straight_ok = free(b_r + dr, b_c + dc)
-                    # Pull perpendicular: agent at B moves in perpendicular direction
                     pull_perp_ok = any(free(b_r + pr, b_c + pc) for pr, pc in PERP[(dr, dc)])
                     if push_ok or pull_straight_ok or pull_perp_ok:
                         reachable.add((a_r, a_c))

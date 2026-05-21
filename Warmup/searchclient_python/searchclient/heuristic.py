@@ -3,7 +3,6 @@ from collections import deque
 
 from searchclient.state import State
 
-# ── Diagnostic flag — set False to fall back to pre-Phase-2 min-distance heuristic
 ENABLE_HUNGARIAN_HEURISTIC = True
 
 def _hungarian(cost_matrix: list[list[int]]) -> list[int]:
@@ -16,17 +15,14 @@ def _hungarian(cost_matrix: list[list[int]]) -> list[int]:
     if n == 0:
         return []
     m = len(cost_matrix[0])
-    # Pad to square if needed (n ≤ m)
     size = max(n, m)
-    # Build padded square matrix
     INF = 10_000_000
     a = [[cost_matrix[i][j] if i < n and j < m else 0 for j in range(size)] for i in range(size)]
 
-    # Standard O(n^3) Hungarian: u[i], v[j] are potentials; p[j] is row matched to column j
     u = [0] * (size + 1)
     v = [0] * (size + 1)
-    p = [0] * (size + 1)   # p[j] = row matched to column j (1-indexed rows)
-    way = [0] * (size + 1) # way[j] = previous column in augmenting path
+    p = [0] * (size + 1)
+    way = [0] * (size + 1)
 
     for i in range(1, size + 1):
         p[0] = i
@@ -60,11 +56,10 @@ def _hungarian(cost_matrix: list[list[int]]) -> list[int]:
             p[j0] = p[way[j0]]
             j0 = way[j0]
 
-    # Build assignment: for each original row i (1..n), find which column it was assigned
     assign = [0] * n
     for j in range(1, size + 1):
         if 1 <= p[j] <= n:
-            assign[p[j] - 1] = j - 1  # convert to 0-indexed
+            assign[p[j] - 1] = j - 1
     return assign
 
 
@@ -115,7 +110,6 @@ class Heuristic(ABC):
             letter_idx = ord(letter) - ord("A")
             letter_color = State.box_colors[letter_idx]
 
-            # Collect current positions of all boxes of this letter.
             box_positions = [
                 (br, bc)
                 for br in range(len(state.boxes))
@@ -125,7 +119,6 @@ class Heuristic(ABC):
             if not box_positions:
                 continue
 
-            # Filter to unsatisfied goals only.
             unsatisfied = [(gr, gc) for gr, gc in goals if state.boxes[gr][gc] != letter]
             if not unsatisfied:
                 continue
@@ -134,12 +127,10 @@ class Heuristic(ABC):
             n_boxes = len(box_positions)
 
             if n_goals == 1 or n_boxes == 1:
-                # Fast-path: single goal or single box — skip Hungarian.
                 for gr, gc in unsatisfied:
                     dist_grid = self.goal_distances[(gr, gc)]
                     min_box_dist = min(dist_grid[br][bc] for br, bc in box_positions)
                     total += min_box_dist
-                    # Agent term: nearest same-color agent to closest box.
                     best_br, best_bc = min(
                         box_positions, key=lambda p: dist_grid[p[0]][p[1]]
                     )
@@ -151,7 +142,6 @@ class Heuristic(ABC):
                         )
                         total += max(0, min_agent - 1)
             else:
-                # Build cost matrix: rows = unsatisfied goals, cols = box_positions.
                 cost = [
                     [self.goal_distances[(gr, gc)][br][bc] for br, bc in box_positions]
                     for gr, gc in unsatisfied
@@ -169,7 +159,6 @@ class Heuristic(ABC):
                             )
                             total += max(0, min_agent - 1)
                 else:
-                    # Fallback: pre-Phase-2 min-distance per goal (or more-goals-than-boxes case).
                     for i, (gr, gc) in enumerate(unsatisfied):
                         dist_grid = self.goal_distances[(gr, gc)]
                         min_box_dist = min(dist_grid[br][bc] for br, bc in box_positions)

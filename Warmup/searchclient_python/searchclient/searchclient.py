@@ -10,15 +10,8 @@ from searchclient.graphsearch import search
 from searchclient.heuristic import HeuristicAStar, HeuristicGreedy, HeuristicPredictabilityAware, HeuristicWeightedAStar
 from searchclient.state import State
 
-# ── Phase 1 flag ──────────────────────────────────────────────────────────────
-# Set False to revert to pre-Phase-1 cascade:
-#   boxes: WA*(5) for 90s only (no cheap Greedy probe, no WA*(2) fallback)
-#   MAPF:  old order — JointA*(60s) → CBS(10s) → GreedyMAPF → PIBT → DFS-CBS(20s) → CoopA* → Greedy(30s)
 ENABLE_CASCADE_REORDER = True
 
-# ── Phase 5 flag ──────────────────────────────────────────────────────────────
-# Disabled: adaptive cascade added noise without clear benefit.
-# Phase-1 fixed MAPF order is used when ENABLE_CASCADE_REORDER is True.
 ENABLE_ADAPTIVE_CASCADE = False
 
 
@@ -34,16 +27,12 @@ def _select_mapf_cascade(num_agents: int, free_cells: int, density: float, acces
     """
     default = ["PIBT", "GreedyMAPF", "CBS", "CoopA*", "JointA*", "DFS-CBS", "Greedy"]
 
-    # Rule 1: Few agents in small accessible space — Joint A* first (optimal + fast).
     if num_agents <= 3 and accessible <= 50:
         return ["JointA*", "PIBT", "GreedyMAPF", "CBS", "CoopA*", "DFS-CBS", "Greedy"]
 
-    # Rule 2: High density → PIBT handles corridor/tight problems best (already first in default).
-    # density >= 0.3 means more than 30% of free cells have agents — very dense.
     if density >= 0.3:
         return ["PIBT", "GreedyMAPF", "CBS", "CoopA*", "DFS-CBS", "Greedy"]
 
-    # Rule 3: Many agents → Joint A* state space is intractable, remove it.
     if num_agents > 8:
         return ["PIBT", "GreedyMAPF", "CBS", "CoopA*", "DFS-CBS", "Greedy"]
 
@@ -53,17 +42,13 @@ def _select_mapf_cascade(num_agents: int, free_cells: int, density: float, acces
 class SearchClient:
     @staticmethod
     def parse_level(server_messages: TextIO) -> State:
-        # We can assume that the level file is conforming to specification, since the server verifies this.
-        # Read domain.
-        server_messages.readline()  # #domain
-        server_messages.readline()  # hospital
+        server_messages.readline()
+        server_messages.readline()
 
-        # Read Level name.
-        server_messages.readline()  # #levelname
-        server_messages.readline()  # <name>
+        server_messages.readline()
+        server_messages.readline()
 
-        # Read colors.
-        server_messages.readline()  # #colors
+        server_messages.readline()
         agent_colors: list[Color | None] = [None for _ in range(10)]
         box_colors: list[Color | None] = [None for _ in range(26)]
         line = server_messages.readline()
@@ -78,8 +63,6 @@ class SearchClient:
                     box_colors[ord(e) - ord("A")] = color
             line = server_messages.readline()
 
-        # Read initial state.
-        # line is currently "#initial".
         num_rows = 0
         num_cols = 0
         level_lines: list[str] = []
@@ -108,8 +91,6 @@ class SearchClient:
         del agent_rows[num_agents:]
         del agent_cols[num_agents:]
 
-        # Read goal state.
-        # line is currently "#goal".
         goals = [["" for _ in range(num_cols)] for _ in range(num_rows)]
         line = server_messages.readline()
         row = 0
@@ -121,8 +102,6 @@ class SearchClient:
             row += 1
             line = server_messages.readline()
 
-        # End.
-        # line is currently "#end".
 
         State.agent_colors = agent_colors
         State.walls = walls
@@ -152,26 +131,21 @@ class SearchClient:
 
     @staticmethod
     def main(args: argparse.Namespace) -> None:
-        # Use stderr to print to the console.
         print(
             "SearchClient initializing. I am sending this using the error output stream.", file=sys.stderr, flush=True
         )
 
-        # Send client name to server.
         if hasattr(sys.stdout, "reconfigure"):
             sys.stdout.reconfigure(encoding="ASCII")
         print("SearchClient", flush=True)
 
-        # We can also print comments to stdout by prefixing with a #.
         print("#This is a comment.", flush=True)
 
-        # Parse the level.
         server_messages = sys.stdin
         if hasattr(server_messages, "reconfigure"):
             server_messages.reconfigure(encoding="ASCII")
         initial_state = SearchClient.parse_level(server_messages)
 
-        # Select search strategy.
         frontier: Frontier
         if args.bfs:
             frontier = FrontierBFS()
@@ -201,7 +175,7 @@ class SearchClient:
 
             _cascade_start = time.perf_counter()
             _server_deadline = _cascade_start + max(10.0, args.time - 10.0)
-            _total_budget = _server_deadline - _cascade_start  # for proportional scaling
+            _total_budget = _server_deadline - _cascade_start
 
             if not has_boxes:
                 from searchclient.cbs import (
@@ -210,14 +184,12 @@ class SearchClient:
                 )
                 num_agents = len(initial_state.agent_rows)
 
-                # Compute level features for adaptive cascade selection.
                 accessible = _count_reachable_cells(initial_state)
                 _rows = len(State.walls)
                 _cols = len(State.walls[0]) if _rows > 0 else 0
                 free_cells = sum(1 for _r in range(_rows) for _c in range(_cols) if not State.walls[_r][_c])
                 density = num_agents / max(1, free_cells)
                 if not ENABLE_CASCADE_REORDER:
-                    # Pre-Phase-1 MAPF order: JointA* first, then CBS, then rest
                     _cascade_order = ["JointA*", "CBS", "GreedyMAPF", "PIBT", "DFS-CBS", "CoopA*", "Greedy"]
                 elif ENABLE_ADAPTIVE_CASCADE:
                     _cascade_order = _select_mapf_cascade(num_agents, free_cells, density, accessible)
@@ -351,7 +323,6 @@ class SearchClient:
                             print(f"[cascade] {_algo_name} returned invalid plan, rejecting",
                                   file=sys.stderr, flush=True)
                             continue
-                        # LNS2 post-processing: improve plan if ≥30s remain.
                         _lns_remaining = _server_deadline - time.perf_counter()
                         if _lns_remaining >= 30.0:
                             from searchclient.lns import lns2_improve
@@ -368,10 +339,6 @@ class SearchClient:
                 print("Unable to solve level.", file=sys.stderr, flush=True)
                 sys.exit(0)
 
-            # Box-path cascade.
-            # For levels with many agents the joint state space is intractable,
-            # so we try the decoupled sub-task planner first and fall back to
-            # joint WA* only for simpler instances.
             if args.predictable is not False:
                 print(f"[predictability] enabled on box cascade, λ={args.predictable}", file=sys.stderr, flush=True)
 
@@ -379,7 +346,6 @@ class SearchClient:
             plan = None
             _num_box_agents = len(initial_state.agent_rows)
 
-            # Count boxes to gauge state-space complexity
             _num_boxes = sum(
                 1
                 for r in range(len(initial_state.boxes))
@@ -387,15 +353,11 @@ class SearchClient:
                 if initial_state.boxes[r][c]
             )
 
-            # Estimate state-space complexity upfront (used for WA* and LNS2 skipping)
             _state_space_estimate = _num_boxes * _num_box_agents
-            _skip_wa = _state_space_estimate >= 100  # too large for WA* / LNS2
+            _skip_wa = _state_space_estimate >= 100
 
-            # ── Decoupled planner first ────────────────────────────────────────
-            # Give more time to the decoupled planner for complex levels
             if _num_box_agents >= 1:
                 if _num_boxes >= 10 or _num_box_agents >= 3:
-                    # Complex level: give decoupled most of the budget
                     _dec_budget = min(140.0, _server_deadline - time.perf_counter() - 15.0)
                 else:
                     _dec_budget = min(90.0, _server_deadline - time.perf_counter() - 30.0)
@@ -412,18 +374,14 @@ class SearchClient:
                         print(f"[cascade] Decoupled planner failed in {_elapsed:.3f}s — "
                               "falling through to WA*", file=sys.stderr, flush=True)
 
-            # ── WA* cascade — skip for very large state spaces ─────────────────
             if plan is None:
 
                 if _skip_wa:
                     print(f"[cascade] Skipping WA* (too large: {_num_boxes} boxes × "
                           f"{_num_box_agents} agents)", file=sys.stderr, flush=True)
                 else:
-                    # Scale budgets proportionally to total available time
-                    _wa_per = max(3.0, _total_budget * 0.09)  # ~9% per weight
-                    _wa_min_rem = max(5.0, _total_budget * 0.15)  # need 15% budget remaining
-                    # For small state spaces, start with lower weights to find solutions faster
-                    # (high weights like 100/50 often time out on tight corridors)
+                    _wa_per = max(3.0, _total_budget * 0.09)
+                    _wa_min_rem = max(5.0, _total_budget * 0.15)
                     if _state_space_estimate <= 15:
                         _wa_schedule = [
                             (20, max(3.0, _total_budget * 0.06)),
@@ -459,7 +417,6 @@ class SearchClient:
                             break
                         print(f"[cascade] WA*({_w}) failed in {_elapsed:.3f}s", file=sys.stderr, flush=True)
 
-            # ── Greedy best-first fallback — skip for huge state spaces ──────────
             if plan is None and not _skip_wa:
                 _gbf_budget = max(0.0, _server_deadline - time.perf_counter() - 5.0)
                 if _gbf_budget >= 3.0:
@@ -476,7 +433,6 @@ class SearchClient:
                     else:
                         print(f"[cascade] Greedy fallback failed in {_elapsed:.3f}s", file=sys.stderr, flush=True)
 
-            # ── Second decoupled pass with remaining time ──────────────────────
             if plan is None:
                 _dec_budget2 = _server_deadline - time.perf_counter() - 5.0
                 if _dec_budget2 >= 5.0:
@@ -493,15 +449,12 @@ class SearchClient:
                 print("Unable to solve level.", file=sys.stderr, flush=True)
                 sys.exit(0)
 
-            # LNS2 post-processing: skip for huge state spaces (LNS2 won't help).
-            # Cap to 12s so plan is always output well before server deadline.
             _lns_remaining = _server_deadline - time.perf_counter()
             _lns_cap = min(12.0, _lns_remaining - 10.0)
             if _lns_cap >= 10.0 and not _skip_wa:
                 from searchclient.lns import lns2_improve
                 _lns_deadline = time.perf_counter() + _lns_cap
                 _improved = lns2_improve(plan, initial_state, _lns_deadline, is_mapf=False)
-                # Box-plan validator: simulate and check goal state.
                 def _validate_box_plan(p: list, s: "State") -> bool:
                     cur = s
                     for joint_action in p:
@@ -521,13 +474,11 @@ class SearchClient:
             for joint_action in plan:
                 print("|".join(a.name_ + "@" + a.name_ for a in joint_action), flush=True)
                 _response = server_messages.readline()
-            return  # avoid double-printing below
+            return
 
-        # Search for a plan (explicit strategy path).
         print(f"Starting {frontier.get_name()}.", file=sys.stderr, flush=True)
         plan = search(initial_state, frontier)
 
-        # Print plan to server.
         if plan is None:
             print("Unable to solve level.", file=sys.stderr, flush=True)
             sys.exit(0)
@@ -536,12 +487,10 @@ class SearchClient:
 
             for joint_action in plan:
                 print("|".join(a.name_ + "@" + a.name_ for a in joint_action), flush=True)
-                # We must read the server's response to not fill up the stdin buffer and block the server.
                 _response = server_messages.readline()
 
 
 if __name__ == "__main__":
-    # Program arguments.
     parser = argparse.ArgumentParser(description="Simple client based on state-space graph search.")
     parser.add_argument(
         "--max-memory",
@@ -595,10 +544,8 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    # Set max memory usage allowed (soft limit).
     memory.max_usage = args.max_memory
 
-    # Run client.
     SearchClient.main(args)
 
 """

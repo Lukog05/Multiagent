@@ -14,7 +14,7 @@ class Color(Enum):
     Lightblue = 8
     Brown = 9
 
-    @staticmethod #belongs to class. Cannot be accessed with self or cls (which are instances of the class).
+    @staticmethod
     def from_string(s: str) -> "Color | None":
         return _STR_TO_COLOR.get(s.lower())
 
@@ -32,12 +32,10 @@ _STR_TO_COLOR = {
     "brown": Color.Brown,
 }
 
-#colors are reprsented as enum
 """
 agent_color = Color.Blue  # Store as enum member
 box_color = Color.Red
 """
-#__STR_TO_COLOR is defined outside of class. It is defined at module level. Pythonn executes class definiton first and then module code. So for instance, color.Blue exists when dictionary is created.
 """
 Example usage:
 # Parsing level file:

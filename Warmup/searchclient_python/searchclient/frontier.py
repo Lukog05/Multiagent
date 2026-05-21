@@ -108,7 +108,6 @@ class FrontierBestFirst(Frontier):
         self._set.add(state)
 
     def pop(self) -> State:
-        # Skip stale heap entries (states already popped via lazy deletion).
         while self._heap:
             _, _, state = heapq.heappop(self._heap)
             if state in self._set:

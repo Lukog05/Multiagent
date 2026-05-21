@@ -32,9 +32,6 @@ if TYPE_CHECKING:
     pass
 
 
-# ---------------------------------------------------------------------------
-# Public API
-# ---------------------------------------------------------------------------
 
 def lns2_improve(
     initial_plan: list[list[Action]],
@@ -64,15 +61,12 @@ def lns2_improve(
             return _lns2_mapf(initial_plan, initial_state, deadline)
         else:
             return _lns2_box(initial_plan, initial_state, deadline)
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         print(f"[lns2] Exception ({type(exc).__name__}: {exc}), keeping original plan.",
               file=sys.stderr, flush=True)
         return initial_plan
 
 
-# ---------------------------------------------------------------------------
-# MAPF LNS2
-# ---------------------------------------------------------------------------
 
 def _get_agent_goals(initial_state: "State") -> dict[int, tuple[int, int]]:
     """Return goal cell per agent (defaults to start cell for goal-less agents)."""
@@ -84,7 +78,6 @@ def _get_agent_goals(initial_state: "State") -> dict[int, tuple[int, int]]:
                 idx = ord(ch) - ord("0")
                 if idx < n:
                     goals[idx] = (r, c)
-    # Agents without an explicit goal: stay at their start cell.
     for i in range(n):
         if i not in goals:
             goals[i] = (initial_state.agent_rows[i], initial_state.agent_cols[i])
@@ -160,19 +153,15 @@ def _build_constraints(
     ec: set = set()
     for i in fixed_agents:
         path = paths[i]
-        # Vertex reservation for each occupied cell.
         for t, (r, c) in enumerate(path):
             vc.add((r, c, t))
-        # After path ends agent stays at goal.
         gr, gc = path[-1]
         for t in range(len(path), total_t + 1):
             vc.add((gr, gc, t))
-        # Edge / swap prevention.
-        # Agent at path[t-1]=(pr,pc) moves to path[t]=(cr,cc) at departure t-1.
         for t in range(1, len(path)):
             pr, pc = path[t - 1]
             cr, cc = path[t]
-            ec.add((pr, pc, cr, cc, t - 1))  # (from, to, departure_t)
+            ec.add((pr, pc, cr, cc, t - 1))
     return vc, ec
 
 
@@ -192,17 +181,14 @@ def _validate_mapf_paths(
 
     for t in range(max_t + 1):
         positions = [pos_at(i, t) for i in range(n)]
-        # Vertex conflicts.
         if len(set(positions)) < n:
             return False
-        # Edge / swap conflicts.
         if t > 0:
             for i in range(n):
                 for j in range(i + 1, n):
                     if pos_at(i, t) == pos_at(j, t - 1) and pos_at(i, t - 1) == pos_at(j, t):
                         return False
 
-    # All agents must be at their goals at the end.
     for i in range(n):
         if paths[i][-1] != agent_goals[i]:
             return False
@@ -216,11 +202,11 @@ def _lns2_mapf(
     deadline: float,
 ) -> list[list[Action]]:
     """LNS2 improve loop for MAPF (no-box) plans."""
-    from searchclient.cbs import _bfs_distances, _constrained_astar  # local import avoids cycles
+    from searchclient.cbs import _bfs_distances, _constrained_astar
 
     n = len(initial_state.agent_rows)
     if n < 2:
-        return plan  # Nothing to improve with a single agent.
+        return plan
 
     agent_goals = _get_agent_goals(initial_state)
     dist_grids = {i: _bfs_distances(*agent_goals[i]) for i in range(n)}
@@ -236,14 +222,11 @@ def _lns2_mapf(
           f"budget={deadline - time.perf_counter():.1f}s)", file=sys.stderr, flush=True)
 
     while time.perf_counter() < deadline:
-        # ── Select neighborhood ──────────────────────────────────────────────
         k = random.randint(2, min(4, n))
-        # Bias selection toward agents with longer paths (makespan bottleneck).
         path_lens = [len(paths[i]) for i in range(n)]
         total_w = sum(path_lens)
         if total_w == 0:
             break
-        # Weighted sampling without replacement.
         cumulative = []
         running = 0.0
         for w in path_lens:
@@ -260,19 +243,15 @@ def _lns2_mapf(
                     break
             attempts += 1
         if len(subset_set) < 2:
-            # Fall back to uniform random sample.
             subset_set = set(random.sample(range(n), k))
         subset = list(subset_set)
         fixed = [i for i in range(n) if i not in subset_set]
 
         current_makespan = max(len(paths[i]) for i in range(n)) - 1
-        # Allow up to current makespan timesteps (we only accept improvement).
         total_t = current_makespan
 
-        # ── Build constraints from fixed agents ──────────────────────────────
         vc, ec = _build_constraints(paths, fixed, total_t)
 
-        # ── Replan each agent in subset ──────────────────────────────────────
         new_sub_paths: dict[int, list[tuple[int, int]]] = {}
         failed = False
         for i in subset:
@@ -290,7 +269,6 @@ def _lns2_mapf(
                 failed = True
                 break
             new_sub_paths[i] = new_path
-            # Add this replanned agent's path to constraints for subsequent subset agents.
             for t, (r, c) in enumerate(new_path):
                 vc.add((r, c, t))
             gr, gc = new_path[-1]
@@ -299,13 +277,12 @@ def _lns2_mapf(
             for t in range(1, len(new_path)):
                 pr, pc = new_path[t - 1]
                 cr, cc = new_path[t]
-                ec.add((pr, pc, cr, cc, t - 1))  # (from, to, departure_t)
+                ec.add((pr, pc, cr, cc, t - 1))
 
         if not failed and len(new_sub_paths) == len(subset):
             candidate = [new_sub_paths.get(i, paths[i]) for i in range(n)]
             new_makespan = max(len(p) for p in candidate) - 1
             if new_makespan < best_makespan:
-                # Validate before accepting.
                 if _validate_mapf_paths(candidate, agent_goals):
                     paths = candidate
                     best_makespan = new_makespan
@@ -320,13 +297,10 @@ def _lns2_mapf(
           f"final makespan={best_makespan}.", file=sys.stderr, flush=True)
 
     if improvements == 0:
-        return plan  # Return original unchanged.
+        return plan
     return _paths_to_joint_actions(best_paths, n)
 
 
-# ---------------------------------------------------------------------------
-# Box-plan restart improvement
-# ---------------------------------------------------------------------------
 
 def _lns2_box(
     plan: list[list[Action]],
@@ -350,7 +324,7 @@ def _lns2_box(
     try:
         frontier = FrontierBestFirst(HeuristicWeightedAStar(initial_state, 2))
         new_plan = search(initial_state, frontier, deadline=deadline)
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         print(f"[lns2] WA*(2) raised {type(exc).__name__}: {exc}",
               file=sys.stderr, flush=True)
         return plan

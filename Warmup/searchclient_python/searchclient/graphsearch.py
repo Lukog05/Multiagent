@@ -14,11 +14,8 @@ def search(initial_state: State, frontier: Frontier, deadline: float | None = No
     State.reset_diagnostics()
 
     if output_fixed_solution:
-        # Part 1:
-        # The agents will perform the sequence of actions returned by this method.
-        # Try to solve a few levels by hand, enter the found solutions below, and run them:
         return [
-            [Action.MoveS], #Goes south from 1,1 to 2,1
+            [Action.MoveS],
             [Action.MoveS],
             [Action.MoveE],
             [Action.MoveE],
@@ -34,20 +31,6 @@ def search(initial_state: State, frontier: Frontier, deadline: float | None = No
             [Action.MoveS]
         ]
 
-    # Part 2:
-    # Now try to implement the Graph-Search algorithm from R&N figure 3.7
-    # In the case of "failure to find a solution" you should return None.
-    # Some useful methods on the state class which you will need to use are:
-    # state.is_goal_state() - Returns true if the state is a goal state.
-    # state.extract_plan() - Returns the list of actions used to reach this state.
-    # state.get_expanded_states() - Returns a list containing the states reachable from the current state.
-    # You should also take a look at frontier.py to see which methods the Frontier interface exposes
-    #
-    # print_search_status(expanded, frontier): As you can see below, the code will print out status
-    # (#expanded states, size of the frontier, #generated states, total time used) for every 1000th node
-    # generated.
-    # You should also make sure to print out these stats when a solution has been found, so you can keep
-    # track of the exact total number of states generated!!
 
     iterations = 0
 
@@ -69,20 +52,14 @@ def search(initial_state: State, frontier: Frontier, deadline: float | None = No
             print("Search deadline exceeded — switching strategy.", file=sys.stderr, flush=True)
             return None
 
-        # Your code here...
-        #Belw code added for Ex2, point3
-###############################################################################        
-        #Checks if frontier is empty, if it is then there is no solution and we return None
         if frontier.is_empty():
             print_search_status(explored, frontier)
             print("Frontier is empty. No solution found.", file=sys.stderr, flush=True)
             State.print_diagnostics()
             return None
         
-        #Pop next state from frontier to explore
         state = frontier.pop()
         
-        #Goal test - if the state is a goal state, we return the plan to reach it
         if state.is_goal_state():
             print_search_status(explored, frontier)
             print("Solution found.", file=sys.stderr, flush=True)
@@ -90,10 +67,8 @@ def search(initial_state: State, frontier: Frontier, deadline: float | None = No
             return state.extract_plan()
         
         
-        #Add the state to the explored set
         explored.add(state)
         
-        #Expand the state and add the new states to the frontier if they haven't been explored or aren't already in the frontier
         for child_state in state.get_expanded_states():
             if deadline is not None and time.perf_counter() > deadline:
                 print_search_status(explored, frontier)
@@ -101,7 +76,6 @@ def search(initial_state: State, frontier: Frontier, deadline: float | None = No
                 return None
             if child_state not in explored and not frontier.contains(child_state):
                 frontier.add(child_state)
-##############################################################################
 
 def print_search_status(explored: set[State], frontier: Frontier) -> None:
     elapsed_time = time.perf_counter() - start_time

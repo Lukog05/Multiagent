@@ -162,11 +162,11 @@ def _try_ca_order(
         for t in range(1, len(path)):
             pr, pc = path[t - 1]
             cr, cc = path[t]
-            edge_res.add((pr, pc, cr, cc, t - 1))  # forward: (from, to, departure_t)
-            if (cr, cc) != (pr, pc):  # actual move — also block the reverse to prevent swaps
+            edge_res.add((pr, pc, cr, cc, t - 1))
+            if (cr, cc) != (pr, pc):
                 edge_res.add((cr, cc, pr, pc, t - 1))
 
-    full_paths: list[list[tuple[int, int]]] = [p for p in paths if p is not None]  # type: ignore[misc]
+    full_paths: list[list[tuple[int, int]]] = [p for p in paths if p is not None]
     return _paths_to_joint_actions(full_paths, num_agents)
 
 
@@ -200,7 +200,6 @@ def cooperative_astar(initial_state: State, max_t: int = 500, deadline: float | 
     goal_cols = [agent_goals[i][1] for i in agents]
     start_cols = [initial_state.agent_cols[i] for i in agents]
 
-    # Build a diverse set of orderings to try: different sort keys and directions.
     orderings: list[list[int]] = []
     for reverse in (True, False):
         orderings.append(sorted(agents, key=lambda i: dists[i], reverse=reverse))
@@ -280,7 +279,6 @@ def cbs_search(initial_state: State, deadline: float | None = None) -> list[list
                     heapq.heappush(heap, (new_cost, node_id, new_paths, new_vc, ec))
         else:
             _, a1, a2, r1, c1, r2, c2, t = conflict
-            # t is arrival time from _find_conflict; _constrained_astar checks departure time.
             for agent, (fr, fc, tr_, tc) in ((a1, (r1, c1, r2, c2)), (a2, (r2, c2, r1, c1))):
                 new_ec = ec | {(agent, fr, fc, tr_, tc, t - 1)}
                 new_path = solve_agent(agent, vc, new_ec)
@@ -355,7 +353,7 @@ def _greedy_mapf(initial_state: State, max_steps: int = 2000, deadline: float | 
             reverse=True,
         )
 
-        claimed: dict[tuple[int, int], int] = {}  # cell → agent that claimed it
+        claimed: dict[tuple[int, int], int] = {}
         next_pos: list[tuple[int, int]] = list(pos)
 
         for agent in order:
@@ -369,18 +367,12 @@ def _greedy_mapf(initial_state: State, max_steps: int = 2000, deadline: float | 
             chosen = None
             for _, nr, nc in candidates:
                 if (nr, nc) not in claimed:
-                    # Prevent swap conflicts: reject if an already-committed agent
-                    # is moving FROM (nr, nc) TO (r, c) — that would be an illegal swap.
                     swapper = claimed.get((r, c))
                     if swapper is not None and pos[swapper] == (nr, nc):
                         continue
                     chosen = (nr, nc)
                     break
             if chosen is None:
-                # No valid move found — stay in current position.
-                # Don't overwrite claimed: if another agent is committed to this
-                # cell, let the server resolve the conflict rather than corrupting
-                # the simulation by placing two agents at the same coordinate.
                 next_pos[agent] = (r, c)
             else:
                 claimed[chosen] = agent
@@ -427,12 +419,11 @@ def pibt_search(initial_state: State, max_steps: int = 2000) -> list[list[Action
     rows = len(State.walls)
     cols = len(State.walls[0])
 
-    DIRS = ((-1, 0), (1, 0), (0, -1), (0, 1), (0, 0))  # N S E W NoOp
+    DIRS = ((-1, 0), (1, 0), (0, -1), (0, 1), (0, 0))
 
     pos: list[tuple[int, int]] = [
         (initial_state.agent_rows[i], initial_state.agent_cols[i]) for i in range(num_agents)
     ]
-    # Map cell → agent index for O(1) lookup.
     cell_agent: dict[tuple[int, int], int] = {p: i for i, p in enumerate(pos)}
 
     joint_actions: list[list[Action]] = []
@@ -460,12 +451,11 @@ def pibt_search(initial_state: State, max_steps: int = 2000) -> list[list[Action
         forced to ACTUALLY LEAVE the requested cell (not just NoOp).
         """
         if agent in visiting:
-            return False  # Cycle — can't resolve.
+            return False
 
         r, c = pos[agent]
         visiting = visiting | {agent}
 
-        # Candidate cells sorted by distance to goal (best = smallest dist first).
         candidates: list[tuple[int, int, int]] = []
         for dr, dc in DIRS:
             nr, nc = r + dr, c + dc
@@ -478,36 +468,27 @@ def pibt_search(initial_state: State, max_steps: int = 2000) -> list[list[Action
                 continue
             occupant = cell_agent.get((nr, nc))
             if occupant is None or occupant == agent:
-                # Free cell or NoOp — claim it.
                 next_pos[agent] = (nr, nc)
                 return True
             if (next_pos[occupant] is not None
                     and next_pos[occupant] != (nr, nc)
                     and next_pos[occupant] != (r, c)):
-                # Occupant already decided to leave AND is not moving to our
-                # current cell (which would be an illegal swap conflict).
                 next_pos[agent] = (nr, nc)
                 return True
-            # Ask occupant to vacate. The occupant must NOT stay at (nr,nc),
-            # so (nr,nc) is added to the reserved set passed to the occupant.
             new_reserved = reserved | {(r, c), (nr, nc)}
             if move(occupant, new_reserved, visiting):
                 next_pos[agent] = (nr, nc)
                 return True
-            # Occupant could not vacate; try next candidate.
 
-        # No valid move found — stay in current cell.
         if (r, c) not in reserved:
             next_pos[agent] = (r, c)
-            return True  # Staying is valid as long as our own cell isn't reserved.
+            return True
         return False
 
     for _step in range(max_steps):
-        # Check goal.
         if all(pos[i] == agent_goals[i] for i in range(num_agents)):
             return joint_actions
 
-        # Sort agents: highest remaining distance first (they have priority).
         order = sorted(
             range(num_agents),
             key=lambda i: dist_grids[i][pos[i][0]][pos[i][1]],
@@ -521,24 +502,22 @@ def pibt_search(initial_state: State, max_steps: int = 2000) -> list[list[Action
             if next_pos[agent] is None:
                 move(agent, reserved_top, frozenset())
             if next_pos[agent] is not None:
-                reserved_top.add(next_pos[agent])  # type: ignore[arg-type]
+                reserved_top.add(next_pos[agent])
 
-        # Build joint action for this step.
         step_actions: list[Action] = []
         for i in range(num_agents):
             pr, pc = pos[i]
-            nr, nc = next_pos[i]  # type: ignore[misc]
+            nr, nc = next_pos[i]
             step_actions.append(DELTA_TO_ACTION[(nr - pr, nc - pc)])
 
         joint_actions.append(step_actions)
 
-        # Apply moves.
         cell_agent.clear()
         for i in range(num_agents):
-            pos[i] = next_pos[i]  # type: ignore[assignment]
+            pos[i] = next_pos[i]
             cell_agent[pos[i]] = i
 
-    return None  # Did not reach goal within max_steps.
+    return None
 
 
 def dfs_cbs_search(initial_state: State, deadline: float | None = None) -> list[list[Action]] | None:
@@ -579,11 +558,8 @@ def dfs_cbs_search(initial_state: State, deadline: float | None = None) -> list[
     if any(p is None for p in initial_paths):
         return None
 
-    # Max constraints allowed per DFS branch: O(N²) conflicts expected for N agents.
-    # Branches exceeding this are stuck in infinite constraint chains and should be pruned.
     max_depth = max(200, num_agents * num_agents * 10)
 
-    # Stack items: (paths, vc, ec, depth)
     stack: list[tuple] = [(initial_paths, frozenset(), frozenset(), 0)]
 
     while stack:
@@ -599,7 +575,6 @@ def dfs_cbs_search(initial_state: State, deadline: float | None = None) -> list[
         if conflict is None:
             return _paths_to_joint_actions(paths, num_agents)
 
-        # Push BOTH branches; push a2's branch first so a1's branch is tried first.
         branches = []
         if conflict[0] == "vertex":
             _, a1, a2, r, c, t = conflict
@@ -612,7 +587,6 @@ def dfs_cbs_search(initial_state: State, deadline: float | None = None) -> list[
                     branches.append((new_paths, new_vc, ec, depth + 1))
         else:
             _, a1, a2, r1, c1, r2, c2, t = conflict
-            # t is arrival time from _find_conflict; _constrained_astar checks departure time.
             for agent, (fr, fc, tr_, tc) in ((a2, (r2, c2, r1, c1)), (a1, (r1, c1, r2, c2))):
                 new_ec = ec | {(agent, fr, fc, tr_, tc, t - 1)}
                 new_path = solve_agent(agent, vc, new_ec)
@@ -720,11 +694,11 @@ def _joint_astar(initial_state: State, deadline: float | None = None) -> list[li
                 entry = parent[cur]
                 if entry is None:
                     break
-                prev_state, agent_idx, action = entry  # type: ignore[misc]
+                prev_state, agent_idx, action = entry
                 joint: list[Action] = [Action.NoOp] * num_agents
                 joint[agent_idx] = action
                 path.append(joint)
-                cur = prev_state  # type: ignore[assignment]
+                cur = prev_state
             path.reverse()
             return path
 

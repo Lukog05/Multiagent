@@ -34,7 +34,6 @@ def _bfs_path(start_r: int, start_c: int, goal_r: int, goal_c: int) -> list[tupl
     cols = len(State.walls[0])
     INF = 10_000_000
 
-    # Backward BFS from goal to get distance-to-goal for every cell.
     dist = [[INF] * cols for _ in range(rows)]
     dist[goal_r][goal_c] = 0
     queue: deque[tuple[int, int]] = deque([(goal_r, goal_c)])
@@ -46,8 +45,6 @@ def _bfs_path(start_r: int, start_c: int, goal_r: int, goal_c: int) -> list[tupl
                 dist[nr][nc] = dist[r][c] + 1
                 queue.append((nr, nc))
 
-    # Trace forward from start by greedily moving to the neighbour with the
-    # smallest BFS distance (ties broken by iteration order).
     path: list[tuple[int, int]] = [(start_r, start_c)]
     r, c = start_r, start_c
     visited: set[tuple[int, int]] = {(r, c)}
@@ -65,7 +62,7 @@ def _bfs_path(start_r: int, start_c: int, goal_r: int, goal_c: int) -> list[tupl
                 best_d = dist[nr][nc]
                 best = (nr, nc)
         if best is None:
-            break  # goal unreachable
+            break
         r, c = best
         visited.add((r, c))
         path.append((r, c))
@@ -101,7 +98,6 @@ class PredictabilityModel:
         self.gamma = gamma
         self._paths: list[list[tuple[int, int]]] = []
 
-        # Map agent index → goal position (only agents that have explicit goals).
         agent_goals: dict[int, tuple[int, int]] = {}
         for row in range(len(State.goals)):
             for col in range(len(State.goals[row])):
@@ -115,8 +111,6 @@ class PredictabilityModel:
                 gr, gc = agent_goals[i]
                 path = _bfs_path(sr, sc, gr, gc)
             else:
-                # No explicit goal → prediction model expects the agent to
-                # remain at its initial position (zero-velocity prediction).
                 path = [(sr, sc)]
             self._paths.append(path)
 
@@ -140,6 +134,6 @@ class PredictabilityModel:
             pr, pc = path[min(t, len(path) - 1)]
             dr = state.agent_rows[i] - pr
             dc = state.agent_cols[i] - pc
-            total += dr * dr + dc * dc  # squared Euclidean ≈ KL for equal-σ Gaussians
+            total += dr * dr + dc * dc
 
         return self.lambda_ * discount * total

@@ -12,59 +12,39 @@ class ActionType(Enum):
 
 @unique
 class Action(Enum):
-    #   name, type, agentRowDelta, agentColDelta, boxRowDelta, boxColDelta
-    #   Origin (0,0) is top-left. +row = South, +col = East.
-    #
-    #   Naming convention:
-    #     Move(X)     — agent moves in direction X.
-    #     Push(X,Y)  — agent moves in direction X; box (at agent's destination) moves in direction Y.
-    #     Pull(X,Y)  — agent moves in direction X; box (adjacent to agent) moves in direction Y.
-    #                   Box source = (agent_row - brd, agent_col - bcd); box lands at old agent cell.
 
     NoOp = ("NoOp", ActionType.NoOp, 0, 0, 0, 0)
 
-    # ── Move ────────────────────────────────────────────────────────────────
     MoveN = ("Move(N)", ActionType.Move, -1,  0,  0,  0)
     MoveS = ("Move(S)", ActionType.Move,  1,  0,  0,  0)
     MoveE = ("Move(E)", ActionType.Move,  0,  1,  0,  0)
     MoveW = ("Move(W)", ActionType.Move,  0, -1,  0,  0)
 
-    # ── Push ─────────────────────────────────────────────────────────────────
-    # Agent moves to box cell; box moves further by (brd, bcd).
-    # Straight
     PushNN = ("Push(N,N)", ActionType.Push, -1,  0, -1,  0)
     PushSS = ("Push(S,S)", ActionType.Push,  1,  0,  1,  0)
     PushEE = ("Push(E,E)", ActionType.Push,  0,  1,  0,  1)
     PushWW = ("Push(W,W)", ActionType.Push,  0, -1,  0, -1)
-    # Perpendicular (agent N/S, box E/W)
     PushNE = ("Push(N,E)", ActionType.Push, -1,  0,  0,  1)
     PushNW = ("Push(N,W)", ActionType.Push, -1,  0,  0, -1)
     PushSE = ("Push(S,E)", ActionType.Push,  1,  0,  0,  1)
     PushSW = ("Push(S,W)", ActionType.Push,  1,  0,  0, -1)
-    # Perpendicular (agent E/W, box N/S)
     PushEN = ("Push(E,N)", ActionType.Push,  0,  1, -1,  0)
     PushES = ("Push(E,S)", ActionType.Push,  0,  1,  1,  0)
     PushWN = ("Push(W,N)", ActionType.Push,  0, -1, -1,  0)
     PushWS = ("Push(W,S)", ActionType.Push,  0, -1,  1,  0)
 
-    # ── Pull ─────────────────────────────────────────────────────────────────
-    # Box source = (agent_row - brd, agent_col - bcd).  Box destination = old agent cell.
-    # Pull(X,Y): X = agent direction, Y = box movement direction.
-    # Straight (brd/bcd == ard/acd — box follows agent)
-    PullNN = ("Pull(N,N)", ActionType.Pull, -1,  0, -1,  0)   # box was S of agent
-    PullSS = ("Pull(S,S)", ActionType.Pull,  1,  0,  1,  0)   # box was N of agent
-    PullEE = ("Pull(E,E)", ActionType.Pull,  0,  1,  0,  1)   # box was W of agent
-    PullWW = ("Pull(W,W)", ActionType.Pull,  0, -1,  0, -1)   # box was E of agent
-    # Perpendicular (agent N/S, box moves E/W)
-    PullNE = ("Pull(N,E)", ActionType.Pull, -1,  0,  0,  1)   # box was W of agent, moves E
-    PullNW = ("Pull(N,W)", ActionType.Pull, -1,  0,  0, -1)   # box was E of agent, moves W
-    PullSE = ("Pull(S,E)", ActionType.Pull,  1,  0,  0,  1)   # box was W of agent, moves E
-    PullSW = ("Pull(S,W)", ActionType.Pull,  1,  0,  0, -1)   # box was E of agent, moves W
-    # Perpendicular (agent E/W, box moves N/S)
-    PullEN = ("Pull(E,N)", ActionType.Pull,  0,  1, -1,  0)   # box was S of agent, moves N
-    PullES = ("Pull(E,S)", ActionType.Pull,  0,  1,  1,  0)   # box was N of agent, moves S
-    PullWN = ("Pull(W,N)", ActionType.Pull,  0, -1, -1,  0)   # box was S of agent, moves N
-    PullWS = ("Pull(W,S)", ActionType.Pull,  0, -1,  1,  0)   # box was N of agent, moves S
+    PullNN = ("Pull(N,N)", ActionType.Pull, -1,  0, -1,  0)
+    PullSS = ("Pull(S,S)", ActionType.Pull,  1,  0,  1,  0)
+    PullEE = ("Pull(E,E)", ActionType.Pull,  0,  1,  0,  1)
+    PullWW = ("Pull(W,W)", ActionType.Pull,  0, -1,  0, -1)
+    PullNE = ("Pull(N,E)", ActionType.Pull, -1,  0,  0,  1)
+    PullNW = ("Pull(N,W)", ActionType.Pull, -1,  0,  0, -1)
+    PullSE = ("Pull(S,E)", ActionType.Pull,  1,  0,  0,  1)
+    PullSW = ("Pull(S,W)", ActionType.Pull,  1,  0,  0, -1)
+    PullEN = ("Pull(E,N)", ActionType.Pull,  0,  1, -1,  0)
+    PullES = ("Pull(E,S)", ActionType.Pull,  0,  1,  1,  0)
+    PullWN = ("Pull(W,N)", ActionType.Pull,  0, -1, -1,  0)
+    PullWS = ("Pull(W,S)", ActionType.Pull,  0, -1,  1,  0)
 
     def __init__(
         self,

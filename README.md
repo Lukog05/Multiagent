@@ -2,7 +2,7 @@
 
 A Python-based AI search client for the DTU course **02285 – AI and Multi-Agent Systems**. The client solves "hospital" planning levels — moving agents and boxes to goal positions — using a range of classical and multi-agent search algorithms.
 
-**Competition score: 30 / 47 levels solved.**
+**Competition score: 50 / 69 levels solved (2026).**
 
 ## Repository Layout
 
@@ -10,7 +10,8 @@ A Python-based AI search client for the DTU course **02285 – AI and Multi-Agen
 Multiagent/
 ├── Warmup/
 │   ├── server.jar                      # Level server (Java)
-│   ├── levels/                         # All level files (SA*, MA*, MAPF*)
+│   ├── levels/                         # Warmup level files (SA*, MA*, MAPF*)
+│   ├── temp/                           # Temporary level copies for testing
 │   ├── searchclient_python/            # Main Python client
 │   │   ├── searchclient/
 │   │   │   ├── searchclient.py         # Entry point & cascade orchestrator
@@ -21,19 +22,30 @@ Multiagent/
 │   │   │   ├── heuristic.py            # A*, WA*, Greedy heuristics (Hungarian assignment)
 │   │   │   ├── cbs.py                  # CBS, Joint A*, Cooperative A*, PIBT, DFS-CBS
 │   │   │   ├── lns.py                  # LNS2 anytime post-processor
-│   │   │   ├── ma_planner.py           # Decoupled greedy multi-agent box planner
+│   │   │   ├── ma_planner.py           # Decoupled MA planner + parallel plan compressor
+│   │   │   ├── color.py                # Agent/box colour parsing
+│   │   │   ├── memory.py               # Memory usage utilities
 │   │   │   └── predictability.py       # Predictability-aware heuristic wrapper
 │   │   ├── benchmarks/                 # Saved benchmark runs (masbench)
-│   │   └── masbench_config.yml         # Benchmark configuration
+│   │   ├── masbench_config.yml         # Benchmark configuration
+│   │   └── pyproject.toml              # Python package metadata
 │   ├── searchclient_java/              # Reference Java client
 │   ├── run_SA.sh                       # Run all Single-Agent levels
 │   ├── run_MA.sh                       # Run all Multi-Agent levels
 │   ├── run_MAPF.sh                     # Run all MAPF levels
-│   ├── run_*_gui.sh                    # GUI variants of the above
-│   └── run_suite.sh                    # Run the full test suite
-├── complevels/                         # 47 competition levels
+│   ├── run_SA_gui.sh                   # GUI variant – Single-Agent
+│   ├── run_MA_gui.sh                   # GUI variant – Multi-Agent
+│   ├── run_MAPF_gui.sh                 # GUI variant – MAPF
+│   ├── run_all_levels.sh               # Run every level
+│   ├── run_all_levels_gui.sh           # GUI variant – all levels
+│   ├── run_suite.sh                    # Full test suite
+│   └── debugging.pdf                   # Debugging reference
+├── complevels-2026/                    # 69 competition levels (2026)
+├── complevels2025/                     # 47 competition levels (2025)
 ├── masbench-1.2.0/                     # Benchmarking tool (Go)
-└── masbench-1.2.0.zip
+├── masbench-1.2.0.zip
+├── searchclient.zip
+└── 2411.06223v2.pdf                    # Reference paper
 ```
 
 ## Prerequisites
@@ -54,12 +66,24 @@ conda activate 02285
 
 ## Running the Client
 
-All commands should be run from the `Warmup/` directory.
+All commands should be run from the `Warmup/searchclient_python/` directory.
 
 ### Single level (GUI)
 
 ```bash
-java -jar server.jar -l levels/SAD1.lvl -c "python -m searchclient.searchclient" -g -s 150 -t 180
+# Warmup level
+java -jar ../server.jar -l ../levels/SAD1.lvl -c "python3 -m searchclient.searchclient" -g -s 150 -t 180
+
+# 2026 competition level
+java -jar ../server.jar -l ../../complevels-2026/AIegean.lvl \
+  -c "python3 -m searchclient.searchclient" -g -s 150 -t 180
+```
+
+### Competition mode (no GUI, 60 s time budget)
+
+```bash
+java -jar ../server.jar -l ../../complevels-2026/<level>.lvl \
+  -c "python3 -m searchclient.searchclient --time 60" -t 62
 ```
 
 ### Explicit search strategy
@@ -74,15 +98,15 @@ java -jar server.jar -l levels/SAD1.lvl -c "python -m searchclient.searchclient"
 | `-greedy` | Greedy Best-First |
 
 ```bash
-java -jar server.jar -l levels/SAsimple1.lvl \
-  -c "python -m searchclient.searchclient -astar" -g -s 150 -t 180
+java -jar ../server.jar -l ../levels/SAsimple1.lvl \
+  -c "python3 -m searchclient.searchclient -astar" -g -s 150 -t 180
 ```
 
 ### Memory limit
 
 ```bash
-java -jar server.jar -l levels/SAD1.lvl \
-  -c "python -m searchclient.searchclient --max-memory 2048" -g -s 150 -t 180
+java -jar ../server.jar -l ../levels/SAD1.lvl \
+  -c "python3 -m searchclient.searchclient --max-memory 2048" -g -s 150 -t 180
 ```
 
 Default and recommended maximum: **2 GB**.
@@ -92,10 +116,20 @@ Default and recommended maximum: **2 GB**.
 Run from `Warmup/`:
 
 ```bash
-bash run_SA.sh          # All Single-Agent levels
-bash run_MA.sh          # All Multi-Agent levels
-bash run_MAPF.sh        # All MAPF levels
-bash run_suite.sh       # Full suite
+bash run_SA.sh              # All Single-Agent levels
+bash run_MA.sh              # All Multi-Agent levels
+bash run_MAPF.sh            # All MAPF levels
+bash run_all_levels.sh      # Every level (SA + MA + MAPF)
+bash run_suite.sh           # Full test suite
+```
+
+GUI variants (open visualiser window per level):
+
+```bash
+bash run_SA_gui.sh
+bash run_MA_gui.sh
+bash run_MAPF_gui.sh
+bash run_all_levels_gui.sh
 ```
 
 Pass a strategy flag to override the default cascade:
@@ -111,12 +145,13 @@ bash run_SA.sh -astar
 The cascade tries strategies in order; the first success proceeds to LNS2 improvement:
 
 1. **Decoupled greedy planner** (`ma_planner.py`) — assigns each box to a goal and plans pushes one at a time, resolving blockers iteratively. Handles agent-goal placement and displaced-goal recovery. Budget: up to 140 s for complex levels.
-2. **WA\* cascade** — tried if the decoupled planner fails (skipped if `boxes × agents > 50`):
+2. **Parallel plan compressor** (`_parallelize_plan` in `ma_planner.py`) — converts the sequential plan into a joint parallel plan using blocker-targeting deadlock recovery and BFS navigation. Significantly reduces action count and makespan.
+3. **WA\* cascade** — tried if the decoupled planner fails (skipped if `boxes × agents > 50`):
    - Small levels (≤ 15): `WA*(20) → WA*(10) → WA*(5) → WA*(2)` — lower weights first to avoid wasting time on tight corridors.
    - Larger levels: `WA*(100) → WA*(50) → WA*(20) → WA*(10) → WA*(5)`
-3. **Greedy Best-First** — fallback after WA*.
-4. **Second decoupled pass** — uses any remaining time.
-5. **LNS2 post-processing** — WA*(2) restart attempts to shorten the plan (up to 12 s).
+4. **Greedy Best-First** — fallback after WA*.
+5. **Second decoupled pass** — uses any remaining time.
+6. **LNS2 post-processing** — WA*(2) restart attempts to shorten the plan (up to 12 s).
 
 ### MAPF levels (no boxes)
 

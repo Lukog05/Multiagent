@@ -389,7 +389,7 @@ class SearchClient:
 
             # Estimate state-space complexity upfront (used for WA* and LNS2 skipping)
             _state_space_estimate = _num_boxes * _num_box_agents
-            _skip_wa = _state_space_estimate > 50  # too large for WA* / LNS2
+            _skip_wa = _state_space_estimate >= 100  # too large for WA* / LNS2
 
             # ── Decoupled planner first ────────────────────────────────────────
             # Give more time to the decoupled planner for complex levels

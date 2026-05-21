@@ -1,4 +1,24 @@
-
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+   
 import random
 import sys
 import time
@@ -16,6 +36,19 @@ def lns2_improve(
     deadline: float,
     is_mapf: bool = False,
 ) -> list[list[Action]]:
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+       
     remaining = deadline - time.perf_counter()
     if remaining < 1.0:
         return initial_plan
@@ -25,12 +58,13 @@ def lns2_improve(
             return _lns2_mapf(initial_plan, initial_state, deadline)
         else:
             return _lns2_box(initial_plan, initial_state, deadline)
-    except Exception as exc:
+    except Exception as exc:                
         print(f"[lns2] Exception ({type(exc).__name__}: {exc}), keeping original plan.",
               file=sys.stderr, flush=True)
         return initial_plan
 
 def _get_agent_goals(initial_state: "State") -> dict[int, tuple[int, int]]:
+                                                                                   
     n = len(initial_state.agent_rows)
     goals: dict[int, tuple[int, int]] = {}
     for r, row in enumerate(State.goals):
@@ -39,6 +73,7 @@ def _get_agent_goals(initial_state: "State") -> dict[int, tuple[int, int]]:
                 idx = ord(ch) - ord("0")
                 if idx < n:
                     goals[idx] = (r, c)
+                                                                
     for i in range(n):
         if i not in goals:
             goals[i] = (initial_state.agent_rows[i], initial_state.agent_cols[i])
@@ -48,6 +83,14 @@ def _plan_to_paths(
     initial_state: "State",
     plan: list[list[Action]],
 ) -> list[list[tuple[int, int]]]:
+\
+\
+\
+\
+\
+\
+\
+       
     n = len(initial_state.agent_rows)
     paths: list[list[tuple[int, int]]] = [
         [(initial_state.agent_rows[i], initial_state.agent_cols[i])]
@@ -63,6 +106,7 @@ def _paths_to_joint_actions(
     paths: list[list[tuple[int, int]]],
     num_agents: int,
 ) -> list[list[Action]]:
+                                                                  
     DELTA_TO_ACTION: dict[tuple[int, int], Action] = {
         (-1, 0): Action.MoveN,
         (1,  0): Action.MoveS,
@@ -90,25 +134,40 @@ def _build_constraints(
     fixed_agents: list[int],
     total_t: int,
 ) -> tuple[set, set]:
+\
+\
+\
+\
+\
+\
+\
+       
     vc: set = set()
     ec: set = set()
     for i in fixed_agents:
         path = paths[i]
+                                                    
         for t, (r, c) in enumerate(path):
             vc.add((r, c, t))
+                                              
         gr, gc = path[-1]
         for t in range(len(path), total_t + 1):
             vc.add((gr, gc, t))
+                                 
         for t in range(1, len(path)):
             pr, pc = path[t - 1]
             cr, cc = path[t]
-            ec.add((pr, pc, cr, cc, t - 1))
+            ec.add((pr, pc, cr, cc, t - 1))                           
     return vc, ec
 
 def _validate_mapf_paths(
     paths: list[list[tuple[int, int]]],
     agent_goals: dict[int, tuple[int, int]],
 ) -> bool:
+\
+\
+\
+       
     n = len(paths)
     max_t = max(len(p) for p in paths)
 
@@ -117,8 +176,10 @@ def _validate_mapf_paths(
 
     for t in range(max_t + 1):
         positions = [pos_at(i, t) for i in range(n)]
+                           
         if len(set(positions)) < n:
             return False
+                                
         if t > 0:
             for i in range(n):
                 for j in range(i + 1, n):
@@ -136,11 +197,12 @@ def _lns2_mapf(
     initial_state: "State",
     deadline: float,
 ) -> list[list[Action]]:
-    from searchclient.cbs import _bfs_distances, _constrained_astar
+                                                    
+    from searchclient.cbs import _bfs_distances, _constrained_astar                              
 
     n = len(initial_state.agent_rows)
     if n < 2:
-        return plan
+        return plan                                           
 
     agent_goals = _get_agent_goals(initial_state)
     dist_grids = {i: _bfs_distances(*agent_goals[i]) for i in range(n)}
@@ -156,11 +218,14 @@ def _lns2_mapf(
           f"budget={deadline - time.perf_counter():.1f}s)", file=sys.stderr, flush=True)
 
     while time.perf_counter() < deadline:
+                                                                               
         k = random.randint(2, min(4, n))
+                                                                               
         path_lens = [len(paths[i]) for i in range(n)]
         total_w = sum(path_lens)
         if total_w == 0:
             break
+                                                
         cumulative = []
         running = 0.0
         for w in path_lens:
@@ -177,11 +242,13 @@ def _lns2_mapf(
                     break
             attempts += 1
         if len(subset_set) < 2:
+                                                 
             subset_set = set(random.sample(range(n), k))
         subset = list(subset_set)
         fixed = [i for i in range(n) if i not in subset_set]
 
         current_makespan = max(len(paths[i]) for i in range(n)) - 1
+                                                                              
         total_t = current_makespan
 
         vc, ec = _build_constraints(paths, fixed, total_t)
@@ -203,6 +270,7 @@ def _lns2_mapf(
                 failed = True
                 break
             new_sub_paths[i] = new_path
+                                                                                          
             for t, (r, c) in enumerate(new_path):
                 vc.add((r, c, t))
             gr, gc = new_path[-1]
@@ -211,12 +279,13 @@ def _lns2_mapf(
             for t in range(1, len(new_path)):
                 pr, pc = new_path[t - 1]
                 cr, cc = new_path[t]
-                ec.add((pr, pc, cr, cc, t - 1))
+                ec.add((pr, pc, cr, cc, t - 1))                           
 
         if not failed and len(new_sub_paths) == len(subset):
             candidate = [new_sub_paths.get(i, paths[i]) for i in range(n)]
             new_makespan = max(len(p) for p in candidate) - 1
             if new_makespan < best_makespan:
+                                            
                 if _validate_mapf_paths(candidate, agent_goals):
                     paths = candidate
                     best_makespan = new_makespan
@@ -231,7 +300,7 @@ def _lns2_mapf(
           f"final makespan={best_makespan}.", file=sys.stderr, flush=True)
 
     if improvements == 0:
-        return plan
+        return plan                              
     return _paths_to_joint_actions(best_paths, n)
 
 def _lns2_box(
@@ -239,29 +308,28 @@ def _lns2_box(
     initial_state: "State",
     deadline: float,
 ) -> list[list[Action]]:
-    from searchclient.frontier import FrontierBestFirst
-    from searchclient.graphsearch import search
-    from searchclient.heuristic import HeuristicWeightedAStar
+    from searchclient.ma_planner import decoupled_box_plan
 
     remaining = deadline - time.perf_counter()
-    print(f"[lns2] Starting box restart improvement (WA*(2), budget={remaining:.1f}s, "
-          f"incumbent length={len(plan)})", file=sys.stderr, flush=True)
+    print(f"[lns2] Starting box multi-attempt LNS (budget={remaining:.1f}s, incumbent={len(plan)})",
+          file=sys.stderr, flush=True)
 
-    try:
-        frontier = FrontierBestFirst(HeuristicWeightedAStar(initial_state, 2))
-        new_plan = search(initial_state, frontier, deadline=deadline)
-    except Exception as exc:
-        print(f"[lns2] WA*(2) raised {type(exc).__name__}: {exc}",
-              file=sys.stderr, flush=True)
-        return plan
+    best_plan = plan
+    attempt = 0
+    while time.perf_counter() < deadline - 5.0:
+        budget_this = min((deadline - time.perf_counter() - 5.0) * 0.4, 30.0)
+        if budget_this < 3.0:
+            break
+        t0 = time.perf_counter()
+        candidate = decoupled_box_plan(initial_state, time.perf_counter() + budget_this)
+        elapsed = time.perf_counter() - t0
+        attempt += 1
+        if candidate is not None and len(candidate) < len(best_plan):
+            best_plan = candidate
+            print(f"[lns2] attempt {attempt}: improved → {len(best_plan)} ({elapsed:.2f}s)",
+                  file=sys.stderr, flush=True)
+        else:
+            print(f"[lns2] attempt {attempt}: {'None' if candidate is None else len(candidate)} "
+                  f"(no improvement, {elapsed:.2f}s)", file=sys.stderr, flush=True)
 
-    if new_plan is not None and len(new_plan) < len(plan):
-        print(f"[lns2] WA*(2) improved plan: {len(plan)} → {len(new_plan)} actions.",
-              file=sys.stderr, flush=True)
-        return new_plan
-
-    elapsed = time.perf_counter() - (deadline - remaining)
-    print(f"[lns2] WA*(2) found no improvement "
-          f"({'no solution' if new_plan is None else f'length {len(new_plan)} ≥ {len(plan)}'}) "
-          f"in {elapsed:.1f}s.", file=sys.stderr, flush=True)
-    return plan
+    return best_plan

@@ -419,13 +419,34 @@ class SearchClient:
                     else:
                         print(f"[cascade] Decoupled planner failed in {_elapsed:.3f}s", file=sys.stderr, flush=True)
 
+            if plan is not None:
+                _multi_budget = _server_deadline - time.perf_counter() - 12.0
+                _attempt_count = 0
+                while _multi_budget >= 5.0 and _attempt_count < 8:
+                    _t0 = time.perf_counter()
+                    _attempt_plan = decoupled_box_plan(
+                        initial_state,
+                        time.perf_counter() + min(_multi_budget * 0.4, 30.0)
+                    )
+                    _elapsed = time.perf_counter() - _t0
+                    if _attempt_plan is not None and len(_attempt_plan) < len(plan):
+                        plan = _attempt_plan
+                        print(f"[multi-attempt] attempt {_attempt_count+1}: improved → {len(plan)} steps ({_elapsed:.2f}s)",
+                              file=sys.stderr, flush=True)
+                    else:
+                        print(f"[multi-attempt] attempt {_attempt_count+1}: no improvement "
+                              f"({'None' if _attempt_plan is None else len(_attempt_plan)}) ({_elapsed:.2f}s)",
+                              file=sys.stderr, flush=True)
+                    _attempt_count += 1
+                    _multi_budget = _server_deadline - time.perf_counter() - 12.0
+
             if plan is None:
                 print("Unable to solve level.", file=sys.stderr, flush=True)
                 sys.exit(0)
 
             _lns_remaining = _server_deadline - time.perf_counter()
-            _lns_cap = min(12.0, _lns_remaining - 10.0)
-            if _lns_cap >= 10.0 and not _skip_wa:
+            _lns_cap = _lns_remaining - 10.0
+            if _lns_cap >= 5.0:
                 from searchclient.lns import lns2_improve
                 _lns_deadline = time.perf_counter() + _lns_cap
                 _improved = lns2_improve(plan, initial_state, _lns_deadline, is_mapf=False)

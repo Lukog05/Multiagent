@@ -1,0 +1,80 @@
+#domain
+hospital
+#levelname
+AlBarah
+#colors
+blue: 0,6,G,M
+red: 1,7,H,N
+cyan: 2,I
+purple: 3,J
+pink: 4,K
+grey: 5,L
+green: O
+#initial
+++++++++++++++++++++
++0   G  +  L    5  +
++ ++ ++ + ++ ++    +
++ 6M +     + N  7  +
+++++ +++ +++ +++   +
++1   H     K   4   +
++ ++ +++++++ ++    +
++    +     +       +
+++++ + +++ + +++   +
++2   I     J   3   +
++ ++ +++++++ ++    +
++    +     +       +
+++++ +++ +++ +++   +
++                  +
++              OO  +
+++++++++++++++++++++
+#goal
+++++++++++++++++++++
++L      +   I      +
++ ++ ++ + ++ ++    +
++    +     +       +
+++++ +++ +++ +++   +
++              H   +
++ ++ +++++++ ++    +
++    +     +       +
+++++ + +++ + +++   +
++               G  +
++ ++ +++++++ ++    +
++    +     +       +
+++++ +++ +++ +++   +
++  J     K         +
++                  +
+++++++++++++++++++++
+#end
+#clientname
+Dracarys
+#actions
+12174340600:Move(E)@Move(E)|Move(E)@Move(E)|Move(E)@Move(E)|Move(S)@Move(S)|Move(W)@Move(W)|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+12174569400:Move(E)@Move(E)|Move(E)@Move(E)|Move(E)@Move(E)|Move(S)@Move(S)|Move(W)@Move(W)|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+12174745300:Move(E)@Move(E)|Move(E)@Move(E)|Move(E)@Move(E)|Move(W)@Move(W)|Move(W)@Move(W)|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+12174941100:Push(E,E)@Push(E,E)|Push(E,E)@Push(E,E)|Pull(W,W)@Pull(W,W)|Move(W)@Move(W)|Pull(E,E)@Pull(E,E)|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+12175129600:Push(E,E)@Push(E,E)|Push(E,E)@Push(E,E)|Push(E,N)@Push(E,N)|Move(W)@Move(W)|Push(W,S)@Push(W,S)|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12175310100:Push(E,S)@Push(E,S)|Push(E,E)@Push(E,E)|Push(N,N)@Push(N,N)|Move(N)@Move(N)|Push(S,S)@Push(S,S)|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12175479100:Push(S,S)@Push(S,S)|Push(E,E)@Push(E,E)|Push(N,N)@Push(N,N)|Move(N)@Move(N)|Push(S,S)@Push(S,S)|Push(W,S)@Push(W,S)|NoOp@NoOp|NoOp@NoOp
+12175619900:Push(S,E)@Push(S,E)|Push(E,E)@Push(E,E)|Push(N,N)@Push(N,N)|Push(W,W)@Push(W,W)|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+12175765500:Push(E,S)@Push(E,S)|Push(E,E)@Push(E,E)|Push(N,E)@Push(N,E)|Push(W,W)@Push(W,W)|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+12175892800:Push(S,S)@Push(S,S)|Push(E,E)@Push(E,E)|Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+12176040300:Push(S,E)@Push(S,E)|Push(E,E)@Push(E,E)|Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(S,S)@Push(S,S)|Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp
+12176176100:Push(E,E)@Push(E,E)|Push(E,E)@Push(E,E)|NoOp@NoOp|Push(W,W)@Push(W,W)|Push(S,S)@Push(S,S)|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12176302900:Push(E,E)@Push(E,E)|Push(E,E)@Push(E,E)|Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(S,S)@Push(S,S)|Push(W,N)@Push(W,N)|NoOp@NoOp|NoOp@NoOp
+12176418900:Push(E,E)@Push(E,E)|NoOp@NoOp|Push(E,N)@Push(E,N)|Push(W,W)@Push(W,W)|Push(S,W)@Push(S,W)|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+12176559100:Push(E,S)@Push(E,S)|NoOp@NoOp|Push(N,N)@Push(N,N)|Push(W,S)@Push(W,S)|Push(W,W)@Push(W,W)|Push(N,W)@Push(N,W)|NoOp@NoOp|NoOp@NoOp
+12176678800:Push(S,S)@Push(S,S)|NoOp@NoOp|Push(N,E)@Push(N,E)|Push(S,S)@Push(S,S)|Push(W,W)@Push(W,W)|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12176843200:Push(S,S)@Push(S,S)|NoOp@NoOp|Push(E,N)@Push(E,N)|Push(S,S)@Push(S,S)|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12177007900:Push(S,S)@Push(S,S)|NoOp@NoOp|Push(N,N)@Push(N,N)|Push(S,S)@Push(S,S)|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12177145400:Push(S,E)@Push(S,E)|NoOp@NoOp|Push(N,E)@Push(N,E)|Push(S,W)@Push(S,W)|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12177269200:Push(E,E)@Push(E,E)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12177404300:Push(E,E)@Push(E,E)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+12177521000:Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+#end
+#solved
+true
+#numactions
+22
+#time
+12177521000
+#end

@@ -1,0 +1,1173 @@
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\Agentix.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\AIegean.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\AlBarah.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\AlphaMAS.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\amogus.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\Apdo.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\AssertFun.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\BigForty.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\BoxBender.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\brAIn.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\BStar.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\CBSquad.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\ClauDOom.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\ComMAndos.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\CphAirprt.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\CudBSlvd.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\DASH.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\DayBreak.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\Dolor.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\donut.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\Dracarys.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\duckie.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\Eighty.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\escAIpe.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\GHandDirt.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\GroupWon.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\Indianish.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\KUTitans.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\LaMAtes.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\lilchal.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\logo.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\LoopBots.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\LoveLock.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\MAceship.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\MAface.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\MAgic.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\makeMAga.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\MAmaMASS.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\MAPFlame.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\MArachnid.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\MASaos.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\MASstroke.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\MAuseCat.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\MAvis.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\MAze.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\MazeRun.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\Minchia.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\moveMAcat.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\Nej.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\NicKiS.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\NineChars.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\OlsenBand.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\OPN.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\PinWheel.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\PJMAS.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\Planarchy.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\ProjectD.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\RaedFathi.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\SeisSiete.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\slAIve.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\sublevels.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\TheDevil.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\Tittling.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\trauMA.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\TriSplit.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\TriWards.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\TwoPlayer.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\WardRush.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.
+[server][info] Running client on level file: D:\Codes\Multiagent\FinalProjectV4\Multiagent\complevels-2026\WeTried.lvl
+Traceback (most recent call last):
+  File "D:\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\searchclient.py", line 6, in <module>
+    from searchclient import memory
+  File "D:\Codes\Multiagent\FinalProjectV4\Multiagent\Warmup\searchclient_python\searchclient\memory.py", line 3, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+[client][error] Client closed its output stream before sending its name.
+[client][info] Waiting for client process to terminate by itself.
+[client][info] Client terminated.
+[server][info] Level solved: No.
+[server][info] Actions used: 0.
+[server][info] Time to solve: 0.000 seconds.

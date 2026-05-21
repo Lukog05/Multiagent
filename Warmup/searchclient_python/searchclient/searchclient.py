@@ -125,7 +125,7 @@ class SearchClient:
 
         if hasattr(sys.stdout, "reconfigure"):
             sys.stdout.reconfigure(encoding="ASCII")
-        print("SearchClient", flush=True)
+        print("Dracarys", flush=True)
 
         print("#This is a comment.", flush=True)
 

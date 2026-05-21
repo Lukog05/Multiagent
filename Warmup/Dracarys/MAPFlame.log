@@ -1,0 +1,201 @@
+#domain
+hospital
+#levelname
+MAPFlame
+#colors
+orange: X
+red: S
+blue: 0,A
+purple: B,1
+cyan: 2,C
+green: 3,D
+#initial
++++++++++++++++++++++++++++++++++
++                            +  +
++             +++           +X+ +
++   +         +S+++        +SS+ +
++  +S+        +SSS+     ++  ++  +
++ +XS+     ++ +++S+++   +S+     +
++  +XS+    +S+  +SSS+ ++SS+     +
++   ++   0 +SS++SSSS+ +SSX+     +
++         A++SSSSXXS+ +S++      +
++           ++SXXXXX+ +S+ B     +
++        +   +SSXXXX+ +S+1++    +
++       +S+  ++SXXXX+ +S++S+    +
++  +++  +SS+  +SXXS+  +S+XS+    +
++  +S++ +SS+  +SXX+   +S+SS+    +
++  ++S++SSS+++SSXX+   +S+S++    +
++   +SS+SXSSSSSXXXX+++XXSS+     +
++   ++SSSXSSSSSSSSSS+SXXS++     +
++    +SSXXSSSSXXXSSXXXXXS+      +
++   ++SSXXXXXXXXXXXXXXXXS+++    +
++   +SSXXXXXXXXXXXXX+XXXSSX+    +
++   +SSXXX++XXX+XXX+ +XXSS++    +
++   +SSXXX+ +X+ +++  +XXSS+     +
++   ++SSXX+  +  + 2C +XSS++     +
++    ++SSX++3D +   ++XSS++      +
++     ++SSX++     +XXSS++       +
++      ++SSX+    +XXSS++        +
++       +++++++++++++++         +
++++++++++++++++++++++++++++++++++
+#goal
++++++++++++++++++++++++++++++++++
++                            +  +
++             +++           + + +
++   +         + +++        +  + +
++  + +        +   +     ++  ++  +
++ +  +     ++ +++ +++   + +     +
++  +  +    + +  +   + ++  +     +
++   ++     +  ++    + +   +     +
++          ++       + + ++      +
++    B      ++      + + +       +
++        +   +      + + + ++    +
++       + +  ++     + + ++ +    +
++  +++  +  +  +    +  + +  +    +
++  + ++ +  +  +   +   + +  +    +
++  ++ ++   +++    +   + + ++    +
++   +  +           +++    +     +
++   ++              +    ++     +
++    +                   +A     +
++   ++                   +++    +
++   +               +      +    +
++   +     ++   +   +D+    ++    +
++   +     +C+ + +++  +    +     +
++   ++    +  +  +    +   ++     +
++    ++   ++   +   ++   ++      +
++     ++   ++     +    ++       +
++      ++   +    +    ++        +
++       +++++++++++++++         +
++++++++++++++++++++++++++++++++++
+#end
+#clientname
+Dracarys
+#actions
+69638000:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+69767100:Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+69892700:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+69990500:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+70090300:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+70164900:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+70250200:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+70343600:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+70447300:Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+70547600:Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+70641300:Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+70735400:Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+70831500:Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+70933800:Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+71017600:Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+71095500:Push(E,S)@Push(E,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+71177500:Push(S,E)@Push(S,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+71247600:Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+71318000:Push(E,S)@Push(E,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+71396200:Push(S,E)@Push(S,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+71477200:Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+71544000:Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+71648900:Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+71737200:Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+71819800:Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+71929900:Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+72048500:Push(E,S)@Push(E,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+72153800:Push(S,E)@Push(S,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+72376500:Push(E,S)@Push(E,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+72525100:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+72630800:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+72744300:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+72871100:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+72996900:Push(S,E)@Push(S,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+73081300:Push(E,S)@Push(E,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+73414800:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+73543600:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+73760800:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+74135600:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+74441100:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+74702200:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+74936600:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+75116500:Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+75298100:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+75486700:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+75563800:NoOp@NoOp|Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp
+75626900:NoOp@NoOp|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp
+75718800:NoOp@NoOp|Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp
+75824600:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+75892100:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+75988700:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+76091500:NoOp@NoOp|Push(N,W)@Push(N,W)|NoOp@NoOp|NoOp@NoOp
+76174800:NoOp@NoOp|Push(W,N)@Push(W,N)|NoOp@NoOp|NoOp@NoOp
+76259100:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+76329800:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+76400100:NoOp@NoOp|Push(N,W)@Push(N,W)|NoOp@NoOp|NoOp@NoOp
+76479400:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+76564500:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+76635000:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+76714100:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+76783500:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+76891200:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+76977100:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+77068400:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+77132900:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+77202900:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+77265000:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+77336100:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+77413500:NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp|NoOp@NoOp
+77468400:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+77545700:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+77614300:NoOp@NoOp|Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp
+77708500:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+77785800:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+77855700:NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp|NoOp@NoOp
+77936900:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+78025600:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+78111400:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+78205500:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+78264900:NoOp@NoOp|Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp
+78339600:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+78408900:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+78485200:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+78644900:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+78731600:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+78836000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Pull(N,W)@Pull(N,W)
+78929200:NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+78998400:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+79071300:NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+79142400:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+79210700:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)
+79295500:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)
+79395800:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)
+79484900:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+79588200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+79669600:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,N)@Push(E,N)
+79744900:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(N,E)@Push(N,E)
+79848100:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,N)@Push(E,N)
+79912100:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(N,E)@Push(N,E)
+79995100:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+80078600:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,N)@Push(E,N)
+80144300:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(N,E)@Push(N,E)
+80221300:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,N)@Push(E,N)
+80296000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+80370000:NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+80437900:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp
+80505200:NoOp@NoOp|NoOp@NoOp|Pull(W,W)@Pull(W,W)|NoOp@NoOp
+80565700:NoOp@NoOp|NoOp@NoOp|Pull(W,W)@Pull(W,W)|NoOp@NoOp
+80620500:NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)|NoOp@NoOp
+80690500:NoOp@NoOp|NoOp@NoOp|Push(S,W)@Push(S,W)|NoOp@NoOp
+80763600:NoOp@NoOp|NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp
+80845300:NoOp@NoOp|NoOp@NoOp|Push(S,W)@Push(S,W)|NoOp@NoOp
+80922600:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp
+80996200:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp
+81058800:NoOp@NoOp|NoOp@NoOp|Push(W,N)@Push(W,N)|NoOp@NoOp
+81120300:NoOp@NoOp|NoOp@NoOp|Push(N,W)@Push(N,W)|NoOp@NoOp
+81189500:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp
+81282900:NoOp@NoOp|NoOp@NoOp|Push(W,N)@Push(W,N)|NoOp@NoOp
+81346800:NoOp@NoOp|NoOp@NoOp|Push(N,W)@Push(N,W)|NoOp@NoOp
+81412600:NoOp@NoOp|NoOp@NoOp|Push(W,N)@Push(W,N)|NoOp@NoOp
+#end
+#solved
+true
+#numactions
+120
+#time
+81412600
+#end

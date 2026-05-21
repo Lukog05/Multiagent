@@ -1,25 +1,3 @@
-"""
-Predictability-aware cost penalty (arXiv:2411.06223v2).
-
-The paper's cost function (Eq. 5):
-    J(τ) = Σ_k [ J_k(x_k, u_k) + γ^k · λ · KL(q(x_k) ‖ p(x_k)) ]
-
-Adaptation for discrete grid worlds
-────────────────────────────────────
-• Prediction model p  : BFS shortest path from each agent's initial
-                        position toward its goal — the discrete analogue
-                        of a constant-velocity predictor.
-• Plan distribution q : the agent's actual position at step t (point mass).
-• KL divergence       : for equal-variance Gaussians,
-                        KL(N(μ_q,σ²) ‖ N(μ_p,σ²)) = ‖μ_q−μ_p‖² / (2σ²).
-                        With σ normalised to 1 this reduces to squared
-                        Euclidean distance between actual and predicted pos.
-• Penalty at step t   : λ · γ^t · Σ_i  ‖actual_i − predicted_i(t)‖²
-
-The penalty is evaluated inside the heuristic so it participates in the
-frontier's priority and biases the search toward more "predictable" paths
-without modifying the graph-search loop itself.
-"""
 
 from __future__ import annotations
 
@@ -27,9 +5,7 @@ from collections import deque
 
 from searchclient.state import State
 
-
 def _bfs_path(start_r: int, start_c: int, goal_r: int, goal_c: int) -> list[tuple[int, int]]:
-    """Return the BFS shortest path from (start_r, start_c) to (goal_r, goal_c)."""
     rows = len(State.walls)
     cols = len(State.walls[0])
     INF = 10_000_000
@@ -69,24 +45,7 @@ def _bfs_path(start_r: int, start_c: int, goal_r: int, goal_c: int) -> list[tupl
 
     return path
 
-
 class PredictabilityModel:
-    """
-    Evaluates the predictability penalty term from arXiv:2411.06223v2 (Eq. 5).
-
-    Parameters
-    ----------
-    initial_state : State
-        The level's initial state — used to set up per-agent predicted paths.
-    lambda_ : float
-        Weight on the KL-divergence term (λ in the paper).
-        Paper experiments used λ ∈ {0, 2.5, 5.0}; start with 2.5.
-        Larger values push agents to follow the predicted path more strictly.
-    gamma : float
-        Horizon discount factor (γ in the paper, default 0.6).
-        Downweights the predictability cost for later time steps, reflecting
-        greater uncertainty about long-range predictions.
-    """
 
     def __init__(
         self,
@@ -115,12 +74,6 @@ class PredictabilityModel:
             self._paths.append(path)
 
     def penalty(self, state: State) -> float:
-        """
-        Compute the predictability penalty for *state*.
-
-        Returns λ · γ^t · Σ_i ‖actual_i − predicted_i(t)‖²
-        where t = state.g (number of steps taken so far).
-        """
         t = state.g
         if self.lambda_ == 0.0:
             return 0.0

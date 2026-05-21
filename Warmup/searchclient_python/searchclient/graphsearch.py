@@ -8,7 +8,6 @@ from searchclient.state import State
 
 start_time = time.perf_counter()
 
-
 def search(initial_state: State, frontier: Frontier, deadline: float | None = None) -> list[list[Action]] | None:
     output_fixed_solution = False
     State.reset_diagnostics()
@@ -30,7 +29,6 @@ def search(initial_state: State, frontier: Frontier, deadline: float | None = No
             [Action.MoveS],
             [Action.MoveS]
         ]
-
 
     iterations = 0
 
@@ -66,7 +64,6 @@ def search(initial_state: State, frontier: Frontier, deadline: float | None = No
             State.print_diagnostics()
             return state.extract_plan()
         
-        
         explored.add(state)
         
         for child_state in state.get_expanded_states():
@@ -89,7 +86,6 @@ def print_search_status(explored: set[State], frontier: Frontier) -> None:
     print(f'#Explored: {len(explored)}', flush=True)
     print(f"#Generated: {len(explored) + frontier.size()}", flush=True)
     print(f"#Alloc: {memory.get_usage():.2f} MB", flush=True)
-    
     
 """
 main search loop is in the while True: loop in the search function. You should implement the graph search algorithm there, using the Frontier and State classes. The Frontier class will manage the states that are yet to be explored, while the State class will represent the current state of the problem and provide methods to check if it's a goal state, extract the plan to reach it, and get its expanded states.

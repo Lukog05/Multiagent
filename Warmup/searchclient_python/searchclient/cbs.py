@@ -5,7 +5,6 @@ from collections import deque
 from searchclient.action import Action
 from searchclient.state import State
 
-
 def _bfs_distances(goal_r: int, goal_c: int) -> list[list[int]]:
     rows = len(State.walls)
     cols = len(State.walls[0])
@@ -21,7 +20,6 @@ def _bfs_distances(goal_r: int, goal_c: int) -> list[list[int]]:
                 dist[nr][nc] = dist[r][c] + 1
                 q.append((nr, nc))
     return dist
-
 
 def _constrained_astar(
     start_r: int,
@@ -83,7 +81,6 @@ def _constrained_astar(
 
     return None
 
-
 def _find_conflict(paths: list[list[tuple[int, int]]]) -> tuple | None:
     max_t = max(len(p) for p in paths)
 
@@ -106,7 +103,6 @@ def _find_conflict(paths: list[list[tuple[int, int]]]) -> tuple | None:
                         r2, c2 = pos(paths[i], t)
                         return ("edge", i, j, r1, c1, r2, c2, t)
     return None
-
 
 def _paths_to_joint_actions(paths: list[list[tuple[int, int]]], num_agents: int) -> list[list[Action]]:
     DELTA_TO_ACTION = {
@@ -131,7 +127,6 @@ def _paths_to_joint_actions(paths: list[list[tuple[int, int]]], num_agents: int)
         joint_actions.append(step)
     return joint_actions
 
-
 def _try_ca_order(
     initial_state: State,
     order: list[int],
@@ -139,7 +134,6 @@ def _try_ca_order(
     dist_grids: dict[int, list[list[int]]],
     max_t: int,
 ) -> list[list[Action]] | None:
-    """Attempt one CA* ordering. Returns joint actions on success, None on failure."""
     num_agents = len(initial_state.agent_rows)
     paths: list[list[tuple[int, int]] | None] = [None] * num_agents
     vertex_res: set[tuple[int, int, int]] = set()
@@ -169,16 +163,7 @@ def _try_ca_order(
     full_paths: list[list[tuple[int, int]]] = [p for p in paths if p is not None]
     return _paths_to_joint_actions(full_paths, num_agents)
 
-
 def cooperative_astar(initial_state: State, max_t: int = 500, deadline: float | None = None) -> list[list[Action]] | None:
-    """
-    Cooperative A* (CA*): plan each agent using a shared space-time reservation
-    table built from previously planned agents' paths.
-
-    Tries multiple priority orderings because CA* is sensitive to order — the
-    ordering that works depends on the level topology. Runs in O(k * n * A*)
-    where k is the number of orderings tried (small constant).
-    """
     num_agents = len(initial_state.agent_rows)
 
     agent_goals: dict[int, tuple[int, int]] = {}
@@ -214,7 +199,6 @@ def cooperative_astar(initial_state: State, max_t: int = 500, deadline: float | 
             return result
 
     return None
-
 
 def cbs_search(initial_state: State, deadline: float | None = None) -> list[list[Action]] | None:
     num_agents = len(initial_state.agent_rows)
@@ -291,23 +275,7 @@ def cbs_search(initial_state: State, deadline: float | None = None) -> list[list
 
     return None
 
-
 def _greedy_mapf(initial_state: State, max_steps: int = 2000, deadline: float | None = None) -> list[list[Action]] | None:
-    """
-    Simple priority-greedy MAPF solver.
-
-    At each timestep:
-    1. Sort agents by remaining distance to goal (descending = highest priority).
-    2. Process agents in that order.  Each agent greedily claims its best next
-       cell (minimises BFS distance) that has not yet been claimed by a
-       higher-priority agent this timestep.
-    3. If all preferred cells are taken, the agent stays — unless its current
-       cell is claimed by a higher-priority agent, in which case it is pushed
-       to the next-best free cell.
-
-    This runs in O(n log n) per timestep and handles corridor reordering
-    reliably (the trace for MAPFreorder2 reaches the goal in ~12 timesteps).
-    """
     num_agents = len(initial_state.agent_rows)
 
     agent_goals: dict[int, tuple[int, int]] = {}
@@ -387,20 +355,7 @@ def _greedy_mapf(initial_state: State, max_steps: int = 2000, deadline: float | 
 
     return None
 
-
 def pibt_search(initial_state: State, max_steps: int = 2000) -> list[list[Action]] | None:
-    """
-    PIBT (Priority Inheritance with Backtracking) — a polynomial-time MAPF solver.
-
-    At each timestep, agents are processed in priority order (highest remaining
-    distance first).  Each agent greedily picks the best next cell.  If that cell
-    is occupied by a lower-priority agent, the lower-priority agent is recursively
-    asked to vacate (priority inheritance).  If it cannot vacate, the requesting
-    agent tries its next-best candidate.
-
-    PIBT is complete on any connected graph and runs in O(n) per timestep, making
-    it ideal for dense, symmetric problems like corridor reordering where CBS fails.
-    """
     num_agents = len(initial_state.agent_rows)
 
     agent_goals: dict[int, tuple[int, int]] = {}
@@ -440,16 +395,6 @@ def pibt_search(initial_state: State, max_steps: int = 2000) -> list[list[Action
         return 0 <= r < rows and 0 <= c < cols and not State.walls[r][c]
 
     def move(agent: int, reserved: set[tuple[int, int]], visiting: frozenset[int]) -> bool:
-        """
-        Try to move `agent` to a cell NOT in `reserved`.
-        `visiting` tracks agents in the current recursive chain (cycle detection).
-        Returns True if the agent successfully chose a destination.
-        The agent's choice is stored in next_pos[agent].
-
-        Key rule: the cell occupied by this agent before moving is added to
-        `reserved` for the recursively displaced occupant, so the occupant is
-        forced to ACTUALLY LEAVE the requested cell (not just NoOp).
-        """
         if agent in visiting:
             return False
 
@@ -519,16 +464,7 @@ def pibt_search(initial_state: State, max_steps: int = 2000) -> list[list[Action
 
     return None
 
-
 def dfs_cbs_search(initial_state: State, deadline: float | None = None) -> list[list[Action]] | None:
-    """
-    DFS-CBS: CBS with depth-first traversal instead of best-first.
-
-    Best-first CBS builds an exponential heap for symmetric problems (branching
-    factor 2, no pruning) and never reaches deep enough to find a solution.
-    DFS-CBS goes deep immediately, finds *a* (sub-optimal) solution quickly.
-    Memory usage is O(depth * constraint_size) instead of O(nodes).
-    """
     num_agents = len(initial_state.agent_rows)
 
     agent_goals: dict[int, tuple[int, int]] = {}
@@ -599,9 +535,7 @@ def dfs_cbs_search(initial_state: State, deadline: float | None = None) -> list[
 
     return None
 
-
 def _count_reachable_cells(initial_state: State) -> int:
-    """BFS from the first agent to count all reachable non-wall cells."""
     if not initial_state.agent_rows:
         return 0
     rows = len(State.walls)
@@ -618,19 +552,7 @@ def _count_reachable_cells(initial_state: State) -> int:
                 q.append((nr, nc))
     return len(visited)
 
-
 def _joint_astar(initial_state: State, deadline: float | None = None) -> list[list[Action]] | None:
-    """
-    Joint-state A* with one-agent-at-a-time moves.
-
-    Moves one agent per timestep (all others NoOp).  This is always a valid
-    joint action sequence and is complete for any connected graph.  Uses
-    per-agent BFS distances as the admissible heuristic (sum of individual
-    shortest-path lengths ignoring other agents).
-
-    Suitable for levels with a small reachable cell count — sliding puzzles,
-    tight corridor reordering, etc.
-    """
     num_agents = len(initial_state.agent_rows)
     rows = len(State.walls)
     cols = len(State.walls[0]) if rows > 0 else 0

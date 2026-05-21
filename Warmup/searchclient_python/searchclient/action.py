@@ -1,14 +1,12 @@
 from enum import Enum, unique
 from typing import Literal
 
-
 @unique
 class ActionType(Enum):
     NoOp = 0
     Move = 1
     Push = 2
     Pull = 3
-
 
 @unique
 class Action(Enum):

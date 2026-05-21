@@ -14,17 +14,7 @@ ENABLE_CASCADE_REORDER = True
 
 ENABLE_ADAPTIVE_CASCADE = False
 
-
 def _select_mapf_cascade(num_agents: int, free_cells: int, density: float, accessible: int) -> list[str]:
-    """
-    Select the ordered list of MAPF algorithm names to try based on level features.
-
-    Decision rules:
-    # Rule 1: Very few agents in a small space → Joint A* first (optimal, fast)
-    # Rule 2: High density (many agents / free cells) → PIBT excels
-    # Rule 3: Many agents (>8) → skip Joint A* entirely (state space too large)
-    # Rule 4: Default order: PIBT → GreedyMAPF → CBS → CoopA* → JointA* → DFS-CBS → Greedy
-    """
     default = ["PIBT", "GreedyMAPF", "CBS", "CoopA*", "JointA*", "DFS-CBS", "Greedy"]
 
     if num_agents <= 3 and accessible <= 50:
@@ -37,7 +27,6 @@ def _select_mapf_cascade(num_agents: int, free_cells: int, density: float, acces
         return ["PIBT", "GreedyMAPF", "CBS", "CoopA*", "DFS-CBS", "Greedy"]
 
     return default
-
 
 class SearchClient:
     @staticmethod
@@ -101,7 +90,6 @@ class SearchClient:
 
             row += 1
             line = server_messages.readline()
-
 
         State.agent_colors = agent_colors
         State.walls = walls
@@ -204,7 +192,6 @@ class SearchClient:
                         server_messages.readline()
 
                 def _try_algorithm(name: str) -> "list | None":
-                    """Run the named algorithm and return its plan or None."""
                     nonlocal accessible
                     if name == "PIBT":
                         _t0 = time.perf_counter()
@@ -294,19 +281,6 @@ class SearchClient:
                     return None
 
                 def _validate_plan(plan: list, state: "State") -> bool:
-                    """
-                    Validate a joint-action plan by simulating it step by step.
-
-                    For each step: checks every agent's action is individually
-                    applicable in the pre-step state (catches following, wall moves,
-                    etc.), checks no two agents conflict on destinations, then
-                    advances the state.  Finally checks the goal condition.
-
-                    Applicable-check semantics match the hospital server: a Move is
-                    only valid if the destination cell is free *before* any actions
-                    are applied in that step, so simultaneous "follow" moves are
-                    correctly rejected.
-                    """
                     cur = state
                     for joint_action in plan:
                         if not all(cur.is_applicable(i, a) for i, a in enumerate(joint_action)):
@@ -488,7 +462,6 @@ class SearchClient:
             for joint_action in plan:
                 print("|".join(a.name_ + "@" + a.name_ for a in joint_action), flush=True)
                 _response = server_messages.readline()
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Simple client based on state-space graph search.")

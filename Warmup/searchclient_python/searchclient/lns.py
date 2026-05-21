@@ -1,24 +1,3 @@
-"""
-LNS2 (Large Neighborhood Search 2) anytime post-processor.
-
-For MAPF (no-box) plans
------------------------
-Iterative destroy-and-repair using space-time constrained A*:
-  1. Pick a random subset of 2–4 agents (biased toward the makespan bottleneck).
-  2. Build space-time constraints from every agent NOT in the subset.
-  3. Replan each subset agent with _constrained_astar; each newly replanned
-     agent's path is immediately added to the constraint set for the next.
-  4. Accept the candidate if total makespan strictly decreases.
-  5. Repeat until the wall-clock deadline.
-
-For box plans
--------------
-"Restart improvement": try WA*(weight=2) with the remaining budget.
-WA*(5) tends to be greedy; WA*(2) explores more and often finds shorter
-solutions.  Only accepted if strictly shorter than the incumbent.
-This is not classic LNS2 but provides an honest anytime improvement step
-for box levels.
-"""
 
 import random
 import sys
@@ -31,27 +10,12 @@ from searchclient.state import State
 if TYPE_CHECKING:
     pass
 
-
-
 def lns2_improve(
     initial_plan: list[list[Action]],
     initial_state: "State",
     deadline: float,
     is_mapf: bool = False,
 ) -> list[list[Action]]:
-    """
-    Attempt to shorten *initial_plan*.
-
-    Parameters
-    ----------
-    initial_plan  : plan returned by the cascade
-    initial_state : initial level state (agent positions, goals, walls)
-    deadline      : wall-clock time (perf_counter) at which we must stop
-    is_mapf       : True for no-box MAPF levels, False for box levels
-
-    Returns the improved plan, or *initial_plan* unchanged if no improvement
-    was found or if any exception occurs.
-    """
     remaining = deadline - time.perf_counter()
     if remaining < 1.0:
         return initial_plan
@@ -66,10 +30,7 @@ def lns2_improve(
               file=sys.stderr, flush=True)
         return initial_plan
 
-
-
 def _get_agent_goals(initial_state: "State") -> dict[int, tuple[int, int]]:
-    """Return goal cell per agent (defaults to start cell for goal-less agents)."""
     n = len(initial_state.agent_rows)
     goals: dict[int, tuple[int, int]] = {}
     for r, row in enumerate(State.goals):
@@ -83,19 +44,10 @@ def _get_agent_goals(initial_state: "State") -> dict[int, tuple[int, int]]:
             goals[i] = (initial_state.agent_rows[i], initial_state.agent_cols[i])
     return goals
 
-
 def _plan_to_paths(
     initial_state: "State",
     plan: list[list[Action]],
 ) -> list[list[tuple[int, int]]]:
-    """
-    Convert a MAPF joint-action plan to per-agent position paths.
-
-    Each path is a list of (row, col) tuples starting with the initial
-    position; length = len(plan) + 1.
-
-    Only uses agent_row_delta / agent_col_delta — safe for Move/NoOp actions.
-    """
     n = len(initial_state.agent_rows)
     paths: list[list[tuple[int, int]]] = [
         [(initial_state.agent_rows[i], initial_state.agent_cols[i])]
@@ -107,12 +59,10 @@ def _plan_to_paths(
             paths[i].append((r + action.agent_row_delta, c + action.agent_col_delta))
     return paths
 
-
 def _paths_to_joint_actions(
     paths: list[list[tuple[int, int]]],
     num_agents: int,
 ) -> list[list[Action]]:
-    """Convert per-agent position paths to a joint-action plan."""
     DELTA_TO_ACTION: dict[tuple[int, int], Action] = {
         (-1, 0): Action.MoveN,
         (1,  0): Action.MoveS,
@@ -135,20 +85,11 @@ def _paths_to_joint_actions(
         joint_actions.append(step)
     return joint_actions
 
-
 def _build_constraints(
     paths: list[list[tuple[int, int]]],
     fixed_agents: list[int],
     total_t: int,
 ) -> tuple[set, set]:
-    """
-    Return (vertex_constraints, edge_constraints) sets from fixed agents.
-
-    Vertex constraint: (r, c, t)          — cell (r,c) is blocked at time t.
-    Edge constraint:   (pr, pc, cr, cc, t) — move from (pr,pc)→(cr,cc) at
-                       departure time t is blocked for any other agent (prevents swap).
-    NOTE: t is the *departure* timestep (consistent with _constrained_astar).
-    """
     vc: set = set()
     ec: set = set()
     for i in fixed_agents:
@@ -164,15 +105,10 @@ def _build_constraints(
             ec.add((pr, pc, cr, cc, t - 1))
     return vc, ec
 
-
 def _validate_mapf_paths(
     paths: list[list[tuple[int, int]]],
     agent_goals: dict[int, tuple[int, int]],
 ) -> bool:
-    """
-    Return True if paths are conflict-free and all agents reach their goals.
-    Checks vertex conflicts, edge/swap conflicts, and goal attainment.
-    """
     n = len(paths)
     max_t = max(len(p) for p in paths)
 
@@ -195,13 +131,11 @@ def _validate_mapf_paths(
 
     return True
 
-
 def _lns2_mapf(
     plan: list[list[Action]],
     initial_state: "State",
     deadline: float,
 ) -> list[list[Action]]:
-    """LNS2 improve loop for MAPF (no-box) plans."""
     from searchclient.cbs import _bfs_distances, _constrained_astar
 
     n = len(initial_state.agent_rows)
@@ -300,19 +234,11 @@ def _lns2_mapf(
         return plan
     return _paths_to_joint_actions(best_paths, n)
 
-
-
 def _lns2_box(
     plan: list[list[Action]],
     initial_state: "State",
     deadline: float,
 ) -> list[list[Action]]:
-    """
-    Restart improvement for box plans: try WA*(2) with remaining budget.
-
-    WA*(5) is more greedy — WA*(2) explores wider and often finds shorter
-    solutions.  Only replaces the incumbent if strictly shorter.
-    """
     from searchclient.frontier import FrontierBestFirst
     from searchclient.graphsearch import search
     from searchclient.heuristic import HeuristicWeightedAStar

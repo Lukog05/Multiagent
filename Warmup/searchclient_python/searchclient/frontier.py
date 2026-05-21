@@ -5,7 +5,6 @@ from collections import deque
 from searchclient.heuristic import Heuristic
 from searchclient.state import State
 
-
 class Frontier(ABC):
     @abstractmethod
     def add(self, state: State) -> None: ...
@@ -24,7 +23,6 @@ class Frontier(ABC):
 
     @abstractmethod
     def get_name(self) -> str: ...
-
 
 class FrontierBFS(Frontier):
     def __init__(self) -> None:
@@ -53,7 +51,6 @@ class FrontierBFS(Frontier):
     def get_name(self) -> str:
         return "breadth-first search"
 
-
 class FrontierDFS(Frontier):
     def __init__(self) -> None:
         super().__init__()
@@ -81,18 +78,7 @@ class FrontierDFS(Frontier):
     def get_name(self) -> str:
         return "depth-first search"
 
-
 class FrontierBestFirst(Frontier):
-    """
-    Priority-queue frontier for A*, WA*, and Greedy search.
-
-    Uses a min-heap keyed by f(state) with a monotonic counter as a tie-breaker
-    so Python never tries to compare two State objects directly.
-
-    The set tracks exactly which states are currently live in the frontier, so
-    size() and contains() are O(1) and is_empty() is correct even when stale
-    heap entries exist (lazy-deletion pattern).
-    """
 
     def __init__(self, heuristic: Heuristic) -> None:
         super().__init__()

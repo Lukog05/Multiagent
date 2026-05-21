@@ -6,11 +6,6 @@ from searchclient.state import State
 ENABLE_HUNGARIAN_HEURISTIC = True
 
 def _hungarian(cost_matrix: list[list[int]]) -> list[int]:
-    """
-    Solve the assignment problem using the O(n^3) Hungarian algorithm.
-    Given an n×m cost matrix (n ≤ m), returns a list `assign` of length n
-    where assign[i] is the column assigned to row i, minimising total cost.
-    """
     n = len(cost_matrix)
     if n == 0:
         return []
@@ -61,7 +56,6 @@ def _hungarian(cost_matrix: list[list[int]]) -> list[int]:
         if 1 <= p[j] <= n:
             assign[p[j] - 1] = j - 1
     return assign
-
 
 class Heuristic(ABC):
     def __init__(self, initial_state: State) -> None:
@@ -185,7 +179,6 @@ class Heuristic(ABC):
     @abstractmethod
     def __repr__(self) -> str: ...
 
-
 class HeuristicAStar(Heuristic):
     def __init__(self, initial_state: State) -> None:
         super().__init__(initial_state)
@@ -195,7 +188,6 @@ class HeuristicAStar(Heuristic):
 
     def __repr__(self) -> str:
         return "A* evaluation"
-
 
 class HeuristicWeightedAStar(Heuristic):
     def __init__(self, initial_state: State, w: int) -> None:
@@ -208,7 +200,6 @@ class HeuristicWeightedAStar(Heuristic):
     def __repr__(self) -> str:
         return f"WA*({self.w}) evaluation"
 
-
 class HeuristicGreedy(Heuristic):
     def __init__(self, initial_state: State) -> None:
         super().__init__(initial_state)
@@ -219,28 +210,7 @@ class HeuristicGreedy(Heuristic):
     def __repr__(self) -> str:
         return "greedy evaluation"
 
-
 class HeuristicPredictabilityAware:
-    """
-    Wraps any heuristic and adds the predictability penalty from
-    arXiv:2411.06223v2 (Eq. 5).
-
-    Total priority: f_base(state) + λ · γ^t · Σ_i ‖actual_i − predicted_i(t)‖²
-
-    The penalty biases best-first search toward trajectories that stay close
-    to the BFS-predicted path (constant-velocity prediction toward each
-    agent's goal), fostering the 'soft social convention' described in the
-    paper without requiring explicit inter-agent communication.
-
-    Parameters
-    ----------
-    base : Heuristic
-        Any existing heuristic (A*, WA*, Greedy, …) that provides f(state).
-    lambda_ : float
-        Predictability weight λ.  Paper experiments: {0, 2.5, 5.0}.
-    gamma : float
-        Horizon discount factor γ (paper default: 0.6).
-    """
 
     def __init__(
         self,

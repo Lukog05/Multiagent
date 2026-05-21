@@ -11,7 +11,6 @@ ENABLE_2BOX_DEADLOCK   = True
 
 ENABLE_ZOBRIST = True
 
-
 class State:
     _RNG = random.Random(1)
 
@@ -48,25 +47,6 @@ class State:
     _zobrist_boxes: ClassVar[list[list[int]]]
 
     def __init__(self, agent_rows: list[int], agent_cols: list[int], boxes: list[list[str]], _precomputed_hash: int | None = None) -> None:
-        """
-        Constructs an initial state.
-        Arguments are not copied, and therefore should not be modified after being passed in.
-
-        The lists walls, boxes, and goals are indexed from top-left of the level, row-major order (row, col).
-               Col 0  Col 1  Col 2  Col 3
-        Row 0: (0,0)  (0,1)  (0,2)  (0,3)  ...
-        Row 1: (1,0)  (1,1)  (1,2)  (1,3)  ...
-        Row 2: (2,0)  (2,1)  (2,2)  (2,3)  ...
-        ...
-
-        For example, State.walls[2] is a list of booleans for the third row.
-        State.walls[row][col] is True if there's a wall at (row, col).
-
-        The agent rows and columns are indexed by the agent number.
-        For example, State.agent_rows[0] is the row location of agent '0'.
-
-        Note: The state should be considered immutable after it has been hashed, e.g. added to a dictionary or set.
-        """
         self.agent_rows = agent_rows
         self.agent_cols = agent_cols
         self.boxes = boxes
@@ -77,10 +57,6 @@ class State:
         self._moved_box_positions: list[tuple[int, int]] = []
 
     def result(self, joint_action: list[Action]) -> "State":
-        """
-        Returns the state resulting from applying joint_action in this state.
-        Precondition: Joint action must be applicable and non-conflicting in this state.
-        """
 
         copy_agent_rows = self.agent_rows[:]
         copy_agent_cols = self.agent_cols[:]
@@ -400,12 +376,10 @@ class State:
 
     @classmethod
     def _compute_dead_pairs(cls) -> frozenset:
-        """Kept as no-op for API compatibility. Runtime check now lives in has_2box_deadlock."""
         return frozenset()
 
     @classmethod
     def _init_zobrist(cls, num_rows: int, num_cols: int) -> None:
-        """Precompute Zobrist keys for incremental hashing."""
         import random as _rng_mod
         rng = _rng_mod.Random(42)
         cls._zobrist_agents = [[rng.getrandbits(64) for _ in range(num_rows * num_cols)] for _ in range(10)]
@@ -421,14 +395,6 @@ class State:
         return False
 
     def has_2box_deadlock(self, moved_box_positions: list[tuple[int, int]]) -> bool:
-        """
-        2-box deadlock detection — currently disabled pending a provably correct
-        implementation. The simple deadlock check (has_simple_deadlock) already
-        covers single-box dead cells. A correct 2-box check must verify that a
-        box has NO external escape route (not just that a 2×2 block is fully
-        occupied), which requires accounting for cells outside the block.
-        Returning False here guarantees no false positives.
-        """
         return False
 
     def __hash__(self) -> int:
@@ -479,7 +445,6 @@ class State:
                     line.append(" ")
             lines.append("".join(line))
         return "\n".join(lines)
-
 
 """
 Initial state is repsented as an instance of State class.

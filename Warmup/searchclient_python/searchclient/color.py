@@ -1,6 +1,5 @@
 from enum import Enum, unique
 
-
 @unique
 class Color(Enum):
     Blue = 0
@@ -17,7 +16,6 @@ class Color(Enum):
     @staticmethod
     def from_string(s: str) -> "Color | None":
         return _STR_TO_COLOR.get(s.lower())
-
 
 _STR_TO_COLOR = {
     "blue": Color.Blue,

@@ -2,7 +2,7 @@
 
 A Python-based AI search client for the DTU course **02285 – AI and Multi-Agent Systems**. The client solves "hospital" planning levels — moving agents and boxes to goal positions — using a range of classical and multi-agent search algorithms.
 
-**Competition score: 50 / 69 levels solved (2026).**
+**Competition score: 51 / 69 levels solved (2026).**
 
 ## Repository Layout
 
@@ -144,14 +144,13 @@ bash run_SA.sh -astar
 
 The cascade tries strategies in order; the first success proceeds to LNS2 improvement:
 
-1. **Decoupled greedy planner** (`ma_planner.py`) — assigns each box to a goal and plans pushes one at a time, resolving blockers iteratively. Handles agent-goal placement and displaced-goal recovery. Budget: up to 140 s for complex levels.
+1. **Decoupled greedy planner** (`ma_planner.py`) — assigns each box to a goal and plans pushes one at a time, resolving blockers iteratively. Handles agent-goal placement and displaced-goal recovery. Budget: up to 30 s.
 2. **Parallel plan compressor** (`_parallelize_plan` in `ma_planner.py`) — converts the sequential plan into a joint parallel plan using blocker-targeting deadlock recovery and BFS navigation. Significantly reduces action count and makespan.
 3. **WA\* cascade** — tried if the decoupled planner fails (skipped if `boxes × agents > 50`):
    - Small levels (≤ 15): `WA*(20) → WA*(10) → WA*(5) → WA*(2)` — lower weights first to avoid wasting time on tight corridors.
    - Larger levels: `WA*(100) → WA*(50) → WA*(20) → WA*(10) → WA*(5)`
 4. **Greedy Best-First** — fallback after WA*.
-5. **Second decoupled pass** — uses any remaining time.
-6. **LNS2 post-processing** — WA*(2) restart attempts to shorten the plan (up to 12 s).
+5. **LNS2 post-processing** — WA*(2) restart attempts to shorten the plan (up to 12 s).
 
 ### MAPF levels (no boxes)
 
@@ -195,3 +194,81 @@ Pre-recorded benchmark results are stored in `searchclient_python/benchmarks/`.
 | `SA*` | Single-Agent |
 | `MA*` | Multi-Agent (with boxes) |
 | `MAPF*` | Multi-Agent Path Finding (no boxes) |
+
+## Competition Results (2026)
+
+**51 / 69 levels solved** — competition run with `-t 180` (180 s per level).
+
+| Level | Solved | Actions | Time (s) |
+|-------|--------|---------|----------|
+| AIegean | ✅ | 75 | 0.038 |
+| Agentix | ✅ | 14 | 0.004 |
+| AlBarah | ✅ | 22 | 0.007 |
+| AlphaMAS | ✅ | 55 | 0.011 |
+| Apdo | ❌ | — | — |
+| AssertFun | ✅ | 82 | 0.008 |
+| BStar | ❌ | — | — |
+| BigForty | ✅ | 66 | 0.017 |
+| BoxBender | ❌ | — | — |
+| CBSquad | ✅ | 1,082 | 0.169 |
+| ClauDOom | ❌ | — | — |
+| ComMAndos | ✅ | 56 | 0.004 |
+| CphAirprt | ✅ | 558 | 0.133 |
+| CudBSlvd | ❌ | — | — |
+| DASH | ✅ | 204 | 0.015 |
+| DayBreak | ✅ | 854 | 0.091 |
+| Dolor | ❌ | — | — |
+| Dracarys | ✅ | 246 | 0.103 |
+| Eighty | ✅ | 72 | 0.008 |
+| GHandDirt | ✅ | 55 | 0.013 |
+| GroupWon | ❌ | — | — |
+| Indianish | ✅ | 456 | 0.096 |
+| KUTitans | ✅ | 60 | 0.012 |
+| LaMAtes | ✅ | 668 | 0.548 |
+| LoopBots | ❌ | — | — |
+| LoveLock | ✅ | 443 | 0.047 |
+| MAPFlame | ✅ | 120 | 0.012 |
+| MASaos | ✅ | 312 | 0.086 |
+| MASstroke | ✅ | 95 | 0.023 |
+| MAceship | ✅ | 118 | 0.006 |
+| MAface | ✅ | 338 | 0.103 |
+| MAgic | ✅ | 401 | 0.044 |
+| MAmaMASS | ✅ | 52 | 0.003 |
+| MArachnid | ✅ | 337 | 155.217 |
+| MAuseCat | ✅ | 2,399 | 0.713 |
+| MAvis | ✅ | 36 | 0.007 |
+| MAze | ✅ | 1,117 | 0.190 |
+| MazeRun | ✅ | 348 | 0.028 |
+| Minchia | ❌ | — | — |
+| Nej | ❌ | — | — |
+| NicKiS | ✅ | 416 | 0.031 |
+| NineChars | ✅ | 51 | 0.005 |
+| OPN | ❌ | — | — |
+| OlsenBand | ✅ | 333 | 0.055 |
+| PJMAS | ✅ | 257 | 0.022 |
+| PinWheel | ✅ | 3,028 | 0.844 |
+| Planarchy | ✅ | 281 | 0.054 |
+| ProjectD | ❌ | — | — |
+| RaedFathi | ✅ | 4 | 0.001 |
+| SeisSiete | ✅ | 147 | 0.012 |
+| TheDevil | ✅ | 330 | 0.062 |
+| Tittling | ✅ | 2,370 | 1.032 |
+| TriSplit | ❌ | — | — |
+| TriWards | ✅ | 780 | 0.112 |
+| TwoPlayer | ✅ | 130 | 0.011 |
+| WardRush | ✅ | 443 | 0.066 |
+| WeTried | ✅ | 707 | 0.096 |
+| amogus | ❌ | — | — |
+| brAIn | ❌ | — | — |
+| donut | ✅ | 132 | 0.008 |
+| duckie | ✅ | 206 | 0.026 |
+| escAIpe | ❌ | — | — |
+| lilchal | ✅ | 277 | 0.019 |
+| logo | ✅ | 54 | 0.007 |
+| makeMAga | ✅ | 810 | 2.761 |
+| moveMAcat | ✅ | 1,660 | 0.816 |
+| slAIve | ❌ | — | — |
+| sublevels | ❌ | — | — |
+| trauMA | ✅ | 818 | 0.089 |
+
+**Unsolved (18):** Apdo, BStar, BoxBender, ClauDOom, CudBSlvd, Dolor, GroupWon, LoopBots, Minchia, Nej, OPN, ProjectD, TriSplit, amogus, brAIn, escAIpe, slAIve, sublevels

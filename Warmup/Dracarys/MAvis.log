@@ -1,0 +1,79 @@
+#domain
+hospital
+#levelname
+MAvis
+#colors
+red: 0, A
+blue: 1, B
+green: 2, C
+orange: 3, D
+#initial
++++++++++++++++++
++0A     +     B1+
++       +       +
++       +       +
++       +       +
++               +
++       +       +
++       +       +
++2C     +     D3+
++++++++++++++++++
+#goal
++++++++++++++++++
++ D     +     A +
++       +       +
++       +       +
++       +       +
++               +
++       +       +
++       +       +
++ B     +     C +
++++++++++++++++++
+#end
+#clientname
+Dracarys
+#actions
+12246580600:Move(S)@Move(S)|Move(S)@Move(S)|Move(N)@Move(N)|Push(W,N)@Push(W,N)
+12246696500:Move(N)@Move(N)|Move(N)@Move(N)|Move(S)@Move(S)|Push(N,N)@Push(N,N)
+12246775400:Push(E,S)@Push(E,S)|Push(W,S)@Push(W,S)|Push(E,N)@Push(E,N)|NoOp@NoOp
+12246850700:Push(S,S)@Push(S,S)|Push(S,S)@Push(S,S)|Move(E)@Move(E)|NoOp@NoOp
+12246956000:Push(S,S)@Push(S,S)|Push(S,S)@Push(S,S)|Move(N)@Move(N)|NoOp@NoOp
+12247063900:Push(S,S)@Push(S,S)|Push(S,S)@Push(S,S)|Push(W,N)@Push(W,N)|NoOp@NoOp
+12247170900:Push(S,E)@Push(S,E)|Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp
+12247276200:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12247382200:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(N,N)@Push(N,N)|Push(N,N)@Push(N,N)
+12247451900:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(N,E)@Push(N,E)|Push(N,W)@Push(N,W)
+12247514000:NoOp@NoOp|Push(W,W)@Push(W,W)|Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)
+12247577600:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|Push(W,W)@Push(W,W)
+12247678500:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|Push(W,W)@Push(W,W)
+12247744700:NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp|NoOp@NoOp
+12247817000:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+12247879000:Push(E,E)@Push(E,E)|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+12247942900:Push(E,E)@Push(E,E)|Push(S,W)@Push(S,W)|Push(E,E)@Push(E,E)|NoOp@NoOp
+12248007200:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(E,E)@Push(E,E)|NoOp@NoOp
+12248070800:Push(E,N)@Push(E,N)|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12248133800:Push(N,N)@Push(N,N)|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12248196700:Push(N,N)@Push(N,N)|Push(W,W)@Push(W,W)|NoOp@NoOp|Push(W,W)@Push(W,W)
+12248259700:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)
+12248322500:Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)
+12248384800:Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|Push(W,N)@Push(W,N)
+12248447100:Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)
+12248519100:Push(E,E)@Push(E,E)|NoOp@NoOp|Push(E,E)@Push(E,E)|Push(N,N)@Push(N,N)
+12248581900:Push(E,E)@Push(E,E)|NoOp@NoOp|Push(E,E)@Push(E,E)|Push(N,N)@Push(N,N)
+12248644900:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|Push(N,W)@Push(N,W)
+12248707600:NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)|Push(W,W)@Push(W,W)
+12248769600:NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|Push(W,W)@Push(W,W)
+12248831600:NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|Push(W,W)@Push(W,W)
+12248893700:NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)|Push(W,W)@Push(W,W)
+12248956800:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+12249018700:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+12249080300:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+12249141700:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+#end
+#solved
+true
+#numactions
+36
+#time
+12249141700
+#end

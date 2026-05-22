@@ -1,0 +1,345 @@
+Level name: Agentix
+Level solved: Yes.
+Actions used: 14.
+Time to solve: 0.743 seconds.
+
+Level name: AIegean
+Level solved: Yes.
+Actions used: 75.
+Time to solve: 0.184 seconds.
+
+Level name: AlBarah
+Level solved: Yes.
+Actions used: 22.
+Time to solve: 12.178 seconds.
+
+Level name: AlphaMAS
+Level solved: Yes.
+Actions used: 55.
+Time to solve: 12.194 seconds.
+
+Level name: amogus
+Level solved: No.
+Actions used: 0.
+Time to solve: 0.000 seconds.
+
+Level name: Apdo
+Level solved: No.
+Actions used: 0.
+Time to solve: 0.000 seconds.
+
+Level name: AssertFun
+Level solved: Yes.
+Actions used: 82.
+Time to solve: 0.041 seconds.
+
+Level name: BigForty
+Level solved: Yes.
+Actions used: 66.
+Time to solve: 0.081 seconds.
+
+Level name: BoxBender
+Level solved: No.
+Actions used: 0.
+Time to solve: 0.000 seconds.
+
+Level name: brAIn
+Level solved: No.
+Actions used: 0.
+Time to solve: 0.000 seconds.
+
+Level name: BStar
+Level solved: No.
+Actions used: 0.
+Time to solve: 0.000 seconds.
+
+Level name: CBSquad
+Level solved: Yes.
+Actions used: 1,082.
+Time to solve: 0.659 seconds.
+
+Level name: ClauDOom
+Level solved: No.
+Actions used: 0.
+Time to solve: 0.000 seconds.
+
+Level name: ComMAndos
+Level solved: Yes.
+Actions used: 56.
+Time to solve: 12.253 seconds.
+
+Level name: CphAirprt
+Level solved: Yes.
+Actions used: 558.
+Time to solve: 0.538 seconds.
+
+Level name: CudBSlvd
+Level solved: No.
+Actions used: 0.
+Time to solve: 0.000 seconds.
+
+Level name: DASH
+Level solved: Yes.
+Actions used: 204.
+Time to solve: 0.082 seconds.
+
+Level name: DayBreak
+Level solved: Yes.
+Actions used: 854.
+Time to solve: 12.709 seconds.
+
+Level name: Dolor
+Level solved: No.
+Actions used: 0.
+Time to solve: 0.000 seconds.
+
+Level name: donut
+Level solved: Yes.
+Actions used: 132.
+Time to solve: 12.152 seconds.
+
+Level name: Dracarys
+Level solved: Yes.
+Actions used: 246.
+Time to solve: 0.516 seconds.
+
+Level name: duckie
+Level solved: Yes.
+Actions used: 206.
+Time to solve: 12.275 seconds.
+
+Level name: Eighty
+Level solved: Yes.
+Actions used: 72.
+Time to solve: 7.130 seconds.
+
+Level name: escAIpe
+Level solved: No.
+Actions used: 0.
+Time to solve: 0.000 seconds.
+
+Level name: GHandDirt
+Level solved: Yes.
+Actions used: 55.
+Time to solve: 0.050 seconds.
+
+Level name: GroupWon
+Level solved: No.
+Actions used: 0.
+Time to solve: 0.000 seconds.
+
+Level name: Indianish
+Level solved: No.
+Actions used: 0.
+Time to solve: 0.000 seconds.
+
+Level name: KUTitans
+Level solved: Yes.
+Actions used: 60.
+Time to solve: 12.149 seconds.
+
+Level name: LaMAtes
+Level solved: Yes.
+Actions used: 668.
+Time to solve: 2.336 seconds.
+
+Level name: lilchal
+Level solved: Yes.
+Actions used: 277.
+Time to solve: 12.256 seconds.
+
+Level name: logo
+Level solved: Yes.
+Actions used: 32.
+Time to solve: 0.236 seconds.
+
+Level name: LoopBots
+Level solved: No.
+Actions used: 0.
+Time to solve: 0.000 seconds.
+
+Level name: LoveLock
+Level solved: Yes.
+Actions used: 443.
+Time to solve: 0.230 seconds.
+
+Level name: MAceship
+Level solved: Yes.
+Actions used: 118.
+Time to solve: 12.144 seconds.
+
+Level name: MAface
+Level solved: Yes.
+Actions used: 338.
+Time to solve: 0.424 seconds.
+
+Level name: MAgic
+Level solved: Yes.
+Actions used: 401.
+Time to solve: 12.285 seconds.
+
+Level name: makeMAga
+Level solved: Yes.
+Actions used: 810.
+Time to solve: 11.008 seconds.
+
+Level name: MAmaMASS
+Level solved: Yes.
+Actions used: 46.
+Time to solve: 0.100 seconds.
+
+Level name: MAPFlame
+Level solved: Yes.
+Actions used: 120.
+Time to solve: 0.081 seconds.
+
+Level name: MArachnid
+Level solved: Yes.
+Actions used: 337.
+Time to solve: 155.370 seconds.
+
+Level name: MASaos
+Level solved: Yes.
+Actions used: 312.
+Time to solve: 0.419 seconds.
+
+Level name: MASstroke
+Level solved: Yes.
+Actions used: 95.
+Time to solve: 0.195 seconds.
+
+Level name: MAuseCat
+Level solved: Yes.
+Actions used: 2,399.
+Time to solve: 3.039 seconds.
+
+Level name: MAvis
+Level solved: Yes.
+Actions used: 36.
+Time to solve: 12.249 seconds.
+
+Level name: MAze
+Level solved: Yes.
+Actions used: 1,117.
+Time to solve: 0.674 seconds.
+
+Level name: MazeRun
+Level solved: Yes.
+Actions used: 348.
+Time to solve: 12.272 seconds.
+
+Level name: Minchia
+Level solved: No.
+Actions used: 0.
+Time to solve: 0.000 seconds.
+
+Level name: moveMAcat
+Level solved: Yes.
+Actions used: 1,660.
+Time to solve: 3.335 seconds.
+
+Level name: Nej
+Level solved: No.
+Actions used: 0.
+Time to solve: 0.000 seconds.
+
+Level name: NicKiS
+Level solved: Yes.
+Actions used: 416.
+Time to solve: 0.179 seconds.
+
+Level name: NineChars
+Level solved: Yes.
+Actions used: 51.
+Time to solve: 12.134 seconds.
+
+Level name: OlsenBand
+Level solved: Yes.
+Actions used: 510.
+Time to solve: 12.363 seconds.
+
+Level name: OPN
+Level solved: No.
+Actions used: 0.
+Time to solve: 0.000 seconds.
+
+Level name: PinWheel
+Level solved: Yes.
+Actions used: 3,028.
+Time to solve: 16.422 seconds.
+
+Level name: PJMAS
+Level solved: Yes.
+Actions used: 257.
+Time to solve: 12.246 seconds.
+
+Level name: Planarchy
+Level solved: Yes.
+Actions used: 281.
+Time to solve: 0.413 seconds.
+
+Level name: ProjectD
+Level solved: No.
+Actions used: 0.
+Time to solve: 0.000 seconds.
+
+Level name: RaedFathi
+Level solved: Yes.
+Actions used: 4.
+Time to solve: 0.005 seconds.
+
+Level name: SeisSiete
+Level solved: Yes.
+Actions used: 147.
+Time to solve: 0.072 seconds.
+
+Level name: slAIve
+Level solved: No.
+Actions used: 0.
+Time to solve: 0.000 seconds.
+
+Level name: sublevels
+Level solved: No.
+Actions used: 0.
+Time to solve: 0.000 seconds.
+
+Level name: TheDevil
+Level solved: Yes.
+Actions used: 304.
+Time to solve: 0.302 seconds.
+
+Level name: Tittling
+Level solved: Yes.
+Actions used: 2,370.
+Time to solve: 4.763 seconds.
+
+Level name: trauMA
+Level solved: Yes.
+Actions used: 818.
+Time to solve: 12.884 seconds.
+
+Level name: TriSplit
+Level solved: No.
+Actions used: 0.
+Time to solve: 0.000 seconds.
+
+Level name: TriWards
+Level solved: Yes.
+Actions used: 780.
+Time to solve: 0.529 seconds.
+
+Level name: TwoPlayer
+Level solved: Yes.
+Actions used: 129.
+Time to solve: 12.108 seconds.
+
+Level name: WardRush
+Level solved: Yes.
+Actions used: 443.
+Time to solve: 19.576 seconds.
+
+Level name: WeTried
+Level solved: Yes.
+Actions used: 707.
+Time to solve: 12.483 seconds.
+

@@ -1,0 +1,62 @@
+#domain
+hospital
+#levelname
+Agentix
+#colors
+blue: 0, A
+green: 1, B
+red: 2, C
+#initial
++++++++++++++++++++++
++0  A               +
++                   +
++                   +
++                   +
++++++++++  ++++++++++
++     2  C          +
++++++++++  ++++++++++
++                   +
++                   +
++                   +
++               B  1+
++++++++++++++++++++++
+#goal
++++++++++++++++++++++
++               A   +
++                   +
++                   +
++                   +
++++++++++  ++++++++++
++                   +
++++++++++  ++++++++++
++                   +
++                   +
++   C               +
++   B               +
++++++++++++++++++++++
+#end
+#clientname
+Dracarys
+#actions
+739766000:Move(E)@Move(E)|Move(W)@Move(W)|Move(E)@Move(E)
+740760500:Move(E)@Move(E)|Move(W)@Move(W)|Move(E)@Move(E)
+740993600:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(E,S)@Push(E,S)
+741198100:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(S,S)@Push(S,S)
+741365200:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(S,S)@Push(S,S)
+741499700:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(S,S)@Push(S,S)
+741714800:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(S,W)@Push(S,W)
+741891500:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(W,W)@Push(W,W)
+742046300:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(W,W)@Push(W,W)
+742224200:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(W,W)@Push(W,W)
+742376600:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(W,W)@Push(W,W)
+742560300:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|NoOp@NoOp
+742757100:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|NoOp@NoOp
+742898300:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|NoOp@NoOp
+#end
+#solved
+true
+#numactions
+14
+#time
+742898300
+#end

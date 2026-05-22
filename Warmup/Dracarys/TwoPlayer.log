@@ -1,0 +1,177 @@
+#domain
+hospital
+#levelname
+TwoPlayer
+#colors
+red: 0, A
+blue: 1, B
+green: 2, C
+#initial
+++++++++++++++++++++++++++++++++
++   B   ++   C   ++           A+
++ 0     ++ 1     ++ 2          +
++       ++       ++            +
++++ +++++++ +++++++ +++++++ ++++
++                              +
++   +++   +++   +++   +++   +++
++                              +
++++  +++++++  +++++++  ++++++++
++                              +
++   ++++++   ++++++   ++++++   +
++                              +
+++++++++++++++++++++++++++++++++
+#goal
+++++++++++++++++++++++++++++++++
++       ++       ++            +
++       ++       ++            +
++       ++       ++            +
++++ +++++++ +++++++ +++++++ ++++
++                              +
++   +++   +++   +++   +++   +++
++                              +
++++  +++++++  +++++++  ++++++++
++                              +
++ A ++++++ B ++++++ C ++++++   +
++                              +
+++++++++++++++++++++++++++++++++
+#end
+#clientname
+Dracarys
+#actions
+12100018200:Move(S)@Move(S)|Move(S)@Move(S)|Move(S)@Move(S)
+12100176100:Move(E)@Move(E)|Move(S)@Move(S)|Move(W)@Move(W)
+12100287500:Move(S)@Move(S)|Move(S)@Move(S)|Move(S)@Move(S)
+12100362900:Move(S)@Move(S)|Move(W)@Move(W)|Move(S)@Move(S)
+12100437500:Move(E)@Move(E)|Move(W)@Move(W)|Move(W)@Move(W)
+12100510800:Move(E)@Move(E)|Move(W)@Move(W)|Move(W)@Move(W)
+12100579900:Move(E)@Move(E)|Move(W)@Move(W)|Move(W)@Move(W)
+12100655200:NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+12100732100:NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+12100805800:NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+12100874000:NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+12100945100:NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+12101015600:NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)
+12101088800:NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)
+12101158500:NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)
+12101222400:NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)
+12101288000:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+12101339700:NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)
+12101393300:NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)
+12101443900:NoOp@NoOp|NoOp@NoOp|Push(S,W)@Push(S,W)
+12101515500:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)
+12101579700:NoOp@NoOp|NoOp@NoOp|Push(W,S)@Push(W,S)
+12101639500:NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)
+12101691900:NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)
+12101758300:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+12101815900:NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)
+12101866900:NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)
+12101915900:NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)
+12101964800:NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)
+12102013900:NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)
+12102078200:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+12102136700:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+12102194200:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+12102263400:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+12102320900:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+12102378400:NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)
+12102435900:NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)
+12102493200:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+12102550500:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12102607900:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12102664900:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12102721800:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12102778600:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12102835500:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12102892400:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12102949200:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12103005800:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12103062600:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12103119400:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12103177000:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12103234200:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12103289600:Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+12103346400:Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+12103403300:Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+12103460200:Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+12103516900:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12103574200:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12103631400:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12103688400:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12103745400:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12103802600:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12103859800:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12103916700:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12103973600:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12104030500:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+12104087400:Push(E,S)@Push(E,S)|NoOp@NoOp|NoOp@NoOp
+12104144900:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+12104201900:Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp
+12104264700:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12104321900:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12104378900:Push(W,S)@Push(W,S)|NoOp@NoOp|NoOp@NoOp
+12104436000:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+12104493100:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+12104550200:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+12104607100:Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp
+12104664100:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12104721200:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12104778300:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12104835400:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12104892700:Push(W,S)@Push(W,S)|NoOp@NoOp|NoOp@NoOp
+12104949700:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+12105006900:Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp
+12105064000:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12105121600:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12105179100:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12105235900:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12105291300:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12105348400:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12105405600:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12105462400:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12105519300:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12105576200:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12105633600:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12105690500:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12105747600:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12105804400:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12105861600:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12105918400:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12105975200:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12106032400:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+12106089500:Push(W,S)@Push(W,S)|NoOp@NoOp|NoOp@NoOp
+12106146500:Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp
+12106203700:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+12106266000:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+12106323000:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+12106380200:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+12106437100:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+12106494100:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+12106550800:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+12106607700:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+12106664400:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+12106721500:NoOp@NoOp|Push(E,S)@Push(E,S)|NoOp@NoOp
+12106779200:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+12106836700:NoOp@NoOp|Push(S,W)@Push(S,W)|NoOp@NoOp
+12106894300:NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp
+12106951500:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+12107008500:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+12107065600:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+12107122700:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+12107180000:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+12107237200:NoOp@NoOp|Push(S,E)@Push(S,E)|NoOp@NoOp
+12107293800:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+12107351000:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+12107408200:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+12107465100:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+12107522200:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+12107579000:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+12107636400:NoOp@NoOp|Push(E,S)@Push(E,S)|NoOp@NoOp
+12107693800:NoOp@NoOp|Push(S,E)@Push(S,E)|NoOp@NoOp
+#end
+#solved
+true
+#numactions
+129
+#time
+12107693800
+#end

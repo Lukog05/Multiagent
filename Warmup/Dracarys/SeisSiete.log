@@ -1,0 +1,198 @@
+#domain
+hospital
+#levelname
+SeisSiete
+#colors
+blue: 0,B,A,G,R,O,U,P
+red: 1,2,S,E,I,X,V,N
+#initial
++++++++++++++++
++0    1+2     +
++      +    S +
++  +++++++++  +
++  ++++++++E ++
++  ++++++++  ++
++SIX  B+++V +++
++      +++  +++
++  ++  ++E ++++
++  ++  ++  ++++
++      +N +++++
++A     +  +++++
++++++++++++++++
+++GROUP+XXVIII+
++++++++++++++++
+#goal
++++++++++++++++
++      +      +
++      +SEVEN +
++  +++++++++  +
++  ++++++++  ++
++  ++++++++  ++
++     A+++  +++
++      +++  +++
++  ++  ++  ++++
++  ++  ++  ++++
++      +  +++++
++B    0+  +++++
++++++++++++++++
+++     +      +
++++++++++++++++
+#end
+#clientname
+Dracarys
+#actions
+58726200:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+58822200:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+58913100:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+58991200:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+59075500:NoOp@NoOp|NoOp@NoOp|Pull(W,W)@Pull(W,W)
+59155200:NoOp@NoOp|NoOp@NoOp|Pull(W,W)@Pull(W,W)
+59236000:NoOp@NoOp|NoOp@NoOp|Pull(W,W)@Pull(W,W)
+59329000:NoOp@NoOp|NoOp@NoOp|Pull(N,W)@Pull(N,W)
+59421500:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+59509000:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+59579800:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+59649700:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+59776100:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+59863400:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+59963500:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+60071400:NoOp@NoOp|NoOp@NoOp|Pull(N,E)@Pull(N,E)
+60135300:NoOp@NoOp|NoOp@NoOp|Pull(N,N)@Pull(N,N)
+60234500:NoOp@NoOp|NoOp@NoOp|Pull(N,N)@Pull(N,N)
+60318500:NoOp@NoOp|NoOp@NoOp|Push(S,W)@Push(S,W)
+60403400:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)
+60485600:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)
+60558200:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+60631800:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+60705400:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+60794100:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+60870200:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+60949600:NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+61033100:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+61134400:NoOp@NoOp|NoOp@NoOp|Pull(N,E)@Pull(N,E)
+61217200:NoOp@NoOp|NoOp@NoOp|Pull(N,N)@Pull(N,N)
+61304700:NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)
+61391700:NoOp@NoOp|NoOp@NoOp|Push(E,N)@Push(E,N)
+61469200:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)
+61555400:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)
+61647600:NoOp@NoOp|NoOp@NoOp|Push(N,W)@Push(N,W)
+61750400:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)
+61834400:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+61914600:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+62028600:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+62174400:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+62455800:NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+62571400:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+62669800:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+62791700:NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+62879500:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+62976800:NoOp@NoOp|NoOp@NoOp|Pull(N,E)@Pull(N,E)
+63068600:NoOp@NoOp|NoOp@NoOp|Pull(N,N)@Pull(N,N)
+63143600:NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)
+63196700:NoOp@NoOp|NoOp@NoOp|Push(E,N)@Push(E,N)
+63249900:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)
+63300600:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)
+63350800:NoOp@NoOp|NoOp@NoOp|Push(N,E)@Push(N,E)
+63401800:NoOp@NoOp|NoOp@NoOp|Push(E,N)@Push(E,N)
+63452000:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)
+63502200:NoOp@NoOp|NoOp@NoOp|Push(N,W)@Push(N,W)
+63576400:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+63651900:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+63732500:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+63807400:NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+63875800:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+63931400:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+63996800:NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+64079300:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+64141400:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+64200200:NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+64259400:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+64318300:NoOp@NoOp|NoOp@NoOp|Pull(N,E)@Pull(N,E)
+64377100:NoOp@NoOp|NoOp@NoOp|Pull(N,N)@Pull(N,N)
+64435200:NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)
+64493900:NoOp@NoOp|NoOp@NoOp|Push(E,N)@Push(E,N)
+64552300:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)
+64610500:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)
+64669100:NoOp@NoOp|NoOp@NoOp|Push(N,E)@Push(N,E)
+64727900:NoOp@NoOp|NoOp@NoOp|Push(E,N)@Push(E,N)
+64786100:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)
+64845400:NoOp@NoOp|NoOp@NoOp|Push(N,E)@Push(N,E)
+64914900:NoOp@NoOp|NoOp@NoOp|Push(E,N)@Push(E,N)
+65189100:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)
+65421500:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+65658700:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+66232400:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+66539800:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+66788000:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+67184100:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+67336700:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+67498600:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+67610800:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+67697500:NoOp@NoOp|Pull(N,N)@Pull(N,N)|NoOp@NoOp
+67781600:NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp
+67858500:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+67933100:NoOp@NoOp|Pull(N,N)@Pull(N,N)|NoOp@NoOp
+68013800:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+68099600:NoOp@NoOp|Pull(N,N)@Pull(N,N)|NoOp@NoOp
+68159900:NoOp@NoOp|Push(S,E)@Push(S,E)|NoOp@NoOp
+68223400:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+68277000:NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp
+68334600:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+68395900:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+68463900:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+68526900:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+68581400:NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp
+68661300:NoOp@NoOp|Push(E,S)@Push(E,S)|NoOp@NoOp
+68733300:NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp
+68809900:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+68867000:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+68941000:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+69001600:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+69074400:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+69146100:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+69221400:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+69299100:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+69361200:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+69430300:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+69498700:Push(E,S)@Push(E,S)|NoOp@NoOp|NoOp@NoOp
+69572900:Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+69663100:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+69748100:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+69813400:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+69880300:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+69937200:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+70015800:Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+70082300:Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+70178400:Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+70265100:Push(W,N)@Push(W,N)|NoOp@NoOp|NoOp@NoOp
+70337300:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+70411100:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+70499100:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+70576700:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+70643000:Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp
+70711400:Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+70781600:Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+70838300:Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+70919100:Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+71001900:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+71081200:Push(E,S)@Push(E,S)|NoOp@NoOp|NoOp@NoOp
+71155400:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+71228600:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+71291100:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+71363700:Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp
+71435300:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+71526600:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+71618200:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+71706800:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+71799700:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+71890700:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+71973600:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+72052200:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+#end
+#solved
+true
+#numactions
+147
+#time
+72052200
+#end

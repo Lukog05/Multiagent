@@ -1,0 +1,316 @@
+#domain
+hospital
+#levelname
+Dracarys
+#colors
+grey: N,5
+red: O,1
+pink: M,4
+brown: S,6
+purple: 3,E
+lightblue: K,2
+green: P,0
+#initial
+++++++++++++++++++++++
++N       +++++       +
++       ++OOO++     M+
++      ++OOOOO++     +
++      OOOOOOOO+     +
++    +  OOOOOOO  +   +
++   ++    OOO    ++  +
++   +OOOO OOO OOOO++ +
++  ++OOOO OOO OOOOO+ +
++ ++OOOOO4    OOOOO+++
++++OOOOOO5    OOOOO ++
+++++++++      ++++++++
++++                 ++
+++++   S           +++
++3 6             +++ +
++   +           ++   +
++   ++ 1        +  K +
++    ++      E       +
++     ++      ++     +
++ 2    ++   +++      +
++       +++++    P 0 +
+++++++++++++++++++++++
+#goal
+++++++++++++++++++++++
++        +++++       +
++       ++   ++      +
++      ++     ++     +
++     1        +0    +
++    +           +   +
++   ++           ++  +
++   +             ++ +
++  ++              + +
++ ++         6     +++
++++       NOM       ++
+++++++++  S E ++++++++
++++       POK       ++
+++++     5   2     +++
++   4            +++ +
++   +           ++   +
++   ++          +    +
++    ++        3     +
++     ++      ++     +
++      ++   +++      +
++       +++++        +
+++++++++++++++++++++++
+#end
+#clientname
+Dracarys
+#actions
+496519300:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+496610800:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+496692500:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+496770100:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+496845400:NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+496913900:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+496984000:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+497047300:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+497110500:NoOp@NoOp|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+497176600:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+497237100:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+497297200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+497357900:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+497417100:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+497488100:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+497559500:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+497627700:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+497695200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+497762000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+497828700:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+497895300:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+498071600:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+498154500:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+498259300:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+498414600:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+498662200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+498858800:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+499239200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)|NoOp@NoOp|NoOp@NoOp
+499576400:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+499890200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp
+500047300:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+500126800:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+500199900:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+500272800:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp|NoOp@NoOp
+500343700:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+500432900:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp
+500516200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+500602200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+500730100:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp|NoOp@NoOp
+500848600:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+500948500:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+501060300:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+501176200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp
+501330300:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+501406400:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+501471000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+501532100:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)
+501597300:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+501666400:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+501740000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,N)@Push(E,N)
+501809800:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(N,E)@Push(N,E)
+501879000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,N)@Push(E,N)
+501947000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(N,E)@Push(N,E)
+502014600:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+502082500:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+502150000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+502217500:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+502285700:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+502353900:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+502421000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+502488300:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+502555000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+502622200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+502689200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+502756300:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+502842600:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+502919300:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+502995900:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+503072900:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+503150400:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+503228400:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+503311000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+503392400:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+503480100:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+503569200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(N,W)@Push(N,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+503652100:Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+503733700:Push(W,N)@Push(W,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+503830100:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+503906700:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+503977800:Push(N,W)@Push(N,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+504051900:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+504119000:Push(W,N)@Push(W,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+504179400:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+504239800:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+504300300:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+504360400:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+504428300:Push(N,W)@Push(N,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+504499700:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+504567600:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+504635500:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+504702400:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+504769800:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+504835900:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+504904100:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+504969900:NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+505036800:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+505103700:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+505170300:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+505237200:NoOp@NoOp|Push(S,E)@Push(S,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+505303900:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+505370000:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+505436400:NoOp@NoOp|Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+505540700:NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+505630300:NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+505717100:NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+505796200:NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+505860000:NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+505924400:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+505985900:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+506043600:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+506113400:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+506181900:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+506249100:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+506315700:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+506382100:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+506448600:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+506514600:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+506580500:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+506646400:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+506712500:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+506786900:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+506870400:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+506941500:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+507026500:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+507114400:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+507185500:NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+507257700:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+507328200:NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+507399000:NoOp@NoOp|NoOp@NoOp|Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+507453400:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+507523000:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+507592300:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+507661500:NoOp@NoOp|NoOp@NoOp|Push(W,N)@Push(W,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+507732400:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+507814800:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+507882100:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+507950100:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+508017600:NoOp@NoOp|NoOp@NoOp|Push(N,W)@Push(N,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+508085000:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+508152600:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+508220200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+508287900:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+508355200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+508422300:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+508489300:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+508556700:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+508624000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+508691700:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+508773300:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+508844800:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+508921100:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+508992200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+509066000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+509142000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+509223200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+509294700:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+509366600:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp
+509439200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+509510700:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+509582700:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)|NoOp@NoOp
+509653800:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+509725100:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+509796100:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+509878800:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+509944400:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)|NoOp@NoOp
+510010200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+510079900:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)|NoOp@NoOp
+510146000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+510212000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+510278100:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)|NoOp@NoOp
+510344000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+510410800:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+510477000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+510543300:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)|NoOp@NoOp
+510609400:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+510675000:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+510741000:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+510825100:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+510907200:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+510979100:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+511050000:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+511121000:NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+511192000:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+511262900:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+511333800:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+511404600:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+511475300:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+511546000:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+511617100:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+511688300:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+511759400:Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+511841500:Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+511913300:Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+511979000:Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+512044500:Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+512109800:Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+512196800:Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+512274400:Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+512349800:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+512416400:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+512507900:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+512578500:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+512645800:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+512712200:Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+512778100:Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+512844500:Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+512910200:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+512967000:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+513030700:Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+513096200:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+513161900:Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+513236900:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+513303100:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)
+513372600:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)
+513427000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+513491300:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+513557100:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+513622700:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+513687800:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+513763500:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+513830000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+513896500:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+514078800:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+514174600:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+514264100:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+514354400:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+514453000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+514543200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+514624900:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+514713400:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+514827100:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+514917900:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+514994500:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+515068200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+515141200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+515214100:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+515286600:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+515359200:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+515431700:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+515504300:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+515577100:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+515650100:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+515728500:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+515825100:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+515907800:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+515999000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+#end
+#solved
+true
+#numactions
+246
+#time
+515999000
+#end

@@ -332,9 +332,9 @@ class SearchClient:
 
             if _num_box_agents >= 1:
                 if _num_boxes >= 10 or _num_box_agents >= 3:
-                    _dec_budget = min(140.0, _server_deadline - time.perf_counter() - 15.0)
+                    _dec_budget = min(30.0, _server_deadline - time.perf_counter() - 15.0)
                 else:
-                    _dec_budget = min(90.0, _server_deadline - time.perf_counter() - 30.0)
+                    _dec_budget = min(15.0, _server_deadline - time.perf_counter() - 30.0)
                 if _dec_budget >= 5.0:
                     print(f"[cascade] {_num_box_agents} agents, {_num_boxes} boxes — trying decoupled planner "
                           f"(budget: {_dec_budget:.1f}s)...", file=sys.stderr, flush=True)
@@ -408,62 +408,8 @@ class SearchClient:
                         print(f"[cascade] Greedy fallback failed in {_elapsed:.3f}s", file=sys.stderr, flush=True)
 
             if plan is None:
-                _dec_budget2 = _server_deadline - time.perf_counter() - 5.0
-                if _dec_budget2 >= 5.0:
-                    print(f"[cascade] Trying decoupled planner 2nd pass (budget: {_dec_budget2:.1f}s)...", file=sys.stderr, flush=True)
-                    _t0 = time.perf_counter()
-                    plan = decoupled_box_plan(initial_state, time.perf_counter() + _dec_budget2)
-                    _elapsed = time.perf_counter() - _t0
-                    if plan is not None:
-                        print(f"[cascade] Decoupled planner solved in {_elapsed:.3f}s (length {len(plan)})", file=sys.stderr, flush=True)
-                    else:
-                        print(f"[cascade] Decoupled planner failed in {_elapsed:.3f}s", file=sys.stderr, flush=True)
-
-            if plan is not None:
-                _multi_budget = _server_deadline - time.perf_counter() - 12.0
-                _attempt_count = 0
-                while _multi_budget >= 5.0 and _attempt_count < 8:
-                    _t0 = time.perf_counter()
-                    _attempt_plan = decoupled_box_plan(
-                        initial_state,
-                        time.perf_counter() + min(_multi_budget * 0.4, 30.0)
-                    )
-                    _elapsed = time.perf_counter() - _t0
-                    if _attempt_plan is not None and len(_attempt_plan) < len(plan):
-                        plan = _attempt_plan
-                        print(f"[multi-attempt] attempt {_attempt_count+1}: improved → {len(plan)} steps ({_elapsed:.2f}s)",
-                              file=sys.stderr, flush=True)
-                    else:
-                        print(f"[multi-attempt] attempt {_attempt_count+1}: no improvement "
-                              f"({'None' if _attempt_plan is None else len(_attempt_plan)}) ({_elapsed:.2f}s)",
-                              file=sys.stderr, flush=True)
-                    _attempt_count += 1
-                    _multi_budget = _server_deadline - time.perf_counter() - 12.0
-
-            if plan is None:
                 print("Unable to solve level.", file=sys.stderr, flush=True)
                 sys.exit(0)
-
-            _lns_remaining = _server_deadline - time.perf_counter()
-            _lns_cap = _lns_remaining - 10.0
-            if _lns_cap >= 5.0:
-                from searchclient.lns import lns2_improve
-                _lns_deadline = time.perf_counter() + _lns_cap
-                _improved = lns2_improve(plan, initial_state, _lns_deadline, is_mapf=False)
-                def _validate_box_plan(p: list, s: "State") -> bool:
-                    cur = s
-                    for joint_action in p:
-                        if not all(cur.is_applicable(i, a) for i, a in enumerate(joint_action)):
-                            return False
-                        if cur.is_conflicting(joint_action):
-                            return False
-                        cur = cur.result(joint_action)
-                    return cur.is_goal_state()
-                if not _validate_box_plan(_improved, initial_state):
-                    print("[lns2] WARNING: returned invalid plan, falling back to original",
-                          file=sys.stderr, flush=True)
-                else:
-                    plan = _improved
 
             print(f"Found solution of length {len(plan)}.", file=sys.stderr, flush=True)
             for joint_action in plan:

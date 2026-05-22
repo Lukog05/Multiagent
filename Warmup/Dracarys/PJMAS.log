@@ -1,0 +1,315 @@
+#domain
+hospital
+#levelname
+PJMAS
+#colors
+blue: 1,M
+red: 2,P
+purple: 3,J
+cyan: 4,A
+pink:0,S,T
+#initial
+++++++++++++++++++++
++ M   A    +      J+
++                  +
+++++    +    3 +   +
++  0   ++      ++  +
++P    +        +   +
++    +             +
++                 T+
+++               + +
++J              +  +
++   2     4     +  +
++ +                +
++  +        S      +
++   +       1  ++  +
++      +           +
++A   M +       P   +
+++++++++++++++++++++
+#goal
+++++++++++++++++++++
++          +       +
++                  +
+++++    +      +   +
++      ++      ++  +
++     +        +   +
++    +             +
++         P        +
+++               + +
++        JMA    +  +
++      P     S  +  +
++ +      M J       +
++  +     T A       +
++   +          ++  +
++      +           +
++      +           +
+++++++++++++++++++++
+#end
+#clientname
+SearchClient
+#actions
+19703750:NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+19721000:NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+19741250:NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+19753709:NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+19772084:NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+19790542:NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+19803542:NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+19815125:NoOp@NoOp|NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp|NoOp@NoOp
+19824792:NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+19835667:NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)|NoOp@NoOp|NoOp@NoOp
+19847542:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+19859042:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+19871709:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+19882459:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+19891584:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+19903375:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+19911917:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+19919625:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+19927667:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)
+19935250:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+19942917:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+19950709:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+19958125:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+19965750:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+19972917:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+19980125:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+19987417:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+19995917:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+20006250:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+20013834:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+20023667:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+20036084:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+20044375:NoOp@NoOp|NoOp@NoOp|Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp
+20052417:NoOp@NoOp|NoOp@NoOp|Push(N,W)@Push(N,W)|NoOp@NoOp|NoOp@NoOp
+20063209:NoOp@NoOp|NoOp@NoOp|Push(W,N)@Push(W,N)|NoOp@NoOp|NoOp@NoOp
+20073667:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+20083125:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+20091667:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+20102792:NoOp@NoOp|NoOp@NoOp|Push(N,W)@Push(N,W)|NoOp@NoOp|NoOp@NoOp
+20114417:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+20125042:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+20135209:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+20144209:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+20152959:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+20162667:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+20170500:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20178792:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20187334:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20195500:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20205375:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20215750:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20224500:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20232584:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20240417:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20249209:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20257834:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20265459:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20272834:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20280500:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20288375:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20295750:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20303417:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20312042:Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20320459:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20328375:Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20338625:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)
+20348625:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+20357084:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+20366542:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp
+20375542:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp
+20383917:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp
+20393500:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp
+20404417:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)|NoOp@NoOp
+20413625:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+20422375:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+20430542:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+20439167:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+20448167:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,W)@Push(S,W)|NoOp@NoOp
+20455750:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp
+20463375:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,W)@Push(S,W)|NoOp@NoOp
+20471875:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp
+20479750:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,W)@Push(S,W)|NoOp@NoOp
+20487459:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp
+20497500:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,W)@Push(S,W)|NoOp@NoOp
+20507875:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp
+20515542:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp
+20523834:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp
+20534584:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp
+20542959:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp
+20550417:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+20557917:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+20568834:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+20576500:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20586292:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20593625:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20600292:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20606917:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20613584:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20620000:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20626625:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20633292:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20640417:NoOp@NoOp|Push(W,N)@Push(W,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20647125:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20653709:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20660334:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20667042:NoOp@NoOp|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20673709:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20680334:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20686917:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20693459:NoOp@NoOp|Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20700167:NoOp@NoOp|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20706917:NoOp@NoOp|Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20713709:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)
+20720625:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)
+20727292:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)
+20733917:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)
+20740459:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)
+20747042:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)
+20753709:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+20760459:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)
+20767084:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+20773834:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+20780500:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+20787209:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,S)@Push(W,S)
+20794000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)
+20800709:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+20807667:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+20814375:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)
+20820834:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)
+20827542:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)
+20834292:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)
+20840959:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)
+20847417:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)
+20856209:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)
+20865125:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+20874167:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)
+20881250:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+20888792:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20896209:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20903542:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20910834:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20918125:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20925542:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20933042:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20940292:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20947750:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20955000:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20962292:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20969584:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20976959:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20984292:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20992250:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+20999167:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21006417:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21017042:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21026125:NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21038375:NoOp@NoOp|Push(S,E)@Push(S,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21051625:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21059584:NoOp@NoOp|Push(E,S)@Push(E,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21069750:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21077792:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21086459:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21095209:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21105167:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21116000:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21125542:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21134042:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21141792:NoOp@NoOp|Push(S,E)@Push(S,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21150625:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21158459:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21165875:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21173334:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21181084:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21188459:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+21196125:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+21203625:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+21210959:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+21218250:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+21225584:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+21233000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+21240542:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+21248167:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+21255959:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+21263292:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+21270959:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+21278667:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+21286209:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp
+21293750:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)|NoOp@NoOp
+21301459:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+21309084:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)|NoOp@NoOp
+21316667:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)|NoOp@NoOp
+21324250:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)|NoOp@NoOp
+21331917:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)|NoOp@NoOp
+21339084:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)|NoOp@NoOp
+21345875:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)|NoOp@NoOp
+21352584:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+21359375:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+21366209:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+21373000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,N)@Push(E,N)|NoOp@NoOp
+21379834:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(N,E)@Push(N,E)|NoOp@NoOp
+21386834:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,N)@Push(E,N)|NoOp@NoOp
+21394792:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(N,E)@Push(N,E)|NoOp@NoOp
+21401500:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21408417:Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21416709:Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21423542:Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21430292:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21437042:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21443667:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21450334:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21456792:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21463417:Push(E,S)@Push(E,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21470250:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21477084:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21483917:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21490792:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21497625:Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21504667:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21511709:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21518542:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21525500:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21532000:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21538875:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21545459:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21552334:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21559334:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+21565917:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+21572750:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+21579834:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+21586417:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+21593000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+21599625:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+21606417:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+21613417:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+21620125:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+21626959:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+21633834:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+21640542:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+21647334:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+21654250:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+21661125:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+21667959:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+21674667:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,N)@Push(W,N)
+21681750:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(N,E)@Push(N,E)
+21688917:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+21695875:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+21702917:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+21709625:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,N)@Push(E,N)
+21716167:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(N,E)@Push(N,E)
+21723167:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+21730000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+21737125:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)
+21743792:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)
+21750375:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+21757167:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+21764042:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(E,N)@Push(E,N)
+21771084:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)
+#end
+#solved
+true
+#numactions
+257
+#time
+21771084
+#end

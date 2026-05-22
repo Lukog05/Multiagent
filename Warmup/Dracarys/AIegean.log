@@ -1,0 +1,164 @@
+#domain
+hospital
+#levelname
+AIegean
+#colors
+Blue: 0, A
+Red: 1, B
+Cyan: 2, C
+Purple: 3, D
+Green: 4, E
+Orange: 5, F
+Pink: 6, G
+Lightblue: 7, H
+Brown: 8, I
+Grey: 9, J
+#initial
+++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++                            +++++
++++++++++++++                         ++++++++
++++++++++++++ 0   6   1    ++++ 7     ++++++++
++++++++++++++ A   G   B    +  + H     ++++++++
++++++++ + +      ++      ++           ++++++++
+++++++        +++                      +++++++
+++++++   +    +++                  +   +++++++
+++++++   +                         +  ++++++++
+++++++   +         ++        C2++  +  ++++++++
++++      +         ++          ++  +  ++++++++
++++  +   + 3D      +++++++       +++  ++++++++
++++      +         ++++  +       +++       +++
++++  +   +            ++ +         +   ++  +++
+++++ +   +                         +  ++++++++
++        +  8                 9 ++ +  ++++++++
+++++++   +  I +++     +++     J ++ +  ++++++++
+++++++   +    +++     +++          +   +++++++
+++++++   +                      ++ +   +++++++
+++++++   +                      ++ +    ++++++
+++++++   +        E         F  ++  +    ++++++
+++++++   ++       4         5      +  ++++++++
++ +  +   ++++++               ++++++         +
++       ++++++++++ +++++++++ ++++++++        +
++       ++++++++++ +++++++++ ++++++++        +
++       ++++++++++ +++++++++ ++++++++        +
++                                            +
++                                            +
+++++++++++++++++++++++++++++++++++++++++++++++
+#goal
+++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++                            +++++
++++++++++++++                         ++++++++
++++++++++++++              ++++       ++++++++
++++++++++++++              +E +       ++++++++
++++++++ + +      ++      ++           ++++++++
+++++++        +++                      +++++++
+++++++   +    +++                  +   +++++++
+++++++   +                         +  ++++++++
+++++++   +         ++          ++  +  ++++++++
++++C     +         ++          ++  +  ++++++++
++++  +   +         +++++++       +++  ++++++++
++++      +         ++++F +       +++     D +++
++++ A+   +            ++ +         +   ++  +++
+++++ +   +                         +  ++++++++
++        +                      ++ +  ++++++++
+++++++   +    +++     +++       ++ +  ++++++++
+++++++   +    +++     +++          +   +++++++
+++++++   +                      ++ +   +++++++
+++++++   +                      ++ +    ++++++
+++++++   +                     ++  +   B++++++
+++++++   ++                        +  ++++++++
++ +  +   ++++++               ++++++         +
++       ++++++++++ +++++++++ ++++++++        +
++       ++++++++++ +++++++++ ++++++++        +
++       ++++++++++ +++++++++ ++++++++        +
++                                            +
++             I   G         H   J            +
+++++++++++++++++++++++++++++++++++++++++++++++
+#end
+#clientname
+SearchClient
+#actions
+37257084:Push(S,S)@Push(S,S)|Push(S,S)@Push(S,S)|Push(W,N)@Push(W,N)|Push(E,N)@Push(E,N)|Push(N,N)@Push(N,N)|Push(N,N)@Push(N,N)|Push(S,E)@Push(S,E)|Push(S,S)@Push(S,S)|Push(S,S)@Push(S,S)|Push(S,S)@Push(S,S)
+37307792:Push(S,W)@Push(S,W)|NoOp@NoOp|Push(N,W)@Push(N,W)|Push(N,N)@Push(N,N)|Push(N,N)@Push(N,N)|Push(N,N)@Push(N,N)|Push(E,S)@Push(E,S)|NoOp@NoOp|Push(S,S)@Push(S,S)|Push(S,S)@Push(S,S)
+37326709:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|Push(N,N)@Push(N,N)|Push(N,N)@Push(N,N)|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|Push(S,S)@Push(S,S)
+37349584:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|Push(N,N)@Push(N,N)|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|Push(S,S)@Push(S,S)
+37362000:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|Push(N,N)@Push(N,N)|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|Push(S,S)@Push(S,S)
+37380125:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|Push(N,N)@Push(N,N)|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)|Push(S,W)@Push(S,W)
+37417125:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|Push(N,N)@Push(N,N)|Push(N,W)@Push(N,W)|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|Push(W,S)@Push(W,S)
+37442250:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|Push(N,N)@Push(N,N)|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|Push(S,W)@Push(S,W)
+37461667:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|Push(N,N)@Push(N,N)|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)|Push(W,S)@Push(W,S)
+37472375:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|Push(N,N)@Push(N,N)|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)|Push(S,S)@Push(S,S)
+37484792:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|Push(N,N)@Push(N,N)|Push(W,N)@Push(W,N)|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|Push(S,S)@Push(S,S)
+37494667:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)|Push(S,S)@Push(S,S)
+37505000:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)|Push(N,W)@Push(N,W)|NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)|Push(S,S)@Push(S,S)
+37514167:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|Push(S,E)@Push(S,E)
+37524250:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|Push(E,E)@Push(E,E)
+37536125:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|Push(E,E)@Push(E,E)
+37545500:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|Push(E,E)@Push(E,E)
+37566459:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,W)@Push(S,W)|NoOp@NoOp
+37583084:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp
+37593584:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp
+37604875:NoOp@NoOp|NoOp@NoOp|Push(W,N)@Push(W,N)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp
+37613834:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37622625:NoOp@NoOp|NoOp@NoOp|Push(N,W)@Push(N,W)|Push(N,E)@Push(N,E)|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37636000:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|Push(E,E)@Push(E,E)|Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37645417:Push(W,S)@Push(W,S)|NoOp@NoOp|Push(W,W)@Push(W,W)|Push(E,E)@Push(E,E)|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37654667:Push(S,W)@Push(S,W)|NoOp@NoOp|Push(W,W)@Push(W,W)|Push(E,E)@Push(E,E)|Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37673084:Push(W,W)@Push(W,W)|NoOp@NoOp|Push(W,W)@Push(W,W)|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37687792:Push(W,W)@Push(W,W)|NoOp@NoOp|Push(W,S)@Push(W,S)|Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37699209:Push(W,W)@Push(W,W)|NoOp@NoOp|Push(S,S)@Push(S,S)|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37710084:Push(W,W)@Push(W,W)|NoOp@NoOp|Push(S,S)@Push(S,S)|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37722667:Push(W,S)@Push(W,S)|NoOp@NoOp|Push(S,S)@Push(S,S)|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37744334:Push(S,S)@Push(S,S)|NoOp@NoOp|Push(S,W)@Push(S,W)|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37755875:Push(S,S)@Push(S,S)|NoOp@NoOp|Push(W,W)@Push(W,W)|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37769000:Push(S,S)@Push(S,S)|NoOp@NoOp|Push(W,W)@Push(W,W)|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37782792:Push(S,S)@Push(S,S)|NoOp@NoOp|Push(W,W)@Push(W,W)|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37804625:Push(S,S)@Push(S,S)|NoOp@NoOp|Push(W,W)@Push(W,W)|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37813542:Push(S,W)@Push(S,W)|Push(S,S)@Push(S,S)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37824250:Push(W,W)@Push(W,W)|Push(S,E)@Push(S,E)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37846917:Push(W,W)@Push(W,W)|Push(E,E)@Push(E,E)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37863334:Push(W,W)@Push(W,W)|Push(E,E)@Push(E,E)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37878000:Push(W,S)@Push(W,S)|Push(E,E)@Push(E,E)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37892584:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37907042:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37924875:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37934917:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37953209:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37966750:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+37979500:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+38001459:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|Push(E,S)@Push(E,S)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp
+38012584:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+38021459:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+38033125:NoOp@NoOp|Push(E,S)@Push(E,S)|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+38050334:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp
+38070459:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+38079167:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|Push(S,E)@Push(S,E)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|Push(W,S)@Push(W,S)|NoOp@NoOp|NoOp@NoOp
+38087875:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+38097584:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+38109459:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+38128750:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+38148375:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+38164917:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+38195250:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+38214084:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+38226167:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+38242792:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+38255625:NoOp@NoOp|Push(S,E)@Push(S,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+38264167:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+38273459:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp
+38283209:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp|NoOp@NoOp
+38291875:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp
+38301125:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp|NoOp@NoOp
+38317084:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+38334209:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+38356209:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+38377209:NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+#end
+#solved
+true
+#numactions
+75
+#time
+38377209
+#end

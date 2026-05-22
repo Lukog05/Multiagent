@@ -1,0 +1,164 @@
+#domain
+hospital
+#levelname
+MAceship
+#colors
+red: 1,D
+cyan: 2,C
+blue: 0,B,A
+#initial
++++++++++
+++++ ++++
+++++ ++++
++++ 1 +++
++++2 0+++
++++   +++
++++   +++
+++++ ++++
+++++ ++++
++D     C+
++B+++++A+
++++++++++
+#goal
++++++++++
+++++A++++
+++++B++++
++++D C+++
++++   +++
++++   +++
++++   +++
+++++ ++++
+++++ ++++
++       +
++ +++++ +
++++++++++
+#end
+#clientname
+SearchClient
+#actions
+4673708:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+4692000:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+4704583:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+4712917:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+4724750:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+4732833:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+4743708:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+4754542:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+4769625:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+4778333:NoOp@NoOp|Pull(E,E)@Pull(E,E)|NoOp@NoOp
+4787042:NoOp@NoOp|Pull(E,E)@Pull(E,E)|NoOp@NoOp
+4796333:NoOp@NoOp|Pull(E,E)@Pull(E,E)|NoOp@NoOp
+4804125:NoOp@NoOp|Push(W,N)@Push(W,N)|NoOp@NoOp
+4812083:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp
+4819458:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp
+4826750:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp
+4834042:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp
+4841250:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp
+4848625:NoOp@NoOp|Push(N,W)@Push(N,W)|NoOp@NoOp
+4856042:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+4863583:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+4871000:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+4878417:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+4892000:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+4899208:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+4906292:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+4913292:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+4920458:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+4927750:NoOp@NoOp|NoOp@NoOp|Pull(W,W)@Pull(W,W)
+4934958:NoOp@NoOp|NoOp@NoOp|Pull(W,W)@Pull(W,W)
+4942125:NoOp@NoOp|NoOp@NoOp|Pull(W,W)@Pull(W,W)
+4949292:NoOp@NoOp|NoOp@NoOp|Push(E,N)@Push(E,N)
+4956583:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)
+4963833:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)
+4970792:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)
+4977875:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)
+4984917:NoOp@NoOp|NoOp@NoOp|Push(N,N)@Push(N,N)
+4992125:NoOp@NoOp|NoOp@NoOp|Push(N,E)@Push(N,E)
+5002208:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+5013542:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+5022708:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+5030250:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+5037792:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+5045333:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+5052792:Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+5064375:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+5074583:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+5083375:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+5091500:Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+5099667:Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+5106875:Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+5113792:Pull(E,N)@Pull(E,N)|NoOp@NoOp|NoOp@NoOp
+5121375:Pull(E,E)@Pull(E,E)|NoOp@NoOp|NoOp@NoOp
+5128792:Pull(E,E)@Pull(E,E)|NoOp@NoOp|NoOp@NoOp
+5135833:Pull(E,E)@Pull(E,E)|NoOp@NoOp|NoOp@NoOp
+5142917:Push(W,N)@Push(W,N)|NoOp@NoOp|NoOp@NoOp
+5150208:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+5157208:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+5164292:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+5171333:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+5178417:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+5185667:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+5192917:Pull(S,S)@Pull(S,S)|NoOp@NoOp|NoOp@NoOp
+5200167:Pull(S,S)@Pull(S,S)|NoOp@NoOp|NoOp@NoOp
+5207333:Pull(S,S)@Pull(S,S)|NoOp@NoOp|NoOp@NoOp
+5214583:Push(N,W)@Push(N,W)|NoOp@NoOp|NoOp@NoOp
+5220292:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+5227583:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+5234625:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+5243625:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+5250583:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+5257458:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+5264458:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+5271792:Pull(W,N)@Pull(W,N)|NoOp@NoOp|NoOp@NoOp
+5278833:Pull(W,W)@Pull(W,W)|NoOp@NoOp|NoOp@NoOp
+5285458:Pull(W,W)@Pull(W,W)|NoOp@NoOp|NoOp@NoOp
+5292000:Pull(W,W)@Pull(W,W)|NoOp@NoOp|NoOp@NoOp
+5298417:Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp
+5304750:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+5311375:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+5317792:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+5324208:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+5330625:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+5337208:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+5343083:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+5349625:NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp
+5356208:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+5362833:NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp
+5369292:NoOp@NoOp|Push(S,E)@Push(S,E)|NoOp@NoOp
+5375875:NoOp@NoOp|Push(E,N)@Push(E,N)|NoOp@NoOp
+5382250:NoOp@NoOp|Push(N,W)@Push(N,W)|NoOp@NoOp
+5388750:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+5395167:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+5401542:NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp
+5409208:NoOp@NoOp|Push(S,E)@Push(S,E)|NoOp@NoOp
+5417625:NoOp@NoOp|Push(E,N)@Push(E,N)|NoOp@NoOp
+5424458:NoOp@NoOp|Push(N,W)@Push(N,W)|NoOp@NoOp
+5431125:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+5437917:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+5446250:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+5453833:NoOp@NoOp|Pull(E,S)@Pull(E,S)|NoOp@NoOp
+5461708:NoOp@NoOp|Pull(S,E)@Pull(S,E)|NoOp@NoOp
+5469958:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp
+5476375:Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+5483083:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+5489917:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+5496625:Pull(E,N)@Pull(E,N)|NoOp@NoOp|NoOp@NoOp
+5504458:Push(W,N)@Push(W,N)|NoOp@NoOp|NoOp@NoOp
+5511583:Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+5518292:Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp
+5525042:Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp
+5531833:Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+5538917:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+5545417:Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+5551833:NoOp@NoOp|NoOp@NoOp|Move(S)@Move(S)
+5558375:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+5565958:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp
+5573333:NoOp@NoOp|Push(N,W)@Push(N,W)|NoOp@NoOp
+#end
+#solved
+true
+#numactions
+118
+#time
+5573333
+#end

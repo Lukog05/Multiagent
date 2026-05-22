@@ -1,0 +1,178 @@
+#domain
+hospital
+#levelname
+TwoPlayer
+#colors
+red: 0, A
+blue: 1, B
+green: 2, C
+#initial
+++++++++++++++++++++++++++++++++
++   B   ++   C   ++           A+
++ 0     ++ 1     ++ 2          +
++       ++       ++            +
++++ +++++++ +++++++ +++++++ ++++
++                              +
++   +++   +++   +++   +++   +++
++                              +
++++  +++++++  +++++++  ++++++++
++                              +
++   ++++++   ++++++   ++++++   +
++                              +
+++++++++++++++++++++++++++++++++
+#goal
+++++++++++++++++++++++++++++++++
++       ++       ++            +
++       ++       ++            +
++       ++       ++            +
++++ +++++++ +++++++ +++++++ ++++
++                              +
++   +++   +++   +++   +++   +++
++                              +
++++  +++++++  +++++++  ++++++++
++                              +
++ A ++++++ B ++++++ C ++++++   +
++                              +
+++++++++++++++++++++++++++++++++
+#end
+#clientname
+SearchClient
+#actions
+9987334:Move(S)@Move(S)|Move(S)@Move(S)|Move(S)@Move(S)
+10060084:Move(E)@Move(E)|Move(S)@Move(S)|Move(W)@Move(W)
+10069292:Move(S)@Move(S)|Move(S)@Move(S)|Move(S)@Move(S)
+10080709:Move(S)@Move(S)|Move(W)@Move(W)|Move(S)@Move(S)
+10097250:Move(E)@Move(E)|Move(W)@Move(W)|Move(W)@Move(W)
+10110084:Move(E)@Move(E)|Move(W)@Move(W)|Move(W)@Move(W)
+10128750:Move(E)@Move(E)|Move(W)@Move(W)|Move(W)@Move(W)
+10141417:NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+10149959:NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+10159042:NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+10167500:NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+10174625:NoOp@NoOp|NoOp@NoOp|Move(W)@Move(W)
+10182084:NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)
+10189542:NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)
+10196834:NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)
+10207209:NoOp@NoOp|NoOp@NoOp|Move(N)@Move(N)
+10214625:NoOp@NoOp|NoOp@NoOp|Move(E)@Move(E)
+10223750:NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)
+10232042:NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)
+10239667:NoOp@NoOp|NoOp@NoOp|Push(S,W)@Push(S,W)
+10247125:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)
+10254250:NoOp@NoOp|NoOp@NoOp|Push(W,S)@Push(W,S)
+10261292:NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)
+10268209:NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)
+10275167:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+10282167:NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)
+10289125:NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)
+10296167:NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)
+10302250:NoOp@NoOp|NoOp@NoOp|Push(S,S)@Push(S,S)
+10309375:NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)
+10316542:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+10323250:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+10330250:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+10337167:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+10344292:NoOp@NoOp|NoOp@NoOp|Push(E,E)@Push(E,E)
+10351334:NoOp@NoOp|NoOp@NoOp|Push(E,S)@Push(E,S)
+10358292:NoOp@NoOp|NoOp@NoOp|Push(S,E)@Push(S,E)
+10365542:Move(W)@Move(W)|Move(S)@Move(S)|NoOp@NoOp
+10372875:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10391542:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10401417:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10412500:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10420250:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10427584:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10434875:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10442250:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10449625:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10457000:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10464125:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10471584:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10478667:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10485625:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10492542:Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+10499792:Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+10506959:Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+10514209:Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+10522917:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10532375:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10541584:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10549084:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10556250:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10565250:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10573250:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10581667:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10588750:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10595500:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+10603584:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+10610834:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+10618750:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+10627375:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp
+10637292:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+10646750:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+10657875:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+10666042:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+10674000:Push(E,S)@Push(E,S)|NoOp@NoOp|NoOp@NoOp
+10681542:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+10689042:Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp
+10696584:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10704084:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10711334:Push(W,S)@Push(W,S)|NoOp@NoOp|NoOp@NoOp
+10718667:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+10725875:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+10733125:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+10740209:Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp
+10747375:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10754334:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10761459:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10768459:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10775459:Push(W,S)@Push(W,S)|NoOp@NoOp|NoOp@NoOp
+10782209:Push(S,S)@Push(S,S)|NoOp@NoOp|NoOp@NoOp
+10789042:Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp
+10796042:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10803042:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10810125:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10817292:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10824375:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10831584:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10838584:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10845750:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10852750:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10859792:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10866834:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10874000:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10881042:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10888167:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10895875:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10905709:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10913917:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10922584:Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+10931167:Push(W,S)@Push(W,S)|NoOp@NoOp|NoOp@NoOp
+10938584:Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp
+10945709:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+10953000:NoOp@NoOp|Push(E,S)@Push(E,S)|NoOp@NoOp
+10960542:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+10967959:NoOp@NoOp|Push(S,W)@Push(S,W)|NoOp@NoOp
+10975500:NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp
+10983292:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+10990000:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+10996959:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+11005709:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+11015584:NoOp@NoOp|Push(S,S)@Push(S,S)|NoOp@NoOp
+11026042:NoOp@NoOp|Push(S,E)@Push(S,E)|NoOp@NoOp
+11035959:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+11043417:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+11050792:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+11058167:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+11065375:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+11072542:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp
+11079709:NoOp@NoOp|Push(E,S)@Push(E,S)|NoOp@NoOp
+11086584:NoOp@NoOp|Push(S,E)@Push(S,E)|NoOp@NoOp
+#end
+#solved
+true
+#numactions
+130
+#time
+11086584
+#end

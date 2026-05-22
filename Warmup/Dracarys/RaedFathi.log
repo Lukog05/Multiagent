@@ -1,0 +1,35 @@
+#domain
+hospital
+#levelname
+RaedFathi
+#colors
+red: 0, A
+blue: 1
+#initial
+++++++++++++
++0A     ++++
+++++++++++++
++1++++++++++
+++++++++++++
+#goal
+++++++++++++
++     A ++++
+++++++++++++
++ ++++++++++
+++++++++++++
+#end
+#clientname
+SearchClient
+#actions
+1027625:Push(E,E)@Push(E,E)|NoOp@NoOp
+1047958:Push(E,E)@Push(E,E)|NoOp@NoOp
+1058500:Push(E,E)@Push(E,E)|NoOp@NoOp
+1068041:Push(E,E)@Push(E,E)|NoOp@NoOp
+#end
+#solved
+true
+#numactions
+4
+#time
+1068041
+#end

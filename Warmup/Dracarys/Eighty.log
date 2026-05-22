@@ -1,0 +1,112 @@
+#domain
+hospital
+#levelname
+Eighty
+#colors
+blue: A,M,L,K,J,I,H,G,F,E,B,C,0,D,1
+#initial
+++++++++++++++++++++
++A       +MLKJIHGFE+
++B       +         +
++C      0+         +
++D       +         +
++        +         +
++        +         +
++        +        1+
++        +         +
+++++++++++++++++++++
+#goal
+++++++++++++++++++++
++    A   +         +
++    B   +         +
++    C   +         +
++    D   +MLKJIHGFE+
++        +         +
++        +         +
++        +         +
++        +         +
+++++++++++++++++++++
+#end
+#clientname
+SearchClient
+#actions
+7731875:Move(N)@Move(N)|Move(N)@Move(N)
+7746542:Move(N)@Move(N)|Move(N)@Move(N)
+7758667:Move(W)@Move(W)|Move(N)@Move(N)
+7770209:Move(W)@Move(W)|Move(N)@Move(N)
+7787250:Move(W)@Move(W)|Move(N)@Move(N)
+7796584:Move(W)@Move(W)|Move(W)@Move(W)
+7804667:Move(W)@Move(W)|Move(W)@Move(W)
+7812209:Move(W)@Move(W)|Move(W)@Move(W)
+7823584:Pull(E,E)@Pull(E,E)|Move(W)@Move(W)
+7844959:Pull(E,E)@Pull(E,E)|Move(W)@Move(W)
+7855292:Pull(E,E)@Pull(E,E)|Move(W)@Move(W)
+7863167:Pull(E,E)@Pull(E,E)|Move(W)@Move(W)
+7870917:Move(S)@Move(S)|Move(W)@Move(W)
+7881042:Move(W)@Move(W)|Pull(S,S)@Pull(S,S)
+7888834:Move(W)@Move(W)|Pull(S,S)@Pull(S,S)
+7899000:Move(W)@Move(W)|Pull(S,S)@Pull(S,S)
+7906709:Move(W)@Move(W)|Move(E)@Move(E)
+7913875:Pull(E,E)@Pull(E,E)|Move(N)@Move(N)
+7921167:Pull(E,E)@Pull(E,E)|Move(N)@Move(N)
+7928334:Pull(E,E)@Pull(E,E)|Move(N)@Move(N)
+7939042:Pull(E,E)@Pull(E,E)|Pull(S,S)@Pull(S,S)
+7951875:Move(S)@Move(S)|Pull(S,S)@Pull(S,S)
+7962292:Move(W)@Move(W)|Pull(S,S)@Pull(S,S)
+7977375:Move(W)@Move(W)|Move(E)@Move(E)
+7990167:Move(W)@Move(W)|Move(N)@Move(N)
+7998084:Move(W)@Move(W)|Move(N)@Move(N)
+8005167:Pull(E,E)@Pull(E,E)|Move(N)@Move(N)
+8012459:Pull(E,E)@Pull(E,E)|Pull(S,S)@Pull(S,S)
+8019750:Pull(E,E)@Pull(E,E)|Pull(S,S)@Pull(S,S)
+8026959:Pull(E,E)@Pull(E,E)|Pull(S,S)@Pull(S,S)
+8034334:Move(S)@Move(S)|Move(E)@Move(E)
+8041459:Move(W)@Move(W)|Move(N)@Move(N)
+8048500:Move(W)@Move(W)|Move(N)@Move(N)
+8055542:Move(W)@Move(W)|Move(N)@Move(N)
+8062584:Move(W)@Move(W)|Pull(S,S)@Pull(S,S)
+8070000:Pull(E,E)@Pull(E,E)|Pull(S,S)@Pull(S,S)
+8077084:Pull(E,E)@Pull(E,E)|Pull(S,S)@Pull(S,S)
+8084375:Pull(E,E)@Pull(E,E)|Move(E)@Move(E)
+8091584:Pull(E,E)@Pull(E,E)|Move(N)@Move(N)
+8098834:NoOp@NoOp|Move(N)@Move(N)
+8106000:NoOp@NoOp|Move(N)@Move(N)
+8113125:NoOp@NoOp|Pull(S,S)@Pull(S,S)
+8122417:NoOp@NoOp|Pull(S,S)@Pull(S,S)
+8129209:NoOp@NoOp|Pull(S,S)@Pull(S,S)
+8136292:NoOp@NoOp|Move(E)@Move(E)
+8143292:NoOp@NoOp|Move(N)@Move(N)
+8150209:NoOp@NoOp|Move(N)@Move(N)
+8157250:NoOp@NoOp|Move(N)@Move(N)
+8164417:NoOp@NoOp|Pull(S,S)@Pull(S,S)
+8171500:NoOp@NoOp|Pull(S,S)@Pull(S,S)
+8178917:NoOp@NoOp|Pull(S,S)@Pull(S,S)
+8186042:NoOp@NoOp|Move(E)@Move(E)
+8192750:NoOp@NoOp|Move(N)@Move(N)
+8199500:NoOp@NoOp|Move(N)@Move(N)
+8205667:NoOp@NoOp|Move(N)@Move(N)
+8212084:NoOp@NoOp|Pull(S,S)@Pull(S,S)
+8218792:NoOp@NoOp|Pull(S,S)@Pull(S,S)
+8226042:NoOp@NoOp|Pull(S,S)@Pull(S,S)
+8233209:NoOp@NoOp|Move(E)@Move(E)
+8239500:NoOp@NoOp|Move(N)@Move(N)
+8246417:NoOp@NoOp|Move(N)@Move(N)
+8254125:NoOp@NoOp|Move(N)@Move(N)
+8259709:NoOp@NoOp|Pull(S,S)@Pull(S,S)
+8266209:NoOp@NoOp|Pull(S,S)@Pull(S,S)
+8274459:NoOp@NoOp|Pull(S,S)@Pull(S,S)
+8286000:NoOp@NoOp|Move(E)@Move(E)
+8294500:NoOp@NoOp|Move(N)@Move(N)
+8302917:NoOp@NoOp|Move(N)@Move(N)
+8309834:NoOp@NoOp|Move(N)@Move(N)
+8316792:NoOp@NoOp|Pull(S,S)@Pull(S,S)
+8323875:NoOp@NoOp|Pull(S,S)@Pull(S,S)
+8330750:NoOp@NoOp|Pull(S,S)@Pull(S,S)
+#end
+#solved
+true
+#numactions
+72
+#time
+8330750
+#end

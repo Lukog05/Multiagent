@@ -1,0 +1,164 @@
+#domain
+hospital
+#levelname
+AssertFun
+#colors
+blue: 0, B
+red: 1, A
+purple: 2, C
+#initial
++++++++++++++++++++++++++++++
++   C                   C   +
++ 1 CCCCCCCCCC CCCCCCCCCC 0 +
++   C  C  C  C C  C  C  C   +
++   C  C  C  C C  C  C  C   +
++  CC  C  C  C C  C  C  CC  +
++      C  C  C C  C  C      +
++      C  C  C C  C  C      +
++  CCCCC  C  C C  C  CCCCC  +
++         C  C C  C         +
++         C  C C  C         +
++  CCCCCCCC  C C  CCCCCCCC  +
++            C C            +
++            C C            +
++  CCCCCCCCCCC CCCCCCCCCCC  +
++  C         C C         C  +
++  C         C C         C  +
++  C         C C         C  +
++  C         C C         C  +
++            C C            +
++  C         C C         C  +
++CCC         C C         CCC+
++        CCCCC CCCCC        +
++        C         C        +
++        C CCCCCCC C        +
++ C      C CBABABC C      C +
++ C C    C CA C AC C    C C +
++ CCCCCCCC CB 2CBC CCCCCCCC +
++          CA C AC          +
++++++++++++++++++++++++++++++
+#goal
++++++++++++++++++++++++++++++
++    1                 0    +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++                           +
++++++++++++++++++++++++++++++
+#end
+#clientname
+SearchClient
+#actions
+6982333:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7002916:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7019916:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7032541:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7040833:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7048833:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7061416:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7069541:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7077375:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7088583:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7102083:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7113291:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7121666:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7129291:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7139333:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7148750:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7158541:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7166208:Move(W)@Move(W)|Move(E)@Move(E)|NoOp@NoOp
+7173708:Move(W)@Move(W)|Move(E)@Move(E)|NoOp@NoOp
+7181000:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7188500:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7195958:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7203125:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7212250:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7222333:Move(E)@Move(E)|Move(W)@Move(W)|NoOp@NoOp
+7230666:Move(E)@Move(E)|Move(W)@Move(W)|NoOp@NoOp
+7238041:Move(E)@Move(E)|Move(W)@Move(W)|NoOp@NoOp
+7246000:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7253375:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7260666:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7268000:Move(S)@Move(S)|Move(S)@Move(S)|NoOp@NoOp
+7275208:Move(W)@Move(W)|Move(E)@Move(E)|NoOp@NoOp
+7282416:Move(W)@Move(W)|Move(E)@Move(E)|NoOp@NoOp
+7293708:Move(W)@Move(W)|Move(E)@Move(E)|NoOp@NoOp
+7300916:Move(W)@Move(W)|Move(E)@Move(E)|NoOp@NoOp
+7308125:Move(W)@Move(W)|Move(E)@Move(E)|NoOp@NoOp
+7315291:Move(W)@Move(W)|Move(E)@Move(E)|NoOp@NoOp
+7322333:Move(W)@Move(W)|Move(E)@Move(E)|NoOp@NoOp
+7329291:Move(W)@Move(W)|Move(E)@Move(E)|NoOp@NoOp
+7336375:Move(W)@Move(W)|Move(E)@Move(E)|NoOp@NoOp
+7344750:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7352083:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7359291:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7366458:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7373625:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7380958:Move(W)@Move(W)|Move(E)@Move(E)|NoOp@NoOp
+7387875:Move(W)@Move(W)|Move(E)@Move(E)|NoOp@NoOp
+7394958:Move(W)@Move(W)|Move(E)@Move(E)|NoOp@NoOp
+7402291:NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp
+7409625:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp
+7416833:Move(W)@Move(W)|Move(N)@Move(N)|NoOp@NoOp
+7424083:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7431250:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7438375:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7445666:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7452750:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7459958:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7466416:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7473500:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7480583:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7487875:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7494916:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7502125:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7509208:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7516416:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7523416:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7530833:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7537875:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7544250:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7551375:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7558541:Move(N)@Move(N)|Move(N)@Move(N)|NoOp@NoOp
+7565750:Move(N)@Move(N)|Move(W)@Move(W)|NoOp@NoOp
+7573250:Move(N)@Move(N)|Move(W)@Move(W)|NoOp@NoOp
+7580416:Move(E)@Move(E)|Move(W)@Move(W)|NoOp@NoOp
+7587458:Move(E)@Move(E)|Move(W)@Move(W)|NoOp@NoOp
+7597458:Move(E)@Move(E)|Move(W)@Move(W)|NoOp@NoOp
+7605250:Move(E)@Move(E)|Move(W)@Move(W)|NoOp@NoOp
+7613750:Move(E)@Move(E)|Move(W)@Move(W)|NoOp@NoOp
+7620458:Move(E)@Move(E)|Move(W)@Move(W)|NoOp@NoOp
+7626750:Move(E)@Move(E)|Move(W)@Move(W)|NoOp@NoOp
+7635000:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+7641375:Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+#end
+#solved
+true
+#numactions
+82
+#time
+7641375
+#end

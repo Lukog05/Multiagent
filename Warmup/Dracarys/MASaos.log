@@ -1,0 +1,435 @@
+#domain
+hospital
+#levelname
+MASaos
+#colors
+lightblue: A,3
+orange: K,2
+cyan: 1,V
+red: R,0
+#initial
+++++++++++++++++++++++++++++++++++++++++++++++++++
++AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+
++AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+
++AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+
++AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+
++AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+
++AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+AAAAAAAAAAAAAAAAA+
++AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+
++AAAAAAAA++AAAAAAAAAAAAAAAAAAAAAAAAAAAA++++AAAAAA+
++AAAAAA++  +AAAAAAAAAAAAAAAAAAAAAAAAAA+   +AAAA+++
++AAAAAA+ ++ +AAAAAAAAAAAAAAAAAAAAAAAAAA+   +AA+ ++
++AAAAAAA+ + ++AAAAAAAAAAAAAAAAAAAAAAAAA+   +A+ + +
++AAAAA++ ++  ++AAAAAAAAAAAAAAAA++AAA++A+    + +  +
++AAA+A+ +  +  ++AAAA+++AAAA+++A+ +AA+ +      +  ++
++AAAA++ ++ +   +AAAA+  +AA+  + +  +A+     +  +++ +
++AAA+ +  +++   ++AAA+   +A+   + + ++     ++      +
++A++ ++  + +    +AAA+   +A+   + +         +      +
++A+ + +  3    ++AAAAA+  +++    + +       +       +
+++ + +  + + + +AAA++A+          +        +       +
++++   ++++++   +A+ ++                   +        +
++AA+++AAAAA+++ +A+                      +        +
++AAAAAAAAAAA+  +A+                     ++        +
++AAAAAAAAA++    ++                   ++          +
++AAAAAAAA+   +  +                   ++           +
++AAAAAAAAA++++  +                  +             +
++AAAA+++++   +                   +++             +
++A+++     +++                                    +
++A+  ++                        +++               +
++AA++AA+++                    +                  +
++AAAAAAAAA+           +++K++++2                  +
++AAAAAAAAA+  +        +      +                   +
++AAAAAAAAA+++      ++++     +                    +
++AAAAAAAAAA+      ++       +                    ++
++AAAAAAAAAA++++  +        +                 ++1+A+
++AAAAAAAAAAA+   +       ++                  +A++A+
++AAAAAAAAAA+           +                   +AAAAA+
++AAAAAA+AAAA+        ++                  ++AAAAAA+
++AAAAAA+++++                            +AAAAAAAA+
++AAAAAA+     +++  +                    +AAAAAAAAA+
++AAAAAAA++++++A++++      VVV         + +AAAAAAAAA+
++AAAAAAAAAAAAAAAAA+      VRV      +++A+AAAAAAAAAA+
++AAAAAAAAAAAAAAAAA++     VVV     +AAAAAAAAAAAAAAA+
++AAAAAAAAAAAAAAAAAA+0+        + +AAAAAAAAAAAAAAAA+
++AAAAAAAAAAAAAAAAAAA++++     +A++AAAAAAAAAAAAAAAA+
++AAAAAAAAAAAAAAAAAAAAAAA++   +A+AAAAAAAAAAAAAAAAA+
++AAAAAAAAAAAAAAAAAAA+AAAAA+++AAAAAAAAAAAAAAAAAAAA+
++AAAAAAAAAAAAAAAAAA+ +AAAAAAAAAAAAAAAAAAAAAAAAAAA+
++AAAAAAAAAAAAAAAAAA+ +AAAAAAAAAAAAAAAAAAAAAAAAAAA+
++AAAAAAAAAAAAAAAAAA++AAAAAAAAAAAAAAAAAAAAAAAAAAAA+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+#goal
+++++++++++++++++++++++++++++++++++++++++++++++++++
++                                                +
++                                                +
++                                                +
++                                                +
++                                                +
++                              +                 +
++                                                +
++        ++                            ++++      +
++      ++  +                          +   +    +++
++      + ++ +                          +   +  + ++
++       + + ++                         +   + + + +
++     ++ ++  ++                ++   ++ +    + +  +
++   + + +  +  ++    +++    +++ + +  + +      +  ++
++    ++ ++ +   +    +  +  +  + +  + +     +  +++ +
++   + +  +++   ++   +   + +   + + ++     ++      +
++ ++ ++  + +    +   +   + +   + +         +      +
++ + + +       ++     +  +++    + +       +       +
+++ + +  + + + +   ++ +          +        +       +
++++   ++++++   + + ++                   +        +
++  +++     +++ + +                      +        +
++           +  + +                     ++        +
++         ++    ++                   ++          +
++        +   +  +                   ++           +
++         ++++  +                  +             +
++    +++++   +                   +++             +
++ +++     +++                                    +
++ +  ++                        +++               +
++  ++  +++                    +                  +
++         +           +++ ++++                   +
++         +  +        +      +                   +
++         +++      ++++     +         V          +
++          +      ++       +         V V        ++
++          ++++  +        +          V  V   ++ + +
++           +   +       ++            VV    + ++ +
++          +           +                   +     +
++      +    +        ++                  ++      +
++      +++++                            +        +
++      +RVK  +++  +                    +         +
++       ++++++ ++++                  + +         +
++                 +               +++ +          +
++                 ++             +               +
++                  + +        + +                +
++                   ++++     + ++                +
++                       ++   + +                 +
++                   +     +++                    +
++                  + +                           +
++                  + +                           +
++                  ++                            +
+++++++++++++++++++++++++++++++++++++++++++++++++++
+#end
+#clientname
+SearchClient
+#actions
+82696208:Move(N)@Move(N)|Move(N)@Move(N)|Move(E)@Move(E)|NoOp@NoOp
+82736041:Move(N)@Move(N)|Move(W)@Move(W)|Move(N)@Move(N)|NoOp@NoOp
+82770250:Move(N)@Move(N)|Move(W)@Move(W)|Move(E)@Move(E)|NoOp@NoOp
+82788375:Move(E)@Move(E)|Move(W)@Move(W)|Move(E)@Move(E)|NoOp@NoOp
+82804000:Move(E)@Move(E)|Move(S)@Move(S)|Move(E)@Move(E)|NoOp@NoOp
+82824333:Move(E)@Move(E)|Move(S)@Move(S)|Move(N)@Move(N)|NoOp@NoOp
+82838000:Move(E)@Move(E)|Move(W)@Move(W)|Move(N)@Move(N)|NoOp@NoOp
+82850083:NoOp@NoOp|Move(S)@Move(S)|Move(W)@Move(W)|NoOp@NoOp
+82864958:NoOp@NoOp|Move(W)@Move(W)|Move(W)@Move(W)|NoOp@NoOp
+82884708:NoOp@NoOp|Move(W)@Move(W)|Move(W)@Move(W)|NoOp@NoOp
+82896458:NoOp@NoOp|Move(S)@Move(S)|Move(W)@Move(W)|NoOp@NoOp
+82916583:NoOp@NoOp|Move(W)@Move(W)|Move(S)@Move(S)|NoOp@NoOp
+82933000:NoOp@NoOp|Move(S)@Move(S)|Move(W)@Move(W)|NoOp@NoOp
+82944125:NoOp@NoOp|Move(W)@Move(W)|Move(S)@Move(S)|NoOp@NoOp
+82954625:NoOp@NoOp|Move(S)@Move(S)|Move(W)@Move(W)|NoOp@NoOp
+82965458:NoOp@NoOp|Move(W)@Move(W)|Move(W)@Move(W)|NoOp@NoOp
+82976583:NoOp@NoOp|Move(W)@Move(W)|Move(W)@Move(W)|NoOp@NoOp
+82986041:NoOp@NoOp|Move(S)@Move(S)|Move(W)@Move(W)|NoOp@NoOp
+82995750:NoOp@NoOp|Move(W)@Move(W)|Push(S,S)@Push(S,S)|NoOp@NoOp
+83006916:NoOp@NoOp|Move(W)@Move(W)|Push(S,S)@Push(S,S)|NoOp@NoOp
+83019125:NoOp@NoOp|Move(W)@Move(W)|Push(S,S)@Push(S,S)|NoOp@NoOp
+83033541:NoOp@NoOp|Move(W)@Move(W)|Push(S,S)@Push(S,S)|NoOp@NoOp
+83047166:NoOp@NoOp|Move(W)@Move(W)|Push(S,W)@Push(S,W)|NoOp@NoOp
+83060666:NoOp@NoOp|Move(W)@Move(W)|Push(W,W)@Push(W,W)|NoOp@NoOp
+83071833:NoOp@NoOp|Move(W)@Move(W)|Push(W,S)@Push(W,S)|NoOp@NoOp
+83084083:NoOp@NoOp|Move(W)@Move(W)|Push(S,W)@Push(S,W)|NoOp@NoOp
+83093958:NoOp@NoOp|Push(W,N)@Push(W,N)|Push(W,S)@Push(W,S)|NoOp@NoOp
+83104333:NoOp@NoOp|Push(N,N)@Push(N,N)|Push(S,W)@Push(S,W)|NoOp@NoOp
+83115500:NoOp@NoOp|Push(N,N)@Push(N,N)|Push(W,W)@Push(W,W)|NoOp@NoOp
+83126250:NoOp@NoOp|Push(N,N)@Push(N,N)|Push(W,S)@Push(W,S)|NoOp@NoOp
+83139750:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+83153000:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+83162333:NoOp@NoOp|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp
+83172666:NoOp@NoOp|Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp
+83188375:NoOp@NoOp|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp
+83200125:NoOp@NoOp|Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp
+83211583:NoOp@NoOp|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp
+83220541:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83232625:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83243083:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83253916:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83265666:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83275625:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83284833:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83294291:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83306333:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+83317166:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+83332458:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+83340666:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+83352000:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+83362708:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+83374000:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+83389125:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+83398791:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+83409375:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+83421125:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+83432291:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+83442541:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+83452416:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+83462333:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+83473416:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+83484416:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+83495208:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+83507125:NoOp@NoOp|Push(W,N)@Push(W,N)|NoOp@NoOp|NoOp@NoOp
+83521500:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+83531208:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+83541083:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+83552166:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+83561958:NoOp@NoOp|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp
+83571875:NoOp@NoOp|Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp
+83583125:NoOp@NoOp|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp
+83592291:NoOp@NoOp|Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp
+83602458:NoOp@NoOp|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp
+83613541:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83627125:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83636375:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83647541:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83658333:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83669291:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83680583:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83694000:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83704750:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+83715500:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+83726541:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+83738041:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+83749625:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+83761125:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+83768083:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+83776125:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+83783458:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+83790208:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+83797250:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+83804166:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+83811041:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+83818375:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+83825000:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+83831666:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+83839458:NoOp@NoOp|Push(W,N)@Push(W,N)|NoOp@NoOp|NoOp@NoOp
+83846458:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+83854916:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+83861833:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+83868625:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+83876041:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+83883166:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+83890208:NoOp@NoOp|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp
+83897708:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83905041:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83912666:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83924500:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83933625:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83942208:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83952083:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+83964500:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84024291:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84060708:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84068958:NoOp@NoOp|Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp
+84078291:NoOp@NoOp|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp
+84086666:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84096041:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84105500:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84113416:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84122166:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84138208:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84150583:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84160750:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84169666:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84178000:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84187083:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84195291:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84204250:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84213125:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84221500:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84229208:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84238458:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84246750:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84254291:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84261666:NoOp@NoOp|Push(W,N)@Push(W,N)|NoOp@NoOp|NoOp@NoOp
+84273166:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+84281875:Move(E)@Move(E)|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+84290208:Move(E)@Move(E)|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+84298416:Pull(N,N)@Pull(N,N)|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp
+84310791:Push(S,W)@Push(S,W)|Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp
+84318791:Push(W,N)@Push(W,N)|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp
+84328041:Push(N,N)@Push(N,N)|Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp
+84336791:Push(N,W)@Push(N,W)|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp
+84344625:Push(W,W)@Push(W,W)|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84353916:Push(W,W)@Push(W,W)|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84361500:Push(W,W)@Push(W,W)|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84368750:Push(W,W)@Push(W,W)|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84377625:Push(W,W)@Push(W,W)|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84385875:Push(W,W)@Push(W,W)|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84392833:Push(W,W)@Push(W,W)|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84401000:Push(W,W)@Push(W,W)|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84407750:Push(W,W)@Push(W,W)|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84414875:Push(W,W)@Push(W,W)|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84422875:Push(W,W)@Push(W,W)|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84429708:Push(W,W)@Push(W,W)|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84438125:Push(W,S)@Push(W,S)|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84450916:Push(S,W)@Push(S,W)|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84460291:Push(W,W)@Push(W,W)|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84470375:Push(W,W)@Push(W,W)|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84478916:Push(W,W)@Push(W,W)|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84486458:Move(E)@Move(E)|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84494708:Move(E)@Move(E)|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84502250:Move(E)@Move(E)|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84509666:Move(N)@Move(N)|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84518583:Move(E)@Move(E)|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84526000:Move(N)@Move(N)|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84534541:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84542000:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84551041:NoOp@NoOp|Push(W,N)@Push(W,N)|NoOp@NoOp|NoOp@NoOp
+84560666:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+84568500:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+84575958:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+84584250:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+84591875:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+84601416:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+84608916:NoOp@NoOp|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp
+84616416:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84624875:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84632166:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84639458:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84647541:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84654750:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84662041:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84669666:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84676125:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84682791:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84690291:NoOp@NoOp|Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp
+84697000:NoOp@NoOp|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp
+84706791:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+84714666:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84729583:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84740125:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84748250:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84755458:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84763916:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84771375:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84781416:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84791208:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84799750:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84808416:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84815708:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84822750:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+84830750:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84839125:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84846416:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84855250:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84862833:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84870166:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84877833:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+84885291:NoOp@NoOp|Push(W,N)@Push(W,N)|NoOp@NoOp|NoOp@NoOp
+84893958:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+84904416:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+84912125:NoOp@NoOp|Push(N,W)@Push(N,W)|NoOp@NoOp|NoOp@NoOp
+84923291:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+84936833:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+84946833:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+84960708:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+84970958:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+84981083:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+84995875:NoOp@NoOp|Push(W,W)@Push(W,W)|Push(S,S)@Push(S,S)|NoOp@NoOp
+85004833:NoOp@NoOp|Push(W,W)@Push(W,W)|Push(S,W)@Push(S,W)|NoOp@NoOp
+85012958:NoOp@NoOp|Push(W,W)@Push(W,W)|Push(W,W)@Push(W,W)|NoOp@NoOp
+85024041:NoOp@NoOp|Push(W,W)@Push(W,W)|Push(W,W)@Push(W,W)|NoOp@NoOp
+85031666:NoOp@NoOp|Push(W,W)@Push(W,W)|Push(W,W)@Push(W,W)|NoOp@NoOp
+85041166:NoOp@NoOp|Push(W,W)@Push(W,W)|Push(W,W)@Push(W,W)|NoOp@NoOp
+85054041:NoOp@NoOp|Push(W,S)@Push(W,S)|NoOp@NoOp|NoOp@NoOp
+85064916:NoOp@NoOp|Push(S,W)@Push(S,W)|NoOp@NoOp|NoOp@NoOp
+85077375:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+85086875:NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp|NoOp@NoOp
+85094666:NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+85104500:NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+85112625:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+85125916:NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+85134000:NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+85141000:NoOp@NoOp|Move(N)@Move(N)|NoOp@NoOp|NoOp@NoOp
+85149458:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp
+85157541:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp
+85165083:NoOp@NoOp|NoOp@NoOp|Push(W,W)@Push(W,W)|NoOp@NoOp
+85174458:NoOp@NoOp|Move(S)@Move(S)|Push(W,S)@Push(W,S)|NoOp@NoOp
+85181791:NoOp@NoOp|Move(E)@Move(E)|Push(S,W)@Push(S,W)|NoOp@NoOp
+85188833:NoOp@NoOp|Move(E)@Move(E)|Push(W,W)@Push(W,W)|NoOp@NoOp
+85197458:NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+85204166:NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+85210916:NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+85218750:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+85225583:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+85234875:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+85247500:NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+85254666:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+85267125:NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+85273958:NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+85280625:NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+85289916:NoOp@NoOp|Move(E)@Move(E)|NoOp@NoOp|NoOp@NoOp
+85298666:NoOp@NoOp|Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp
+85306000:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+85313916:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+85321083:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+85328791:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+85338916:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+85346583:NoOp@NoOp|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp
+85354833:NoOp@NoOp|Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp
+85362083:NoOp@NoOp|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp
+85369083:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85376541:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85383125:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85389500:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85397250:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85403750:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85410333:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85417666:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85424333:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85432375:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85439000:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85445375:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+85453125:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+85459916:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+85466708:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+85474333:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+85480916:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+85487958:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+85495708:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+85502500:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+85508000:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+85514833:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+85521500:NoOp@NoOp|Move(S)@Move(S)|NoOp@NoOp|NoOp@NoOp
+85528875:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+85535375:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+85542208:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+85549583:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+85556208:NoOp@NoOp|Move(W)@Move(W)|NoOp@NoOp|NoOp@NoOp
+85562958:NoOp@NoOp|Push(W,N)@Push(W,N)|NoOp@NoOp|NoOp@NoOp
+85570583:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+85577541:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+85585500:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+85592375:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+85599125:NoOp@NoOp|Push(N,N)@Push(N,N)|NoOp@NoOp|NoOp@NoOp
+85606708:NoOp@NoOp|Push(N,E)@Push(N,E)|NoOp@NoOp|NoOp@NoOp
+85613666:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85620416:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85627541:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85634250:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85641125:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85648583:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85655208:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85661916:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85669583:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85676416:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85683875:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85692875:NoOp@NoOp|Push(E,E)@Push(E,E)|NoOp@NoOp|NoOp@NoOp
+85702291:NoOp@NoOp|Push(E,N)@Push(E,N)|NoOp@NoOp|NoOp@NoOp
+#end
+#solved
+true
+#numactions
+312
+#time
+85702291
+#end

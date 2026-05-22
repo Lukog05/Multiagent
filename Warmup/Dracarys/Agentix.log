@@ -1,0 +1,62 @@
+#domain
+hospital
+#levelname
+Agentix
+#colors
+blue: 0, A
+green: 1, B
+red: 2, C
+#initial
++++++++++++++++++++++
++0  A               +
++                   +
++                   +
++                   +
++++++++++  ++++++++++
++     2  C          +
++++++++++  ++++++++++
++                   +
++                   +
++                   +
++               B  1+
++++++++++++++++++++++
+#goal
++++++++++++++++++++++
++               A   +
++                   +
++                   +
++                   +
++++++++++  ++++++++++
++                   +
++++++++++  ++++++++++
++                   +
++                   +
++   C               +
++   B               +
++++++++++++++++++++++
+#end
+#clientname
+SearchClient
+#actions
+3565459:Move(E)@Move(E)|Move(W)@Move(W)|Move(E)@Move(E)
+3587792:Move(E)@Move(E)|Move(W)@Move(W)|Move(E)@Move(E)
+3609917:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(E,S)@Push(E,S)
+3620167:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(S,S)@Push(S,S)
+3632334:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(S,S)@Push(S,S)
+3646167:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(S,S)@Push(S,S)
+3658042:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(S,W)@Push(S,W)
+3669084:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(W,W)@Push(W,W)
+3685250:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(W,W)@Push(W,W)
+3698625:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(W,W)@Push(W,W)
+3707500:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|Push(W,W)@Push(W,W)
+3715292:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|NoOp@NoOp
+3724334:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|NoOp@NoOp
+3734292:Push(E,E)@Push(E,E)|Push(W,W)@Push(W,W)|NoOp@NoOp
+#end
+#solved
+true
+#numactions
+14
+#time
+3734292
+#end

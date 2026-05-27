@@ -4,6 +4,16 @@ A Python-based AI search client for the DTU course **02285 – AI and Multi-Agen
 
 **Competition score: 51 / 69 levels solved (2026).**
 
+## 🏆 Competition Results (2026)
+
+| Prize | Result |
+|---|---|
+| 🥉 **Overall Ranking** | **3rd place** |
+| ⚡ **Time Ranking** | **1st place** |
+| 📦 **Levels Solved** | 51 / 69 |
+
+> Team **Dracarys** — DTU 02285, Spring 2026.
+
 ## Repository Layout
 
 ```
